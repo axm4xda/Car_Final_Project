@@ -1,0 +1,77 @@
+@model Car_Project.Models.Order
+@{
+    ViewData["Title"] = "Order Confirmed";
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Order Confirmed</span></li>
+        </ul>
+    </div>
+</section>
+
+<!-- Order Success -->
+<section class="bg-white pb-100">
+    <div class="container">
+        <div class="flex flex-col items-center text-center py-80">
+
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-24">
+                <circle cx="40" cy="40" r="40" fill="#22c55e" fill-opacity="0.12" />
+                <path d="M24 40L35 51L56 29" stroke="#22c55e" stroke-width="4"
+                      stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <h2 class="mb-12">Thank you for your order!</h2>
+            <p class="text-secondary mb-8">
+                Order Code: <strong>ORD-@Model.Id.ToString("D6")</strong>
+            </p>
+            <p class="text-secondary mb-30">
+                A confirmation will be sent to <strong>@Model.Email</strong>
+            </p>
+
+            <div class="order-summary-box mb-40" style="max-width:520px;width:100%;text-align:left;">
+                <div class="listing-details--sidebar-box">
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="flex justify-between gap-8 mb-12">
+                            <span>@item.Product?.Name × @item.Quantity</span>
+                            <span class="font-weight-600">$@item.TotalPrice.ToString("F2")</span>
+                        </div>
+                    }
+
+                    <div class="divider mb-16 mt-16"></div>
+
+                    <div class="flex justify-between gap-8 mb-8">
+                        <span>Shipping</span>
+                        <span>@(Model.ShippingCost == 0 ? "Free" : "$" + Model.ShippingCost.ToString("F2"))</span>
+                    </div>
+
+                    @if (Model.Discount > 0)
+                    {
+                        <div class="flex justify-between gap-8 mb-8">
+                            <span>Discount</span>
+                            <span>-$@Model.Discount.ToString("F2")</span>
+                        </div>
+                    }
+
+                    <div class="divider mb-16 mt-8"></div>
+
+                    <div class="flex justify-between gap-8">
+                        <span class="h4 font-weight-600">Total</span>
+                        <span class="h4 font-weight-600">$@Model.Total.ToString("F2")</span>
+                    </div>
+                </div>
+            </div>
+
+            <a asp-controller="Product" asp-action="Index"
+               class="btn btn-primary btn-large">
+                Continue Shopping
+            </a>
+        </div>
+    </div>
+</section>

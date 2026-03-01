@@ -1,0 +1,1403 @@
+﻿<!-- breadcrumb -->
+<section class="mb-22 background-light">
+    <div class="container">
+        <div class="flex items-center justify-between">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="index-2.html">Home</a>
+                </li>
+                <li>
+                    <img src="~/assets/icons/right.svg" alt="chevron-right">
+                </li>
+                <li>
+                    <span>Audi A6 Avant e-tron</span>
+                </li>
+            </ul>
+
+            <div class="swiper-listing-details-navigation">
+                <p class="swiper-listing-details-prev cursor-pointer">
+                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.85414 10.1465C5.9006 10.193 5.93745 10.2481 5.96259 10.3088C5.98773 10.3695 6.00067 10.4346 6.00067 10.5003C6.00067 10.566 5.98773 10.631 5.96259 10.6917C5.93745 10.7524 5.9006 10.8076 5.85414 10.854C5.80769 10.9005 5.75254 10.9373 5.69184 10.9625C5.63115 10.9876 5.56609 11.0006 5.50039 11.0006C5.4347 11.0006 5.36964 10.9876 5.30895 10.9625C5.24825 10.9373 5.1931 10.9005 5.14664 10.854L0.146643 5.85403C0.100155 5.80759 0.0632757 5.75245 0.0381136 5.69175C0.0129514 5.63105 0 5.56599 0 5.50028C0 5.43457 0.0129514 5.36951 0.0381136 5.30881C0.0632757 5.24811 0.100155 5.19296 0.146643 5.14653L5.14664 0.146528C5.24046 0.0527077 5.36771 -2.61548e-09 5.50039 0C5.63308 2.61548e-09 5.76032 0.0527077 5.85414 0.146528C5.94796 0.240348 6.00067 0.367596 6.00067 0.500278C6.00067 0.63296 5.94796 0.760208 5.85414 0.854028L1.20727 5.50028L5.85414 10.1465Z" fill="#1C1C1C" />
+                    </svg>
+                    Prev
+                </p>
+                <p class="swiper-listing-details-next cursor-pointer">
+                    Next
+
+                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.85403 5.85403L0.854028 10.854C0.807573 10.9005 0.752423 10.9373 0.691726 10.9625C0.63103 10.9876 0.565975 11.0006 0.500278 11.0006C0.434581 11.0006 0.369526 10.9876 0.30883 10.9625C0.248133 10.9373 0.192983 10.9005 0.146528 10.854C0.100073 10.8076 0.0632225 10.7524 0.0380812 10.6917C0.0129398 10.631 0 10.566 0 10.5003C0 10.4346 0.0129398 10.3695 0.0380812 10.3088C0.0632225 10.2481 0.100073 10.193 0.146528 10.1465L4.7934 5.50028L0.146528 0.854028C0.0527074 0.760208 -9.88558e-10 0.63296 0 0.500278C9.88559e-10 0.367596 0.0527074 0.240348 0.146528 0.146528C0.240348 0.0527077 0.367596 9.88558e-10 0.500278 0C0.63296 -9.88558e-10 0.760208 0.0527077 0.854028 0.146528L5.85403 5.14653C5.90052 5.19297 5.9374 5.24811 5.96256 5.30881C5.98772 5.36951 6.00067 5.43457 6.00067 5.50028C6.00067 5.56599 5.98772 5.63105 5.96256 5.69175C5.9374 5.75245 5.90052 5.80759 5.85403 5.85403Z" fill="#1C1C1C" />
+                    </svg>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- breadcrumb -->
+<section class="pb-100">
+    <div class="tf-spacing-style4"></div>
+    <div class="container">
+        <div class="listing-details">
+            <div class="listing-details--content">
+                <div class="title-section mb-40">
+                    <h2 class="capitalize">Audi A6 Avant e-tron</h2>
+                    <div class="flex items-center justify-end gap-12">
+                        <a href="#" class="btn btn-medium btn-line open-modal padding-button-medium gap-5 font-weight-600" data-modal-id="#CardModal">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_13399_19575)">
+                                    <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                            Compare
+                        </a>
+
+                        <a href="#" class="btn-icon-circle hover-stroke-white">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.4678 5.375C21.0008 5.37677 22.4707 5.98632 23.5547 7.07031C24.6387 8.15431 25.2482 9.62423 25.25 11.1572C25.2495 14.517 22.7235 17.7209 19.8545 20.2334C17.1857 22.5706 14.4559 24.1025 14 24.3506C13.5441 24.1025 10.8143 22.5706 8.14551 20.2334C5.27653 17.7209 2.75049 14.517 2.75 11.1572C2.75177 9.62423 3.36132 8.15431 4.44531 7.07031C5.52908 5.98655 6.99861 5.37703 8.53125 5.375C10.4976 5.375 12.1694 6.21605 13.2002 7.58887L14 8.65332L14.7998 7.58887C15.8304 6.21627 17.5018 5.37528 19.4678 5.375Z" stroke="#1C1C1C" stroke-width="2" />
+                            </svg>
+                        </a>
+
+                        <a href="#" class="btn-icon-circle hover-fill-white">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.2537 17.5C18.67 17.4998 18.0922 17.6168 17.5545 17.8439C17.0168 18.0711 16.5302 18.4038 16.1234 18.8224L11.0812 15.5816C11.4778 14.5645 11.4778 13.4355 11.0812 12.4185L16.1234 9.17768C16.8807 9.9535 17.8992 10.4205 18.9813 10.488C20.0634 10.5556 21.132 10.219 21.98 9.54337C22.828 8.8678 23.395 7.90141 23.5709 6.83157C23.7469 5.76174 23.5194 4.66468 22.9324 3.75309C22.3455 2.84149 21.4409 2.18031 20.3942 1.89773C19.3475 1.61516 18.2331 1.73131 17.2671 2.22368C16.3012 2.71605 15.5525 3.54955 15.1661 4.56259C14.7798 5.57563 14.7834 6.69604 15.1762 7.70659L10.134 10.9474C9.52682 10.324 8.74754 9.89589 7.89578 9.71771C7.04403 9.53954 6.15849 9.61942 5.35236 9.94713C4.54624 10.2749 3.85616 10.8355 3.37033 11.5575C2.8845 12.2794 2.625 13.1298 2.625 14C2.625 14.8702 2.8845 15.7206 3.37033 16.4426C3.85616 17.1645 4.54624 17.7252 5.35236 18.0529C6.15849 18.3806 7.04403 18.4605 7.89578 18.2823C8.74754 18.1042 9.52682 17.676 10.134 17.0527L15.1762 20.2935C14.8384 21.1647 14.7884 22.1211 15.0335 23.0228C15.2787 23.9245 15.8061 24.724 16.5384 25.3042C17.2708 25.8845 18.1698 26.215 19.1036 26.2474C20.0374 26.2798 20.9571 26.0124 21.728 25.4843C22.4988 24.9562 23.0803 24.1952 23.3874 23.3127C23.6944 22.4301 23.7108 21.4725 23.4342 20.58C23.1577 19.6875 22.6026 18.907 21.8503 18.3527C21.098 17.7985 20.1881 17.4997 19.2537 17.5ZM19.2537 3.50002C19.7729 3.50002 20.2804 3.65398 20.712 3.94242C21.1437 4.23086 21.4802 4.64082 21.6789 5.12048C21.8775 5.60014 21.9295 6.12794 21.8282 6.63714C21.727 7.14634 21.4769 7.61407 21.1098 7.98118C20.7427 8.34829 20.275 8.5983 19.7658 8.69959C19.2566 8.80087 18.7288 8.74889 18.2491 8.55021C17.7695 8.35153 17.3595 8.01508 17.0711 7.5834C16.7826 7.15172 16.6287 6.6442 16.6287 6.12503C16.6287 5.42883 16.9052 4.76115 17.3975 4.26887C17.8898 3.77659 18.5575 3.50002 19.2537 3.50002ZM7.00368 16.625C6.4845 16.625 5.97699 16.4711 5.54531 16.1826C5.11363 15.8942 4.77718 15.4842 4.5785 15.0046C4.37982 14.5249 4.32783 13.9971 4.42912 13.4879C4.53041 12.9787 4.78041 12.511 5.14753 12.1439C5.51464 11.7768 5.98237 11.5268 6.49157 11.4255C7.00077 11.3242 7.52857 11.3762 8.00822 11.5748C8.48788 11.7735 8.89785 12.11 9.18629 12.5417C9.47473 12.9733 9.62868 13.4809 9.62868 14C9.62868 14.6962 9.35212 15.3639 8.85984 15.8562C8.36755 16.3485 7.69987 16.625 7.00368 16.625ZM19.2537 24.5C18.7345 24.5 18.227 24.3461 17.7953 24.0576C17.3636 23.7692 17.0272 23.3592 16.8285 22.8796C16.6298 22.3999 16.5778 21.8721 16.6791 21.3629C16.7804 20.8537 17.0304 20.386 17.3975 20.0189C17.7646 19.6518 18.2324 19.4018 18.7416 19.3005C19.2508 19.1992 19.7786 19.2512 20.2582 19.4498C20.7379 19.6485 21.1478 19.985 21.4363 20.4167C21.7247 20.8483 21.8787 21.3559 21.8787 21.875C21.8787 22.5712 21.6021 23.2389 21.1098 23.7312C20.6176 24.2235 19.9499 24.5 19.2537 24.5Z" fill="#1C1C1C" />
+                            </svg>
+                        </a>
+
+
+                    </div>
+                </div>
+                <div class="swiper swiper-listing-details-main">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="listing-details-item main-item relative">
+                                <img class="img-main" src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="listing-details">
+                                <div class="listing-details-item--content">
+                                    <a class="listing-details-item--button" href="#">
+                                        <img src="~/assets/icons/playcircle.svg" alt="play">
+                                        Play Video
+                                    </a>
+                                    <a class="listing-details-item--button" href="listing-grid4-columns.html">
+                                        <img src="~/assets/icons/view-all-photo.svg" alt="view">
+                                        View All Photo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Navigation arrows -->
+                    <p class="swiper-button navigation-prev swiper-listing-details-main-prev">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.9487 2.71258C14.2097 2.97026 14.2335 3.37348 14.0199 3.65762L13.9487 3.73903L7.60622 10L13.9487 16.261C14.2097 16.5186 14.2335 16.9219 14.0199 17.206L13.9487 17.2874C13.6877 17.5451 13.2792 17.5685 12.9913 17.3577L12.9088 17.2874L6.04609 10.5132C5.78505 10.2555 5.76132 9.85232 5.9749 9.56818L6.04609 9.48678L12.9088 2.71258C13.196 2.42914 13.6615 2.42914 13.9487 2.71258Z" fill="white" />
+                        </svg>
+                    </p>
+                    <p class="swiper-button navigation-next swiper-listing-details-main-next">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.0513 17.2874C5.79025 17.0297 5.76652 16.6265 5.98011 16.3424L6.0513 16.261L12.3938 10L6.0513 3.73903C5.79025 3.48135 5.76652 3.07813 5.98011 2.79399L6.0513 2.71258C6.31235 2.45491 6.72084 2.43148 7.00869 2.64231L7.09116 2.71258L13.9539 9.48678C14.215 9.74446 14.2387 10.1477 14.0251 10.4318L13.9539 10.5132L7.09116 17.2874C6.80401 17.5709 6.33845 17.5709 6.0513 17.2874Z" fill="white" />
+                        </svg>
+                    </p>
+                </div>
+
+                <!-- Thumbnail Swiper Slider -->
+                <div class="swiper swiper-listing-details-thumbs pb-60 overflow-hidden">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-6.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-5.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-7.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-8.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-9.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-10.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="listing-details-thumb">
+                                <img src="~/assets/images/inner-page/slide-listing-details-11.jpg" alt="thumbnail">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="h4 mb-16">Description</p>
+                <p class="text-secondary mb-40">
+                    The 2024 - 2025 Honda HR-V is offered in 4 variants - which are priced from RM 115,900 to RM 141,900, the base model of hr-v is 2022 Honda HR-V 1.5 S which is at a price of RM 115,900 and the top variant of Honda HR-V is 2022 Honda HR-V RS e:HEV which is offered at a price of RM 141,900.
+                </p>
+
+                <div class="divider w-full mb-40"></div>
+
+                <p class="h4 mb-16 capitalize">Get To Know this car</p>
+
+                <div class="flat-tabs mb-40">
+                    <div class="overflow-x-auto mb-16">
+                        <ul class="menu-tab menu-tab-style4">
+                            <li><span class="text-secondary font-weight-600">Exterior</span></li>
+                            <li><span class="text-secondary font-weight-600">Interior</span></li>
+                            <li class="active"><span class="text-secondary font-weight-600">Safety</span></li>
+                            <li><span class="text-secondary font-weight-600">Mechanical</span></li>
+                            <li><span class="text-secondary font-weight-600">Technology</span></li>
+                            <li><span class="text-secondary font-weight-600">Other</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="content-tab">
+                        <div class="content-inner">
+                            <ul class="grid grid-cols-3 xl-grid-cols-2 md-grid-cols-1 gap-8 gap-x-30">
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Mirror(s)
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Front All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Cast Aluminum Wheels
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power door mirrors
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Rear All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Steel Wheels w
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear Spoiler
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheels 4-16" x 6.5"
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Automatic Headlights
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear window wiper
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheel Covers
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Bodyside moldings
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-inner">
+                            <ul class="grid grid-cols-3 xl-grid-cols-2 md-grid-cols-1 gap-8 gap-x-30">
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    A/C
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Front Bucket Seats
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Door Locks
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Adjustable Steering Wheel
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Front Center Armrest w/Storage
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Outlet
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Air Conditioning
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Front Reclining Bucket Seats
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Windows
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Black Rooftop Luggage
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Intermittent Wipers
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear Defrost
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Driver vanity mirror
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Passenger door bin
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear Beverage Holders
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-inner active">
+                            <ul class="grid grid-cols-3 xl-grid-cols-2 md-grid-cols-1 gap-8 gap-x-30">
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Child Safety Locks
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Dual front impact airbags
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Security System
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Daytime Running Lights
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Panic alarm
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Security system
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Driver Air Bag
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Passenger Air Bag
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-inner">
+                            <ul class="grid grid-cols-3 xl-grid-cols-2 md-grid-cols-1 gap-8 gap-x-30">
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Mirror(s)
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Front All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Cast Aluminum Wheels
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power door mirrors
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Rear All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Steel Wheels w
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear Spoiler
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheels 4-16" x 6.5"
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Automatic Headlights
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear window wiper
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheel Covers
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Bodyside moldings
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-inner">
+                            <ul class="grid grid-cols-3 xl-grid-cols-2 md-grid-cols-1 gap-8 gap-x-30">
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Mirror(s)
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Front All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Cast Aluminum Wheels
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power door mirrors
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Rear All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Steel Wheels w
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear Spoiler
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheels 4-16" x 6.5"
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Automatic Headlights
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear window wiper
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheel Covers
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Bodyside moldings
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content-inner">
+                            <ul class="grid grid-cols-3 xl-grid-cols-2 md-grid-cols-1 gap-8 gap-x-30">
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power Mirror(s)
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Front All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Cast Aluminum Wheels
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Power door mirrors
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Tires - Rear All-Season
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    16" x 6.5" Steel Wheels w
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear Spoiler
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheels 4-16" x 6.5"
+                                </li>
+
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Automatic Headlights
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Rear window wiper
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Wheel Covers
+                                </li>
+                                <li class="flex items-center gap-8">
+                                    <img src="~/assets/icons/check.svg" alt="check">
+                                    Bodyside moldings
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider w-full mb-40"></div>
+
+                <p class="h4 mb-16">Financing Calculator</p>
+                <form action="https://tfaurexo.vercel.app/calculator.html" class="financing-calculator mb-40">
+                    <div class="financing-calculator-form mb-24">
+                        <div class="grid grid-cols-4 xl2-grid-cols-2 md-grid-cols-1 gap-12">
+                            <div>
+                                <p class="mb-10">Car Price</p>
+                                <input class="active" id="FinancingCalculatorCarPrice" name="FinancingCalculatorCarPrice" type="text" value="$46.300|" required>
+                            </div>
+
+                            <div>
+                                <p class="mb-10">Interest Rate</p>
+                                <input id="FinancingCalculatorInterestRate" name="FinancingCalculatorInterestRate" type="text" value="1.2%" required>
+                            </div>
+
+                            <div>
+                                <p class="mb-8">Loan Term (months)</p>
+                                <select id="FinancingCalculatorLoanTerm" name="FinancingCalculatorLoanTerm">
+                                    <option>60 months</option>
+                                    <option>30 months</option>
+                                    <option>10 months</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <p class="mb-8">Down Payment</p>
+                                <input id="FinancingCalculatorDownPayment" name="FinancingCalculatorDownPayment" type="text" value="$400" required>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-medium btn-primary mb-2">Calculate</button>
+                    </div>
+
+                    <div class="grid gap-8 grid-cols-3 md-grid-cols-1">
+                        <div>
+                            <p class="mb-4">Monthly Payment:</p>
+                            <p class="font-weight-600">$788.56/Month</p>
+                        </div>
+
+                        <div>
+                            <p class="mb-4">Total Interest Payment:</p>
+                            <p class="font-weight-600">$1413.60</p>
+                        </div>
+
+                        <div>
+                            <p class="mb-4">Est. Total Loan:</p>
+                            <p class="font-weight-600">$47713.60</p>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="divider w-full mb-40"></div>
+
+                <div class="flex items-center gap-16 justify-between mb-16 md-flex-col md-items-start">
+                    <div>
+                        <p class="h4 mb-12">Location</p>
+                        <p class="flex items-center gap-8"><img class="w-16 h-16" src="~/assets/icons/MapPin.svg" alt="fuel"> 6205 Peachtree Dunwoody Rd, Atlanta, GA 30328</p>
+                    </div>
+
+                    <a href="#" class="text-sm text-underline text-highlight">Get Directions</a>
+                </div>
+
+                <div class="widget-gg-map flex radius-16 overflow-hidden mb-40">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d97101.88872869895!2d-74.22688511715344!3d40.487336736141906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1689125037376!5m2!1svi!2s" height="523" style="border:0;width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="divider w-full mb-40"></div>
+
+                <div class="flex items-center justify-between gap-16 mb-16">
+                    <p class="h4">
+                        Customer Reviews
+                    </p>
+                </div>
+
+                <div class="rating-box mb-40">
+                    <div class="rating-box__content">
+                        <div class="rating-box__overview">
+                            <div class="rating-box__average">
+                                <span class="rating-box__score">4.8</span>
+                                <div class="rating-box__stars">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                </div>
+                                <p class="rating-box__count">(1,968 Ratings)</p>
+                            </div>
+                        </div>
+                        <div class="rating-box__distribution">
+                            <div class="rating-box__bar-item">
+                                <p class="rating-box__bar-label"><span class="text">5</span> <img src="~/assets/icons/star-2.svg" alt="star"></p>
+                                <div class="rating-box__bar-wrapper">
+                                    <div class="rating-box__bar" style="width: 60%;"></div>
+                                </div>
+                                <span class="rating-box__bar-percent">60%</span>
+                            </div>
+                            <div class="rating-box__bar-item">
+                                <p class="rating-box__bar-label"><span class="text">4</span> <img src="~/assets/icons/star-2.svg" alt="star"></p>
+                                <div class="rating-box__bar-wrapper">
+                                    <div class="rating-box__bar" style="width: 20%;"></div>
+                                </div>
+                                <span class="rating-box__bar-percent">20%</span>
+                            </div>
+                            <div class="rating-box__bar-item">
+                                <p class="rating-box__bar-label"><span class="text">3</span> <img src="~/assets/icons/star-2.svg" alt="star"></p>
+                                <div class="rating-box__bar-wrapper">
+                                    <div class="rating-box__bar" style="width: 10%;"></div>
+                                </div>
+                                <span class="rating-box__bar-percent">10%</span>
+                            </div>
+                            <div class="rating-box__bar-item">
+                                <p class="rating-box__bar-label">
+                                    <span class="text">2</span> <img src="~/assets/icons/star-2.svg" alt="star">
+                                </p>
+                                <div class="rating-box__bar-wrapper">
+                                    <div class="rating-box__bar" style="width: 7%;"></div>
+                                </div>
+                                <span class="rating-box__bar-percent">7%</span>
+                            </div>
+                            <div class="rating-box__bar-item">
+                                <p class="rating-box__bar-label">
+                                    <span class="text">1`</span> <img src="~/assets/icons/star-2.svg" alt="star">
+                                </p>
+                                <div class="rating-box__bar-wrapper">
+                                    <div class="rating-box__bar" style="width: 3%;"></div>
+                                </div>
+                                <span class="rating-box__bar-percent">3%</span>
+                            </div>
+                        </div>
+                        <div class="rating-box__button">
+                            <a href="#reviewForm" class="btn btn-primary btn-large font-weight-600 capitalize">
+                                Write a review
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comments mb-40">
+                    <div class="comment-box">
+                        <div class="comment-box__header mb-20">
+                            <div class="comment-box__avatar">
+                                <img src="~/assets/images/avatar/coment-avatar-1.png" alt="avatar">
+                            </div>
+                            <div>
+                                <div class="flex items-center text-secondary mb-8 gap-4">
+                                    <p class="h5">Randynox </p>
+                                    <span class="text-secondary text-sm">-</span>
+                                    <span class="text-secondary text-sm">August 13, 2025</span>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-secondary">Bought new in 2012, and it’s still running strong at over 180,000 miles. I’ve only had to replace the battery and brakes once. The ride is smooth, the interior still feels solid, and the fuel economy hasn’t dropped much.</p>
+                    </div>
+
+                    <div class="comment-box">
+                        <div class="comment-box__header mb-20">
+                            <div class="comment-box__avatar guest">
+                                MN
+                            </div>
+                            <div>
+                                <div class="flex items-center text-secondary mb-8 gap-4">
+                                    <p class="h5">Mista Nyroom </p>
+                                    <span class="text-secondary text-sm">-</span>
+                                    <span class="text-secondary text-sm">August 22, 2025</span>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-secondary">Picked this car up used about five years ago with 90k miles. It’s now at 160k and still starts every morning without hesitation. Maintenance is simple, parts are cheap, and it’s surprisingly comfortable on long drives.</p>
+                    </div>
+
+                    <div class="comment-box">
+                        <div class="comment-box__header mb-20">
+                            <div class="comment-box__avatar">
+                                <img src="~/assets/images/avatar/coment-avatar-2.png" alt="avatar">
+                            </div>
+                            <div>
+                                <div class="flex items-center text-secondary mb-8 gap-4">
+                                    <p class="h5">Heather Dick </p>
+                                    <span class="text-secondary text-sm">-</span>
+                                    <span class="text-secondary text-sm">August 18, 2025</span>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-secondary" id="reviewForm">Owned since 2010. Drove it through all kinds of weather, from hot summers to snowy roads, and it never let me down. A few minor repairs here and there — mostly wear and tear — but the engine just keeps going.</p>
+                    </div>
+
+                    <p> <a href="clients-reviews.html" class="text-underline font-weight-600 capitalize">View more reviews (98)</a></p>
+                </div>
+
+                <div>
+                    <p class="h4 capitalize mb-8">add a review</p>
+                    <p class="mb-20">Your email address will not be published</p>
+
+                    <button class="btn btn-primary btn-large font-weight-600 capitalize open-modal" data-modal-id="#LoginModal">
+                        Login to add a Review
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="listing-details--sidebar">
+                <div class="listing-details--sidebar-box mb-40">
+                    <div class="flat-tabs">
+                        <div class="overflow-x-auto mb-15">
+                            <ul class="menu-tab menu-tab-style5 grid-cols-2">
+                                <li>Cash</li>
+                                <li class="active">Finance</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-tab visible">
+
+                            <div class="content-inner">
+                                <p class="h5 mb-4">Price:</p>
+                                <p class="h4 mb-4">$44.900</p>
+                                <p class="text-secondary mb-16">List price w/o taxes, fees, and accessories</p>
+
+                                <p class="flex items-center gap-8">
+                                    <img src="~/assets/icons/Info.svg" alt="info">
+                                    <a href="#" class="text-underline text-highlight ">Vehicle in the VAT system</a>
+                                </p>
+                            </div>
+
+                            <div class="content-inner active">
+                                <p class="h5 mb-4">Price:</p>
+                                <p class="h4 mb-4">$245/mo</p>
+                                <p class="text-secondary mb-4">Finance payment w/o taxes, fees, and accessories </p>
+                                <p class="text-secondary mb-16">$1,560 due at signing · 72 mo · 7.89% APR </p>
+
+                                <div class="flex items-center gap-8 core-dropdown">
+                                    <img src="~/assets/icons/Info.svg" alt="info">
+                                    <a href="#" class="text-underline text-highlight" id="coreDropdownBtn">Vehicle in the VAT system</a>
+                                    <div class="core-dropdown__menu" id="coreDropdownMenu">
+                                        <ul class="core-dropdown__list">
+                                            <li class="core-dropdown__item">
+                                                <p class="text-sm text-secondary">Price:</p>
+                                                <p class="font-weight-600">$23.577</p>
+                                            </li>
+                                            <li class="core-dropdown__item">
+                                                <p class="text-sm text-secondary">Special tax on motor vehicles:</p>
+                                                <p class="font-weight-600">$1.322</p>
+                                            </li>
+                                            <li class="core-dropdown__item">
+                                                <p class="text-sm text-secondary">Price with special tax:</p>
+                                                <p class="font-weight-600">$24.900</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-details--sidebar-box mb-40">
+                    <p class="h5 mb-4 capitalize">Car Overview</p>
+                    <ul class="car-overview-list-style2">
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/icon-gauge.svg" alt="fuel">
+                                <span class="h7 text-secondary">Mileage:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">51600 km</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/calendar.svg" alt="fuel">
+                                <span class="h7 text-secondary">Years:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">2022</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/gaspump.svg" alt="fuel">
+                                <span class="h7 text-secondary">Fuel:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">Benzin + Plin</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/palette.svg" alt="fuel">
+                                <span class="h7 text-secondary">Color:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">White</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/MapPin.svg" alt="fuel">
+                                <span class="h7 text-secondary">Location:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">Tampa, FL</span>
+                        </li>
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/Seatbelt.svg" alt="fuel">
+                                <span class="h7 text-secondary">Interior:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">Jet Black</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/Frame.svg" alt="calendar">
+                                <span class="h7 text-secondary">Engine:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">1.5L Inline</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/transmission-2.svg" alt="Transmission.svg">
+                                <span class="h7 text-secondary">Transmission:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">Automatic</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/Barcode.svg" alt="fuel">
+                                <span class="h7 text-secondary">VIN:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">1G1ZD5ST0PF</span>
+                        </li>
+
+                        <li class="grid-cols-2 grid">
+                            <p class="flex items-center gap-8">
+                                <img class="w-28 h-28" src="~/assets/icons/QrCode.svg" alt="fuel">
+                                <span class="h7 text-secondary">Stock Number:</span>
+                            </p>
+                            <span class="h7 font-weight-500 pl-28">165921</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="listing-details--sidebar-box mb-40">
+                    <div class="listing-details--contact">
+                        <div class="listing-details--contact-dealer mb-28">
+                            <img src="~/assets/images/avatar/contact-avatar.png" alt="dealer">
+
+                            <div class="content">
+                                <a href="#" class="h4 mb-8 font-weight-600">Mike Hanley</a>
+
+                                <div class="verify">
+                                    <img src="~/assets/icons/SealCheck.svg" alt="verified">
+                                    <p class="text-highlight text-sm">Verified Dealer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="contact-info mb-20">
+                            <li>
+                                <p class="icon"><img src="~/assets/icons/MapPin.svg" alt="phone"></p>
+                                <div class="flex flex-col gap-4">
+                                    <a href="#">
+                                        6205 Peachtree Dunwoody Rd, Atlanta, GA 30328
+                                    </a>
+                                    <a href="#" class="text-underline text-highlight text-sm">
+                                        Get Directions
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="contact-info mb-28">
+                            <li class="items-center">
+                                <p class="icon"><img src="~/assets/icons/PhoneCall.svg" alt="phone"></p>
+                                <div class="flex flex-col">
+                                    <a href="tel:1-555-678-8888">
+                                        1-555-678-8888
+                                    </a>
+                                    <a href="tel:1-555-678-9999">
+                                        1-555-678-9999
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <a href="dealer-details.html" class="btn btn-medium btn-primary-3 font-weight-600 mb-12 gap-5">
+                            <img src="~/assets/icons/PhoneCall-2.svg" alt="phone">
+                            Call To Dealer
+                        </a>
+
+                        <a href="#" class="btn btn-medium btn-primary-4 font-weight-600 gap-5">
+                            <img src="~/assets/icons/ChatCircleDots.svg" alt="phone">
+                            Chat via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="listing-details--sidebar-box">
+                    <p class="h5 mb-16 capitalize">Send Inquiry about Vehicle</p>
+
+                    <form action="#" class="send-inquiry">
+                        <div class="grid grid-cols-1 gap-18 mb-8">
+                            <div>
+                                <p class="mb-8">Name</p>
+                                <input class="active input-large" id="SendInquiryname" name="SendInquiryname" type="text" value="Tony Nguyen" required="" />
+                            </div>
+                            <div>
+                                <p class="mb-8">Email</p>
+                                <input class="input-large" name="SendInquiryemail" id="SendInquiryemail" type="text" value="themesflat@gmail.com" required="" />
+                            </div>
+                            <div>
+                                <p class="mb-8">Phone</p>
+                                <input placeholder="Phone (optional)" class="input-large" name="SendInquiryphone" id="SendInquiryphone" type="number" value="" required="" />
+                            </div>
+
+                            <div>
+                                <p class="mb-8">Subject</p>
+                                <select>
+                                    <option>This Vehicle's Availability</option>
+                                    <option>This Vehicle's Availability 2</option>
+                                    <option>This Vehicle's Availability 3</option>
+                                </select>
+                            </div>
+
+                            <div class="padding-0">
+                                <p class="mb-6">Message</p>
+                                <textarea placeholder="Comment" rows="3" tabindex="5" name="message" class="message" id="message" required></textarea>
+                            </div>
+
+
+                        </div>
+                        <button class="btn btn-primary btn-large font-weight-600 w-full mb-18">
+                            Send Inquiry
+                        </button>
+                        <label class="filter-checkbox style-2 mb-6">
+                            <input type="checkbox" name="features" value="touch-screen">
+                            <span class="text-sm">Yes, I would like to receive price alerts on this vehicle and helpful shopping information.</span>
+                        </label>
+
+                        <p class="text-xs text-secondary">By using this service, you accept our <a href="#" class="text-xs text-underline text-highlight">Visitor Agreement.</a></p>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-100 background-light">
+    <div class="container">
+        <p class="h3 mb-40 capitalize">You might also like</p>
+        <div class="swiper-container swiper-card">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card-box card-box-style-1">
+                        <div class="top">
+                            <p class="bg-primary-2 text-white highlight">Special</p>
+
+                            <p class="heart">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_13399_19510)">
+                                        <path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="image">
+                            <a href="listing-details-1.html">
+                                <img class="card--img" src="~/assets/images/card/card-1.jpg" alt="car">
+                            </a>
+                        </div>
+                        <div class="content border-light border-top-none">
+                            <div class="bottom">
+                                <p class="category uppercase text-white">
+                                    <a href="blog-details-1.html" class="text-white uppercase text-xs">Audi</a>
+                                </p>
+
+                                <div class="flex items-center gap-8">
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/picture.svg" alt="picture">
+                                        8
+                                    </p>
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/play.svg" alt="play">
+                                        1
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="h6 card-box__title mb-8">
+                                <a href="blog-details-1.html">Audi A6 Avant E-Tron</a>
+                            </p>
+
+                            <ul class="tag mb-10">
+                                <li>
+                                    <img src="~/assets/icons/icon-gauge.svg" alt="fuel">
+                                    <span>32500 miles</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/calendar.svg" alt="fuel">
+                                    <span>2022</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/gaspump.svg" alt="fuel">
+                                    <span>EV</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/manual.svg" alt="fuel">
+                                    <span>Manual</span>
+                                </li>
+                            </ul>
+
+                            <p class="card-box__price mb-15">$44.900,00</p>
+
+                            <div class="divider mb-15"></div>
+
+                            <div class="flex justify-between">
+                                <p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_13399_19575)">
+                                            <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                    Compare
+                                </p>
+
+                                <a href="listing-details-1.html" class="view-details">
+                                    View details
+                                    <img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-box card-box-style-1">
+                        <div class="top">
+                            <p class="bg-green text-white highlight">Great Price</p>
+
+                            <p class="heart">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_13399_19510)">
+                                        <path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="image">
+
+                            <a href="listing-details-1.html">
+                                <img class="card--img" src="~/assets/images/card/card-2.jpg" alt="car">
+                            </a>
+                        </div>
+                        <div class="content border-light border-top-none">
+                            <div class="bottom">
+                                <p class="category uppercase text-white">
+                                    <a href="blog-details-1.html" class="text-white">Hyundai</a>
+                                </p>
+
+                                <div class="flex items-center gap-8">
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/picture.svg" alt="picture">
+                                        8
+                                    </p>
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/play.svg" alt="play">
+                                        1
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="h6 card-box__title mb-8">
+                                <a href="blog-details-1.html">2024 Hyundai Elantra</a>
+                            </p>
+
+                            <ul class="tag mb-10">
+                                <li>
+                                    <img src="~/assets/icons/icon-gauge.svg" alt="fuel">
+                                    <span>89300 miles</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/calendar.svg" alt="fuel">
+                                    <span>2018</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/gaspump.svg" alt="fuel">
+                                    <span>Benzin</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/auto.svg" alt="fuel">
+                                    <span>Auto</span>
+                                </li>
+                            </ul>
+
+                            <p class="h6 card-box__price mb-15 flex justify-between gap-8 items-center">
+                                $42.800,00
+                                <span class="text-sm">
+                                    $588/mo
+                                    <a href="blog-details-1.html" class="text-underline ml-2 text-muted text-xs">See Finance</a>
+                                </span>
+                            </p>
+
+                            <div class="divider mb-15"></div>
+
+                            <div class="flex justify-between">
+                                <p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_13399_19575)">
+                                            <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                    Compare
+                                </p>
+
+                                <a href="listing-details-1.html" class="view-details">
+                                    View details
+                                    <img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-box card-box-style-1">
+                        <div class="top">
+                            <p></p>
+
+                            <p class="heart">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_13399_19510)">
+                                        <path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="image">
+                            <a href="listing-details-1.html">
+                                <img class="card--img" src="~/assets/images/card/card-3.jpg" alt="car">
+                            </a>
+                        </div>
+                        <div class="content border-light border-top-none">
+                            <div class="bottom">
+                                <p class="category uppercase text-white">
+                                    <a href="blog-details-1.html" class="text-white">Kia</a>
+                                </p>
+
+                                <div class="flex items-center gap-8">
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/picture.svg" alt="picture">
+                                        8
+                                    </p>
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/play.svg" alt="play">
+                                        1
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="h6 card-box__title mb-8">
+                                <a href="blog-details-1.html">Kia EV9 2024</a>
+                            </p>
+
+                            <ul class="tag mb-10">
+                                <li>
+                                    <img src="~/assets/icons/icon-gauge.svg" alt="fuel">
+                                    <span>76400 miles</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/calendar.svg" alt="fuel">
+                                    <span>2020</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/gaspump.svg" alt="fuel">
+                                    <span>Diesel</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/auto.svg" alt="fuel">
+                                    <span>Auto</span>
+                                </li>
+                            </ul>
+
+                            <p class="card-box__price mb-15">$45.500,00</p>
+
+                            <div class="divider mb-15"></div>
+
+                            <div class="flex justify-between">
+                                <p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_13399_19575)">
+                                            <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                    Compare
+                                </p>
+
+                                <a href="listing-details-1.html" class="view-details">
+                                    View details
+                                    <img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-box card-box-style-1">
+                        <div class="top">
+                            <p></p>
+
+                            <p class="heart">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_13399_19510)">
+                                        <path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="image">
+                            <a href="listing-details-1.html">
+                                <img class="card--img" src="~/assets/images/card/card-4.jpg" alt="car">
+                            </a>
+                        </div>
+                        <div class="content border-light border-top-none">
+                            <div class="bottom">
+                                <p class="category uppercase text-white">
+                                    <a href="blog-details-1.html" class="text-white">Chevrolet</a>
+                                </p>
+
+                                <div class="flex items-center gap-8">
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/picture.svg" alt="picture">
+                                        8
+                                    </p>
+                                    <p class="category uppercase text-white">
+                                        <img src="~/assets/icons/play.svg" alt="play">
+                                        1
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="h6 card-box__title mb-8">
+                                <a href="blog-details-1.html">Chevrolet Camaro 2020</a>
+                            </p>
+
+                            <ul class="tag mb-10">
+                                <li>
+                                    <img src="~/assets/icons/icon-gauge.svg" alt="fuel">
+                                    <span>45800 miles</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/calendar.svg" alt="fuel">
+                                    <span>2023</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/gaspump.svg" alt="fuel">
+                                    <span>Benzin</span>
+                                </li>
+                                <li>
+                                    <img src="~/assets/icons/auto.svg" alt="fuel">
+                                    <span>Auto</span>
+                                </li>
+                            </ul>
+
+                            <p class="card-box__price mb-15">$35.500,00</p>
+                            <div class="divider mb-15"></div>
+                            <div class="flex justify-between">
+                                <p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_13399_19575)">
+                                            <path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                    Compare
+                                </p>
+
+                                <a href="listing-details-1.html" class="view-details">
+                                    View details
+                                    <img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden md-block">
+                <div class="swiper-pagination pagination-dark pagination-style pagination-swiper-card mt-38"></div>
+            </div>
+        </div>
+    </div>
+</section>

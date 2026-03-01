@@ -1,0 +1,103 @@
+﻿using Car_Project.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Car_Project.Data
+{
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options) { }
+
+        public DbSet<Brand>                 Brands                  { get; set; }
+        public DbSet<Car>                   Cars                    { get; set; }
+        public DbSet<CarImage>              CarImages               { get; set; }
+        public DbSet<CarFeature>            CarFeatures             { get; set; }
+        public DbSet<CarFeatureMapping>     CarFeatureMappings      { get; set; }
+        public DbSet<Review>                Reviews                 { get; set; }
+        public DbSet<FAQ>                   FAQs                    { get; set; }
+        public DbSet<ContactMessage>        ContactMessages         { get; set; }
+        public DbSet<LoanCalculation>       LoanCalculations        { get; set; }
+        public DbSet<SellCarRequest>        SellCarRequests         { get; set; }
+        public DbSet<ServiceCenter>         ServiceCenters          { get; set; }
+        public DbSet<NewsletterSubscriber>  NewsletterSubscribers   { get; set; }
+        public DbSet<CompareItem>           CompareItems            { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // ?? CarFeatureMapping: composite primary key ??????????????????????
+            modelBuilder.Entity<CarFeatureMapping>()
+                .HasKey(cfm => new { cfm.CarId, cfm.CarFeatureId });
+
+            modelBuilder.Entity<CarFeatureMapping>()
+                .HasOne(cfm => cfm.Car)
+                .WithMany(c => c.Features)
+                .HasForeignKey(cfm => cfm.CarId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CarFeatureMapping>()
+                .HasOne(cfm => cfm.CarFeature)
+                .WithMany(cf => cf.Cars)
+                .HasForeignKey(cfm => cfm.CarFeatureId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ?? Car ??????????????????????????????????????????????????????????
+            modelBuilder.Entity<Car>()
+                .HasOne(c => c.Brand)
+                .WithMany(b => b.Cars)
+                .HasForeignKey(c => c.BrandId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Car>()
+                .Property(c => c.Price)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Car>()
+                .Property(c => c.MonthlyPayment)
+                .HasColumnType("decimal(18,2)");
+
+            // ?? CarImage ?????????????????????????????????????????????????????
+            modelBuilder.Entity<CarImage>()
+                .HasOne(ci => ci.Car)
+                .WithMany(c => c.Images)
+                .HasForeignKey(ci => ci.CarId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ?? CompareItem ??????????????????????????????????????????????????
+            modelBuilder.Entity<CompareItem>()
+                .HasOne(ci => ci.Car)
+                .WithMany()
+                .HasForeignKey(ci => ci.CarId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ?? LoanCalculation decimal precision ????????????????????????????
+            modelBuilder.Entity<LoanCalculation>()
+                .Property(l => l.CarPrice).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<LoanCalculation>()
+                .Property(l => l.DownPayment).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<LoanCalculation>()
+                .Property(l => l.InterestRate).HasColumnType("decimal(5,2)");
+            modelBuilder.Entity<LoanCalculation>()
+                .Property(l => l.MonthlyPayment).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<LoanCalculation>()
+                .Property(l => l.TotalInterestPayment).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<LoanCalculation>()
+                .Property(l => l.TotalLoanAmount).HasColumnType("decimal(18,2)");
+
+            // ?? SellCarRequest decimal precision ?????????????????????????????
+            modelBuilder.Entity<SellCarRequest>()
+                .Property(s => s.AskingPrice).HasColumnType("decimal(18,2)");
+
+            // ?? NewsletterSubscriber: unique email ???????????????????????????
+            modelBuilder.Entity<NewsletterSubscriber>()
+                .HasIndex(n => n.Email)
+                .IsUnique();
+
+            // ?? Brand: unique name ???????????????????????????????????????????
+            modelBuilder.Entity<Brand>()
+                .HasIndex(b => b.Name)
+                .IsUnique();
+        }
+    }
+}

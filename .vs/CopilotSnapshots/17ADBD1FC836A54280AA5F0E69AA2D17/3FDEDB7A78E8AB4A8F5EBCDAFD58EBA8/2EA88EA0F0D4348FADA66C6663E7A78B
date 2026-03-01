@@ -1,0 +1,72 @@
+﻿using Car_Project.Services.Abstractions;
+using Car_Project.ViewModels.Blog;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Car_Project.Controllers
+{
+    public class BlogController : Controller
+    {
+        private readonly IBlogService _blogService;
+
+        public BlogController(IBlogService blogService)
+        {
+            _blogService = blogService;
+        }
+
+        public async Task<IActionResult> Index(
+            string? category = null,
+            string? tag = null,
+            string? q = null,
+            int page = 1)
+        {
+            const int pageSize = 9;
+
+            var (posts, totalCount) = await _blogService.GetPublishedAsync(
+                page, pageSize, category, tag, q);
+
+            var categories  = await _blogService.GetCategoriesAsync();
+            var tags        = await _blogService.GetTagsAsync();
+            var recentPosts = await _blogService.GetRecentAsync(5);
+
+            var vm = new BlogIndexViewModel
+            {
+                Posts = posts.Select(p => new BlogPostCardViewModel
+                {
+                    Id              = p.Id,
+                    Title           = p.Title,
+                    Slug            = p.Slug,
+                    Summary         = p.Summary,
+                    ThumbnailUrl    = p.ThumbnailUrl,
+                    AuthorName      = p.AuthorName,
+                    AuthorAvatarUrl = p.AuthorAvatarUrl,
+                    CategoryName    = p.Category?.Name ?? string.Empty,
+                    PublishedAt     = p.PublishedAt,
+                    ViewCount       = p.ViewCount,
+                    Tags            = p.PostTags.Select(pt => pt.BlogTag.Name).ToList()
+                }).ToList(),
+
+                Categories    = categories.Select(c => c.Name).ToList(),
+                PopularTags   = tags.Select(t => t.Name).ToList(),
+
+                RecentPosts = recentPosts.Select(p => new BlogPostCardViewModel
+                {
+                    Id           = p.Id,
+                    Title        = p.Title,
+                    Slug         = p.Slug,
+                    ThumbnailUrl = p.ThumbnailUrl,
+                    PublishedAt  = p.PublishedAt,
+                    CategoryName = p.Category?.Name ?? string.Empty
+                }).ToList(),
+
+                SelectedCategory = category,
+                SelectedTag      = tag,
+                SearchQuery      = q,
+                CurrentPage      = page,
+                TotalPages       = (int)Math.Ceiling(totalCount / (double)pageSize),
+                TotalCount       = totalCount
+            };
+
+            return View(vm);
+        }
+    }
+}

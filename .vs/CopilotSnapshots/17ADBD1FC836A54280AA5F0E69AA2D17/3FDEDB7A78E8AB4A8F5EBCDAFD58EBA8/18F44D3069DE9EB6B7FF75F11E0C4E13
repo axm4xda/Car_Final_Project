@@ -1,0 +1,647 @@
+﻿<section class="blog-details-banner">
+	<img class="overlay-image" src="assets/images/blog/overlay-blogdetails.png" alt="blog-details-banner">
+	<div class="breadcrumb-wrapper">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li>
+					<a class="text-white" href="index-2.html">Home</a>
+				</li>
+				<li>
+					<img src="assets/icons/right.svg" alt="chevron-right">
+				</li>
+				<li>
+					<span class="text-muted">Compact SUV vs. Full-Size SUV: What’s the Difference?</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="image flex">
+		<img src="assets/images/blog/blog-details.jpg" alt="blog-details-banner">
+	</div>
+
+	<div class="content">
+		<div class="container">
+			<h1 class="mb-20 text-white letter-spacing-1">Compact SUV vs. Full-Size <br class="lg-hidden"> SUV: What’s the Difference?</h1>
+
+			<ul class="flex items-center flex-wrap gap-20">
+				<li><a class="text-white" href="#">by Admin</a></li>
+				<li><a class="text-white" href="#">Aug. 8, 2025</a></li>
+				<li><a class="uppercase text-underline text-highlight" href="#">PERFORMANCE</a></li>
+			</ul>
+		</div>
+	</div>
+
+</section>
+
+<!-- New Cars -->
+<section>
+	<div class="tf-spacing"></div>
+
+	<div class="container innerpage-container">
+		<div class="innerpage__content md-mb-30">
+
+			<img class="post--img radius-20 flex mb-40" src="assets/images/blog/post-40.jpg" alt="news">
+
+			<p class="h7 text-secondary mb-28 line-height-28">
+				When choosing between a compact SUV and a full-size SUV, there are several key factors to consider. Understanding the differences between these two vehicle types can significantly impact your decision-making process, helping you find the one that best aligns with your lifestyle, driving habits, and needs.
+			</p>
+
+			<div class="quote mb-28">
+				<div class="content">
+					<p class="h4 mb-14 capitalize">"Choosing the right SUV isn’t just about size—it’s about finding the perfect fit for your lifestyle, needs, and adventures."</p>
+					<p class="h7 flex items-center gap-8">
+						<img src="assets/icons/line.svg" alt="quote">
+						Nelson Mandela
+					</p>
+				</div>
+				<img class="icon-quote" src="assets/icons/quote.svg" alt="quote">
+			</div>
+
+			<p class="text-secondary mb-40 h7 line-height-28">From the size and space they offer to their fuel efficiency, performance capabilities, and overall cost of ownership, each type of SUV caters to different priorities and preferences. By carefully weighing these aspects, you can make a more informed choice that not only meets your immediate requirements but also supports your long-term goals and lifestyle.</p>
+
+			<div class="grid grid-cols-2 md-grid-cols-1 gap-20 mb-40">
+				<div>
+					<img class="radius-20 flex" src="assets/images/blog/post-41.jpg" alt="news">
+				</div>
+				<div>
+					<img class="radius-20 flex" src="assets/images/blog/post-42.jpg" alt="news">
+				</div>
+			</div>
+
+			<p class="h4 mb-12 capitalize">1. Size and Space</p>
+			<p class="mb-28 text-secondary h7 line-height-28">
+				Full-size SUVs offer more interior space, making them ideal for larger families or those who need more cargo capacity. On the other hand, compact SUVs are more maneuverable and easier to park, making them a great choice for urban driving.
+			</p>
+
+			<p class="h4 mb-12">2. Fuel Efficiency</p>
+			<p class="mb-28 text-secondary h7 line-height-28">
+				Generally, compact SUVs tend to be more fuel-efficient compared to their full-size counterparts. If fuel economy is a priority for you, a compact SUV could save you money on gas over time.
+			</p>
+
+			<p class="h4 mb-12">3. Performance and Capability</p>
+			<p class="mb-28 text-secondary h7 line-height-28">
+				Full-size SUVs often come with more powerful engines and greater towing capacity, making them suitable for off-road adventures and heavy-duty hauling. Compact SUVs, while still capable, might not offer the same level of performance and capability as full-size models.
+			</p>
+
+			<p class="h4 mb-12">4. Cost</p>
+			<p class="mb-40 text-secondary h7 line-height-28">
+				Cost is another key differentiator. Full-size SUVs typically come with a higher price tag, both in terms of the purchase price and ongoing maintenance costs. Compact SUVs are generally more affordable, making them a budget-friendly option for many buyers.
+			</p>
+
+			<p class="h4 mb-12">Conclusion</p>
+			<p class="text-secondary h7 line-height-28 mb-40">
+				Choosing between a compact SUV and a full-size SUV depends on your specific needs, whether that’s maximizing fuel efficiency, interior space, or performance. Understanding these differences can help you make a more informed decision that aligns with your lifestyle and budget.
+			</p>
+
+			<div class="flex justify-between mb-40 gap-16 md-flex-col">
+				<ul class="blog-detail-tags flex gap-12">
+					<li>
+						<p>Tag:</p>
+					</li>
+					<li>
+						<a href="blog-standard.html">Performance</a>
+					</li>
+					<li>
+						<a href="blog-standard.html">Luxury</a>
+					</li>
+				</ul>
+
+				<ul class="blog-detail-social flex gap-12">
+					<li>
+						<p>Share this post:</p>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102340)">
+									<path d="M6.25 11.25L8.75 8.75L11.25 11.25L13.75 8.75" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M6.24382 16.4932C7.81923 17.405 9.67248 17.7127 11.458 17.359C13.2436 17.0053 14.8396 16.0143 15.9484 14.5708C17.0573 13.1273 17.6033 11.3298 17.4847 9.51341C17.3662 7.69704 16.5911 5.98577 15.304 4.69866C14.0169 3.41156 12.3056 2.63646 10.4892 2.51789C8.67284 2.39932 6.87533 2.94537 5.43182 4.05422C3.98831 5.16308 2.99733 6.75906 2.64363 8.54461C2.28993 10.3302 2.59766 12.1834 3.50944 13.7588L2.5321 16.6768C2.49538 16.7869 2.49005 16.9051 2.51671 17.0181C2.54337 17.131 2.60097 17.2344 2.68306 17.3165C2.76514 17.3985 2.86847 17.4561 2.98145 17.4828C3.09443 17.5095 3.2126 17.5041 3.32273 17.4674L6.24382 16.4932Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="https://x.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102345)">
+									<path d="M3.75 3.125H7.5L16.25 16.875H12.5L3.75 3.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M8.89687 11.2129L3.75 16.8746" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M16.2484 3.125L11.1016 8.78672" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102351)">
+									<path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M13.75 2.5H6.25C4.17893 2.5 2.5 4.17893 2.5 6.25V13.75C2.5 15.8211 4.17893 17.5 6.25 17.5H13.75C15.8211 17.5 17.5 15.8211 17.5 13.75V6.25C17.5 4.17893 15.8211 2.5 13.75 2.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M14.0625 6.71875C14.494 6.71875 14.8438 6.36897 14.8438 5.9375C14.8438 5.50603 14.494 5.15625 14.0625 5.15625C13.631 5.15625 13.2812 5.50603 13.2812 5.9375C13.2812 6.36897 13.631 6.71875 14.0625 6.71875Z" fill="#1C1C1C" />
+								</g>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="divider mb-26"></div>
+
+			<div class="flex justify-between mb-24 blog-detail-recentpost">
+				<div class="previous">
+					<p class="font-weight-600 text-highlight uppercase mb-4">PREVIOUS</p>
+					<a href="blog-details-2.html" class="h5 font-weight-500 capitalize">
+						Truck vs. Minivan: Which is Better for Family Needs?
+					</a>
+				</div>
+
+				<div class="next">
+					<p class="font-weight-600 text-highlight uppercase mb-4 text-right">NEXT</p>
+					<a href="blog-details-2.html" class="h5 font-weight-500 text-right capitalize">
+						Tires: All-Season vs. Summer vs. Winter – What You Need to Know
+					</a>
+				</div>
+
+			</div>
+
+			<div class="divider mb-40"></div>
+
+			<p class="h3 mb-20">
+				03 Comments
+			</p>
+
+			<div class="flex flex-col gap-24 mb-42">
+
+				<a href="#" class="comments-post">
+					<div class="avatar">
+						<img src="assets/images/blog/comments-post-1.jpg" alt="avatar">
+					</div>
+					<div class="content">
+						<p class="h5 mb-4">
+							Guy Hawkins
+						</p>
+						<p class="text-secondary text-sm mb-12">
+							1 days ago
+						</p>
+						<p class="text-secondary h7 mb-12">
+							Great article! Understanding the differences between compact and full-size SUVs helped my decision.
+						</p>
+
+						<p class="text-underline font-weight-600 text-highlight">Reply</p>
+					</div>
+				</a>
+
+				<a href="#" class="comments-post comments-post--inner">
+					<div class="avatar">
+						<img src="assets/images/blog/comments-post-2.jpg" alt="avatar">
+					</div>
+					<div class="content">
+						<p class="mb-4">
+							Tony Nguyen
+						</p>
+						<p class="text-secondary text-sm mb-12">
+							2 days ago
+						</p>
+						<p class="text-secondary h7 mb-12">
+							Interesting read! I’m looking for advice on choosing the right SUV. Any recommendations?
+						</p>
+
+						<p class="text-underline font-weight-600 text-highlight">Reply</p>
+					</div>
+				</a>
+
+				<a href="#" class="comments-post">
+					<div class="avatar">
+						<img src="assets/images/blog/comments-post-3.jpg" alt="avatar">
+					</div>
+					<div class="content">
+						<p class="h5 mb-4">
+							John Smith
+						</p>
+						<p class="text-secondary text-sm mb-12">
+							3 days ago
+						</p>
+						<p class="text-secondary h7 mb-12">
+							Glad you found it helpful! Choosing between compact and full-size SUVs impacts convenience.
+						</p>
+
+						<p class="text-underline font-weight-600 text-highlight">Reply</p>
+					</div>
+				</a>
+			</div>
+
+			<form action="#" class="blog-detail-comment-form">
+				<p class="h3 mb-24 capitalize">Leave A comment</p>
+				<div class="grid grid-cols-2 gap-22 mb-16 md-grid-cols-1">
+					<div class="md-col-span-2">
+						<p class="mb-8">You Name (Public)</p>
+						<input class="active input-large" id="name-comment" name="name-review" type="text" value="Tony Nguyen" required="">
+					</div>
+					<div class="md-col-span-2">
+						<p class="mb-8">Your email (private)</p>
+						<input class="input-large" name="email-comment" id="email-review" type="text" value="themesflat@gmail.com" required="">
+					</div>
+
+					<div class="col-span-2 padding-0">
+						<p class="mb-8">Comment</p>
+						<textarea placeholder="Write your comment here" rows="3" tabindex="5" name="comment" class="message" id="comment" required></textarea>
+					</div>
+
+
+				</div>
+
+				<label class="filter-checkbox style-2 style-3 mb-28">
+					<input type="checkbox" name="features" value="touch-screen">
+					<span>Save your name, email for the next time review</span>
+				</label>
+				<button class="btn btn-primary-3 btn-large font-weight-600 capitalize">
+					Post Comment
+				</button>
+			</form>
+		</div>
+
+		<div class="innerpage__sidebar">
+			<form action="#" class="widget-search w-full mb-34">
+				<input class="input-normal" type="text" name="search-header" required id="search-header" placeholder="Search products...">
+				<button type="submit" class="widget-search-btn">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0_13399_10504)">
+							<path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M15.8047 15.8047L21.0012 21.0012" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</g>
+					</svg>
+				</button>
+			</form>
+
+			<div class="mb-32">
+				<div class="listing-details--contact-dealer style-3 mb-20">
+					<img src="assets/images/avatar/contact-avatar.png" alt="dealer">
+
+					<div class="content">
+						<a href="#" class="h4 mb-8 font-weight-600">Mike Hanley</a>
+
+						<p class="text-secondary">200 Follower</p>
+					</div>
+				</div>
+
+				<p class="mb-16">Mike Hanley (mike_hanley) is a writer who draws. He’s the Bestselling author of “Number of The Year”.</p>
+
+				<ul class="blog-detail-social flex gap-12">
+					<li>
+						<a href="https://www.facebook.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102340)">
+									<path d="M6.25 11.25L8.75 8.75L11.25 11.25L13.75 8.75" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M6.24382 16.4932C7.81923 17.405 9.67248 17.7127 11.458 17.359C13.2436 17.0053 14.8396 16.0143 15.9484 14.5708C17.0573 13.1273 17.6033 11.3298 17.4847 9.51341C17.3662 7.69704 16.5911 5.98577 15.304 4.69866C14.0169 3.41156 12.3056 2.63646 10.4892 2.51789C8.67284 2.39932 6.87533 2.94537 5.43182 4.05422C3.98831 5.16308 2.99733 6.75906 2.64363 8.54461C2.28993 10.3302 2.59766 12.1834 3.50944 13.7588L2.5321 16.6768C2.49538 16.7869 2.49005 16.9051 2.51671 17.0181C2.54337 17.131 2.60097 17.2344 2.68306 17.3165C2.76514 17.3985 2.86847 17.4561 2.98145 17.4828C3.09443 17.5095 3.2126 17.5041 3.32273 17.4674L6.24382 16.4932Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="https://x.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102345)">
+									<path d="M3.75 3.125H7.5L16.25 16.875H12.5L3.75 3.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M8.89687 11.2129L3.75 16.8746" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M16.2484 3.125L11.1016 8.78672" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102351)">
+									<path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M13.75 2.5H6.25C4.17893 2.5 2.5 4.17893 2.5 6.25V13.75C2.5 15.8211 4.17893 17.5 6.25 17.5H13.75C15.8211 17.5 17.5 15.8211 17.5 13.75V6.25C17.5 4.17893 15.8211 2.5 13.75 2.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M14.0625 6.71875C14.494 6.71875 14.8438 6.36897 14.8438 5.9375C14.8438 5.50603 14.494 5.15625 14.0625 5.15625C13.631 5.15625 13.2812 5.50603 13.2812 5.9375C13.2812 6.36897 13.631 6.71875 14.0625 6.71875Z" fill="#1C1C1C" />
+								</g>
+							</svg>
+						</a>
+					</li>
+
+					<li>
+						<a href="https://secure.skype.com/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102148)">
+									<path d="M7.5 11.875C7.5 12.9102 8.61953 13.75 10 13.75C11.3805 13.75 12.5 12.9102 12.5 11.875C12.5 9.375 7.63906 10.3125 7.63906 8.125C7.63906 7.08984 8.61953 6.25 10 6.25C11.0352 6.25 11.8461 6.71875 12.1875 7.39531" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M16.7185 11.4599C17.2734 12.1817 17.5469 13.0806 17.4877 13.9891C17.4286 14.8976 17.0411 15.7536 16.3973 16.3973C15.7536 17.0411 14.8976 17.4286 13.9891 17.4877C13.0806 17.5469 12.1817 17.2734 11.4599 16.7185C10.3352 16.9617 9.16735 16.9188 8.06341 16.5939C6.95947 16.269 5.95465 15.6723 5.14094 14.8586C4.32722 14.0449 3.7306 13.0401 3.40567 11.9362C3.08074 10.8322 3.03789 9.66441 3.28103 8.53963C2.72612 7.81789 2.45272 6.91893 2.51182 6.01045C2.57093 5.10197 2.95851 4.24601 3.60226 3.60226C4.24601 2.95851 5.10197 2.57093 6.01045 2.51182C6.91893 2.45272 7.81789 2.72612 8.53963 3.28103C9.66441 3.03789 10.8322 3.08074 11.9362 3.40567C13.0401 3.7306 14.0449 4.32722 14.8586 5.14094C15.6723 5.95465 16.269 6.95947 16.5939 8.06341C16.9188 9.16735 16.9617 10.3352 16.7185 11.4599Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</a>
+					</li>
+
+					<li>
+						<a href="https://desktop.telegram.org/">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13439_102153)">
+									<path d="M6.24939 10.5366L13.301 16.7186C13.3822 16.7903 13.4806 16.8396 13.5867 16.8618C13.6927 16.8839 13.8027 16.8781 13.9058 16.845C14.0089 16.8118 14.1016 16.7524 14.1749 16.6726C14.2481 16.5928 14.2994 16.4953 14.3236 16.3897L17.4994 2.59521C17.5025 2.58138 17.5018 2.56696 17.4973 2.55351C17.4928 2.54006 17.4848 2.52807 17.474 2.51884C17.4633 2.50961 17.4502 2.50348 17.4362 2.5011C17.4223 2.49873 17.4079 2.5002 17.3947 2.50537L1.56189 8.70146C1.4636 8.73929 1.38023 8.80798 1.3243 8.89722C1.26837 8.98646 1.2429 9.09143 1.2517 9.19638C1.26051 9.30133 1.30312 9.4006 1.37313 9.47927C1.44315 9.55794 1.5368 9.61178 1.64001 9.63271L6.24939 10.5366Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M6.25 10.5375L17.4539 2.50781" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M9.71641 13.5789L7.325 16.0602C7.23859 16.1498 7.12737 16.2116 7.00561 16.2376C6.88384 16.2636 6.75708 16.2527 6.64157 16.2062C6.52607 16.1597 6.42709 16.0797 6.35732 15.9766C6.28755 15.8735 6.25018 15.7519 6.25 15.6273V10.5391" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="divider mb-32 w-full"></div>
+
+			<p class="h4 mb-16">
+				Categories
+			</p>
+
+			<ul class="widget-categories mb-32">
+				<li>
+					<a href="blog-standard.html" class="active">
+						<span class="label">Auto Maintenance</span>
+						<span>(22)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Car Buying Tips</span>
+						<span>(15)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Car Technology</span>
+						<span>(16)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Electric & Hybrid Cars</span>
+						<span>(08)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Luxury Cars</span>
+						<span>(19)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Road Trips & Travel</span>
+						<span>(21)</span>
+					</a>
+				</li>
+			</ul>
+
+			<div class="divider mb-32 w-full"></div>
+
+			<p class="h4 mb-16 capitalize">
+				Recent posts
+			</p>
+
+			<div class="mb-32">
+				<a href="blog-details-2.html" class="recent-post overflow-hidden mb-16">
+					<div class="image">
+						<img class="post--img flex" src="assets/images/blog/post-25.jpg" alt="news">
+					</div>
+					<div class="content">
+						<div class=" flex gap-12 md-gap-6 justify-start mb-6">
+							<span class="text-xs">by Admin</span>
+							<span class="text-xs">Aug. 5, 2025</span>
+							<span class="text-xs text-highlight uppercase text-underline">NEWS</span>
+						</div>
+						<p class="title h7">
+							Top 5 Tips for Maintaining Your Car's Resale Value
+						</p>
+					</div>
+				</a>
+				<div class="divider mb-16 w-full"></div>
+
+				<a href="blog-details-2.html" class="recent-post overflow-hidden mb-16">
+					<div class="image">
+						<img class="post--img flex" src="assets/images/blog/post-26.jpg" alt="news">
+					</div>
+					<div class="content">
+						<div class=" flex gap-12 md-gap-6 justify-start mb-6">
+							<span class="text-xs">by Admin</span>
+							<span class="text-xs">Aug. 21, 2025</span>
+							<span class="text-xs text-highlight uppercase text-underline">EXPERT REVIEW</span>
+						</div>
+						<p class="title h7">
+							The Rise of Autonomous Vehicles: What to Expect
+						</p>
+					</div>
+				</a>
+				<div class="divider mb-16 w-full"></div>
+
+				<a href="blog-details-2.html" class="recent-post overflow-hidden mb-16">
+					<div class="image">
+						<img class="post--img flex" src="assets/images/blog/post-27.jpg" alt="news">
+					</div>
+					<div class="content">
+						<div class=" flex gap-12 md-gap-6 justify-start mb-6">
+							<span class="text-xs">by Admin</span>
+							<span class="text-xs">Aug. 24, 2025</span>
+							<span class="text-xs text-highlight uppercase text-underline">TIPS</span>
+						</div>
+						<p class="title h7">
+							How to Choose the Best Tires for Your Car
+						</p>
+					</div>
+				</a>
+				<div class="divider mb-16 w-full"></div>
+
+				<a href="blog-details-2.html" class="recent-post overflow-hidden mb-16">
+					<div class="image">
+						<img class="post--img flex" src="assets/images/blog/post-28.jpg" alt="news">
+					</div>
+					<div class="content">
+						<div class=" flex gap-12 md-gap-6 justify-start mb-6">
+							<span class="text-xs">by Admin</span>
+							<span class="text-xs">Aug. 25, 2025</span>
+							<span class="text-xs text-highlight uppercase text-underline">TIPS</span>
+						</div>
+						<p class="title h7">
+							Hidden Costs of Owning a Luxury Car
+						</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="divider mb-32 w-full"></div>
+
+			<p class="h4 mb-16">
+				Type Car
+			</p>
+
+			<ul class="widget-categories mb-32">
+				<li>
+					<a href="blog-standard.html" class="active">
+						<span class="label">Electric Car</span>
+						<span>(22)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Sedan Car</span>
+						<span>(15)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">SUV Car</span>
+						<span>(16)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Luxury Car</span>
+						<span>(08)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Hatchback Car</span>
+						<span>(19)</span>
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						<span class="label">Crossover Car</span>
+						<span>(21)</span>
+					</a>
+				</li>
+			</ul>
+
+			<div class="divider mb-32 w-full"></div>
+
+			<p class="h4 mb-18">
+				Subscribe Newsletter
+			</p>
+			<form action="#" class="widget-search w-full mb-34">
+				<input class="input-normal" type="text" name="search-headerSubscribe" required id="search-headerSubscribe" placeholder="Email address">
+				<button type="submit" class="widget-search-btn">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M21.3112 2.689C21.1226 2.5005 20.8871 2.36569 20.629 2.29846C20.371 2.23122 20.0997 2.234 19.843 2.3065H19.829L1.83461 7.7665C1.54248 7.85069 1.28283 8.02166 1.09007 8.25676C0.897302 8.49185 0.780525 8.77997 0.75521 9.08294C0.729895 9.3859 0.797238 9.6894 0.948314 9.95323C1.09939 10.2171 1.32707 10.4287 1.60117 10.5602L9.56242 14.4377L13.4343 22.3943C13.5547 22.6513 13.7462 22.8685 13.9861 23.0201C14.226 23.1718 14.5042 23.2517 14.788 23.2502C14.8312 23.2502 14.8743 23.2484 14.9174 23.2446C15.2201 23.2201 15.5081 23.1036 15.7427 22.9107C15.9773 22.7178 16.1473 22.4578 16.2299 22.1656L21.6862 4.17119C21.6862 4.1665 21.6862 4.16181 21.6862 4.15712C21.7596 3.90115 21.7636 3.63024 21.6977 3.37223C21.6318 3.11421 21.4984 2.8784 21.3112 2.689ZM14.7965 21.7362L14.7918 21.7493V21.7427L11.0362 14.0271L15.5362 9.52712C15.6709 9.38533 15.7449 9.19651 15.7424 9.00094C15.7399 8.80537 15.6611 8.61852 15.5228 8.48022C15.3845 8.34191 15.1976 8.26311 15.002 8.26061C14.8065 8.2581 14.6177 8.3321 14.4759 8.46681L9.97586 12.9668L2.25742 9.21119H2.25086H2.26399L20.2499 3.75025L14.7965 21.7362Z" fill="#1C1C1C" />
+					</svg>
+				</button>
+			</form>
+
+			<div class="divider mb-32 w-full"></div>
+
+			<p class="h4 mb-16">
+				Tags
+			</p>
+
+			<ul class="widget-tags">
+				<li>
+					<a class="active" href="blog-standard.html">
+						Performance
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Luxury
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Safety
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Technology
+					</a>
+				</li>
+
+				<li>
+					<a href="blog-standard.html">
+						Maintenance
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Fuel Efficiency
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Design
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Reviews
+					</a>
+				</li>
+				<li>
+					<a href="blog-standard.html">
+						Trends
+					</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</section>
+<!-- New Cars -->
+
+<section class="py-100">
+	<div class="container">
+		<h2 class="mb-12">Related Articles</h2>
+		<p class="h7 text-secondary mb-40">
+			Get the latest insights, expert tips, and updates to stay informed and inspired.
+		</p>
+		<div class="swiper-container swiper-news">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="blog-details-2.html" class="post-style-2 overflow-hidden">
+						<img class="post--img flex" src="assets/images/blog/post-4.jpg" alt="news">
+						<div class="content">
+							<p class="h5 text-white mb-8 title">
+								2025 BMW 5 Series Priced From $59,375; i5 EV From $68,275
+							</p>
+							<div class=" flex gap-8 justify-start">
+								<span class="text-white text-xs">by Admin</span>
+								<span class="text-white text-xs">Aug. 5, 2025</span>
+								<span class="text-xs text-highlight uppercase text-underline">Expert Review</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="swiper-slide">
+					<a href="blog-details-2.html" class="post-style-2 overflow-hidden">
+						<img class="post--img flex" src="assets/images/blog/post-5.jpg" alt="news">
+						<div class="content">
+							<p class="h5 text-white mb-8 title">
+								2025 BMW 5 Series Priced From $59,375; i5 EV From $68,275
+							</p>
+							<div class=" flex gap-8 justify-start">
+								<span class="text-white text-xs">by Admin</span>
+								<span class="text-white text-xs">Aug. 5, 2025</span>
+								<span class="text-xs text-highlight uppercase text-underline">NEWS</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="swiper-slide">
+					<a href="blog-details-2.html" class="post-style-2 overflow-hidden">
+						<img class="post--img flex" src="assets/images/blog/post-6.jpg" alt="news">
+						<div class="content">
+							<p class="h5 text-white mb-8 title">
+								2025 BMW 5 Series Priced From $59,375; i5 EV From $68,275
+							</p>
+							<div class=" flex gap-8 justify-start">
+								<span class="text-white text-xs">by Admin</span>
+								<span class="text-white text-xs">Aug. 5, 2025</span>
+								<span class="text-xs text-highlight uppercase text-underline">NEWS</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-news mt-35"></div>
+		</div>
+	</div>
+</section>

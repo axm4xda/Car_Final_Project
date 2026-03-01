@@ -1,0 +1,75 @@
+﻿@model Car_Project.ViewModels.TermsOfUseViewModel
+@{
+    ViewData["Title"] = "Terms of Use";
+}
+
+<!-- breadcrumb -->
+<section class="background-light mb-32">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li>
+                <img src="~/assets/icons/right.svg" alt="chevron-right">
+            </li>
+            <li>
+                <span>Pages</span>
+            </li>
+            <li>
+                <img src="~/assets/icons/right.svg" alt="chevron-right">
+            </li>
+            <li>
+                <span class="capitalize">Terms of Use</span>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- breadcrumb -->
+
+<section class="bg-white pb-100">
+    <div class="container">
+        <h2 class="capitalize">Terms of Use</h2>
+        <div class="tf-spacing-style3"></div>
+
+        <div class="term-page" id="scrollContainer">
+            <!-- Sidebar Navigation -->
+            <div class="term-page--nav-container">
+                <ul class="term-page--nav" id="sidebarSticky">
+                    @foreach (var section in Model.Sections)
+                    {
+                        <li>
+                            <a href="#@section.AnchorId">@section.Title</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                @foreach (var section in Model.Sections)
+                {
+                    <div class="section" id="@section.AnchorId">
+                        <p class="h4 mb-12 capitalize">@section.Title</p>
+
+                        @for (int i = 0; i < section.Paragraphs.Count; i++)
+                        {
+                            bool isLast = (i == section.Paragraphs.Count - 1) && !section.BulletPoints.Any();
+                            <p class="text-body-style-2 @(isLast ? "" : "mb-12")">@section.Paragraphs[i]</p>
+                        }
+
+                        @if (section.BulletPoints.Any())
+                        {
+                            <ul class="list-style">
+                                @foreach (var bullet in section.BulletPoints)
+                                {
+                                    <li class="mb-12 text-body-style-2">@bullet</li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

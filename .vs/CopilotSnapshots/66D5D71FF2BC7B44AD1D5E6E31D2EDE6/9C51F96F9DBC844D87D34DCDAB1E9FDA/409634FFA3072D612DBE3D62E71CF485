@@ -1,0 +1,315 @@
+﻿<!-- breadcrumb -->
+<section class="background-light">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Check Out</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- breadcrumb -->
+<!-- Find Your Perfect Used Car -->
+<section class="bg-white shopping-cart-page">
+	<div class="container">
+
+		<form class="w-full" action="#">
+			<div class="checkout-container">
+				<div class="left">
+					<h2>Check Out</h2>
+					<div class="tf-spacing-style3"></div>
+					<p class="h4 mb-20">Billing Details:</p>
+					<div class="grid grid-cols-2 md-grid-cols-1 gap-16 mb-35">
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="First Name*" name="first-name" id="first-name" required>
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="Last Name*" name="last-name" id="last-name" required>
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="Email Address*" name="EmailAddress" id="EmailAddress" required>
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="Phone Number*" name="PhoneNumber" id="PhoneNumber" required>
+
+						<div class="mb-6 col-span-2 padding-0">
+							<div class="custom-select" data-target="#country">
+								<div class="select-selected select--black" tabindex="0">Choose Country/Region</div>
+								<div class="select-items">
+									<div data-value="1">Canada</div>
+									<div data-value="2">Viet Nam</div>
+								</div>
+							</div>
+							<input type="hidden" id="country">
+
+						</div>
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="Town/City*" name="TownCity" id="TownCity" required>
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="Street,..." name="Street" id="Street">
+
+						<div class="mb-6 padding-0">
+							<div class="custom-select" data-target="#state">
+								<div class="select-selected select--black" tabindex="0">Choose State</div>
+								<div class="select-items">
+									<div data-value="1">Canada</div>
+									<div data-value="2">Viet Nam</div>
+								</div>
+							</div>
+							<input type="hidden" id="state">
+						</div>
+						<input class="input-large mb-6 md-col-span-2" type="text" placeholder="Postal Code*" name="Postal" id="Postal" required>
+						<div class="col-span-2 padding-0">
+							<textarea placeholder="Write note..." rows="3" tabindex="5" name="Writenote" class="message" id="Writenote"></textarea>
+						</div>
+					</div>
+
+					<p class="h4 capitalize mb-20">Choose payment Option:</p>
+
+					<div class="flat-accordion style-2 flex flex-col gap-20 max-width-930 wow fadeIn mb-40" data-wow-delay=".3s">
+						<div class="flat-toggle active bg-white">
+							<div class="toggle-title active">
+								<div class="filter-radio">
+									<input type="radio" name="CreditCard" value="35" checked>
+									<div class="label-focus">
+										<div class="flex items-center gap-8 font-weight-600">
+											Credit Card
+										</div>
+									</div>
+								</div>
+								<span class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+							</div>
+							<div class="toggle-content ">
+								<p class="mb-20 text-secondary">
+									Make your payment directly into our bank account. Your order will not be shipped until the funds have cleared in our account.
+								</p>
+								<div class="grid grid-cols-2 lg-grid-cols-1 gap-16">
+
+									<div class="col-span-2 padding-0">
+										<input class="input-large mb-6" type="text" placeholder="Name On Card*" name="NameOnCard" id="NameOnCard" required>
+									</div>
+
+									<div class="relative col-span-2 padding-0 input-payment-wrapper">
+										<input class="input-large mb-6" type="text" placeholder="Card Numbers*" name="CardNumbersCardNumbers" id="CardNumbersCardNumbers" required>
+										<img class="payment h-16" src="assets/icons/Payment.png" alt="Payment">
+									</div>
+
+
+									<div class="mb-8 col-span-2 padding-0 grid grid-cols-2 lg-grid-cols-1 gap-16">
+										<input class="input-large" type="text" placeholder="mm/yy*" name="CardNumbersmmyy2" id="CardNumbersmmyy2" required>
+										<input class="input-large" type="text" placeholder="CVV*" name="CVV" id="CVV">
+									</div>
+
+									<label class="filter-checkbox style-5">
+										<input type="checkbox" name="features" value="touch-screen" checked>
+										<span>Save Card Details</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="flat-toggle bg-white">
+							<div class="toggle-title">
+								<div class="filter-radio">
+									<input type="radio" name="Cashdelivery" value="32">
+									<div class="label-focus">
+										<div class="flex items-center gap-8 font-weight-600">
+											Cash on delivery
+										</div>
+									</div>
+								</div>
+								<span class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+							</div>
+							<div class="toggle-content ">
+								<p class="mb-20 text-secondary">
+									Make your payment directly into our bank account. Your order will not be shipped until the funds have cleared in our account.
+								</p>
+								<div class="grid grid-cols-2 lg-grid-cols-1 gap-16">
+
+									<div class="col-span-2 padding-0">
+										<input class="input-large mb-6" type="text" placeholder="Name On Card*" name="NameOnCard" id="CardNumbersNameOnCard">
+									</div>
+
+									<div class="relative mb-6 col-span-2 padding-0 input-payment-wrapper">
+										<input class="input-large mb-6" type="text" placeholder="Card Numbers*" name="CardNumbersCardNumbers2" id="CardNumbersCardNumbers2">
+										<img class="payment h-16" src="assets/icons/Payment.png" alt="Payment">
+									</div>
+
+
+									<div class="mb-6 col-span-2 padding-0 grid grid-cols-2 lg-grid-cols-1 gap-16">
+										<input class="input-large mb-6" type="text" placeholder="mm/yy*" name="CardNumbersmmyy" id="CardNumbersmmyy">
+										<input class="input-large mb-6" type="text" placeholder="CVV*" name="CVV" id="CardNumbersCVV">
+									</div>
+
+									<label class="filter-checkbox style-5">
+										<input type="checkbox" name="features" value="touch-screen" checked>
+										<span>Save Card Details</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="flat-toggle bg-white">
+							<div class="toggle-title">
+								<div class="filter-radio">
+									<input type="radio" name="ApplePay" value="34">
+									<div class="label-focus">
+										<div class="flex items-center gap-8 font-weight-600">
+											<img src="assets/icons/ApplePay.svg" alt="Apple Pay">
+											Apple Pay
+										</div>
+									</div>
+								</div>
+								<span class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+							</div>
+							<div class="toggle-content ">
+								<p class="mb-20 text-secondary">
+									Make your payment directly into our bank account. Your order will not be shipped until the funds have cleared in our account.
+								</p>
+								<div class="grid grid-cols-2 lg-grid-cols-1 gap-16">
+
+									<div class="col-span-2 padding-0">
+										<input class="input-large mb-6" type="text" placeholder="Name On Card*" name="NameOnCard" id="AppleNameOnCard">
+									</div>
+
+									<div class="relative mb-6 col-span-2 padding-0 input-payment-wrapper">
+										<input class="input-large mb-6" type="text" placeholder="Card Numbers*" name="CardNumbers" id="AppleCardNumbers">
+										<img class="payment h-16" src="assets/icons/Payment.png" alt="Payment">
+									</div>
+
+
+									<div class="mb-6 col-span-2 padding-0 grid grid-cols-2 lg-grid-cols-1 gap-16">
+										<input class="input-large mb-6" type="text" placeholder="mm/yy*" name="mmyy" id="Applemmyy">
+										<input class="input-large mb-6" type="text" placeholder="CVV*" name="CVV" id="AppleCVV">
+									</div>
+
+									<label class="filter-checkbox style-5">
+										<input type="checkbox" name="features" value="touch-screen" checked>
+										<span>Save Card Details</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="flat-toggle bg-white">
+							<div class="toggle-title">
+								<div class="filter-radio h-full">
+									<input type="radio" name="paypal" value="35">
+									<div class="label-focus top-0">
+										<img src="assets/icons/paypal.svg" alt="Apple Pay">
+									</div>
+								</div>
+								<span class="icon">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</span>
+							</div>
+							<div class="toggle-content ">
+								<p class="mb-20 text-secondary">
+									Make your payment directly into our bank account. Your order will not be shipped until the funds have cleared in our account.
+								</p>
+								<div class="grid grid-cols-2 lg-grid-cols-1 gap-16">
+
+									<div class="col-span-2 padding-0">
+										<input class="input-large mb-6" type="text" placeholder="Name On Card*" name="NameOnCard" id="paypalNameOnCard">
+									</div>
+
+									<div class="relative mb-6 col-span-2 padding-0 input-payment-wrapper">
+										<input class="input-large mb-6" type="text" placeholder="Card Numbers*" name="CardNumbers" id="paypalCardNumbers">
+										<img class="payment h-16" src="assets/icons/Payment.png" alt="paypalPayment">
+									</div>
+
+
+									<div class="mb-6 col-span-2 padding-0 grid grid-cols-2 lg-grid-cols-1 gap-16">
+										<input class="input-large mb-6" type="text" placeholder="mm/yy*" name="mmyy" id="paypalmmyy">
+										<input class="input-large mb-6" type="text" placeholder="CVV*" name="CVV" id="paypalCVV">
+									</div>
+
+									<label class="filter-checkbox style-5">
+										<input type="checkbox" name="features" value="touch-screen" checked>
+										<span>Save Card Details</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-large w-full">
+						Place Order
+					</button>
+				</div>
+				<div class="right">
+					<div class="h-48 lg-hidden"></div>
+					<div class="tf-spacing-style3"></div>
+					<p class="h4 mb-30">Your Order</p>
+
+					<div class="your-order mb-20">
+						<a href="product-details.html" class="order-item">
+							<div class="flex items-center gap-16">
+								<img class="order-item-img" src="assets/images/shop/product-1.jpg" alt="Shadow Blackout Coating">
+								<p class="font-weight-600">Shadow Blackout Coating</p>
+							</div>
+							<p class="font-weight-600">1 X $60.00</p>
+						</a>
+
+						<a href="product-details.html" class="order-item">
+							<div class="flex items-center gap-16">
+								<img class="order-item-img" src="assets/images/shop/product-4.jpg" alt="Shadow Blackout Coating">
+								<p class="font-weight-600">Wheel/Rim for Passenger & CUV</p>
+							</div>
+							<p class="font-weight-600">1 X $60.00</p>
+						</a>
+
+						<a href="product-details.html" class="order-item">
+							<div class="flex items-center gap-16">
+								<img class="order-item-img" src="assets/images/shop/product-7.jpg" alt="Shadow Blackout Coating">
+								<p class="font-weight-600">Maximum 40V MAX Battery</p>
+							</div>
+							<p class="font-weight-600">1 X $60.00</p>
+						</a>
+					</div>
+
+					<div class="cart-total style-2 flex justify-between gap-12 flex-col mb-12">
+						<div class="cart-total__voucher full">
+							<input type="text" class="input-large" placeholder="Add voucher discount">
+							<button type="button" class="btn btn-small-2 btn-primary">Apply Coupon</button>
+						</div>
+					</div>
+
+					<p class="text-sm mb-30">Discount code is only used for orders with a total value of products over $50.00</p>
+
+					<div class="divider mb-20"></div>
+
+					<div class="flex justify-between gap-8 mb-16">
+						<p class="font-weight-600">Shipping</p>
+						<p class="text-secondary">Free</p>
+					</div>
+
+					<div class="flex justify-between gap-8 mb-20">
+						<p class="font-weight-600">Discounts</p>
+						<p class="text-secondary">-$80.00</p>
+					</div>
+
+					<div class="divider mb-20"></div>
+
+					<div class="flex justify-between gap-8 mb-20">
+						<p class="h4 font-weight-600">Total</p>
+						<p class="h4 text-secondary">$186,99</p>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+</section>
+<!-- Find Your Perfect Used Car -->

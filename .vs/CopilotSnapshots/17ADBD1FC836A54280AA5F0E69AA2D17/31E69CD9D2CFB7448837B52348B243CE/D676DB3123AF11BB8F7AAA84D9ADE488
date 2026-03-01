@@ -1,0 +1,141 @@
+﻿@model Car_Project.ViewModels.Home.HomeIndexViewModel
+@using Car_Project.ViewModels.Home
+
+<!-- page-title -->
+<form asp-controller="List" asp-action="Index" method="get">
+	<section class="page-title flex h-706">
+		<div class="swiper-container page-title--slider sw-single">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-1.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-2.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-3.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-5.jpg"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Search Cars Section -->
+		<div class="search-cars container margin-top-auto margin-bottom-auto">
+			<h1 class="search-cars__title wow fadeInUp" data-wow-delay="0.1s">Search Cars Near You - Buy Today!</h1>
+
+			<div class="flat-tabs mb-16 wow fadeInUp" data-wow-delay="0.3s">
+				<div class="overflow-x-auto">
+					<ul class="menu-tab menu-tab-style1 text-white">
+						<li class="active"><span class="text-white font-weight-600">All Car</span></li>
+						<li><span class="text-white font-weight-600">New Car</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Primary Search Filters -->
+			<div class="search-cars__filters wow fadeInUp" data-wow-delay="0.5s">
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Brand">
+						<label for="BrandSelectToggle" class="search-cars__label">Select Brand</label>
+						<input type="checkbox" id="BrandSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="BrandSelectToggle" class="filter-select-dropdown__text">
+							<span>All Brand</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="Brand" value="all" checked>
+									<span>All Brand</span>
+								</label>
+								@foreach (var brand in Model.BrandNames)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="Brand" value="@brand">
+										<span>@brand</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="FuelType">
+						<label for="FuelTypeSelectToggle" class="search-cars__label">Fuel Type</label>
+						<input type="checkbox" id="FuelTypeSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="FuelTypeSelectToggle" class="filter-select-dropdown__text">
+							<span>All Fuel</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="FuelType" value="all" checked>
+									<span>All Fuel</span>
+								</label>
+								@foreach (var fuel in Model.FuelTypes)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="FuelType" value="@fuel">
+										<span>@fuel</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Transmission">
+						<label for="TransmissionSelectToggle" class="search-cars__label">Transmission</label>
+						<input type="checkbox" id="TransmissionSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="TransmissionSelectToggle" class="filter-select-dropdown__text">
+							<span>All</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="Transmission" value="all" checked>
+									<span>All</span>
+								</label>
+								@foreach (var t in Model.Transmissions)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="Transmission" value="@t">
+										<span>@t</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Filter Icon Button -->
+				<div class="search-cars__filter" id="filterToggle">
+					<img src="~/assets/icons/filter.svg" alt="Filter">
+				</div>
+
+				<button type="submit" class="search-cars__search flex items-center gap-8 justify-center md-w-full">
+					<img src="~/assets/icons/search.svg" alt="search">
+					Show @Model.TotalMatchCount.ToString("N0") Matches
+				</button>
+			</div>
+		</div>
+		<!-- Search Cars Section -->
+
+		<div class="swiper-pagination pagination-white pagination-style pagination-page-title--slider-1 mt-38"></div>
+	</section>
+</form>
+<!-- page-title -->
+
+<!-- New Cars -->
+<section class="container py-100 flat-tabs">
+	<div class="title-section mb-30 gap-8 wow fadeInUp" data-wow-delay="0.1s">
+		<ul class="menu-tab menu-tab-style2 text-white gap-40 md-gap-12">
+			<li class="active"><h2 class="text">New Cars</h2></li>
+		</ul>
+		<a asp-controller="List" asp-action="Index" class="btn btn-line-style-2 effect-line-primary hover-fill-white effect-line-primary btn-large">
+			View All
+			<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141

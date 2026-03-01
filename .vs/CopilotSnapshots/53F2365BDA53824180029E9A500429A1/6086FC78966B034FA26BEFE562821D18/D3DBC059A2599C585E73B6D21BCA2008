@@ -1,0 +1,35 @@
+﻿<body class="inner-page">
+
+    <div id="wrapper">
+        <section class="error-page">
+            <div class="container">
+
+                <div class="error-page-inner">
+                    <div class="image">
+                        <img src="assets/images/pages/404.jpg" alt="404">
+                    </div>
+
+                    <div>
+                        <div class="content">
+                            <p class="title mb-55">
+                                oops!
+                            </p>
+
+                            <h2 class="mb-12">Something is Missing....</h2>
+                            <p class="mb-24">The page you are looking for cannot be found. take a break before trying again </p>
+
+                            <div class="flex">
+                                <a href="index-2.html" class="btn btn-primary btn-large font-weight-600">
+                                    Back To Homepage
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</body> 

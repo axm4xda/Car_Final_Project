@@ -1,0 +1,126 @@
+﻿using System.Diagnostics;
+using Car_Project.Models;
+using Car_Project.Services.Abstractions;
+using Car_Project.ViewModels.Home;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Car_Project.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ICarService _carService;
+        private readonly IBrandService _brandService;
+        private readonly IReviewService _reviewService;
+        private readonly IBlogService _blogService;
+
+        public HomeController(
+            ICarService carService,
+            IBrandService brandService,
+            IReviewService reviewService,
+            IBlogService blogService)
+        {
+            _carService = carService;
+            _brandService = brandService;
+            _reviewService = reviewService;
+            _blogService = blogService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            // Bütün ma??nlar? g?tir
+            var allCars = await _carService.GetAllAsync();
+
+            // Yeni v? i?l?nmi? ma??nlar? ay?r
+            var newCars = allCars
+                .Where(c => c.Condition == CarCondition.New)
+                .Take(8)
+                .Select(MapToCarCard)
+                .ToList();
+
+            var usedCars = allCars
+                .Where(c => c.Condition == CarCondition.Used)
+                .Take(8)
+                .Select(MapToCarCard)
+                .ToList();
+
+            // Trending ma??nlar (?n yeni 6)
+            var trendingCars = allCars
+                .Take(6)
+                .Select(MapToCarCard)
+                .ToList();
+
+            // Brendl?r
+            var brands = (await _brandService.GetAllAsync())
+                .Select(b => new BrandCardViewModel
+                {
+                    Id = b.Id,
+                    Name = b.Name,
+                    LogoUrl = b.LogoUrl,
+                    VehicleCount = b.VehicleCount
+                })
+                .ToList();
+
+            // R?yl?r
+            var reviews = (await _reviewService.GetTopRatedAsync(8))
+                .Select(r => new ReviewCardViewModel
+                {
+                    AuthorName = r.AuthorName,
+                    AuthorTitle = r.AuthorTitle,
+                    AvatarUrl = r.AvatarUrl,
+                    Content = r.Content,
+                    Rating = r.Rating
+                })
+                .ToList();
+
+            // Son x?b?rl?r
+            var (blogPosts, _) = await _blogService.GetPublishedAsync(1, 3);
+            var latestNews = blogPosts
+                .Select(p => new NewsCardViewModel
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    ThumbnailUrl = p.ThumbnailUrl,
+                    AuthorName = p.AuthorName,
+                    PublishedAt = p.PublishedAt,
+                    CategoryName = p.Category?.Name ?? ""
+                })
+                .ToList();
+
+            // Brend adlar?n?n filter üçün
+            var brandNames = brands.Select(b => b.Name).ToList();
+
+            var viewModel = new HomeIndexViewModel
+            {
+                NewCars = newCars,
+                UsedCars = usedCars,
+                TrendingCars = trendingCars,
+                Brands = brands,
+                Reviews = reviews,
+                LatestNews = latestNews,
+                BrandNames = brandNames,
+                TotalMatchCount = allCars.Count
+            };
+
+            return View(viewModel);
+        }
+
+        private static CarCardViewModel MapToCarCard(Car c) => new()
+        {
+            Id = c.Id,
+            Title = c.Title,
+            Price = c.Price,
+            MonthlyPayment = c.MonthlyPayment,
+            Year = c.Year,
+            Mileage = c.Mileage,
+            FuelType = c.FuelType.ToString(),
+            Transmission = c.Transmission.ToString(),
+            ThumbnailUrl = c.Images.FirstOrDefault(i => i.IsMain)?.ImageUrl
+                           ?? c.Images.FirstOrDefault()?.ImageUrl,
+            Badge = c.Badge,
+            BadgeColor = c.BadgeColor,
+            BrandName = c.Brand?.Name ?? "",
+            ImageCount = c.Images.Count,
+            VideoCount = 0
+        };
+    }
+}

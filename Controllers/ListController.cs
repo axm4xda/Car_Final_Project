@@ -1,0 +1,177 @@
+﻿using Car_Project.Models;
+using Car_Project.Services.Abstractions;
+using Car_Project.ViewModels.List;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Car_Project.Controllers
+{
+    public class ListController : Controller
+    {
+        private readonly ICarService _carService;
+        private readonly IBrandService _brandService;
+        private readonly ICarFeatureService _carFeatureService;
+
+        public ListController(ICarService carService, IBrandService brandService, ICarFeatureService carFeatureService)
+        {
+            _carService = carService;
+            _brandService = brandService;
+            _carFeatureService = carFeatureService;
+        }
+
+        public async Task<IActionResult> Index(
+            string? brand = null,
+            string? condition = null,
+            string? fuelType = null,
+            string? transmission = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            int? minYear = null,
+            int? maxYear = null,
+            int page = 1,
+            string? viewMode = "grid")
+        {
+            const int pageSize = 9;
+
+            // Parse enums
+            int? brandId = null;
+            if (!string.IsNullOrEmpty(brand))
+            {
+                var brandObj = (await _brandService.GetAllAsync())
+                    .FirstOrDefault(b => b.Name.Equals(brand, StringComparison.OrdinalIgnoreCase));
+                brandId = brandObj?.Id;
+            }
+
+            CarCondition? conditionEnum = null;
+            if (!string.IsNullOrEmpty(condition) && Enum.TryParse<CarCondition>(condition, true, out var c))
+                conditionEnum = c;
+
+            FuelType? fuelTypeEnum = null;
+            if (!string.IsNullOrEmpty(fuelType) && Enum.TryParse<FuelType>(fuelType, true, out var f))
+                fuelTypeEnum = f;
+
+            TransmissionType? transmissionEnum = null;
+            if (!string.IsNullOrEmpty(transmission) && Enum.TryParse<TransmissionType>(transmission, true, out var t))
+                transmissionEnum = t;
+
+            var filtered = await _carService.GetFilteredAsync(
+                brandId, conditionEnum, fuelTypeEnum, transmissionEnum,
+                minPrice, maxPrice, minYear, maxYear);
+
+            // Pagination
+            var totalCount = filtered.Count;
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+            if (page < 1) page = 1;
+            var paged = filtered.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            // Brands for filter panel
+            var allBrands = await _brandService.GetAllAsync();
+
+            var cars = paged.Select(car => new ListCarCardViewModel
+            {
+                Id = car.Id,
+                Title = car.Title,
+                Price = car.Price,
+                MonthlyPayment = car.MonthlyPayment,
+                Year = car.Year,
+                Mileage = car.Mileage,
+                FuelType = car.FuelType.ToString(),
+                Transmission = car.Transmission.ToString(),
+                ThumbnailUrl = car.Images.FirstOrDefault(i => i.IsMain)?.ImageUrl
+                               ?? car.Images.FirstOrDefault()?.ImageUrl,
+                ImageUrls = car.Images.Select(i => i.ImageUrl).ToList(),
+                Badge = car.Badge,
+                BadgeColor = car.BadgeColor,
+                BrandName = car.Brand?.Name ?? "",
+                BodyStyle = car.BodyStyle,
+                Condition = car.Condition,
+                ImageCount = car.Images.Count,
+                VideoCount = 0
+            }).ToList();
+
+            var vm = new ListIndexViewModel
+            {
+                Cars = cars,
+                CurrentPage = page,
+                TotalPages = totalPages,
+                TotalCount = totalCount,
+                ViewMode = viewMode ?? "grid",
+                Filter = new ListFilterViewModel
+                {
+                    Brands = allBrands.Select(b => b.Name).ToList(),
+                    FuelTypes = Enum.GetNames<FuelType>().ToList(),
+                    Transmissions = Enum.GetNames<TransmissionType>().ToList(),
+                    SelectedBrand = brand,
+                    SelectedFuelType = fuelType,
+                    SelectedTransmission = transmission,
+                    MinPrice = minPrice,
+                    MaxPrice = maxPrice,
+                    MinYear = minYear ?? 2000,
+                    MaxYear = maxYear ?? 2026,
+                    Condition = condition
+                }
+            };
+
+            return View(vm);
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var car = await _carService.GetByIdAsync(id);
+            if (car == null)
+                return NotFound();
+
+            var features = await _carFeatureService.GetByCarIdAsync(id);
+            var relatedCars = await _carService.GetRelatedAsync(car.BrandId, car.Id, 4);
+
+            var vm = new ListDetailViewModel
+            {
+                Id = car.Id,
+                Title = car.Title,
+                Price = car.Price,
+                MonthlyPayment = car.MonthlyPayment,
+                Year = car.Year,
+                Mileage = car.Mileage,
+                FuelType = car.FuelType.ToString(),
+                Transmission = car.Transmission.ToString(),
+                BodyStyle = car.BodyStyle,
+                DriveType = car.DriveType,
+                Color = car.Color,
+                InteriorColor = car.InteriorColor,
+                Cylinders = car.Cylinders,
+                DoorCount = car.DoorCount,
+                Description = car.Description,
+                Badge = car.Badge,
+                BadgeColor = car.BadgeColor,
+                BrandName = car.Brand?.Name ?? "",
+                Condition = car.Condition,
+                ImageUrls = car.Images.OrderBy(i => i.Order).Select(i => i.ImageUrl).ToList(),
+                ImageCount = car.Images.Count,
+                VideoCount = 0,
+                Features = features.Select(f => f.Name).ToList(),
+                RelatedCars = relatedCars.Select(c => new ListCarCardViewModel
+                {
+                    Id = c.Id,
+                    Title = c.Title,
+                    Price = c.Price,
+                    MonthlyPayment = c.MonthlyPayment,
+                    Year = c.Year,
+                    Mileage = c.Mileage,
+                    FuelType = c.FuelType.ToString(),
+                    Transmission = c.Transmission.ToString(),
+                    ThumbnailUrl = c.Images.FirstOrDefault(i => i.IsMain)?.ImageUrl
+                                   ?? c.Images.FirstOrDefault()?.ImageUrl,
+                    ImageUrls = c.Images.Select(i => i.ImageUrl).ToList(),
+                    Badge = c.Badge,
+                    BadgeColor = c.BadgeColor,
+                    BrandName = c.Brand?.Name ?? "",
+                    BodyStyle = c.BodyStyle,
+                    Condition = c.Condition,
+                    ImageCount = c.Images.Count,
+                    VideoCount = 0
+                }).ToList()
+            };
+
+            return View(vm);
+        }
+    }
+}

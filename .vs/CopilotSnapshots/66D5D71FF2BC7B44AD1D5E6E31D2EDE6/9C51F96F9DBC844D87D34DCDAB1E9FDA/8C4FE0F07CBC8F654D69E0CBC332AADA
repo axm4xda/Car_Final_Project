@@ -1,0 +1,380 @@
+﻿<!-- breadcrumb -->
+<section class="background-light mb-32">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="index-2.html">Home</a>
+            </li>
+            <li>
+                <img src="assets/icons/right.svg" alt="chevron-right">
+            </li>
+            <li>
+                <span>Shopping Cart</span>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- breadcrumb -->
+<!-- Find Your Perfect Used Car -->
+<section class="bg-white pb-84 shopping-cart-page">
+    <div class="container">
+        <h2>Shopping Cart</h2>
+        <div class="tf-spacing-style3"></div>
+
+        <div class="innerpage-container">
+            <div class="innerpage__content md-mb-30">
+                <p class="flash-sale mb-20">
+                    <img class="icon" src="assets/icons/flash.png" alt="flash">
+                    <span class="text-primary">Your cart will expire in <span class="font-bold text-primary">04:48</span> minutes! Please checkout now before your items sell out!</span>
+                </p>
+
+
+                <p class="mb-4">
+                    Buy <span class="font-weight-600">$70.00</span> more to get <span class="font-weight-600">Freeship</span>
+                </p>
+
+                <div class="progress-bar mb-30">
+                    <div class="percent" style="--percent:50%;"></div>
+                    <div class="progress-bar__bg"></div>
+                </div>
+
+                <div class="cart-wrapper">
+                    <!-- Cart Header -->
+                    <div class="cart-header">
+                        <div class="font-weight-600">Products</div>
+                        <div class="font-weight-600">Price</div>
+                        <div class="font-weight-600">Quantity</div>
+                        <div class="font-weight-600">Total Price</div>
+                        <div class="font-weight-600"></div>
+                    </div>
+
+                    <!-- Cart Items -->
+                    <div class="cart-items" id="shopCartItems">
+                        <div class="cart-item">
+                            <div class="cart-item__product">
+                                <div class="cart-item__image">
+                                    <img src="assets/images/shop/product-1.jpg" alt="Shadow Blackout Coating">
+                                </div>
+                                <div class="cart-item__name">
+                                    <a href="#" class="font-weight-600">Shadow Blackout Coating</a>
+                                </div>
+                            </div>
+                            <div class="cart-item__price">
+                                <span class="price">$60.00</span>
+                            </div>
+                            <div class="cart-item__quantity">
+                                <div class="quantity-selector">
+                                    <button type="button" class="quantity-selector__btn quantity-selector__btn--minus flex">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <input class="quantity-selector__value" value="1" type="number" min="0">
+                                    <button type="button" class="quantity-selector__btn quantity-selector__btn--plus flex">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 5V19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M5 12H19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="total-price">1 X $120.00</span>
+                            </div>
+                            <div class="cart-item__action">
+                                <button type="button" class="cart-item__remove" aria-label="Remove item">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.64052 9.1099C9.67536 9.14474 9.703 9.1861 9.72186 9.23162C9.74071 9.27714 9.75042 9.32594 9.75042 9.37521C9.75042 9.42448 9.74071 9.47327 9.72186 9.5188C9.703 9.56432 9.67536 9.60568 9.64052 9.64052C9.60568 9.67536 9.56432 9.703 9.5188 9.72186C9.47327 9.74071 9.42448 9.75042 9.37521 9.75042C9.32594 9.75042 9.27714 9.74071 9.23162 9.72186C9.1861 9.703 9.14474 9.67536 9.1099 9.64052L6.00021 6.53036L2.89052 9.64052C2.82016 9.71089 2.72472 9.75042 2.62521 9.75042C2.5257 9.75042 2.43026 9.71089 2.3599 9.64052C2.28953 9.57016 2.25 9.47472 2.25 9.37521C2.25 9.2757 2.28953 9.18026 2.3599 9.1099L5.47005 6.00021L2.3599 2.89052C2.28953 2.82016 2.25 2.72472 2.25 2.62521C2.25 2.5257 2.28953 2.43026 2.3599 2.3599C2.43026 2.28953 2.5257 2.25 2.62521 2.25C2.72472 2.25 2.82016 2.28953 2.89052 2.3599L6.00021 5.47005L9.1099 2.3599C9.18026 2.28953 9.2757 2.25 9.37521 2.25C9.47472 2.25 9.57016 2.28953 9.64052 2.3599C9.71089 2.43026 9.75042 2.5257 9.75042 2.62521C9.75042 2.72472 9.71089 2.82016 9.64052 2.89052L6.53036 6.00021L9.64052 9.1099Z" fill="#1C1C1C" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="cart-item__product">
+                                <div class="cart-item__image">
+                                    <img src="assets/images/shop/product-4.jpg" alt="Wheel/Rim for Passenger & CUV">
+                                </div>
+                                <div class="cart-item__name">
+                                    <a href="#" class="font-weight-600">Wheel/Rim for Passenger & CUV</a>
+                                </div>
+                            </div>
+                            <div class="cart-item__price">
+                                <span class="price">$40.00</span>
+                            </div>
+                            <div class="cart-item__quantity">
+                                <div class="quantity-selector">
+                                    <button type="button" class="quantity-selector__btn quantity-selector__btn--minus flex">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <input class="quantity-selector__value" value="3" type="number" min="0">
+                                    <button type="button" class="quantity-selector__btn quantity-selector__btn--plus flex">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.64052 9.1099C9.67536 9.14474 9.703 9.1861 9.72186 9.23162C9.74071 9.27714 9.75042 9.32594 9.75042 9.37521C9.75042 9.42448 9.74071 9.47327 9.72186 9.5188C9.703 9.56432 9.67536 9.60568 9.64052 9.64052C9.60568 9.67536 9.56432 9.703 9.5188 9.72186C9.47327 9.74071 9.42448 9.75042 9.37521 9.75042C9.32594 9.75042 9.27714 9.74071 9.23162 9.72186C9.1861 9.703 9.14474 9.67536 9.1099 9.64052L6.00021 6.53036L2.89052 9.64052C2.82016 9.71089 2.72472 9.75042 2.62521 9.75042C2.5257 9.75042 2.43026 9.71089 2.3599 9.64052C2.28953 9.57016 2.25 9.47472 2.25 9.37521C2.25 9.2757 2.28953 9.18026 2.3599 9.1099L5.47005 6.00021L2.3599 2.89052C2.28953 2.82016 2.25 2.72472 2.25 2.62521C2.25 2.5257 2.28953 2.43026 2.3599 2.3599C2.43026 2.28953 2.5257 2.25 2.62521 2.25C2.72472 2.25 2.82016 2.28953 2.89052 2.3599L6.00021 5.47005L9.1099 2.3599C9.18026 2.28953 9.2757 2.25 9.37521 2.25C9.47472 2.25 9.57016 2.28953 9.64052 2.3599C9.71089 2.43026 9.75042 2.5257 9.75042 2.62521C9.75042 2.72472 9.71089 2.82016 9.64052 2.89052L6.53036 6.00021L9.64052 9.1099Z" fill="#1C1C1C" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="total-price">2 X $80.00</span>
+                            </div>
+                            <div class="cart-item__action">
+                                <button type="button" class="cart-item__remove" aria-label="Remove item">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.64052 9.1099C9.67536 9.14474 9.703 9.1861 9.72186 9.23162C9.74071 9.27714 9.75042 9.32594 9.75042 9.37521C9.75042 9.42448 9.74071 9.47327 9.72186 9.5188C9.703 9.56432 9.67536 9.60568 9.64052 9.64052C9.60568 9.67536 9.56432 9.703 9.5188 9.72186C9.47327 9.74071 9.42448 9.75042 9.37521 9.75042C9.32594 9.75042 9.27714 9.74071 9.23162 9.72186C9.1861 9.703 9.14474 9.67536 9.1099 9.64052L6.00021 6.53036L2.89052 9.64052C2.82016 9.71089 2.72472 9.75042 2.62521 9.75042C2.5257 9.75042 2.43026 9.71089 2.3599 9.64052C2.28953 9.57016 2.25 9.47472 2.25 9.37521C2.25 9.2757 2.28953 9.18026 2.3599 9.1099L5.47005 6.00021L2.3599 2.89052C2.28953 2.82016 2.25 2.72472 2.25 2.62521C2.25 2.5257 2.28953 2.43026 2.3599 2.3599C2.43026 2.28953 2.5257 2.25 2.62521 2.25C2.72472 2.25 2.82016 2.28953 2.89052 2.3599L6.00021 5.47005L9.1099 2.3599C9.18026 2.28953 9.2757 2.25 9.37521 2.25C9.47472 2.25 9.57016 2.28953 9.64052 2.3599C9.71089 2.43026 9.75042 2.5257 9.75042 2.62521C9.75042 2.72472 9.71089 2.82016 9.64052 2.89052L6.53036 6.00021L9.64052 9.1099Z" fill="#1C1C1C" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-item">
+                            <div class="cart-item__product">
+                                <div class="cart-item__image">
+                                    <img src="assets/images/shop/product-7.jpg" alt="Shadow Blackout Coating">
+                                </div>
+                                <div class="cart-item__name">
+                                    <a href="#" class="font-weight-600">Maximum 40V MAX Battery</a>
+                                </div>
+                            </div>
+                            <div class="cart-item__price">
+                                <span class="price">$80.00</span>
+                            </div>
+                            <div class="cart-item__quantity">
+                                <div class="quantity-selector">
+                                    <button type="button" class="quantity-selector__btn quantity-selector__btn--minus flex">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <input class="quantity-selector__value" value="3" type="number" min="0">
+                                    <button type="button" class="quantity-selector__btn quantity-selector__btn--plus flex">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 5V19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M5 12H19" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="total-price">1 X $60.00</span>
+                            </div>
+                            <div class="cart-item__action">
+                                <button type="button" class="cart-item__remove" aria-label="Remove item">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.64052 9.1099C9.67536 9.14474 9.703 9.1861 9.72186 9.23162C9.74071 9.27714 9.75042 9.32594 9.75042 9.37521C9.75042 9.42448 9.74071 9.47327 9.72186 9.5188C9.703 9.56432 9.67536 9.60568 9.64052 9.64052C9.60568 9.67536 9.56432 9.703 9.5188 9.72186C9.47327 9.74071 9.42448 9.75042 9.37521 9.75042C9.32594 9.75042 9.27714 9.74071 9.23162 9.72186C9.1861 9.703 9.14474 9.67536 9.1099 9.64052L6.00021 6.53036L2.89052 9.64052C2.82016 9.71089 2.72472 9.75042 2.62521 9.75042C2.5257 9.75042 2.43026 9.71089 2.3599 9.64052C2.28953 9.57016 2.25 9.47472 2.25 9.37521C2.25 9.2757 2.28953 9.18026 2.3599 9.1099L5.47005 6.00021L2.3599 2.89052C2.28953 2.82016 2.25 2.72472 2.25 2.62521C2.25 2.5257 2.28953 2.43026 2.3599 2.3599C2.43026 2.28953 2.5257 2.25 2.62521 2.25C2.72472 2.25 2.82016 2.28953 2.89052 2.3599L6.00021 5.47005L9.1099 2.3599C9.18026 2.28953 9.2757 2.25 9.37521 2.25C9.47472 2.25 9.57016 2.28953 9.64052 2.3599C9.71089 2.43026 9.75042 2.5257 9.75042 2.62521C9.75042 2.72472 9.71089 2.82016 9.64052 2.89052L6.53036 6.00021L9.64052 9.1099Z" fill="#1C1C1C" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- Cart Footer -->
+                <div class="cart-total flex justify-between gap-12">
+                    <div class="cart-total__voucher">
+                        <input type="text" class="input-large" placeholder="Add voucher discount">
+                        <button type="button" class="btn btn-small-2 btn-primary">Apply Coupon</button>
+                    </div>
+                    <div class="cart-total__actions">
+                        <button type="button" class="btn btn-primary btn-large-3">Update Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="innerpage__sidebar">
+
+                <div class="listing-details--sidebar-box">
+                    <p class="h4 mb-20 capitalize">Order Summary</p>
+
+
+                    <form action="#" class="send-inquiry">
+                        <p class="flex justify-between gap-8 mb-18">
+                            <span class="font-weight-600">Subtotal</span>
+                            <span class="font-weight-600">$80.00</span>
+                        </p>
+
+                        <div class="divider mb-20"></div>
+
+                        <p class="flex justify-between gap-8 mb-20">
+                            <span class="font-weight-600">Discounts</span>
+                            <span class="font-weight-600">-$8.00</span>
+                        </p>
+
+                        <div class="divider mb-20"></div>
+
+
+                        <div class="flex justify-between gap-8 mb-20">
+                            <span class="font-weight-600">Shipping</span>
+                            <div class="filter-radio-group flex-col">
+                                <label class="filter-radio-style-2 flex">
+                                    <input type="radio" name="payment" value="0" checked>
+                                    <span class="label-focus w-full flex">
+                                        <span class="flex gap-8 w-full justify-between"><span class="">Free Shipping:</span> $0.00</span>
+                                    </span>
+                                </label>
+                                <label class="filter-radio-style-2">
+                                    <input type="radio" name="payment" value="35">
+                                    <span class="label-focus w-full flex">
+                                        <span class="flex gap-8 w-full justify-between"><span class="">Local:</span> $35.00</span>
+                                    </span>
+                                </label>
+                                <label class="filter-radio-style-2 flex">
+                                    <input type="radio" name="payment" value="35">
+                                    <span class="label-focus w-full flex">
+                                        <span class="flex gap-8 w-full justify-between"><span class="">Flat Rate:</span> $35.00</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="divider mb-20"></div>
+
+                        <div class="flex justify-between gap-8 mb-20">
+                            <p class="h4 font-weight-600">Total</p>
+                            <p class="h4 font-weight-600">$186,99</p>
+                        </div>
+
+                        <a href="check-out.html" class="btn btn-primary btn-large font-weight-600 w-full mb-12">
+                            Process To Checkout
+                        </a>
+                        <a href="check-out.html" class="text-underline text-center block">Or continue shopping</a>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="tf-spacing"></div>
+        <h2 class="mb-40">Related Products</h2>
+        <div class="swiper-card swiper-products">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="product">
+                        <div class="product-top">
+                            <div class="actions">
+                                <p class="action action-heart">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.6875 3C14.7516 3 13.0566 3.8325 12 5.23969C10.9434 3.8325 9.24844 3 7.3125 3C5.77146 3.00174 4.29404 3.61468 3.20436 4.70436C2.11468 5.79404 1.50174 7.27146 1.5 8.8125C1.5 15.375 11.2303 20.6869 11.6447 20.9062C11.7539 20.965 11.876 20.9958 12 20.9958C12.124 20.9958 12.2461 20.965 12.3553 20.9062C12.7697 20.6869 22.5 15.375 22.5 8.8125C22.4983 7.27146 21.8853 5.79404 20.7956 4.70436C19.706 3.61468 18.2285 3.00174 16.6875 3ZM12 19.3875C10.2881 18.39 3 13.8459 3 8.8125C3.00149 7.66921 3.45632 6.57317 4.26475 5.76475C5.07317 4.95632 6.16921 4.50149 7.3125 4.5C9.13594 4.5 10.6669 5.47125 11.3062 7.03125C11.3628 7.16881 11.4589 7.28646 11.5824 7.36926C11.7059 7.45207 11.8513 7.49627 12 7.49627C12.1487 7.49627 12.2941 7.45207 12.4176 7.36926C12.5411 7.28646 12.6372 7.16881 12.6937 7.03125C13.3331 5.46844 14.8641 4.5 16.6875 4.5C17.8308 4.50149 18.9268 4.95632 19.7353 5.76475C20.5437 6.57317 20.9985 7.66921 21 8.8125C21 13.8384 13.71 18.3891 12 19.3875Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                                <p class="action open-modal transition3s" data-modal-id="#QuickViewModal">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.1853 11.6962C23.1525 11.6222 22.3584 9.86062 20.5931 8.09531C18.2409 5.74312 15.27 4.5 12 4.5C8.72999 4.5 5.75905 5.74312 3.40687 8.09531C1.64155 9.86062 0.843741 11.625 0.814679 11.6962C0.772035 11.7922 0.75 11.896 0.75 12.0009C0.75 12.1059 0.772035 12.2097 0.814679 12.3056C0.847491 12.3797 1.64155 14.1403 3.40687 15.9056C5.75905 18.2569 8.72999 19.5 12 19.5C15.27 19.5 18.2409 18.2569 20.5931 15.9056C22.3584 14.1403 23.1525 12.3797 23.1853 12.3056C23.2279 12.2097 23.25 12.1059 23.25 12.0009C23.25 11.896 23.2279 11.7922 23.1853 11.6962ZM12 18C9.11437 18 6.59343 16.9509 4.50655 14.8828C3.65028 14.0313 2.92179 13.0603 2.34374 12C2.92164 10.9396 3.65014 9.9686 4.50655 9.11719C6.59343 7.04906 9.11437 6 12 6C14.8856 6 17.4066 7.04906 19.4934 9.11719C20.3514 9.9684 21.0814 10.9394 21.6609 12C20.985 13.2619 18.0403 18 12 18ZM12 7.5C11.11 7.5 10.2399 7.76392 9.49992 8.25839C8.7599 8.75285 8.18313 9.45566 7.84253 10.2779C7.50194 11.1002 7.41282 12.005 7.58646 12.8779C7.76009 13.7508 8.18867 14.5526 8.81801 15.182C9.44735 15.8113 10.2492 16.2399 11.1221 16.4135C11.995 16.5872 12.8998 16.4981 13.7221 16.1575C14.5443 15.8169 15.2471 15.2401 15.7416 14.5001C16.2361 13.76 16.5 12.89 16.5 12C16.4987 10.8069 16.0242 9.66303 15.1806 8.81939C14.337 7.97575 13.1931 7.50124 12 7.5ZM12 15C11.4066 15 10.8266 14.8241 10.3333 14.4944C9.83993 14.1648 9.45541 13.6962 9.22835 13.1481C9.00129 12.5999 8.94188 11.9967 9.05763 11.4147C9.17339 10.8328 9.45911 10.2982 9.87867 9.87868C10.2982 9.45912 10.8328 9.1734 11.4147 9.05764C11.9967 8.94189 12.5999 9.0013 13.148 9.22836C13.6962 9.45542 14.1648 9.83994 14.4944 10.3333C14.824 10.8266 15 11.4067 15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                            </div>
+
+                            <a class="img" href="product-details.html">
+                                <img class="img" src="assets/images/shop/product-1.jpg" alt="product">
+                            </a>
+
+                            <p data-modal-id="#ShoppingCartModal" class="product-add-to-cart open-modal">Add to Cart</p>
+                        </div>
+                        <a href="product-details.html" class="font-weight-600">Shadow Blackout Coating</a>
+                        <p class="h5 price">$68.00</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product">
+                        <div class="product-top">
+                            <div class="promotion bg-primary text-white">-32%</div>
+                            <div class="actions">
+                                <p class="action-heart action">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.6875 3C14.7516 3 13.0566 3.8325 12 5.23969C10.9434 3.8325 9.24844 3 7.3125 3C5.77146 3.00174 4.29404 3.61468 3.20436 4.70436C2.11468 5.79404 1.50174 7.27146 1.5 8.8125C1.5 15.375 11.2303 20.6869 11.6447 20.9062C11.7539 20.965 11.876 20.9958 12 20.9958C12.124 20.9958 12.2461 20.965 12.3553 20.9062C12.7697 20.6869 22.5 15.375 22.5 8.8125C22.4983 7.27146 21.8853 5.79404 20.7956 4.70436C19.706 3.61468 18.2285 3.00174 16.6875 3ZM12 19.3875C10.2881 18.39 3 13.8459 3 8.8125C3.00149 7.66921 3.45632 6.57317 4.26475 5.76475C5.07317 4.95632 6.16921 4.50149 7.3125 4.5C9.13594 4.5 10.6669 5.47125 11.3062 7.03125C11.3628 7.16881 11.4589 7.28646 11.5824 7.36926C11.7059 7.45207 11.8513 7.49627 12 7.49627C12.1487 7.49627 12.2941 7.45207 12.4176 7.36926C12.5411 7.28646 12.6372 7.16881 12.6937 7.03125C13.3331 5.46844 14.8641 4.5 16.6875 4.5C17.8308 4.50149 18.9268 4.95632 19.7353 5.76475C20.5437 6.57317 20.9985 7.66921 21 8.8125C21 13.8384 13.71 18.3891 12 19.3875Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                                <p class="action open-modal transition3s" data-modal-id="#QuickViewModal">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.1853 11.6962C23.1525 11.6222 22.3584 9.86062 20.5931 8.09531C18.2409 5.74312 15.27 4.5 12 4.5C8.72999 4.5 5.75905 5.74312 3.40687 8.09531C1.64155 9.86062 0.843741 11.625 0.814679 11.6962C0.772035 11.7922 0.75 11.896 0.75 12.0009C0.75 12.1059 0.772035 12.2097 0.814679 12.3056C0.847491 12.3797 1.64155 14.1403 3.40687 15.9056C5.75905 18.2569 8.72999 19.5 12 19.5C15.27 19.5 18.2409 18.2569 20.5931 15.9056C22.3584 14.1403 23.1525 12.3797 23.1853 12.3056C23.2279 12.2097 23.25 12.1059 23.25 12.0009C23.25 11.896 23.2279 11.7922 23.1853 11.6962ZM12 18C9.11437 18 6.59343 16.9509 4.50655 14.8828C3.65028 14.0313 2.92179 13.0603 2.34374 12C2.92164 10.9396 3.65014 9.9686 4.50655 9.11719C6.59343 7.04906 9.11437 6 12 6C14.8856 6 17.4066 7.04906 19.4934 9.11719C20.3514 9.9684 21.0814 10.9394 21.6609 12C20.985 13.2619 18.0403 18 12 18ZM12 7.5C11.11 7.5 10.2399 7.76392 9.49992 8.25839C8.7599 8.75285 8.18313 9.45566 7.84253 10.2779C7.50194 11.1002 7.41282 12.005 7.58646 12.8779C7.76009 13.7508 8.18867 14.5526 8.81801 15.182C9.44735 15.8113 10.2492 16.2399 11.1221 16.4135C11.995 16.5872 12.8998 16.4981 13.7221 16.1575C14.5443 15.8169 15.2471 15.2401 15.7416 14.5001C16.2361 13.76 16.5 12.89 16.5 12C16.4987 10.8069 16.0242 9.66303 15.1806 8.81939C14.337 7.97575 13.1931 7.50124 12 7.5ZM12 15C11.4066 15 10.8266 14.8241 10.3333 14.4944C9.83993 14.1648 9.45541 13.6962 9.22835 13.1481C9.00129 12.5999 8.94188 11.9967 9.05763 11.4147C9.17339 10.8328 9.45911 10.2982 9.87867 9.87868C10.2982 9.45912 10.8328 9.1734 11.4147 9.05764C11.9967 8.94189 12.5999 9.0013 13.148 9.22836C13.6962 9.45542 14.1648 9.83994 14.4944 10.3333C14.824 10.8266 15 11.4067 15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                            </div>
+
+                            <a class="img" href="product-details.html">
+                                <img class="img" src="assets/images/shop/product-2.jpg" alt="product">
+                            </a>
+
+                            <p data-modal-id="#ShoppingCartModal" class="product-add-to-cart open-modal">Add to Cart</p>
+                        </div>
+                        <a href="product-details.html" class="block mb-4 h7 font-weight-500">3500-lb. XL Winch Kit</a>
+                        <p class="h5 price">$68.00 <span class="price-old">$98.00</span></p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product">
+                        <div class="product-top">
+                            <div class="promotion uppercase bg-highlight text-white">New</div>
+                            <div class="actions">
+                                <p class="action-heart action">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.6875 3C14.7516 3 13.0566 3.8325 12 5.23969C10.9434 3.8325 9.24844 3 7.3125 3C5.77146 3.00174 4.29404 3.61468 3.20436 4.70436C2.11468 5.79404 1.50174 7.27146 1.5 8.8125C1.5 15.375 11.2303 20.6869 11.6447 20.9062C11.7539 20.965 11.876 20.9958 12 20.9958C12.124 20.9958 12.2461 20.965 12.3553 20.9062C12.7697 20.6869 22.5 15.375 22.5 8.8125C22.4983 7.27146 21.8853 5.79404 20.7956 4.70436C19.706 3.61468 18.2285 3.00174 16.6875 3ZM12 19.3875C10.2881 18.39 3 13.8459 3 8.8125C3.00149 7.66921 3.45632 6.57317 4.26475 5.76475C5.07317 4.95632 6.16921 4.50149 7.3125 4.5C9.13594 4.5 10.6669 5.47125 11.3062 7.03125C11.3628 7.16881 11.4589 7.28646 11.5824 7.36926C11.7059 7.45207 11.8513 7.49627 12 7.49627C12.1487 7.49627 12.2941 7.45207 12.4176 7.36926C12.5411 7.28646 12.6372 7.16881 12.6937 7.03125C13.3331 5.46844 14.8641 4.5 16.6875 4.5C17.8308 4.50149 18.9268 4.95632 19.7353 5.76475C20.5437 6.57317 20.9985 7.66921 21 8.8125C21 13.8384 13.71 18.3891 12 19.3875Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                                <p class="action open-modal transition3s" data-modal-id="#QuickViewModal">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.1853 11.6962C23.1525 11.6222 22.3584 9.86062 20.5931 8.09531C18.2409 5.74312 15.27 4.5 12 4.5C8.72999 4.5 5.75905 5.74312 3.40687 8.09531C1.64155 9.86062 0.843741 11.625 0.814679 11.6962C0.772035 11.7922 0.75 11.896 0.75 12.0009C0.75 12.1059 0.772035 12.2097 0.814679 12.3056C0.847491 12.3797 1.64155 14.1403 3.40687 15.9056C5.75905 18.2569 8.72999 19.5 12 19.5C15.27 19.5 18.2409 18.2569 20.5931 15.9056C22.3584 14.1403 23.1525 12.3797 23.1853 12.3056C23.2279 12.2097 23.25 12.1059 23.25 12.0009C23.25 11.896 23.2279 11.7922 23.1853 11.6962ZM12 18C9.11437 18 6.59343 16.9509 4.50655 14.8828C3.65028 14.0313 2.92179 13.0603 2.34374 12C2.92164 10.9396 3.65014 9.9686 4.50655 9.11719C6.59343 7.04906 9.11437 6 12 6C14.8856 6 17.4066 7.04906 19.4934 9.11719C20.3514 9.9684 21.0814 10.9394 21.6609 12C20.985 13.2619 18.0403 18 12 18ZM12 7.5C11.11 7.5 10.2399 7.76392 9.49992 8.25839C8.7599 8.75285 8.18313 9.45566 7.84253 10.2779C7.50194 11.1002 7.41282 12.005 7.58646 12.8779C7.76009 13.7508 8.18867 14.5526 8.81801 15.182C9.44735 15.8113 10.2492 16.2399 11.1221 16.4135C11.995 16.5872 12.8998 16.4981 13.7221 16.1575C14.5443 15.8169 15.2471 15.2401 15.7416 14.5001C16.2361 13.76 16.5 12.89 16.5 12C16.4987 10.8069 16.0242 9.66303 15.1806 8.81939C14.337 7.97575 13.1931 7.50124 12 7.5ZM12 15C11.4066 15 10.8266 14.8241 10.3333 14.4944C9.83993 14.1648 9.45541 13.6962 9.22835 13.1481C9.00129 12.5999 8.94188 11.9967 9.05763 11.4147C9.17339 10.8328 9.45911 10.2982 9.87867 9.87868C10.2982 9.45912 10.8328 9.1734 11.4147 9.05764C11.9967 8.94189 12.5999 9.0013 13.148 9.22836C13.6962 9.45542 14.1648 9.83994 14.4944 10.3333C14.824 10.8266 15 11.4067 15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                            </div>
+
+                            <a class="img" href="product-details.html">
+                                <img class="img" src="assets/images/shop/product-3.jpg" alt="product">
+                            </a>
+
+                            <p data-modal-id="#ShoppingCartModal" class="product-add-to-cart open-modal">Add to Cart</p>
+                        </div>
+                        <a href="product-details.html" class="block mb-4 h7 font-weight-500">Stanley Roof Top Universal</a>
+                        <p class="h5 price">$68.00</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product">
+                        <div class="product-top">
+                            <div class="promotion uppercase bg-highlight text-white">New</div>
+                            <div class="actions">
+                                <p class="action-heart action">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.6875 3C14.7516 3 13.0566 3.8325 12 5.23969C10.9434 3.8325 9.24844 3 7.3125 3C5.77146 3.00174 4.29404 3.61468 3.20436 4.70436C2.11468 5.79404 1.50174 7.27146 1.5 8.8125C1.5 15.375 11.2303 20.6869 11.6447 20.9062C11.7539 20.965 11.876 20.9958 12 20.9958C12.124 20.9958 12.2461 20.965 12.3553 20.9062C12.7697 20.6869 22.5 15.375 22.5 8.8125C22.4983 7.27146 21.8853 5.79404 20.7956 4.70436C19.706 3.61468 18.2285 3.00174 16.6875 3ZM12 19.3875C10.2881 18.39 3 13.8459 3 8.8125C3.00149 7.66921 3.45632 6.57317 4.26475 5.76475C5.07317 4.95632 6.16921 4.50149 7.3125 4.5C9.13594 4.5 10.6669 5.47125 11.3062 7.03125C11.3628 7.16881 11.4589 7.28646 11.5824 7.36926C11.7059 7.45207 11.8513 7.49627 12 7.49627C12.1487 7.49627 12.2941 7.45207 12.4176 7.36926C12.5411 7.28646 12.6372 7.16881 12.6937 7.03125C13.3331 5.46844 14.8641 4.5 16.6875 4.5C17.8308 4.50149 18.9268 4.95632 19.7353 5.76475C20.5437 6.57317 20.9985 7.66921 21 8.8125C21 13.8384 13.71 18.3891 12 19.3875Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                                <p class="action open-modal transition3s" data-modal-id="#QuickViewModal">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.1853 11.6962C23.1525 11.6222 22.3584 9.86062 20.5931 8.09531C18.2409 5.74312 15.27 4.5 12 4.5C8.72999 4.5 5.75905 5.74312 3.40687 8.09531C1.64155 9.86062 0.843741 11.625 0.814679 11.6962C0.772035 11.7922 0.75 11.896 0.75 12.0009C0.75 12.1059 0.772035 12.2097 0.814679 12.3056C0.847491 12.3797 1.64155 14.1403 3.40687 15.9056C5.75905 18.2569 8.72999 19.5 12 19.5C15.27 19.5 18.2409 18.2569 20.5931 15.9056C22.3584 14.1403 23.1525 12.3797 23.1853 12.3056C23.2279 12.2097 23.25 12.1059 23.25 12.0009C23.25 11.896 23.2279 11.7922 23.1853 11.6962ZM12 18C9.11437 18 6.59343 16.9509 4.50655 14.8828C3.65028 14.0313 2.92179 13.0603 2.34374 12C2.92164 10.9396 3.65014 9.9686 4.50655 9.11719C6.59343 7.04906 9.11437 6 12 6C14.8856 6 17.4066 7.04906 19.4934 9.11719C20.3514 9.9684 21.0814 10.9394 21.6609 12C20.985 13.2619 18.0403 18 12 18ZM12 7.5C11.11 7.5 10.2399 7.76392 9.49992 8.25839C8.7599 8.75285 8.18313 9.45566 7.84253 10.2779C7.50194 11.1002 7.41282 12.005 7.58646 12.8779C7.76009 13.7508 8.18867 14.5526 8.81801 15.182C9.44735 15.8113 10.2492 16.2399 11.1221 16.4135C11.995 16.5872 12.8998 16.4981 13.7221 16.1575C14.5443 15.8169 15.2471 15.2401 15.7416 14.5001C16.2361 13.76 16.5 12.89 16.5 12C16.4987 10.8069 16.0242 9.66303 15.1806 8.81939C14.337 7.97575 13.1931 7.50124 12 7.5ZM12 15C11.4066 15 10.8266 14.8241 10.3333 14.4944C9.83993 14.1648 9.45541 13.6962 9.22835 13.1481C9.00129 12.5999 8.94188 11.9967 9.05763 11.4147C9.17339 10.8328 9.45911 10.2982 9.87867 9.87868C10.2982 9.45912 10.8328 9.1734 11.4147 9.05764C11.9967 8.94189 12.5999 9.0013 13.148 9.22836C13.6962 9.45542 14.1648 9.83994 14.4944 10.3333C14.824 10.8266 15 11.4067 15 12C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7956 15 12 15Z" fill="#1C1C1C" />
+                                    </svg>
+                                </p>
+
+                            </div>
+
+                            <a class="img" href="product-details.html">
+                                <img class="img" src="assets/images/shop/product-4.jpg" alt="product">
+                            </a>
+
+                            <p data-modal-id="#ShoppingCartModal" class="product-add-to-cart open-modal">Add to Cart</p>
+                        </div>
+                        <a href="#" class="block mb-4 h7 font-weight-500">Wheel/Rim for Passenger & CUV</a>
+                        <p class="h5 price">$68.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-pagination pagination-dark pagination-style pagination-swiper-products mt-38"></div>
+        </div>
+    </div>
+</section>
+<!-- Find Your Perfect Used Car --> 

@@ -1,0 +1,1396 @@
+﻿@model Car_Project.ViewModels.Home.HomeIndexViewModel
+
+<!-- page-title -->
+<form action="#">
+	<section class="page-title flex h-706">
+		<div class="swiper-container page-title--slider sw-single">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-1.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-2.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-3.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-5.jpg"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Search Cars Section -->
+		<div class="search-cars container margin-top-auto margin-bottom-auto">
+			<h1 class="search-cars__title wow fadeInUp" data-wow-delay="0.1s">Search Cars Near You - Buy Today!</h1>
+
+			<div class="flat-tabs mb-16 wow fadeInUp" data-wow-delay="0.3s">
+				<div class="overflow-x-auto">
+					<ul class="menu-tab menu-tab-style1 text-white">
+						<li class="active"><span class="text-white font-weight-600">All Car</span></li>
+						<li><span class="text-white font-weight-600">New Car</span></li>
+						<li><span class="text-white font-weight-600">Used Car</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Primary Search Filters -->
+			<div class="search-cars__filters wow fadeInUp" data-wow-delay="0.5s">
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Brand">
+						<label for="BrandSelectToggle" class="search-cars__label">Select Brand</label>
+						<input type="checkbox" id="BrandSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="BrandSelectToggle" class="filter-select-dropdown__text">
+							<span>All Brand</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="brand" value="all" checked>
+									<span>All Brand</span>
+								</label>
+								@foreach (var brand in Model.BrandNames)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="brand" value="@brand">
+										<span>@brand</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Model">
+						<label for="ModelSelectToggle" class="search-cars__label">Select Model</label>
+						<input type="checkbox" id="ModelSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="ModelSelectToggle" class="filter-select-dropdown__text">
+							<span>All Model</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="model" value="all" checked>
+									<span>All Model</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Miles">
+						<label for="MilesSelectToggle" class="search-cars__label">Select Miles</label>
+						<input type="checkbox" id="MilesSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="MilesSelectToggle" class="filter-select-dropdown__text">
+							<span>All miles</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="miles" value="all" checked>
+									<span>All miles</span>
+								</label>
+								<label class="filter-checkbox">
+									<input type="checkbox" name="miles" value="1">
+									<span>0-10k</span>
+								</label>
+								<label class="filter-checkbox">
+									<input type="checkbox" name="miles" value="2">
+									<span>10k-50k</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Price">
+						<label for="MaxPriceSelectToggle" class="search-cars__label">Max Price</label>
+						<input type="checkbox" id="MaxPriceSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="MaxPriceSelectToggle" class="filter-select-dropdown__text">
+							<span>All Price</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="price" value="all" checked>
+									<span>All Price</span>
+								</label>
+								<label class="filter-checkbox">
+									<input type="checkbox" name="price" value="1">
+									<span>$0-$10k</span>
+								</label>
+								<label class="filter-checkbox">
+									<input type="checkbox" name="price" value="2">
+									<span>$10k-$20k</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Filter Icon Button -->
+				<div class="search-cars__filter" id="filterToggle">
+					<img src="~/assets/icons/filter.svg" alt="Filter">
+				</div>
+
+				<button type="submit" class="search-cars__search flex items-center gap-8 justify-center md-w-full">
+					<img src="~/assets/icons/search.svg" alt="search">
+					Show @Model.TotalMatchCount.ToString("N0") Matches
+				</button>
+			</div>
+
+			<!-- Advanced Filters Panel -->
+			<div class="search-cars__advanced" id="advancedFilters">
+				<div class="search-cars__advanced-content">
+					<div class="search-cars__advanced-row">
+						<div class="search-cars__select-wrapper">
+							<div class="bg-white filter-select-dropdown style2" data-name="fuel-type">
+								<input type="checkbox" id="fuel-type" class="filter-select-dropdown__toggle">
+								<label for="fuel-type" class="filter-select-dropdown__text">
+									<span>Fuel Type</span>
+								</label>
+								<div class="filter-select-dropdown__menu">
+									<div class="filter-select-dropdown__list">
+										<label class="filter-checkbox">
+											<input type="checkbox" name="fuelType" value="Fuel" checked>
+											<span>Fuel Type</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="fuelType" value="Petrol">
+											<span>Petrol</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="fuelType" value="Diesel">
+											<span>Diesel</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="fuelType" value="Electric">
+											<span>Electric</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="search-cars__select-wrapper">
+							<div class="bg-white filter-select-dropdown style2" data-name="Transmission">
+								<input type="checkbox" id="Transmission" class="filter-select-dropdown__toggle">
+								<label for="Transmission" class="filter-select-dropdown__text">
+									<span>Transmission</span>
+								</label>
+								<div class="filter-select-dropdown__menu">
+									<div class="filter-select-dropdown__list">
+										<label class="filter-checkbox">
+											<input type="checkbox" name="transmission" value="Transmission">
+											<span>Transmission</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="transmission" value="Manual">
+											<span>Manual</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="transmission" value="Automatic">
+											<span>Automatic</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="search-cars__select-wrapper">
+							<div class="bg-white filter-select-dropdown style2" data-name="DriveType">
+								<input type="checkbox" id="DriveType" class="filter-select-dropdown__toggle">
+								<label for="DriveType" class="filter-select-dropdown__text">
+									<span>Drive Type</span>
+								</label>
+								<div class="filter-select-dropdown__menu">
+									<div class="filter-select-dropdown__list">
+										<label class="filter-checkbox">
+											<input type="checkbox" name="driveType" value="FWD" checked>
+											<span>FWD</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="driveType" value="RWD">
+											<span>RWD</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="driveType" value="AWD">
+											<span>AWD</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="search-cars__select-wrapper">
+							<div class="bg-white filter-select-dropdown style2" data-name="colorType">
+								<input type="checkbox" id="colorType" class="filter-select-dropdown__toggle">
+								<label for="colorType" class="filter-select-dropdown__text">
+									<span>Color</span>
+								</label>
+								<div class="filter-select-dropdown__menu">
+									<div class="filter-select-dropdown__list">
+										<label class="filter-checkbox">
+											<input type="checkbox" name="color" value="Color" checked>
+											<span>Color</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="color" value="Red">
+											<span>Red</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="color" value="Blue">
+											<span>Blue</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="color" value="Black">
+											<span>Black</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="search-cars__select-wrapper">
+							<div class="bg-white filter-select-dropdown style2" data-name="Cylinders">
+								<input type="checkbox" id="Cylinders" class="filter-select-dropdown__toggle">
+								<label for="Cylinders" class="filter-select-dropdown__text">
+									<span>Cylinders</span>
+								</label>
+								<div class="filter-select-dropdown__menu">
+									<div class="filter-select-dropdown__list">
+										<label class="filter-checkbox">
+											<input type="checkbox" name="cylinders" value="all" checked>
+											<span>Cylinders</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="cylinders" value="4">
+											<span>4</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="cylinders" value="3">
+											<span>3</span>
+										</label>
+										<label class="filter-checkbox">
+											<input type="checkbox" name="cylinders" value="2">
+											<span>2</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="search-cars__range">
+							<p class="search-cars__range-label">
+								Year: <span id="yearMin">2015</span> - <span id="yearMax">2026</span>
+							</p>
+							<div class="search-cars__range-wrapper" id="yearRangeWrapper">
+								<div id="slider-range" data-min="2015" data-max="2026" data-step="1" data-values="2015, 2026"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="divider mt-28 mb-24"></div>
+
+					<div class="search-cars__features collapse">
+						<p class="h3 search-cars__features-title flex items-center gap-8 collapse-title">
+							Features
+							<span class="icon md-block">-</span>
+						</p>
+						<div class="search-cars__features-grid collapse-content">
+							<div class="form-group">
+								<input type="checkbox" id="TouchScreen" checked>
+								<label for="TouchScreen">Touch Screen</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="AntiLockBrakingSystem">
+								<label for="AntiLockBrakingSystem">Anti Lock Braking System</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="AirConditioner">
+								<label for="AirConditioner">Air Conditioner</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="AlloyWheels" checked>
+								<label for="AlloyWheels">Alloy Wheels</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="BluetoothConnectivity">
+								<label for="BluetoothConnectivity">Bluetooth Connectivity</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="SunRoof">
+								<label for="SunRoof">Sun Roof</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="PowerWindowsFront">
+								<label for="PowerWindowsFront">Power Windows Front</label>
+							</div>
+							<div class="form-group">
+								<input type="checkbox" id="PowerWindowsRear">
+								<label for="PowerWindowsRear">Power Windows Rear</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="wow fadeInUp" data-wow-delay="0.7s">
+				<div class="category-list flex-wrap mt-32">
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.95237 27.1027C8.73393 27.1027 10.1782 25.6585 10.1782 23.8769C10.1782 22.0954 8.73393 20.6511 6.95237 20.6511C5.17081 20.6511 3.72656 22.0954 3.72656 23.8769C3.72656 25.6585 5.17081 27.1027 6.95237 27.1027Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M30.175 27.1027C31.9566 27.1027 33.4008 25.6585 33.4008 23.8769C33.4008 22.0954 31.9566 20.6511 30.175 20.6511C28.3935 20.6511 26.9492 22.0954 26.9492 23.8769C26.9492 25.6585 28.3935 27.1027 30.175 27.1027Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M26.95 24.5222H10.1758" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4032 24.5217H37.9194L39.8548 23.2314L39.2097 22.5862V20.6508L40.5 20.0056L40.2419 19.8766C37.0161 17.812 32.629 16.7798 28.8871 16.7798C28.8871 16.7798 28.2419 15.8766 26.9516 14.9734C25.6613 14.0701 23.7258 13.0379 21.1452 12.9088C16.1129 12.6508 6.30645 16.7798 6.30645 16.7798H1.79032C1.01613 16.7798 0.5 17.425 0.5 18.0701V23.2314L3.72581 23.8766" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M35.3398 19.3621L37.2753 20.0072" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M11.4699 18.7155L6.30859 16.78" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6914 20.0072L21.7882 21.8137C22.1753 21.9427 22.5624 21.8137 22.8204 21.5556L25.5301 19.3621" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M28.8881 16.78H20.501C17.5333 16.78 14.5655 16.1348 11.7268 14.9735L11.4688 14.8445" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M0.5 20.6511H1.01612C2.17741 20.6511 3.33871 19.8769 3.72581 18.7156H0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8.88597 17.2766C10.6675 17.2766 12.1118 15.8323 12.1118 14.0508C12.1118 12.2692 10.6675 10.825 8.88597 10.825C7.1044 10.825 5.66016 12.2692 5.66016 14.0508C5.66016 15.8323 7.1044 17.2766 8.88597 17.2766Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M31.468 17.2766C33.2496 17.2766 34.6938 15.8323 34.6938 14.0508C34.6938 12.2692 33.2496 10.825 31.468 10.825C29.6864 10.825 28.2422 12.2692 28.2422 14.0508C28.2422 15.8323 29.6864 17.2766 31.468 17.2766Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8.88597 17.2766C10.6675 17.2766 12.1118 15.8323 12.1118 14.0508C12.1118 12.2692 10.6675 10.825 8.88597 10.825C7.1044 10.825 5.66016 12.2692 5.66016 14.0508C5.66016 15.8323 7.1044 17.2766 8.88597 17.2766Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M31.468 17.2766C33.2496 17.2766 34.6938 15.8323 34.6938 14.0508C34.6938 12.2692 33.2496 10.825 31.468 10.825C29.6864 10.825 28.2422 12.2692 28.2422 14.0508C28.2422 15.8323 29.6864 17.2766 31.468 17.2766Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M7.59677 14.0484H1.79032L0.5 12.7581V5.66129H13.4032V0.5H24.1129C24.7581 0.5 25.2742 0.758057 25.6613 1.01612L31.4677 5.66129L39.3387 6.82257C39.9839 6.9516 40.5 7.46773 40.5 8.1129V12.7581C40.5 13.5323 39.9839 14.0484 39.2097 14.0484H36.629" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Sedan
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M29.6618 25.8069H11.9844" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M35.8548 25.8068H37.2742L40.5 24.5165V19.3552L30.1774 16.7746L26.5645 13.1617C25.5323 12.1294 24.2419 11.6133 22.9516 11.6133H7.59677C4.75806 12.9036 2.30644 15.0972 1.01612 18.0649L0.5 19.3552V23.8713L5.01613 25.8068H5.79033" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M40.4992 20.6455H37.2734L37.9186 23.2262H40.4992" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M0.5 19.3552H3.72581L3.20969 20.7746C2.82259 21.8068 1.66129 22.581 0.5 22.581" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M10.8228 11.6133L8.24219 15.4842L9.53251 16.7746H30.1777" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M8.88987 28.3874C10.6714 28.3874 12.1157 26.9432 12.1157 25.1616C12.1157 23.38 10.6714 21.9358 8.88987 21.9358C7.10831 21.9358 5.66406 23.38 5.66406 25.1616C5.66406 26.9432 7.10831 28.3874 8.88987 28.3874Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M32.7571 28.3874C34.5386 28.3874 35.9829 26.9432 35.9829 25.1616C35.9829 23.38 34.5386 21.9358 32.7571 21.9358C30.9755 21.9358 29.5312 23.38 29.5312 25.1616C29.5312 26.9432 30.9755 28.3874 32.7571 28.3874Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M7.59551 11.6133L4.36971 16.7746H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M19.2109 16.7746V11.6133" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1106 19.3552H10.8203" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M19.8555 19.3552H21.791" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						SUV
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Electric
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Crossover
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="18" viewBox="0 0 41 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.8235 17.2742C12.605 17.2742 14.0493 15.8299 14.0493 14.0484C14.0493 12.2668 12.605 10.8226 10.8235 10.8226C9.0419 10.8226 7.59766 12.2668 7.59766 14.0484C7.59766 15.8299 9.0419 17.2742 10.8235 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.4016 17.2742C35.1832 17.2742 36.6274 15.8299 36.6274 14.0484C36.6274 12.2668 35.1832 10.8226 33.4016 10.8226C31.62 10.8226 30.1758 12.2668 30.1758 14.0484C30.1758 15.8299 31.62 17.2742 33.4016 17.2742Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1133 14.0494H28.2424" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M34.6936 14.0484H40.5001V9.53228C37.5324 7.46776 34.0485 6.30647 30.4356 6.30647H29.5323L25.7904 1.53226C25.2743 0.887097 24.5001 0.5 23.7259 0.5H10.6936C10.4355 0.5 10.0484 0.629034 9.79034 0.758066L5.6613 4.37098H3.08065C2.30646 4.37098 1.79033 4.88711 1.79033 5.6613V9.53228L0.5 10.8226V12.7581L5.6613 14.0484" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M14.6927 8.23975H13.4023" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M21.1458 8.23975H19.8555" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M29.5313 6.30647H12.1119L9.53125 5.01614V3.72582L13.4022 0.5" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M1.78906 9.53134H3.07939C3.85358 9.53134 4.36971 9.01521 4.36971 8.24101C4.36971 7.46681 3.85358 6.95068 3.07939 6.95068H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.6289 7.59521V9.5307C36.6289 10.3049 37.145 10.821 37.9192 10.821H40.4999" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M17.9219 0.5V6.30647" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Pickup Truck
+					</a>
+					<a class="brand-item-small" href="listing-grid4-columns.html">
+						<svg width="41" height="16" viewBox="0 0 41 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M29.832 11.8333H11.832" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M36.4999 11.8333H40.4999V8.49999V7.83332C40.4999 7.83332 40.6333 5.16666 28.5 4.49999C27.1666 3.16666 25.7 2.23333 24.1 1.56667C22.5 0.900003 20.6333 0.5 18.9 0.5H15.7C15.5666 0.5 15.4333 0.5 15.3 0.5C14.2333 0.5 13.3 0.766668 12.2333 1.03333L9.83332 1.7L7.16666 2.5H1.83333L1.16667 4.49999V6.49999L0.5 7.83332L1.16667 11.1666L5.16666 11.7" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M8.5013 15.1667C10.3422 15.1667 11.8346 13.6743 11.8346 11.8333C11.8346 9.99238 10.3422 8.5 8.5013 8.5C6.66035 8.5 5.16797 9.99238 5.16797 11.8333C5.16797 13.6743 6.66035 15.1667 8.5013 15.1667Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M33.1654 15.1667C35.0063 15.1667 36.4987 13.6743 36.4987 11.8333C36.4987 9.99238 35.0063 8.5 33.1654 8.5C31.3244 8.5 29.832 9.99238 29.832 11.8333C29.832 13.6743 31.3244 15.1667 33.1654 15.1667Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M7.59551 11.6133L4.36971 16.7746H1.78906" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M19.2109 16.7746V11.6133" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M12.1106 19.3552H10.8203" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M19.8555 19.3552H21.791" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						Coupe
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- Search Cars Section -->
+
+		<div class="swiper-pagination pagination-white pagination-style pagination-page-title--slider-1 mt-38"></div>
+	</section>
+</form>
+<!-- page-title -->
+
+<!-- New Cars -->
+<section class="container py-100 flat-tabs">
+	<div class="title-section mb-30 gap-8 wow fadeInUp" data-wow-delay="0.1s">
+		<ul class="menu-tab menu-tab-style2 text-white gap-40 md-gap-12">
+			<li class="active"><h2 class="text">New Cars</h2></li>
+			<li><h2 class="text">Used Cars</h2></li>
+		</ul>
+		<a href="listing-grid4-columns.html" class="btn btn-line-style-2 effect-line-primary hover-fill-white effect-line-primary btn-large">
+			View All
+			<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+			</svg>
+		</a>
+	</div>
+	<div class="content-tab">
+		<!-- New Cars Tab -->
+		<div class="content-inner active">
+			<div class="swiper-container swiper-card-7" data-pagination=".pagination-swiper-card-7-1">
+				<div class="swiper-wrapper">
+					@if (Model.NewCars.Any())
+					{
+						var newDelay = 0.1;
+						foreach (var car in Model.NewCars)
+						{
+							<div class="swiper-slide">
+								<div class="card-box card-box-style-1 mt-10 wow fadeIn" data-wow-delay="@(newDelay)s">
+									<div class="top">
+										@if (!string.IsNullOrEmpty(car.Badge))
+										{
+											<p class="@(car.BadgeColor ?? "bg-primary-2") text-white highlight">@car.Badge</p>
+										}
+										else
+										{
+											<p></p>
+										}
+										<p class="heart">
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_heart)">
+													<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</p>
+									</div>
+									<div class="image">
+										<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id">
+											<img class="card--img" src="@(car.ThumbnailUrl ?? "~/assets/images/card/card-1.jpg")" alt="@car.Title">
+										</a>
+									</div>
+									<div class="content border-light border-top-none">
+										<div class="bottom">
+											<p class="category uppercase text-white">
+												<a asp-controller="List" asp-action="Index" class="text-white uppercase text-xs">@car.BrandName</a>
+											</p>
+											<div class="flex items-center gap-8">
+												<p class="category uppercase text-white">
+													<img src="~/assets/icons/picture.svg" alt="picture">
+													@car.ImageCount
+												</p>
+												<p class="category uppercase text-white">
+													<img src="~/assets/icons/play.svg" alt="play">
+													1
+												</p>
+											</div>
+										</div>
+										<p class="card-box__title mb-8 h6">
+											<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id">@car.Title</a>
+										</p>
+										<ul class="tag mb-10">
+											<li>
+												<img src="~/assets/icons/icon-gauge.svg" alt="mileage">
+												<span>@car.Mileage.ToString("N0") miles</span>
+											</li>
+											<li>
+												<img src="~/assets/icons/calendar.svg" alt="year">
+												<span>@car.Year</span>
+											</li>
+											<li>
+												<img src="~/assets/icons/gaspump.svg" alt="fuel">
+												<span>@car.FuelType</span>
+											</li>
+											<li>
+												<img src="~/assets/icons/@(car.Transmission == "Manual" ? "manual" : "auto").svg" alt="transmission">
+												<span>@car.Transmission</span>
+											</li>
+										</ul>
+										<p class="card-box__price mb-15">$@car.Price.ToString("N2")</p>
+
+										<div class="divider mb-15"></div>
+
+										<div class="flex justify-between">
+											<p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<g clip-path="url(#clip_compare)">
+														<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+														<path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+														<path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													</g>
+												</svg>
+												Compare
+											</p>
+
+											<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id" class="view-details">
+												View details
+												<img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="details">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							newDelay += 0.1;
+						}
+					}
+					else
+					{
+						<div class="swiper-slide">
+							<p class="text-center py-100">No new cars available yet.</p>
+						</div>
+					}
+				</div>
+				<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-card-7-1 mt-38"></div>
+			</div>
+		</div>
+
+		<!-- Used Cars Tab -->
+		<div class="content-inner">
+			<div class="swiper-container swiper-card-7" data-pagination=".pagination-swiper-card-7-2">
+				<div class="swiper-wrapper">
+					@if (Model.UsedCars.Any())
+					{
+						var usedDelay = 0.1;
+						foreach (var car in Model.UsedCars)
+						{
+							<div class="swiper-slide">
+								<div class="card-box card-box-style-1 wow fadeIn" data-wow-delay="@(usedDelay)s">
+									<div class="top">
+										@if (!string.IsNullOrEmpty(car.Badge))
+										{
+											<p class="@(car.BadgeColor ?? "bg-primary-2") text-white highlight">@car.Badge</p>
+										}
+										else
+										{
+											<p></p>
+										}
+										<p class="heart">
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_heart2)">
+													<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+										</p>
+									</div>
+									<div class="image">
+										<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id">
+											<img class="card--img" src="@(car.ThumbnailUrl ?? "~/assets/images/card/card-1.jpg")" alt="@car.Title">
+										</a>
+									</div>
+									<div class="content border-light border-top-none">
+										<div class="bottom">
+											<p class="category uppercase text-white">
+												<a asp-controller="List" asp-action="Index" class="text-white">@car.BrandName</a>
+											</p>
+											<div class="flex items-center gap-8">
+												<p class="category uppercase text-white">
+													<img src="~/assets/icons/picture.svg" alt="picture">
+													@car.ImageCount
+												</p>
+											</div>
+										</div>
+										<p class="card-box__title mb-8 h6">
+											<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id">@car.Title</a>
+										</p>
+										<ul class="tag mb-10">
+											<li>
+												<img src="~/assets/icons/icon-gauge.svg" alt="mileage">
+												<span>@car.Mileage.ToString("N0") miles</span>
+											</li>
+											<li>
+												<img src="~/assets/icons/calendar.svg" alt="year">
+												<span>@car.Year</span>
+											</li>
+											<li>
+												<img src="~/assets/icons/gaspump.svg" alt="fuel">
+												<span>@car.FuelType</span>
+											</li>
+											<li>
+												<img src="~/assets/icons/@(car.Transmission == "Manual" ? "manual" : "auto").svg" alt="transmission">
+												<span>@car.Transmission</span>
+											</li>
+										</ul>
+										<p class="card-box__price mb-15">$@car.Price.ToString("N2")</p>
+
+										<div class="divider mb-15"></div>
+
+										<div class="flex justify-between">
+											<p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<g clip-path="url(#clip_compare2)">
+														<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+														<path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+														<path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													</g>
+												</svg>
+												Compare
+											</p>
+
+											<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id" class="view-details">
+												View details
+												<img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="details">
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							usedDelay += 0.1;
+						}
+					}
+					else
+					{
+						<div class="swiper-slide">
+							<p class="text-center py-100">No used cars available yet.</p>
+						</div>
+					}
+				</div>
+				<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-card-7-2 mt-38"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- New Cars -->
+
+<!-- Browse By Type -->
+<section class="py-100 relative">
+	<div class="overlay image">
+		<img class="lazyload parallax" data-src="images/banner/cd-phonecase.jpg" src="~/assets/images/brand/banner-brand.png" alt="">
+	</div>
+	<div class="container wow fadeIn relative" data-wow-delay="0.2s">
+		<div class="title-section mb-40">
+			<h2 class="text-white text-center">Browse By Type</h2>
+			<a href="listing-grid4-columns.html" class="btn btn-blur hover-fill-primary font-weight-600 btn-large">
+				Check All Car Type
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_browse)">
+						<path d="M10 1.875C8.39303 1.875 6.82214 2.35152 5.486 3.24431C4.14985 4.1371 3.10844 5.40605 2.49348 6.8907C1.87852 8.37535 1.71762 10.009 2.03112 11.5851C2.34463 13.1612 3.11846 14.6089 4.25476 15.7452C5.39106 16.8815 6.8388 17.6554 8.4149 17.9689C9.99099 18.2824 11.6247 18.1215 13.1093 17.5065C14.594 16.8916 15.8629 15.8502 16.7557 14.514C17.6485 13.1779 18.125 11.607 18.125 10C18.1227 7.84581 17.266 5.78051 15.7427 4.25727C14.2195 2.73403 12.1542 1.87727 10 1.875ZM13.5672 10.4422L11.0672 12.9422C10.9499 13.0595 10.7909 13.1253 10.625 13.1253C10.4592 13.1253 10.3001 13.0595 10.1828 12.9422C10.0655 12.8249 9.99966 12.6659 9.99966 12.5C9.99966 12.3341 10.0655 12.1751 10.1828 12.0578L11.6164 10.625H6.875C6.70924 10.625 6.55027 10.5592 6.43306 10.4419C6.31585 10.3247 6.25 10.1658 6.25 10C6.25 9.83424 6.31585 9.67527 6.43306 9.55806C6.55027 9.44085 6.70924 9.375 6.875 9.375H11.6164L10.1828 7.94219C10.0655 7.82491 9.99966 7.66585 9.99966 7.5C9.99966 7.33415 10.0655 7.17509 10.1828 7.05781C10.3001 6.94054 10.4592 6.87465 10.625 6.87465C10.7909 6.87465 10.9499 6.94054 11.0672 7.05781L13.5672 9.55781C13.6253 9.61586 13.6714 9.68479 13.7029 9.76066C13.7343 9.83654 13.7505 9.91787 13.7505 10C13.7505 10.0821 13.7343 10.1635 13.7029 10.2393C13.6714 10.3152 13.6253 10.3841 13.5672 10.4422Z" fill="white" />
+					</g>
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-brand-wrapper">
+			<div class="swiper-container swiper-brand">
+				<div class="swiper-wrapper timing-function">
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Electric</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Sedan</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Hatchback</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">SUV</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Crossover</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Pickup Truck</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Coupe</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Convertible</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Wagon</a></div>
+					<div class="swiper-slide"><a class="brand-item" href="listing-grid4-columns.html">Minivan</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-pagination pagination-white pagination-style pagination-absolute pagination-swiper-brand"></div>
+</section>
+<!-- Browse By Type -->
+
+<!-- Financing Calculator -->
+<section class="background-light py-100">
+	<div class="container">
+		<div class="row items-center">
+			<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+				<div class="caculator-box bg-white p-40">
+					<h2 class="mb-20">Financing Calculator</h2>
+					<form action="#">
+						<div class="grid gap-13 grid-cols-2 mb-20 md-grid-cols-1">
+							<div class="md-colspan-1">
+								<p class="mb-10">Car Price</p>
+								<input class="active" type="text" value="$46.300|" required>
+							</div>
+							<div class="md-colspan-1">
+								<p class="mb-10">Interest Rate</p>
+								<input type="text" value="1.2%" required>
+							</div>
+							<div class="md-colspan-1">
+								<p class="mb-8">Loan Term (months)</p>
+								<select>
+									<option>60 months</option>
+									<option>30 months</option>
+									<option>10 months</option>
+								</select>
+							</div>
+							<div>
+								<p class="mb-8">Down Payment</p>
+								<input type="text" value="$400" required>
+							</div>
+							<button class="btn btn-medium btn-primary col-span-2">Calculate</button>
+						</div>
+						<div class="grid gap-8 grid-cols-3 md-grid-cols-1">
+							<div>
+								<p class="mb-4">Monthly Payment:</p>
+								<p class="font-weight-600">$788.56/Month</p>
+							</div>
+							<div>
+								<p class="mb-4">Total Interest Payment:</p>
+								<p class="font-weight-600">$1413.60</p>
+							</div>
+							<div>
+								<p class="mb-4">Est. Total Loan:</p>
+								<p class="font-weight-600">$47713.60</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-6 text-center wow fadeInUp" data-wow-delay="0.3s">
+				<img class="max-w-628 ml-60 move5" src="~/assets/images/home/banner-calulator.png" alt="calculator-image">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Financing Calculator -->
+
+<!-- Trending Searches Near You -->
+<section class="py-100 bg-primary">
+
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-40 wow fadeInUp" data-wow-delay="0.1s">
+			<h2 class="text-white">Trending Searches Near You</h2>
+
+			<a href="listing-grid4-columns.html" class="btn btn-line-blur effect-line-white hover-fill-primary font-weight-600 btn-large">
+				View All
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_trending)">
+						<path d="M10 1.875C8.39303 1.875 6.82214 2.35152 5.486 3.24431C4.14985 4.1371 3.10844 5.40605 2.49348 6.8907C1.87852 8.37535 1.71762 10.009 2.03112 11.5851C2.34463 13.1612 3.11846 14.6089 4.25476 15.7452C5.39106 16.8815 6.8388 17.6554 8.4149 17.9689C9.99099 18.2824 11.6247 18.1215 13.1093 17.5065C14.594 16.8916 15.8629 15.8502 16.7557 14.514C17.6485 13.1779 18.125 11.607 18.125 10C18.1227 7.84581 17.266 5.78051 15.7427 4.25727C14.2195 2.73403 12.1542 1.87727 10 1.875ZM13.5672 10.4422L11.0672 12.9422C10.9499 13.0595 10.7909 13.1253 10.625 13.1253C10.4592 13.1253 10.3001 13.0595 10.1828 12.9422C10.0655 12.8249 9.99966 12.6659 9.99966 12.5C9.99966 12.3341 10.0655 12.1751 10.1828 12.0578L11.6164 10.625H6.875C6.70924 10.625 6.55027 10.5592 6.43306 10.4419C6.31585 10.3247 6.25 10.1658 6.25 10C6.25 9.83424 6.31585 9.67527 6.43306 9.55806C6.55027 9.44085 6.70924 9.375 6.875 9.375H11.6164L10.1828 7.94219C10.0655 7.82491 9.99966 7.66585 9.99966 7.5C9.99966 7.33415 10.0655 7.17509 10.1828 7.05781C10.3001 6.94054 10.4592 6.87465 10.625 6.87465C10.7909 6.87465 10.9499 6.94054 11.0672 7.05781L13.5672 9.55781C13.6253 9.61586 13.6714 9.68479 13.7029 9.76066C13.7343 9.83654 13.7505 9.91787 13.7505 10C13.7505 10.0821 13.7343 10.1635 13.7029 10.2393C13.6714 10.3152 13.6253 10.3841 13.5672 10.4422Z" fill="white"></path>
+					</g>
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-card">
+			<div class="swiper-wrapper">
+				@if (Model.TrendingCars.Any())
+				{
+					foreach (var car in Model.TrendingCars)
+					{
+						<div class="swiper-slide">
+							<div class="card-box card-box-style-2">
+								<div class="top">
+									@if (!string.IsNullOrEmpty(car.Badge))
+									{
+										<p class="@(car.BadgeColor ?? "bg-primary-2") text-white highlight">@car.Badge</p>
+									}
+									else
+									{
+										<p></p>
+									}
+									<p class="heart">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_heart_trend)">
+												<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+									</p>
+								</div>
+								<div class="image">
+									<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id">
+										<img class="card--img" src="@(car.ThumbnailUrl ?? "~/assets/images/card/card-9.jpg")" alt="@car.Title">
+									</a>
+								</div>
+								<div class="content border-top-none bg-blur border-blur">
+									<div class="bottom">
+										<p class="category uppercase text-white">
+											<a href="#" class="text-white">@car.BrandName</a>
+										</p>
+										<div class="flex items-center gap-8">
+											<p class="category uppercase text-white">
+												<img src="~/assets/icons/picture.svg" alt="picture">
+												@car.ImageCount
+											</p>
+										</div>
+									</div>
+									<p class="card-box__title mb-8 h6">
+										<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id" class="text-white">@car.Title</a>
+									</p>
+									<ul class="tag mb-10">
+										<li>
+											<img src="~/assets/icons/icon-gauge-2.svg" alt="mileage">
+											<span>@car.Mileage.ToString("N0") miles</span>
+										</li>
+										<li>
+											<img src="~/assets/icons/calendar-2.svg" alt="year">
+											<span>@car.Year</span>
+										</li>
+										<li>
+											<img src="~/assets/icons/gaspump-2.svg" alt="fuel">
+											<span>@car.FuelType</span>
+										</li>
+										<li>
+											<img src="~/assets/icons/@(car.Transmission == "Manual" ? "manual-2" : "auto-2").svg" alt="transmission">
+											<span>@car.Transmission</span>
+										</li>
+									</ul>
+									<p class="card-box__price mb-15 text-white">$@car.Price.ToString("N2")</p>
+									<div class="divider-blur mb-16"></div>
+									<div class="flex justify-between">
+										<p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<g clip-path="url(#clip_compare_trend)">
+													<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M6.875 10H13.125" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M10 6.875V13.125" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+											Compare
+										</p>
+										<a asp-controller="List" asp-action="Index" asp-route-id="@car.Id" class="view-details text-white">
+											View details
+											<img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="details">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+				}
+				else
+				{
+					<div class="swiper-slide">
+						<p class="text-center text-white py-100">No trending cars yet.</p>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination pagination-white pagination-style pagination-swiper-card mt-38"></div>
+		</div>
+	</div>
+</section>
+<!-- Trending Searches Near You -->
+
+<!-- Clients Reviews -->
+<section class="py-100">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-40">
+			<h2>Clients Reviews</h2>
+			<a href="clients-reviews.html" class="btn btn-line-style-2 effect-line-primary hover-fill-white btn-large">
+				View All
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-testimonior swiper-container-visible" data-initial-slide="3">
+			<div class="swiper-wrapper">
+				@if (Model.Reviews.Any())
+				{
+					foreach (var review in Model.Reviews)
+					{
+						<div class="swiper-slide">
+							<div class="testimonior-box">
+								<div class="flex items-center gap-4 mb-16">
+									@for (int i = 0; i < review.Rating; i++)
+									{
+										<img src="~/assets/icons/star.svg" alt="star">
+									}
+								</div>
+								<p class="testimonior-box--desc mb-16">@review.Content</p>
+								<div class="testimonior-box--user">
+									<img class="testimonior--img" src="@(review.AvatarUrl ?? "~/assets/images/avatar/avatar-1.png")" alt="avatar">
+									<div class="testimonior-box--user-content">
+										<p class="title">@review.AuthorName</p>
+										<p class="desc">@review.AuthorTitle</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+				}
+				else
+				{
+					<div class="swiper-slide">
+						<div class="testimonior-box">
+							<p class="testimonior-box--desc mb-16">No reviews yet. Be the first to share your experience!</p>
+						</div>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-testimonior mt-35"></div>
+		</div>
+	</div>
+</section>
+<!-- Clients Reviews -->
+
+<!-- Explore Our Brands -->
+<section class="background-light py-100">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-40">
+			<h2>Explore Our Brands</h2>
+			<a href="listing-grid4-columns.html" class="btn btn-line-style-2 effect-line-primary hover-fill-white btn-large">
+				View All Brand
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-outbrand">
+			<div class="swiper-wrapper">
+				@if (Model.Brands.Any())
+				{
+					foreach (var brand in Model.Brands)
+					{
+						<div class="swiper-slide">
+							<a href="listing-grid4-columns.html" class="out-brand">
+								<img class="out-brand--img mb-8" src="@(brand.LogoUrl ?? "~/assets/images/brand/brand-1.png")" alt="@brand.Name">
+								<p class="h5">@brand.Name</p>
+								<p class="text-muted text-sm">@brand.VehicleCount Vehicles</p>
+							</a>
+						</div>
+					}
+				}
+				else
+				{
+					<div class="swiper-slide">
+						<p class="text-center">No brands available yet.</p>
+					</div>
+				}
+			</div>
+		</div>
+		<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-outbrand mt-38 "></div>
+	</div>
+</section>
+<!-- Explore Our Brands -->
+
+<!-- Find Your Perfect Used Car -->
+<section class="bg-primary py-100">
+	<div class="container">
+		<div class="grid grid-cols-2 xl-grid-cols-2 lg-grid-cols-1 gap-30">
+			<div class="flex flex-col justify-center pr-100 wow fadeInUp" data-wow-delay="0.1s">
+				<h2 class="text-white mb-12">Find Your Perfect Used Car Anytime, Anywhere!</h2>
+				<p class="text-white mb-40">Experience hassle-free car shopping with our app. Browse, compare, and buy used cars wherever you are – it's fast, simple, and convenient.</p>
+				<div class="flex items-center gap-12">
+					<a href="#">
+						<img class="h-40" src="~/assets/images/brand/app-store.png" alt="app-store">
+					</a>
+					<a href="#">
+						<img class="h-40" src="~/assets/images/brand/google-play.png" alt="google-play">
+					</a>
+				</div>
+			</div>
+			<div class="image-effect-scale flex md-ml-0 ml-24 radius-20 overflow-hidden wow fadeInUp hover-this img-animation animated" data-wow-delay="0.3s">
+				<img class="w-full" src="~/assets/images/home/banner-download-app.jpg" alt="banner-download-app">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Find Your Perfect Used Car -->
+
+<!-- News & Reviews -->
+<section class="py-100">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-28 wow fadeInUp">
+			<h2>News & Reviews</h2>
+			<a href="blog-list.html" class="btn btn-line-style-2 effect-line-primary hover-fill-white btn-large">
+				View All
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-news">
+			<div class="swiper-wrapper">
+				@if (Model.LatestNews.Any())
+				{
+					foreach (var news in Model.LatestNews)
+					{
+						<div class="swiper-slide">
+							<a asp-controller="Blog" asp-action="Index" class="post post-effect-style-1 overflow-hidden">
+								<img class="post--img" src="@(news.ThumbnailUrl ?? "~/assets/images/blog/post-1.jpg")" alt="@news.Title">
+								<div class="content border-top-none border-light">
+									<p class="h5 mb-4 title 600 clamp clamp-2">@news.Title</p>
+									<div class="tags clamp clamp-1">
+										<span>by @(news.AuthorName ?? "Admin")</span>
+										<span>@(news.PublishedAt?.ToString("MMM. d, yyyy") ?? "")</span>
+										<span class="text-highlight uppercase">@news.CategoryName</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					}
+				}
+				else
+				{
+					<div class="swiper-slide">
+						<p class="text-center py-100">No news available yet.</p>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-news mt-35"></div>
+		</div>
+	</div>
+</section>
+<!-- News & Reviews -->

@@ -1,0 +1,112 @@
+﻿<!-- breadcrumb -->
+<section class="background-light mb-32">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Pages</span>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span class="capitalize">Terms of use</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- breadcrumb -->
+
+
+<section class="bg-white pb-100">
+	<div class="container">
+		<h2 class="capitalize">Terms of use</h2>
+		<div class="tf-spacing-style3"></div>
+
+		<div class="term-page" id="scrollContainer">
+			<div class="term-page--nav-container">
+				<ul class="term-page--nav" id="sidebarSticky">
+					<li>
+						<a href="#section1">1. Terms </a>
+					</li>
+					<li>
+						<a href="#section2">2. Limitations</a>
+					</li>
+					<li>
+						<a href="#section3">3. Revisions And Errata</a>
+					</li>
+					<li>
+						<a href="#section4">4. Site Terms Of Use Modifications</a>
+					</li>
+					<li>
+						<a href="#section5">5. Risks</a>
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="section" id="section1">
+					<p class="h4 mb-12 capitalize">1. Terms</p>
+					<p class="text-body-style-2 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed euismod justo, sit amet efficitur dui. Aliquam sodales vestibulum velit, eget sollicitudin quam. Donec non aliquam eros. Etiam sit amet lectus vel justo dignissim condimentum.</p>
+					<p class="text-body-style-2 mb-12">In malesuada neque quis libero laoreet posuere. In consequat vitae ligula quis rutrum. Morbi dolor orci, maximus a pulvinar sed, bibendum ac lacus. Suspendisse in consectetur lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam elementum, est sed interdum cursus, felis ex pharetra nisi, ut elementum tortor urna eu nulla. Donec rhoncus in purus quis blandit.</p>
+					<p class="text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie</p>
+				</div>
+
+				<div class="section" id="section2">
+					<p class="h4 mb-12 capitalize">2. Limitations</p>
+					<p class="mb-12 text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie a, finibus nec ex.</p>
+
+					<ul class="list-style">
+						<li class="mb-12 text-body-style-2">
+							Aliquam elementum, est sed interdum cursus, felis ex pharetra nisi, ut elementum tortor urna eu nulla. Donec rhoncus in purus quis blandit.
+						</li>
+						<li class="mb-12 text-body-style-2">
+							Etiam eleifend metus at nunc ultricies facilisis.
+						</li>
+						<li class="mb-12 text-body-style-2">
+							Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie a, finibus nec ex.
+						</li>
+					</ul>
+					<p class="text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie</p>
+				</div>
+
+				<div class="section" id="section3">
+					<p class="h4 mb-12 capitalize">3. Revisions and errata</p>
+					<p class="mb-12 text-body-style-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed euismod justo, sit amet efficitur dui. Aliquam sodales vestibulum velit, eget sollicitudin quam. Donec non aliquam eros. Etiam sit amet lectus vel justo dignissim condimentum.</p>
+					<p class="mb-12 text-body-style-2">In malesuada neque quis libero laoreet posuere. In consequat vitae ligula quis rutrum. Morbi dolor orci, maximus a pulvinar sed, bibendum ac lacus. Suspendisse in consectetur lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam elementum, est sed interdum cursus, felis ex pharetra nisi, ut elementum tortor urna eu nulla. Donec rhoncus in purus quis</p>
+					<p class="text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie a, finibus nec ex.</p>
+				</div>
+
+				<div class="section" id="section4">
+					<p class="h4 mb-12 capitalize">4. Site terms of use modifications</p>
+					<p class="mb-12 text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie </p>
+
+					<ul class="list-style">
+						<li class="mb-12 text-body-style-2">
+							Aliquam elementum, est sed interdum cursus, felis ex pharetra nisi, ut elementum tortor urna eu nulla. Donec rhoncus in purus quis blandit.
+						</li>
+						<li class="mb-12 text-body-style-2">
+							Etiam eleifend metus at nunc ultricies facilisis.
+						</li>
+						<li class="mb-12 text-body-style-2">
+							Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie a, finibus nec ex.
+						</li>
+					</ul>
+
+					<p class="text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie </p>
+				</div>
+
+				<div class="section" id="section5">
+					<p class="h4 mb-12 capitalize">5. Risks</p>
+					<p class="mb-12 text-body-style-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed euismod justo, sit amet efficitur dui. Aliquam sodales vestibulum velit, eget sollicitudin quam. Donec non aliquam eros. Etiam sit amet lectus vel justo dignissim condimentum.</p>
+					<p class="mb-12 text-body-style-2">In malesuada neque quis libero laoreet posuere. In consequat vitae ligula quis rutrum. Morbi dolor orci, maximus a pulvinar sed, bibendum ac lacus. Suspendisse in consectetur lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam elementum, est sed interdum cursus, felis ex pharetra nisi, ut elementum tortor urna eu nulla. Donec rhoncus in purus quis</p>
+					<p class="text-body-style-2">Etiam eleifend metus at nunc ultricies facilisis. Morbi finibus tristique interdum. Nullam vel eleifend est, eu posuere risus. Vestibulum ligula ex, ullamcorper sit amet molestie a, finibus nec ex.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,233 @@
+﻿<!-- breadcrumb -->
+<section class="background-light mb-32">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Pages</span>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Frequently Asked Questions</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- breadcrumb -->
+
+
+<section class="bg-white pb-84">
+	<div class="container mb-60">
+		<h2>Frequently Asked Questions</h2>
+		<div class="tf-spacing-style3"></div>
+		<p class="h3 mb-20 text-center capitalize">How To Buy?</p>
+		<div class="max-width-850 mx-auto w-full">
+			<div class="flat-accordion flex flex-col gap-18 max-width-930 wow fadeIn" data-wow-delay=".3s">
+				<div class="flat-toggle active bg-white">
+					<div class="toggle-title active">
+						<p class="h5 title">Steps to purchase a car from our dealership?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content ">
+						<p class="mb-8 h7 text-secondary line-height-28">
+							To purchase a car from our dealership, start by exploring our inventory online or visiting us in person to find the vehicle that suits your needs. Schedule a test drive to ensure it’s the right fit, then review financing or leasing options with our team.
+						</p>
+						<p class="h7 text-secondary line-height-28">
+							Provide the necessary documents, such as your ID, proof of insurance, and income verification. Once terms are agreed upon, finalize the paperwork, inspect the car, and drive away with your new vehicle!
+						</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle">
+					<div class="toggle-title">
+						<p class="h5 title">Required documents for financing or leasing?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">To purchase a car from our dealership, start by exploring our inventory online or visiting us in person to find the vehicle that suits your needs. Schedule a test drive to ensure it’s the right fit, then review financing or leasing options with our team.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Options for reserving or pre-ordering a vehicle?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Available payment methods and financing plans?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">How to schedule a test drive before buying?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container mb-60">
+		<p class="h3 mb-20 text-center capitalize">Exchanges & Returns</p>
+		<div class="max-width-850 mx-auto w-full">
+			<div class="flat-accordion flex flex-col gap-18 max-width-930 wow fadeIn" data-wow-delay=".3s">
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Policies on vehicle exchanges after purchase?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content ">
+						<p class="mb-8 h7 text-secondary line-height-28">
+							To purchase a car from our dealership, start by exploring our inventory online or visiting us in person to find the vehicle that suits your needs. Schedule a test drive to ensure it’s the right fit, then review financing or leasing options with our team.
+						</p>
+						<p class="h7 text-secondary line-height-28">
+							Provide the necessary documents, such as your ID, proof of insurance, and income verification. Once terms are agreed upon, finalize the paperwork, inspect the car, and drive away with your new vehicle!
+						</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle">
+					<div class="toggle-title">
+						<p class="h5 title">Conditions for returning a rental car early?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">To purchase a car from our dealership, start by exploring our inventory online or visiting us in person to find the vehicle that suits your needs. Schedule a test drive to ensure it’s the right fit, then review financing or leasing options with our team.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Timeframes for initiating an exchange or return?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Documentation needed for processing exchanges?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<p class="h3 mb-18 text-center capitalize">Refund Questions</p>
+		<div class="max-width-850 mx-auto w-full">
+			<div class="flat-accordion flex flex-col gap-18 max-width-930 wow fadeIn" data-wow-delay=".3s">
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Eligibility for refunds on purchases or deposits?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content ">
+						<p class="mb-8 h7 text-secondary line-height-28">
+							To purchase a car from our dealership, start by exploring our inventory online or visiting us in person to find the vehicle that suits your needs. Schedule a test drive to ensure it’s the right fit, then review financing or leasing options with our team.
+						</p>
+						<p class="h7 text-secondary line-height-28">
+							Provide the necessary documents, such as your ID, proof of insurance, and income verification. Once terms are agreed upon, finalize the paperwork, inspect the car, and drive away with your new vehicle!
+						</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle">
+					<div class="toggle-title">
+						<p class="h5 title">How refunds are processed for canceled rentals?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">To purchase a car from our dealership, start by exploring our inventory online or visiting us in person to find the vehicle that suits your needs. Schedule a test drive to ensure it’s the right fit, then review financing or leasing options with our team.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Timeframes for receiving a refund?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
