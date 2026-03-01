@@ -1,0 +1,76 @@
+﻿using Car_Project.ViewModels.Calculator;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Car_Project.Controllers
+{
+    public class CalculatorController : Controller
+    {
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var vm = new CalculatorIndexViewModel
+            {
+                Form = new LoanCalculatorFormViewModel()
+            };
+            // Default dəyərlərlə ilk hesablamanı göstər
+            vm.Result = Calculate(vm.Form);
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(LoanCalculatorFormViewModel form)
+        {
+            var vm = new CalculatorIndexViewModel { Form = form};
+
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            vm.Result = Calculate(form);
+            return View(vm);
+        }
+
+        private static LoanCalculatorResultViewModel Calculate(LoanCalculatorFormViewModel f)
+        {
+            // SalesTax məbləği
+            decimal salesTaxAmount = Math.Round(f.CarPrice * (f.SalesTax / 100m), 2);
+
+            // Principal = CarPrice - DownPayment - TradeInValue + SalesTax
+            decimal principal = f.CarPrice - f.DownPayment - f.TradeInValue + salesTaxAmount;
+            if (principal < 0) principal = 0;
+
+            decimal monthlyPayment;
+            decimal totalInterest;
+
+            if (f.InterestRate == 0)
+            {
+                monthlyPayment = f.LoanTermMonths > 0 ? Math.Round(principal / f.LoanTermMonths, 2) : 0;
+                totalInterest = 0;
+            }
+            else
+            {
+                double r = (double)(f.InterestRate / 100m / 12m);
+                int n = f.LoanTermMonths;
+                double factor = Math.Pow(1 + r, n);
+                monthlyPayment = Math.Round((decimal)((double)principal * (r * factor) / (factor - 1)), 2);
+                totalInterest = Math.Round(monthlyPayment * n - principal, 2);
+            }
+
+            decimal totalLoanAmount = Math.Round(principal + totalInterest, 2);
+
+            return new LoanCalculatorResultViewModel
+            {
+                CarPrice = f.CarPrice,
+                DownPayment = f.DownPayment,
+                TradeInValue = f.TradeInValue,
+                InterestRate = f.InterestRate,
+                SalesTax = f.SalesTax,
+                SalesTaxAmount = salesTaxAmount,
+                LoanTermMonths = f.LoanTermMonths,
+                MonthlyPayment = monthlyPayment,
+                TotalInterestPayment = totalInterest,
+                TotalLoanAmount = totalLoanAmount
+            };
+        }
+    }
+}

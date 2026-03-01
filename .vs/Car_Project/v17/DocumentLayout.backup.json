@@ -3,39 +3,41 @@
   "WorkspaceRootPath": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogPosts.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\migrations\\20260301012222_addblogshoporderpaymenttables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:migrations\\20260301012222_addblogshoporderpaymenttables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogTags.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductImages.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogCategories.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Products.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogPostTags.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductCategories.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogComments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\viewmodels\\shop\\shopviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:viewmodels\\shop\\shopviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Reviews.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.CarImages.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Cars.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Brands.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,7 +47,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,118 +59,123 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.BlogCategories [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogCategories.sql",
-              "ToolTip": "dbo.BlogCategories [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T09:58:34.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dbo.BlogPosts [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogPosts.sql",
-              "ToolTip": "dbo.BlogPosts [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T09:57:05.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.BlogTags [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogTags.sql",
-              "ToolTip": "dbo.BlogTags [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T10:00:02.042Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAewAgBAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-01T08:55:15.26Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dbo.BlogPostTags [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogPostTags.sql",
-              "ToolTip": "dbo.BlogPostTags [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T09:59:53.503Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "dbo.BlogComments [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.BlogComments.sql",
-              "ToolTip": "dbo.BlogComments [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T09:56:40.94Z",
+              "DocumentIndex": 8,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PaymentController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-01T23:47:06.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "dbo.Reviews [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Reviews.sql",
-              "ToolTip": "dbo.Reviews [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T09:54:51.066Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAOMAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-01T23:41:32.157Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAewHgAAAAAAAAAAAAAAA==",
+              "Title": "ShopViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\ViewModels\\Shop\\ShopViewModels.cs",
+              "RelativeDocumentMoniker": "ViewModels\\Shop\\ShopViewModels.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\ViewModels\\Shop\\ShopViewModels.cs",
+              "RelativeToolTip": "ViewModels\\Shop\\ShopViewModels.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T08:56:21.735Z",
+              "WhenOpened": "2026-03-01T23:41:24.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "dbo.Brands [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Brands.sql",
-              "ToolTip": "dbo.Brands [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T08:52:11.031Z",
+              "DocumentIndex": 5,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-01T23:41:15.267Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "dbo.CarImages [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.CarImages.sql",
-              "ToolTip": "dbo.CarImages [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T08:37:59.148Z",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Details.cshtml*",
+              "RelativeToolTip": "Views\\Product\\Details.cshtml*",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAewIoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-01T22:47:00.422Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "dbo.Cars [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Cars.sql",
-              "ToolTip": "dbo.Cars [Data]",
+              "Title": "CheckoutController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\CheckoutController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CheckoutController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\CheckoutController.cs",
+              "RelativeToolTip": "Controllers\\CheckoutController.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-01T23:47:26.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20260301012222_AddBlogShopOrderPaymentTables.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
+              "RelativeToolTip": "Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-01T22:44:25.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dbo.ProductCategories [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductCategories.sql",
+              "ToolTip": "dbo.ProductCategories [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T08:37:50.268Z",
+              "WhenOpened": "2026-03-01T22:38:47.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dbo.ProductImages [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductImages.sql",
+              "ToolTip": "dbo.ProductImages [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-03-01T22:38:45.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.Products [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Products.sql",
+              "ToolTip": "dbo.Products [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-03-01T22:38:43.086Z",
               "EditorCaption": ""
             }
           ]

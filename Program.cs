@@ -1,13 +1,15 @@
 using Car_Project.Data;
+using Car_Project.Models;
 using Car_Project.Services;
 using Car_Project.Services.Abstractions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Car_Project
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,37 @@ namespace Car_Project
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // ?? Identity ????????????????????????????????????????????????????
+            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                // ?ifr? qaydalar?
+                options.Password.RequireDigit           = true;
+                options.Password.RequiredLength         = 8;
+                options.Password.RequireUppercase       = true;
+                options.Password.RequireLowercase       = true;
+                options.Password.RequireNonAlphanumeric = false;
+
+                // Email unikall???
+                options.User.RequireUniqueEmail = true;
+
+                // Lockout
+                options.Lockout.DefaultLockoutTimeSpan  = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers      = true;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+
+            // ?? Cookie ??????????????????????????????????????????????????????
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath        = "/";
+                options.LogoutPath       = "/Account/Logout";
+                options.AccessDeniedPath = "/";
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan    = TimeSpan.FromDays(7);
+            });
+
             // ?? Session (CompareItem üçün) ????????????????????????????????????
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
@@ -27,6 +60,7 @@ namespace Car_Project
                 options.Cookie.HttpOnly    = true;
                 options.Cookie.IsEssential = true;
             });
+            builder.Services.AddHttpContextAccessor();
 
             // ?? Services ??????????????????????????????????????????????????????
             builder.Services.AddScoped<IFileService,                 FileService>();
@@ -42,6 +76,7 @@ namespace Car_Project
             builder.Services.AddScoped<IServiceCenterService,        ServiceCenterService>();
             builder.Services.AddScoped<INewsletterSubscriberService, NewsletterSubscriberService>();
             builder.Services.AddScoped<ICompareItemService,          CompareItemService>();
+            builder.Services.AddScoped<IWishlistService,             WishlistService>();
             // Blog
             builder.Services.AddScoped<IBlogService,     BlogService>();
             // Shop
@@ -51,9 +86,49 @@ namespace Car_Project
             builder.Services.AddScoped<IOrderService,    OrderService>();
             builder.Services.AddScoped<IPaymentService,  PaymentService>();
             builder.Services.AddScoped<ICouponService,   CouponService>();
+            // SalesAgent
+            builder.Services.AddScoped<ISalesAgentService, SalesAgentService>();
 
             // ?? Build ?????????????????????????????????????????????????????????
             var app = builder.Build();
+
+            // ?? Roles Seed ????????????????????????????????????????????????????
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+
+                // Rollar? yarat
+                foreach (var role in new[] { "SuperAdmin", "Admin", "Agent", "User" })
+                {
+                    if (!await roleManager.RoleExistsAsync(role))
+                        await roleManager.CreateAsync(new IdentityRole(role));
+                }
+
+                // SuperAdmin istifad?çi yarat (?g?r yoxdursa)
+                var superAdminEmail = "superadmin@aurexo.com";
+                var superAdmin = await userManager.FindByEmailAsync(superAdminEmail);
+                if (superAdmin == null)
+                {
+                    superAdmin = new AppUser
+                    {
+                        FullName    = "Super Admin",
+                        Email       = superAdminEmail,
+                        UserName    = superAdminEmail,
+                        CreatedDate = DateTime.UtcNow,
+                        EmailConfirmed = true
+                    };
+                    var result = await userManager.CreateAsync(superAdmin, "SuperAdmin123");
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(superAdmin, "SuperAdmin");
+                    }
+                }
+                else if (!await userManager.IsInRoleAsync(superAdmin, "SuperAdmin"))
+                {
+                    await userManager.AddToRoleAsync(superAdmin, "SuperAdmin");
+                }
+            }
 
             if (!app.Environment.IsDevelopment())
             {
@@ -64,10 +139,11 @@ namespace Car_Project
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
-
             app.UseSession();
 
+            app.UseRouting();
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

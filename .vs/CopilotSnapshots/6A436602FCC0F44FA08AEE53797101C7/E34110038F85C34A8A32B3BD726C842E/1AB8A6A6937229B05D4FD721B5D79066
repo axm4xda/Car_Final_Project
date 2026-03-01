@@ -1,0 +1,96 @@
+﻿using Car_Project.Data;
+using Car_Project.Models;
+using Car_Project.Services.Abstractions;
+using Microsoft.EntityFrameworkCore;
+
+namespace Car_Project.Services
+{
+    public class WishlistService : IWishlistService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public WishlistService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IList<Car>> GetWishlistAsync(string sessionId)
+        {
+            Validate(sessionId);
+
+            var carIds = await _context.WishlistItems
+                .AsNoTracking()
+                .Where(w => w.SessionId == sessionId)
+                .Select(w => w.CarId)
+                .ToListAsync();
+
+            if (carIds.Count == 0)
+                return new List<Car>();
+
+            return await _context.Cars
+                .AsNoTracking()
+                .Where(c => carIds.Contains(c.Id))
+                .Include(c => c.Brand)
+                .Include(c => c.Images.Where(i => i.IsMain))
+                .ToListAsync();
+        }
+
+        public async Task<int> GetCountAsync(string sessionId)
+        {
+            Validate(sessionId);
+            return await _context.WishlistItems.CountAsync(w => w.SessionId == sessionId);
+        }
+
+        public async Task AddAsync(string sessionId, int carId)
+        {
+            Validate(sessionId);
+            var exists = await IsInWishlistAsync(sessionId, carId);
+            if (exists) return;
+
+            var carExists = await _context.Cars.AnyAsync(c => c.Id == carId);
+            if (!carExists) throw new KeyNotFoundException($"Car id={carId} not found.");
+
+            await _context.WishlistItems.AddAsync(new WishlistItem
+            {
+                SessionId   = sessionId,
+                CarId       = carId,
+                CreatedDate = DateTime.UtcNow
+            });
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RemoveAsync(string sessionId, int carId)
+        {
+            Validate(sessionId);
+            var item = await _context.WishlistItems
+                .FirstOrDefaultAsync(w => w.SessionId == sessionId && w.CarId == carId);
+            if (item == null) return;
+            _context.WishlistItems.Remove(item);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task ClearAsync(string sessionId)
+        {
+            Validate(sessionId);
+            var items = await _context.WishlistItems.Where(w => w.SessionId == sessionId).ToListAsync();
+            if (items.Count > 0)
+            {
+                _context.WishlistItems.RemoveRange(items);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<bool> IsInWishlistAsync(string sessionId, int carId)
+        {
+            Validate(sessionId);
+            return await _context.WishlistItems
+                .AnyAsync(w => w.SessionId == sessionId && w.CarId == carId);
+        }
+
+        private static void Validate(string sessionId)
+        {
+            if (string.IsNullOrWhiteSpace(sessionId))
+                throw new ArgumentException("Session ID cannot be empty.", nameof(sessionId));
+        }
+    }
+}

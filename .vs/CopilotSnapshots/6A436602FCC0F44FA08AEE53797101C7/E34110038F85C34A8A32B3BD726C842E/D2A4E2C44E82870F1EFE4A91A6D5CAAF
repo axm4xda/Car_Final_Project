@@ -1,0 +1,139 @@
+﻿using Car_Project.Data;
+using Car_Project.Models;
+using Car_Project.Services.Abstractions;
+using Microsoft.EntityFrameworkCore;
+
+namespace Car_Project.Services
+{
+    public class CompareItemService : ICompareItemService
+    {
+        private readonly ApplicationDbContext _context;
+
+        // Bir session üçün maksimum müqayis? limiti
+        private const int MaxCompareCount = 4;
+
+        public CompareItemService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        // ?? PUBLIC ????????????????????????????????????????????????????????????
+
+        public async Task<IList<Car>> GetCompareListAsync(string sessionId)
+        {
+            ValidateSessionId(sessionId);
+
+            var carIds = await _context.CompareItems
+                .AsNoTracking()
+                .Where(ci => ci.SessionId == sessionId)
+                .Select(ci => ci.CarId)
+                .ToListAsync();
+
+            if (carIds.Count == 0)
+                return new List<Car>();
+
+            return await _context.Cars
+                .AsNoTracking()
+                .Where(c => carIds.Contains(c.Id))
+                .Include(c => c.Brand)
+                .Include(c => c.Images.Where(i => i.IsMain))
+                .Include(c => c.Features)
+                    .ThenInclude(f => f.CarFeature)
+                .ToListAsync();
+        }
+
+        public async Task<int> GetCountAsync(string sessionId)
+        {
+            ValidateSessionId(sessionId);
+
+            return await _context.CompareItems
+                .CountAsync(ci => ci.SessionId == sessionId);
+        }
+
+        public async Task AddAsync(string sessionId, int carId)
+        {
+            ValidateSessionId(sessionId);
+
+            var currentCount = await GetCountAsync(sessionId);
+            if (currentCount >= MaxCompareCount)
+                throw new InvalidOperationException(
+                    $"Müqayis? siyah?s?nda maksimum {MaxCompareCount} avtomobil ola bil?r.");
+
+            var alreadyExists = await IsInListAsync(sessionId, carId);
+            if (alreadyExists)
+                throw new InvalidOperationException("Bu avtomobil art?q müqayis? siyah?s?ndad?r.");
+
+            var carExists = await _context.Cars.AnyAsync(c => c.Id == carId);
+            if (!carExists)
+                throw new KeyNotFoundException($"Id={carId} olan avtomobil tap?lmad?.");
+
+            await _context.CompareItems.AddAsync(new CompareItem
+            {
+                SessionId   = sessionId,
+                CarId       = carId,
+                CreatedDate = DateTime.UtcNow
+            });
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RemoveAsync(string sessionId, int carId)
+        {
+            ValidateSessionId(sessionId);
+
+            var item = await _context.CompareItems
+                .FirstOrDefaultAsync(ci => ci.SessionId == sessionId && ci.CarId == carId);
+
+            if (item == null) return; // Yoxdursa sessizce ç?x
+
+            _context.CompareItems.Remove(item);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task ClearAsync(string sessionId)
+        {
+            ValidateSessionId(sessionId);
+
+            var items = await _context.CompareItems
+                .Where(ci => ci.SessionId == sessionId)
+                .ToListAsync();
+
+            if (items.Count > 0)
+            {
+                _context.CompareItems.RemoveRange(items);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<bool> IsInListAsync(string sessionId, int carId)
+        {
+            ValidateSessionId(sessionId);
+
+            return await _context.CompareItems
+                .AnyAsync(ci => ci.SessionId == sessionId && ci.CarId == carId);
+        }
+
+        // ?? ADMIN ?????????????????????????????????????????????????????????????
+
+        public async Task CleanupExpiredAsync(DateTime olderThan)
+        {
+            var expired = await _context.CompareItems
+                .Where(ci => ci.CreatedDate < olderThan)
+                .ToListAsync();
+
+            if (expired.Count > 0)
+            {
+                _context.CompareItems.RemoveRange(expired);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        // ?? Köm?kçi ??????????????????????????????????????????????????????????
+
+        private static void ValidateSessionId(string sessionId)
+        {
+            if (string.IsNullOrWhiteSpace(sessionId))
+                throw new ArgumentException("Session ID bo? ola bilm?z.", nameof(sessionId));
+        }
+    }
+}

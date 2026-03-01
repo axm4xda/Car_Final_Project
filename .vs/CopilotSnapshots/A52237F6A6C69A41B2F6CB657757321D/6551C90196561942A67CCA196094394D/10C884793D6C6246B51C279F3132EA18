@@ -1,0 +1,321 @@
+﻿ <!-- breadcrumb -->
+<section class="background-light">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<a href="index-2.html">Pages</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Calculator</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- breadcrumb -->
+<!-- New Cars -->
+<section class="pb-100">
+	<div class="tf-spacing-style3"></div>
+
+	<div class="container">
+		<h2 class="text-center mb-12">Car Payment Calculator</h2>
+		<p class="mb-40 text-center text-secondary h7 line-height-28">Estimate your monthly payments and budget for your next car with ease.</p>
+
+		<div class="grid grid-cols-2 gap-40 lg-grid-cols-1">
+			<div class="border-box">
+				<p class="h3 mb-28">Calculate Your Estimated Monthly</p>
+				<form action="#" class="calculate-form">
+					<div class="grid grid-cols-1 gap-15">
+						<div>
+							<p class="mb-8">Car Price</p>
+							<input class="active input-large" id="calculatePrice" name="calculatePrice" type="text" value="$46.300" required="" />
+						</div>
+
+						<div>
+							<p class="mb-8">Down Payment</p>
+							<input class="input-large" id="CalculatorPayment" name="CalculatorPayment" type="text" value="$400" required="" />
+						</div>
+
+						<div>
+							<p class="mb-8">Loan Term <span class="text-muted">(months)</span></p>
+							<select id="CalculatorInterestRate" name="CalculatorInterestRate">
+								<option>36 months</option>
+								<option>24 months</option>
+								<option>12 months</option>
+							</select>
+						</div>
+
+						<div>
+							<p class="mb-8">Trade In Value (Optional)</p>
+							<input class="input-large" id="CalculatorTrade" placeholder="$0" name="CalculatorTrade" type="text" value="" required="" />
+						</div>
+						<div>
+							<p class="mb-8">Interest Rate</p>
+							<input class="input-large" id="CalculatorInterestRate2" name="CalculatorInterestRate2" type="text" value="1.20%" required="" />
+						</div>
+						<div>
+							<p class="mb-8">Sales Tax</p>
+							<input class="input-large" id="CalculatorTax" name="CalculatorTax" type="text" value="3.00%" required="" />
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="border-box">
+				<p class="h3 mb-8">Estimated Monthly Payment*</p>
+				<p class="mb-10"><span class="text-56 font-weight-600">$1.338</span><span class="h3 font-weight-600">/Month</span></p>
+				<p class="h5 mb-28 capitalize">for 3 years</p>
+				<div class="divider mb-28 w-full"></div>
+
+				<p class="h4 mb-20">Loan Summary</p>
+
+				<div class="flex flex-col gap-18 mb-28">
+					<p class="flex justify-between gap-8">
+						<span class="h7 text-secondary">Car Price</span>
+						<span class="h7">$46.300</span>
+					</p>
+					<p class="flex justify-between gap-8">
+						<span class="h7 text-secondary">Down Payment</span>
+						<span class="h7">-$400</span>
+					</p>
+					<p class="flex justify-between gap-8">
+						<span class="h7 text-secondary">Trade In Value</span>
+						<span class="h7">-$0</span>
+					</p>
+					<p class="flex justify-between gap-8">
+						<span class="h7 text-secondary">Est. Interest (1.20%)</span>
+						<span class="h7">+$880</span>
+					</p>
+					<p class="flex justify-between gap-8">
+						<span class="h7 text-secondary">Est. Sales Tax (3.00%)</span>
+						<span class="h7">+$1.389</span>
+					</p>
+					<p class="flex justify-between gap-8">
+						<span class="h7 text-secondary">Other Fees</span>
+						<span class="h7">Not Included</span>
+					</p>
+				</div>
+
+				<div class="divider mb-28 w-full"></div>
+
+				<div class="flex justify-between gap-8 mb-16">
+					<p class="h4">Total Loan Amount</p>
+					<p class="h4">$48.169</p>
+				</div>
+
+				<div class="flex justify-between gap-8">
+					<p class="h4">Monthly Payment</p>
+					<p class="h4">$1.338</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tf-spacing"></div>
+
+	<h2 class="text-center mb-40 capitalize">Browse by Price</h2>
+
+	<div class="container">
+		<div class="grid grid-cols-5 lg-grid-cols-3 md-grid-cols-2 smb-grid-cols-1 gap-20 mb-40 padding-box-20">
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Popular</a>
+				<p class="h4">Under $15k</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Subaru Forester</a>
+				<p class="h4">Under $30K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Porsche Coupe</a>
+				<p class="h4">Under $100K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Toyota Highlander</a>
+				<p class="h4">Under $60K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Toyota Highlander</a>
+				<p class="h4">Under $60K</p>
+			</div>
+
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Honda</a>
+				<p class="h4">Under $15k</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used SUV</a>
+				<p class="h4">Under $30K</p>
+			</div>
+
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Lexus</a>
+				<p class="h4">Under $80K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Truck</a>
+				<p class="h4">Under $40K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used BMW</a>
+				<p class="h4">Under $60K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Mercedes</a>
+				<p class="h4">Under $100k</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Volvo</a>
+				<p class="h4">Under $70K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Sedan</a>
+				<p class="h4">Under $20K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Electric</a>
+				<p class="h4">Under $30K</p>
+			</div>
+			<div class="price-box">
+				<a href="listing-grid4-columns.html" class="h7 font-weight-500 mb-8 text-underline">Used Hatchback</a>
+				<p class="h4">Under $25K</p>
+			</div>
+		</div>
+
+		<div class="flex justify-center">
+			<a href="listing-grid4-columns.html" class="btn btn-line-hover effect-line-primary btn-large font-weight-600 hover-fill-white">
+				View All
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g clip-path="url(#clip0_13439_106990)">
+						<path d="M10 1.875C8.39303 1.875 6.82214 2.35152 5.486 3.24431C4.14985 4.1371 3.10844 5.40605 2.49348 6.8907C1.87852 8.37535 1.71762 10.009 2.03112 11.5851C2.34463 13.1612 3.11846 14.6089 4.25476 15.7452C5.39106 16.8815 6.8388 17.6554 8.4149 17.9689C9.99099 18.2824 11.6247 18.1215 13.1093 17.5065C14.594 16.8916 15.8629 15.8502 16.7557 14.514C17.6485 13.1779 18.125 11.607 18.125 10C18.1227 7.84581 17.266 5.78051 15.7427 4.25727C14.2195 2.73403 12.1542 1.87727 10 1.875ZM13.5672 10.4422L11.0672 12.9422C10.9499 13.0595 10.7909 13.1253 10.625 13.1253C10.4592 13.1253 10.3001 13.0595 10.1828 12.9422C10.0655 12.8249 9.99966 12.6659 9.99966 12.5C9.99966 12.3341 10.0655 12.1751 10.1828 12.0578L11.6164 10.625H6.875C6.70924 10.625 6.55027 10.5592 6.43306 10.4419C6.31585 10.3247 6.25 10.1658 6.25 10C6.25 9.83424 6.31585 9.67527 6.43306 9.55806C6.55027 9.44085 6.70924 9.375 6.875 9.375H11.6164L10.1828 7.94219C10.0655 7.82491 9.99966 7.66585 9.99966 7.5C9.99966 7.33415 10.0655 7.17509 10.1828 7.05781C10.3001 6.94054 10.4592 6.87465 10.625 6.87465C10.7909 6.87465 10.9499 6.94054 11.0672 7.05781L13.5672 9.55781C13.6253 9.61586 13.6714 9.68479 13.7029 9.76066C13.7343 9.83654 13.7505 9.91787 13.7505 10C13.7505 10.0821 13.7343 10.1635 13.7029 10.2393C13.6714 10.3152 13.6253 10.3841 13.5672 10.4422Z" fill="#1C1C1C" />
+					</g>
+				</svg>
+			</a>
+		</div>
+
+	</div>
+</section>
+<!-- New Cars -->
+
+<section class="background-light py-100">
+	<div class="container">
+		<h2 class="mb-40 text-center">Calculator FAQ</h2>
+		<div class="max-width-930 mx-auto w-full">
+			<div class="flat-accordion flex flex-col gap-18 max-width-930 wow fadeIn" data-wow-delay=".3s">
+				<div class="flat-toggle bg-white active">
+					<div class="toggle-title active">
+						<p class="h5 title">What is an Auto Loan?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="mb-8 h7 text-secondary line-height-28">
+							An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.
+						</p>
+						<p class="mb-8 h7 text-secondary line-height-28">
+							Auto loans are very common: this year, according to Consumer Reports, Americans held more than $1.4 trillion in auto loans. This is because most people can't afford to pay full price for a vehicle right away. It’s easier to afford smaller monthly payments spread out over a longer period of time.
+						</p>
+						<p class="h7 text-secondary line-height-28">
+							You can get an auto loan from a bank or credit union. They will look at your credit and other financial information, and decide how much money they are willing to lend you and what interest rate they’ll offer. You can also get preapproved for a loan, which doesn’t obligate you to borrow money from the bank or credit union that preapproves you. Preapproval lets you approach several different lenders and compare the loan terms and interest rates offered, so you can choose the best one. It's important to understand that the finance company technically owns the car until you pay off the loan.
+						</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">How to Calculate an Auto Loan?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Budget & Car Price?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Down Payment?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Trade-In Value?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Sales Tax?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+
+				<div class="flat-toggle bg-white">
+					<div class="toggle-title">
+						<p class="h5 title">Interest Rate?</p>
+						<span class="icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 15L12 7L4 15" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</span>
+					</div>
+					<div class="toggle-content">
+						<p class="h7 text-secondary line-height-28">An auto loan is a sum of money that you borrow in order to buy a car. The person or organization lending you the money is known as the lender, and the person or organization who borrows the money is the borrower. The borrower agrees to pay back the full amount they borrowed by a certain date in the future. They also pay interest, which is a percentage of the loan amount. They usually pay both these amounts via monthly payments.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> 

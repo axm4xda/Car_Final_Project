@@ -1,0 +1,71 @@
+@model Car_Project.Models.AppUser
+
+<!-- breadcrumb -->
+<section class="background-light">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+			<li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+			<li><span>Profil</span></li>
+		</ul>
+	</div>
+</section>
+
+<section class="pb-100">
+	<div class="tf-spacing-style3"></div>
+	<div class="container" style="max-width:640px;">
+
+		<div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:40px;text-align:center;">
+			<!-- Avatar -->
+			<div style="width:80px;height:80px;border-radius:50%;background:#FF5722;color:white;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;margin:0 auto 16px;">
+				@(Model.FullName.Length > 0 ? Model.FullName[0].ToString().ToUpper() : "?")
+			</div>
+
+			<h2 class="mb-8">@Model.FullName</h2>
+			<p class="text-secondary mb-8">@Model.Email</p>
+
+			@if (ViewBag.UserRole != null)
+			{
+				<div style="margin-bottom:20px;">
+					@{
+						var role = (string)ViewBag.UserRole;
+						var badgeBg = role switch
+						{
+							"SuperAdmin" => "#7c3aed",
+							"Admin"      => "#2563eb",
+							"Agent"      => "#f59e0b",
+							_            => "#e5e7eb"
+						};
+						var badgeColor = role == "User" ? "#374151" : "white";
+					}
+					<span style="display:inline-block;padding:4px 16px;background:@badgeBg;color:@badgeColor;border-radius:20px;font-size:13px;font-weight:600;">
+						@role
+					</span>
+				</div>
+			}
+
+			<p class="text-sm text-secondary mb-24">Qeydiyyat tarixi: @Model.CreatedDate.ToString("dd MMMM yyyy")</p>
+
+			<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+				<a asp-controller="Home" asp-action="Index" class="btn btn-line btn-medium font-weight-600">
+					Ana S?hif?
+				</a>
+
+				@if (User.IsInRole("SuperAdmin"))
+				{
+					<a asp-controller="Account" asp-action="ManageUsers" class="btn btn-primary btn-medium font-weight-600">
+						?stifad?çil?ri ?dar? Et
+					</a>
+				}
+
+				<form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+					@Html.AntiForgeryToken()
+					<button type="submit" class="btn btn-medium font-weight-600" style="background:#dc2626;color:white;border:none;border-radius:8px;cursor:pointer;padding:10px 20px;">
+						Ç?x??
+					</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>

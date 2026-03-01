@@ -69,6 +69,10 @@ namespace Car_Project.ViewModels.List
 
         // Görünü? rejimi: "grid" v? ya "list"
         public string ViewMode { get; set; } = "grid";
+
+        // Wishlist v? Compare v?ziyy?ti (card-larda active class üçün)
+        public ISet<int> WishlistedCarIds { get; set; } = new HashSet<int>();
+        public ISet<int> ComparedCarIds { get; set; } = new HashSet<int>();
     }
 
     // List Detail s?hif?si ???n ViewModel

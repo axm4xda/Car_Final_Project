@@ -5,6 +5,7 @@ namespace Car_Project.ViewModels.About
     // Komanda üzvü üçün ViewModel
     public class TeamMemberViewModel
     {
+        public int SalesAgentId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
         public string? ImageUrl { get; set; }

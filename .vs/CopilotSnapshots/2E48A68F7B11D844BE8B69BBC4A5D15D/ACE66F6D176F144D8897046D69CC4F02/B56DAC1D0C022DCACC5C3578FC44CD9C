@@ -1,0 +1,200 @@
+﻿<!-- breadcrumb -->
+<section class="background-light">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<a href="index-2.html">Pages</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Compare</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- breadcrumb -->
+<!-- New Cars -->
+<section class="pb-100">
+	<div class="tf-spacing-style3"></div>
+
+	<div class="container">
+		<h2 class="text-center mb-12 capitalize">Compare Cars Side-by-Side</h2>
+		<p class="mb-40 text-center text-secondary h7 line-height-28">Compare features, performance, and pricing to choose the perfect car.</p>
+
+		<div class="card-details">
+			<table class="card-details--table">
+				<tr>
+					<td></td>
+					<td>
+						<div class="relative top">
+							<button class="compare-item-remove-table" type="button" style="position: absolute; top: 0; right: 0; background: transparent; border: none; cursor: pointer; padding: 8px; z-index: 10;">
+								<img src="assets/icons/close-modal.svg" alt="Remove" style="width: 24px; height: 24px;">
+							</button>
+							<img class="mb-10 radius-16 image" src="assets/images/card/card-50.jpg" alt="">
+							<p class="h4 text-center">Audi A6 Avant E-Tron</p>
+						</div>
+
+					</td>
+					<td>
+						<div class="relative top">
+							<button class="compare-item-remove-table" type="button" style="position: absolute; top: 0; right: 0; background: transparent; border: none; cursor: pointer; padding: 8px; z-index: 10;">
+								<img src="assets/icons/close-modal.svg" alt="Remove" style="width: 24px; height: 24px;">
+							</button>
+							<img class="image" src="assets/images/card/card-51.jpg" alt="">
+							<p class="h4 text-center">2024 Hyundai Elantra</p>
+						</div>
+					</td>
+					<td>
+						<div class="relative top">
+							<button class="compare-item-remove-table" type="button" style="position: absolute; top: 0; right: 0; background: transparent; border: none; cursor: pointer; padding: 8px; z-index: 10;">
+								<img src="assets/icons/close-modal.svg" alt="Remove" style="width: 24px; height: 24px;">
+							</button>
+							<img class="image" src="assets/images/card/card-48.jpg" alt="">
+							<p class="h4 text-center">2024 Hyundai Elantra</p>
+						</div>
+					</td>
+					<td>
+						<div class="relative top">
+							<button class="compare-item-remove-table" type="button" style="position: absolute; top: 0; right: 0; background: transparent; border: none; cursor: pointer; padding: 8px; z-index: 10;">
+								<img src="assets/icons/close-modal.svg" alt="Remove" style="width: 24px; height: 24px;">
+							</button>
+							<img class="image" src="assets/images/card/card-48.jpg" alt="">
+							<p class="h4 text-center">2024 Hyundai Elantra</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/mileage.svg" alt="mileage">
+							<span>Mileage:</span>
+						</div>
+					</td>
+					<td>51600 km</td>
+					<td>42600 km</td>
+					<td>40600 km</td>
+					<td>40600 km</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/years.svg" alt="mileage">
+							<span>Years:</span>
+						</div>
+					</td>
+					<td>2022</td>
+					<td>2021</td>
+					<td>2021</td>
+					<td>2021</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/fuel.svg" alt="mileage">
+							<span>Fuel:</span>
+						</div>
+					</td>
+					<td>Benzin + Plin</td>
+					<td>Benzin + Plin</td>
+					<td>Benzin + Plin</td>
+					<td>Benzin + Plin</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/color.svg" alt="mileage">
+							<span>Color:</span>
+						</div>
+					</td>
+					<td>White</td>
+					<td>Gold</td>
+					<td>Gold</td>
+					<td>Gold</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/location.svg" alt="mileage">
+							<span>Location:</span>
+						</div>
+					</td>
+					<td>Tampa, FL</td>
+					<td>Tampa, FL</td>
+					<td>Tampa, FL</td>
+					<td>Tampa, FL</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/interior.svg" alt="mileage">
+							<span>Interior:</span>
+						</div>
+					</td>
+					<td>Jet Black</td>
+					<td>Jet Brown</td>
+					<td>Jet Brown</td>
+					<td>Jet Brown</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/engine.svg" alt="mileage">
+							<span>Engine:</span>
+						</div>
+					</td>
+					<td>1.5L Inline</td>
+					<td>2.5L Inline</td>
+					<td>2.5L Inline</td>
+					<td>2.5L Inline</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/transmission.svg" alt="mileage">
+							<span>Transmission:</span>
+						</div>
+					</td>
+					<td>Automatic</td>
+					<td>Automatic</td>
+					<td>Automatic</td>
+					<td>Automatic</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8 ">
+							<img src="assets/icons/VIN.svg" alt="mileage">
+							<span>VIN:</span>
+						</div>
+					</td>
+					<td>1G1ZD5ST0PF</td>
+					<td>1G1ZD5ST0PF</td>
+					<td>1G1ZD5ST0PF</td>
+					<td>1G1ZD5ST0PF</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="flex items-center gap-8">
+							<img src="assets/icons/QrCode.svg" alt="mileage">
+							<span>Stock Number:</span>
+						</div>
+					</td>
+					<td>165921</td>
+					<td>165921</td>
+					<td>165921</td>
+					<td>165921</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</section>
+<!-- New Cars --> 

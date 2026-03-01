@@ -1,0 +1,615 @@
+﻿<!-- breadcrumb -->
+<section class="background-light">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li>
+				<a href="index-2.html">Home</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<a href="index-2.html">Pages</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<a href="sale-agents.html">Sale Agents</a>
+			</li>
+			<li>
+				<img src="assets/icons/right.svg" alt="chevron-right">
+			</li>
+			<li>
+				<span>Mike Hanley</span>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- breadcrumb -->
+<!-- New Cars -->
+<section class="pb-100">
+	<div class="tf-spacing-style3"></div>
+
+	<div class="container innerpage-container">
+		<div class="innerpage__content md-mb-30">
+			<img class="w-full mb-35 radius-16" src="assets/images/pages/sale-agent-9.jpg" alt="sale-agent-1">
+
+			<h2 class="mb-12">Mike Hanley</h2>
+			<div class="flex">
+				<div class="verify mb-16">
+					<img src="assets/icons/SealCheck.svg" alt="verified">
+					<p class="text-highlight text-sm">Verified Dealer</p>
+				</div>
+			</div>
+
+			<p class="text-secondary mb-4">
+				Darrell Steward is a dedicated automotive professional with over 15 years of experience in the car dealership industry. Known for his customer-first approach and in-depth knowledge of the market, Darrell has helped countless clients find their perfect vehicle while ensuring a seamless and enjoyable buying experience.
+			</p>
+
+			<p class="text-secondary mb-40">
+				His passion for automobiles began at a young age, driving him to excel in understanding every aspect of car sales, from customer service to financing solutions. Darrell is committed to building lasting relationships with his clients, always prioritizing trust and transparency.
+			</p>
+
+			<div class="divider mb-40 w-full"></div>
+
+			<p class="h4 mb-16">Dealer Inventory (3)</p>
+
+			<div class="grid grid-cols-1 gap-20 mb-40">
+				<div class="card-box card-box-style-9">
+					<div class="top">
+						<p class="bg-primary-2 text-white highlight">Special</p>
+						<p class="heart">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13399_19510)">
+									<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</p>
+					</div>
+					<div class="bottom">
+						<p class="category uppercase text-white">
+							<a href="#" class="text-white uppercase text-xs">Audi</a>
+						</p>
+
+						<div class="flex items-center gap-8">
+							<p class="category uppercase text-white">
+								<img src="assets/icons/picture.svg" alt="picture">
+								8
+							</p>
+							<p class="category uppercase text-white">
+								<img src="assets/icons/play.svg" alt="play">
+								1
+							</p>
+						</div>
+					</div>
+					<div class="image">
+						<a href="listing-details-1.html">
+							<img class="card--img" src="assets/images/card/card-44.jpg" alt="car">
+						</a>
+					</div>
+					<div class="content">
+
+						<p class="h6 card-box__title mb-4">
+							<a href="listing-details-1.html">Audi A6 Avant E-Tron</a>
+						</p>
+
+						<p class="text-secondary clamp-1 clamp mb-8">How the adventure ended will be seen anon. Aouda was anxious...</p>
+
+						<ul class="tag style3 mb-14">
+							<li>
+								<img src="assets/icons/icon-gauge.svg" alt="fuel">
+								<span>32500 miles</span>
+							</li>
+							<li>
+								<img src="assets/icons/calendar.svg" alt="fuel">
+								<span>2022</span>
+							</li>
+							<li>
+								<img src="assets/icons/gaspump.svg" alt="fuel">
+								<span>EV</span>
+							</li>
+							<li>
+								<img src="assets/icons/manual.svg" alt="fuel">
+								<span>Manual</span>
+							</li>
+						</ul>
+
+						<p class="h6 card-box__price mb-10 flex justify-between gap-8 items-center">
+							$44.900,00
+						</p>
+
+						<div class="flex gap-32">
+							<p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0_13399_19575)">
+										<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									</g>
+								</svg>
+								Compare
+							</p>
+
+							<a href="listing-details-1.html" class="view-details">
+								View details
+								<img class="ml-4" src="assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-box card-box-style-9">
+					<div class="top">
+						<p></p>
+						<p class="heart">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13399_19510)">
+									<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</p>
+					</div>
+					<div class="bottom">
+						<p class="category uppercase text-white">
+							<a href="listing-details-1.html" class="text-white uppercase text-xs">Audi</a>
+						</p>
+
+						<div class="flex items-center gap-8">
+							<p class="category uppercase text-white">
+								<img src="assets/icons/picture.svg" alt="picture">
+								8
+							</p>
+							<p class="category uppercase text-white">
+								<img src="assets/icons/play.svg" alt="play">
+								1
+							</p>
+						</div>
+					</div>
+					<div class="image">
+						<a href="listing-details-1.html">
+							<img class="card--img" src="assets/images/card/card-45.jpg" alt="car">
+						</a>
+					</div>
+					<div class="content">
+
+						<p class="h6 card-box__title mb-4">
+							<a href="listing-details-1.html">2024 Hyundai Elantra</a>
+						</p>
+
+						<p class="text-secondary clamp-1 clamp mb-8">How the adventure ended will be seen anon. Aouda was anxious...</p>
+
+						<ul class="tag style3 mb-14">
+							<li>
+								<img src="assets/icons/icon-gauge.svg" alt="fuel">
+								<span>32500 miles</span>
+							</li>
+							<li>
+								<img src="assets/icons/calendar.svg" alt="fuel">
+								<span>2022</span>
+							</li>
+							<li>
+								<img src="assets/icons/gaspump.svg" alt="fuel">
+								<span>EV</span>
+							</li>
+							<li>
+								<img src="assets/icons/manual.svg" alt="fuel">
+								<span>Manual</span>
+							</li>
+						</ul>
+
+						<p class="h6 card-box__price mb-10 flex justify-between gap-8 items-center">
+							$40.900,00
+						</p>
+
+						<div class="flex gap-32">
+							<p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0_13399_19575)">
+										<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									</g>
+								</svg>
+								Compare
+							</p>
+
+							<a href="listing-details-1.html" class="view-details">
+								View details
+								<img class="ml-4" src="assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-box card-box-style-9">
+					<div class="top">
+						<p class="bg-green text-white highlight">Great Price</p>
+						<p class="heart">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0_13399_19510)">
+									<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+								</g>
+							</svg>
+						</p>
+					</div>
+					<div class="bottom">
+						<p class="category uppercase text-white">
+							<a href="listing-details-1.html" class="text-white uppercase text-xs">Audi</a>
+						</p>
+
+						<div class="flex items-center gap-8">
+							<p class="category uppercase text-white">
+								<img src="assets/icons/picture.svg" alt="picture">
+								8
+							</p>
+							<p class="category uppercase text-white">
+								<img src="assets/icons/play.svg" alt="play">
+								1
+							</p>
+						</div>
+					</div>
+					<div class="image">
+						<a href="listing-details-1.html">
+							<img class="card--img" src="assets/images/card/card-46.jpg" alt="car">
+						</a>
+					</div>
+					<div class="content">
+
+						<p class="h6 card-box__title mb-4">
+							<a href="listing-details-1.html">Kia EV9 2024</a>
+						</p>
+
+						<p class="text-secondary clamp-1 clamp mb-8">How the adventure ended will be seen anon. Aouda was anxious...</p>
+
+						<ul class="tag style3 mb-14">
+							<li>
+								<img src="assets/icons/icon-gauge.svg" alt="fuel">
+								<span>32500 miles</span>
+							</li>
+							<li>
+								<img src="assets/icons/calendar.svg" alt="fuel">
+								<span>2022</span>
+							</li>
+							<li>
+								<img src="assets/icons/gaspump.svg" alt="fuel">
+								<span>EV</span>
+							</li>
+							<li>
+								<img src="assets/icons/manual.svg" alt="fuel">
+								<span>Manual</span>
+							</li>
+						</ul>
+
+						<p class="h6 card-box__price mb-10 flex justify-between gap-8 items-center">
+							$44.900,00
+						</p>
+
+						<div class="flex gap-32">
+							<p class="compare-details btn btn-small open-modal" data-modal-id="#CompareModal">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0_13399_19575)">
+										<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+									</g>
+								</svg>
+								Compare
+							</p>
+
+							<a href="listing-details-1.html" class="view-details">
+								View details
+								<img class="ml-4" src="assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider mb-40 w-full"></div>
+
+
+			<div class="flex items-center justify-between gap-16 mb-16">
+				<p class="h4">
+					Customer Reviews
+				</p>
+
+				<a href="#reviewForm" class="btn btn-primary btn-small-2 font-weight-600 capitalize">
+					Write a review
+				</a>
+			</div>
+
+			<div class="rating-box max-w-1170 mb-40">
+				<div class="rating-box__content">
+					<div class="rating-box__overview">
+						<div class="rating-box__average">
+							<span class="rating-box__score">4.8</span>
+							<div class="rating-box__stars">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+							</div>
+							<p class="rating-box__count">(1,968 Ratings)</p>
+						</div>
+					</div>
+					<div class="rating-box__distribution">
+						<div class="rating-box__bar-item">
+							<p class="rating-box__bar-label"><span class="text">5</span> <img src="assets/icons/star-2.svg" alt="star"></p>
+							<div class="rating-box__bar-wrapper">
+								<div class="rating-box__bar" style="width: 60%;"></div>
+							</div>
+							<span class="rating-box__bar-percent">60%</span>
+						</div>
+						<div class="rating-box__bar-item">
+							<p class="rating-box__bar-label"><span class="text">4</span> <img src="assets/icons/star-2.svg" alt="star"></p>
+							<div class="rating-box__bar-wrapper">
+								<div class="rating-box__bar" style="width: 20%;"></div>
+							</div>
+							<span class="rating-box__bar-percent">20%</span>
+						</div>
+						<div class="rating-box__bar-item">
+							<p class="rating-box__bar-label"><span class="text">3</span> <img src="assets/icons/star-2.svg" alt="star"></p>
+							<div class="rating-box__bar-wrapper">
+								<div class="rating-box__bar" style="width: 10%;"></div>
+							</div>
+							<span class="rating-box__bar-percent">10%</span>
+						</div>
+						<div class="rating-box__bar-item">
+							<p class="rating-box__bar-label">
+								<span class="text">2</span> <img src="assets/icons/star-2.svg" alt="star">
+							</p>
+							<div class="rating-box__bar-wrapper">
+								<div class="rating-box__bar" style="width: 7%;"></div>
+							</div>
+							<span class="rating-box__bar-percent">7%</span>
+						</div>
+						<div class="rating-box__bar-item">
+							<p class="rating-box__bar-label">
+								<span class="text">1`</span> <img src="assets/icons/star-2.svg" alt="star">
+							</p>
+							<div class="rating-box__bar-wrapper">
+								<div class="rating-box__bar" style="width: 3%;"></div>
+							</div>
+							<span class="rating-box__bar-percent">3%</span>
+						</div>
+					</div>
+					<div class="rating-box__button">
+						<a href="#reviewForm" class="h-50 btn btn-primary btn-large font-weight-600 capitalize">
+							Write a review
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="comments mb-40">
+				<div class="comment-box">
+					<div class="comment-box__header mb-20">
+						<div class="comment-box__avatar">
+							<img src="assets/images/avatar/coment-avatar-1.png" alt="avatar">
+						</div>
+						<div>
+							<div class="flex items-center text-secondary mb-8 gap-4">
+								<p class="h5">Randynox </p>
+								<span class="text-secondary text-sm">-</span>
+								<span class="text-secondary text-sm">August 13, 2025</span>
+							</div>
+
+							<div class="flex items-center">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+							</div>
+						</div>
+					</div>
+					<p class="text-secondary">Bought new in 2012, and it’s still running strong at over 180,000 miles. I’ve only had to replace the battery and brakes once. The ride is smooth, the interior still feels solid, and the fuel economy hasn’t dropped much.</p>
+				</div>
+
+				<div class="comment-box">
+					<div class="comment-box__header mb-20">
+						<div class="comment-box__avatar guest">
+							MN
+						</div>
+						<div>
+							<div class="flex items-center text-secondary mb-8 gap-4">
+								<p class="h5">Mista Nyroom </p>
+								<span class="text-secondary text-sm">-</span>
+								<span class="text-secondary text-sm">August 22, 2025</span>
+							</div>
+
+							<div class="flex items-center">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+							</div>
+						</div>
+					</div>
+					<p class="text-secondary">Picked this car up used about five years ago with 90k miles. It’s now at 160k and still starts every morning without hesitation. Maintenance is simple, parts are cheap, and it’s surprisingly comfortable on long drives.</p>
+				</div>
+
+				<div class="comment-box">
+					<div class="comment-box__header mb-20">
+						<div class="comment-box__avatar">
+							<img src="assets/images/avatar/coment-avatar-2.png" alt="avatar">
+						</div>
+						<div>
+							<div class="flex items-center text-secondary mb-8 gap-4">
+								<p class="h5">Heather Dick </p>
+								<span class="text-secondary text-sm">-</span>
+								<span class="text-secondary text-sm">August 18, 2025</span>
+							</div>
+
+							<div class="flex items-center">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+								<img src="assets/icons/star-2.svg" alt="star">
+							</div>
+						</div>
+					</div>
+					<p class="text-secondary" id="reviewForm">Owned since 2010. Drove it through all kinds of weather, from hot summers to snowy roads, and it never let me down. A few minor repairs here and there — mostly wear and tear — but the engine just keeps going.</p>
+				</div>
+
+				<p> <a href="clients-reviews.html" class="text-underline font-weight-600 capitalize">View more reviews (98)</a></p>
+			</div>
+
+			<div>
+				<p class="h4 capitalize mb-8">add a review</p>
+				<p class="mb-24">Your email address will not be published</p>
+
+				<form action="#" class="add-review-form">
+					<div class="grid grid-cols-2 gap-22 mb-12 md-grid-cols-1">
+						<div class="md-col-span-2 padding-0">
+							<p class="mb-8">Name</p>
+							<input class="active input-large" id="name-review" name="name-review" type="text" value="Tony Nguyen" required="" />
+						</div>
+						<div class="md-col-span-2 padding-0">
+							<p class="mb-8">Email</p>
+							<input class="input-large" name="email-review" id="email-review" type="text" value="themesflat@gmail.com" required="" />
+						</div>
+
+						<div class="col-span-2 padding-0">
+							<p class="mb-8">Review</p>
+							<textarea placeholder="Your Review" rows="3" tabindex="5" name="message" class="message" id="message" required></textarea>
+						</div>
+
+
+					</div>
+
+					<div class="col-span-2 padding-0">
+						<p class="mb-12">Rating</p>
+						<div class="rating-input mb-32" data-active-icon="./assets/icons/star-4.svg" data-inactive-icon="assets/icons/star-3.svg">
+							<input type="hidden" name="rating" id="rating-value" value="4">
+							<div class="rating-input__stars" id="rating-stars">
+								<span class="rating-input__star" data-rating="1">
+									<img src="assets/icons/star-3.svg" alt="star" class="star-icon">
+								</span>
+								<span class="rating-input__star" data-rating="2">
+									<img src="assets/icons/star-3.svg" alt="star" class="star-icon">
+								</span>
+								<span class="rating-input__star" data-rating="3">
+									<img src="assets/icons/star-3.svg" alt="star" class="star-icon">
+								</span>
+								<span class="rating-input__star" data-rating="4">
+									<img src="assets/icons/star-3.svg" alt="star" class="star-icon">
+								</span>
+								<span class="rating-input__star" data-rating="5">
+									<img src="assets/icons/star-3.svg" alt="star" class="star-icon">
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<button class="btn btn-primary btn-large font-weight-600 capitalize open-modal" data-modal-id="#LoginModal">
+						Login to add a Review
+					</button>
+				</form>
+			</div>
+
+		</div>
+
+		<div class="innerpage__sidebar">
+			<div class="listing-details--sidebar-box mb-40">
+				<div class="listing-details--contact">
+					<p class="h4 mb-16">Location</p>
+
+					<div class="widget-gg-map flex radius-8 overflow-hidden mb-28">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d97101.88872869895!2d-74.22688511715344!3d40.487336736141906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1689125037376!5m2!1svi!2s" height="234" style="border:0;width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+
+					<ul class="contact-info mb-20">
+						<li>
+							<p class="icon"><img src="assets/icons/MapPin.svg" alt="phone"></p>
+							<div class="flex flex-col gap-4">
+								<a href="#">
+									6205 Peachtree Dunwoody Rd, Atlanta, GA 30328
+								</a>
+								<a href="#" class="text-underline text-highlight text-sm">
+									Get Directions
+								</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="contact-info mb-28">
+						<li class="items-center">
+							<p class="icon"><img src="assets/icons/PhoneCall.svg" alt="phone"></p>
+							<div class="flex flex-col">
+								<a href="tel:1-555-678-8888">
+									1-555-678-8888
+								</a>
+								<a href="tel:1-555-678-9999">
+									1-555-678-9999
+								</a>
+							</div>
+						</li>
+					</ul>
+
+					<a href="dealer-details.html" class="btn btn-medium btn-primary-3 font-weight-600 mb-12 gap-5">
+						<img src="assets/icons/PhoneCall-2.svg" alt="phone">
+						Call To Dealer
+					</a>
+
+					<a href="#" class="btn btn-medium btn-primary-4 font-weight-600 gap-5">
+						<img src="assets/icons/ChatCircleDots.svg" alt="phone">
+						Chat via WhatsApp
+					</a>
+				</div>
+			</div>
+
+			<div class="listing-details--sidebar-box">
+				<p class="h5 mb-16 capitalize">Send Inquiry about Vehicle</p>
+
+				<form action="#" class="send-inquiry">
+					<div class="grid grid-cols-1 gap-18 mb-8">
+						<div>
+							<p class="mb-8">Name</p>
+							<input class="active input-large" id="SendInquiryname" name="SendInquiryname" type="text" value="Tony Nguyen" required="" />
+						</div>
+						<div>
+							<p class="mb-8">Email</p>
+							<input class="input-large" name="SendInquiryemail" id="SendInquiryemail" type="text" value="themesflat@gmail.com" required="" />
+						</div>
+						<div>
+							<p class="mb-8">Phone</p>
+							<input placeholder="Phone (optional)" class="input-large" name="SendInquiryphone" id="SendInquiryphone" type="number" value="" required="" />
+						</div>
+
+						<div>
+							<p class="mb-8">Subject</p>
+							<select>
+								<option>This Vehicle's Availability</option>
+								<option>This Vehicle's Availability 2</option>
+								<option>This Vehicle's Availability 3</option>
+							</select>
+						</div>
+
+						<div class="padding-0">
+							<p class="mb-6">Message</p>
+							<textarea placeholder="Comment" rows="3" tabindex="5" name="message2" class="message" id="message2" required></textarea>
+						</div>
+
+
+					</div>
+					<button class="btn btn-primary btn-large font-weight-600 w-full mb-18">
+						Send Inquiry
+					</button>
+					<label class="filter-checkbox style-2 mb-6">
+						<input type="checkbox" name="features" value="touch-screen">
+						<span class="text-sm">Yes, I would like to receive price alerts on this vehicle and helpful shopping information.</span>
+					</label>
+
+					<p class="text-xs text-secondary">By using this service, you accept our <a href="#" class="text-xs text-underline text-highlight">Visitor Agreement.</a></p>
+
+
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+</section>
+<!-- New Cars -->

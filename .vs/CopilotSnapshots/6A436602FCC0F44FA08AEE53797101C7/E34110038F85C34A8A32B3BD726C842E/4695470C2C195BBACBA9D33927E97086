@@ -1,0 +1,103 @@
+﻿@model IList<Car_Project.Models.Car>
+
+<!-- breadcrumb -->
+<section class="background-light">
+	<div class="container">
+		<ul class="breadcrumb">
+			<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+			<li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+			<li><span>Wishlist</span></li>
+		</ul>
+	</div>
+</section>
+
+<section class="pb-100">
+	<div class="tf-spacing-style3"></div>
+	<div class="container">
+		<h2 class="text-center mb-12 capitalize">My Wishlist</h2>
+		<p class="mb-40 text-center text-secondary h7 line-height-28">Cars you saved for later.</p>
+
+		@if (!Model.Any())
+		{
+			<div class="text-center py-60">
+				<p class="h4 text-secondary mb-24">Your wishlist is empty.</p>
+				<a asp-controller="List" asp-action="Index" class="btn btn-primary btn-large font-weight-600">Browse Cars</a>
+			</div>
+		}
+		else
+		{
+			<div class="flex justify-end mb-20">
+				<form asp-controller="Wishlist" asp-action="Clear" method="post">
+					@Html.AntiForgeryToken()
+					<button type="submit" class="btn btn-line btn-large font-weight-600">Clear All</button>
+				</form>
+			</div>
+
+			<div class="grid grid-cols-4 xl-grid-cols-3 lg-grid-cols-2 sm-grid-cols-1 gap-x-30 gap-y-41">
+				@foreach (var car in Model)
+				{
+					var mainImg = car.Images.FirstOrDefault(i => i.IsMain)?.ImageUrl
+								?? car.Images.FirstOrDefault()?.ImageUrl
+								?? car.ThumbnailUrl;
+					<div class="card-box card-box-style-1">
+						<div class="top">
+							<p></p>
+							<form asp-controller="Wishlist" asp-action="Remove" asp-route-id="@car.Id" method="post" class="wishlist-remove-form">
+								@Html.AntiForgeryToken()
+								<button type="submit" class="heart active" title="Remove from wishlist">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" fill="rgba(255,255,255,0.3)" />
+									</svg>
+								</button>
+							</form>
+						</div>
+						<div class="image">
+							<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id">
+								@if (!string.IsNullOrEmpty(mainImg))
+								{
+									<img class="card--img" src="@mainImg" alt="@car.Title">
+								}
+								else
+								{
+									<img class="card--img" src="~/assets/images/card/card-1.jpg" alt="@car.Title">
+								}
+							</a>
+						</div>
+						<div class="content border-light border-top-none">
+							<div class="bottom">
+								<p class="category uppercase text-white">
+									<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="text-white uppercase text-xs">@car.Brand?.Name</a>
+								</p>
+							</div>
+							<p class="h6 card-box__title mb-8">
+								<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id">@car.Title</a>
+							</p>
+							<ul class="tag mb-10">
+								<li>
+									<img src="~/assets/icons/icon-gauge.svg" alt="mileage">
+									<span>@car.Mileage.ToString("N0") km</span>
+								</li>
+								<li>
+									<img src="~/assets/icons/calendar.svg" alt="year">
+									<span>@car.Year</span>
+								</li>
+								<li>
+									<img src="~/assets/icons/gaspump.svg" alt="fuel">
+									<span>@car.FuelType</span>
+								</li>
+							</ul>
+							<p class="card-box__price mb-15">$@car.Price.ToString("N2")</p>
+							<div class="divider mb-15"></div>
+							<div class="flex justify-between">
+								<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="view-details">
+									View details
+									<img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="go">
+								</a>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		}
+	</div>
+</section>

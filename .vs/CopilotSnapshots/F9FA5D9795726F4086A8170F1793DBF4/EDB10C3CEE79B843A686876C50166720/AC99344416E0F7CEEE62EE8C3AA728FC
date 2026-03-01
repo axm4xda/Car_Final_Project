@@ -1,0 +1,122 @@
+﻿using Car_Project.Models;
+using Car_Project.ViewModels.Account;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Car_Project.Controllers
+{
+    public class AccountController : Controller
+    {
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+        // POST: /Account/Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model, string? returnUrl = null)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["AuthError"] = string.Join(" | ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+                TempData["OpenModal"] = "SignUpModal";
+                return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+            }
+
+            var existingUser = await _userManager.FindByEmailAsync(model.Email);
+            if (existingUser != null)
+            {
+                TempData["AuthError"] = "Bu email artıq qeydiyyatdan keçib.";
+                TempData["OpenModal"] = "SignUpModal";
+                return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+            }
+
+            var user = new AppUser
+            {
+                FullName    = model.FullName,
+                Email       = model.Email,
+                UserName    = model.Email,
+                CreatedDate = DateTime.UtcNow
+            };
+
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                TempData["AuthSuccess"] = $"Xoş gəldiniz, {user.FullName}! Qeydiyyat uğurlu oldu.";
+                return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+            }
+
+            var errors = string.Join(" | ", result.Errors.Select(e => e.Description));
+            TempData["AuthError"] = errors;
+            TempData["OpenModal"] = "SignUpModal";
+            return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+        }
+
+        // POST: /Account/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl = null)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["AuthError"] = string.Join(" | ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+                TempData["OpenModal"] = "LoginModal";
+                return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(
+                model.Email, model.Password, model.RememberMe, lockoutOnFailure: true);
+
+            if (result.Succeeded)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                TempData["AuthSuccess"] = $"Xoş gəldiniz, {user?.FullName ?? model.Email}!";
+                return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+            }
+
+            if (result.IsLockedOut)
+            {
+                TempData["AuthError"] = "Hesabınız müvəqqəti olaraq bloklanıb. Bir az sonra yenidən cəhd edin.";
+            }
+            else
+            {
+                TempData["AuthError"] = "Email və ya şifrə yanlışdır.";
+            }
+
+            TempData["OpenModal"] = "LoginModal";
+            return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+        }
+
+        // POST: /Account/Logout
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            TempData["AuthSuccess"] = "Uğurla çıxış etdiniz.";
+            return RedirectToAction("Index", "Home");
+        }
+
+        // GET: /Account/Profile
+        [Authorize]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Index", "Home");
+            return View(user);
+        }
+    }
+}

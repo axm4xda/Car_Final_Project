@@ -24,6 +24,8 @@ namespace Car_Project.ViewModels.Shop
         public decimal Price { get; set; }
         public decimal? OldPrice { get; set; }
         public int Stock { get; set; }
+        public string? Badge { get; set; }
+        public string? BadgeColor { get; set; }
         public string CategoryName { get; set; } = string.Empty;
         public IList<string> Images { get; set; } = new List<string>();
         public IList<ProductCardViewModel> RelatedProducts { get; set; } = new List<ProductCardViewModel>();

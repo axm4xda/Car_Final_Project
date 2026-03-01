@@ -57,7 +57,7 @@
                 } else {
                     header.classList.remove('is-fixed', 'is-visible', 'is-custom');
                 } 
-            };parallax
+            }; 
             
             // Check ngay khi tải trang
             handleScroll();
@@ -202,7 +202,7 @@
         //     }
         // });
 
-        // toggle sub-menu-item-inner trong sub-menu--listing-nav (xử lý tương tự các submenu khác)
+        // toggle sub-menu-item trong sub-menu--listing-nav (xử lý tương tự các submenu khác)
         $(document).on("click", "#main-nav-mobile  .menu-item-inner-title", function (e) {
             e.preventDefault();
             e.stopPropagation();
@@ -1837,13 +1837,9 @@
     /* Heart List
     ----------------------------------------------------------------------------*/
     var heartList = function() {
-        $(document).ready(function() {
-            $(document).on('click', '.heart', function() {
-                $(this).toggleClass('active');
-            });
-        });
+        // Heart toggle is handled by page-level AJAX in @section Scripts
+        // Do not attach a click handler here to avoid conflicts
     };
-
   
 
     $(function () {
