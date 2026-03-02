@@ -63,7 +63,7 @@ namespace Car_Project.Services
         public async Task MarkAsReadAsync(int id)
         {
             var message = await _context.ContactMessages.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan mesaj tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan mesaj tapılmadı.");
 
             message.IsRead = true;
             await _context.SaveChangesAsync();
@@ -84,7 +84,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var message = await _context.ContactMessages.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan mesaj tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan mesaj tapılmadı.");
 
             _context.ContactMessages.Remove(message);
             await _context.SaveChangesAsync();

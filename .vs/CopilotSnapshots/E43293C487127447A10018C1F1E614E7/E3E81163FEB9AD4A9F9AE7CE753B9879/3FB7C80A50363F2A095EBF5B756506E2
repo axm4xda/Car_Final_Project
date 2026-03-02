@@ -1,0 +1,162 @@
+﻿@using Car_Project.Models
+@{
+    Layout = "_DashboardLayout";
+
+    var cars         = ViewBag.Cars        as List<Car> ?? new();
+    var currentPage  = (int)(ViewBag.CurrentPage ?? 1);
+    var totalPages   = (int)(ViewBag.TotalPages  ?? 1);
+    var totalCount   = (int)(ViewBag.TotalCount  ?? 0);
+    var search       = ViewBag.SearchQuery as string ?? "";
+    var selectedSort = ViewBag.SelectedSort as string ?? "newest";
+
+    const int pageSize = 10;
+    var from = totalCount == 0 ? 0 : (currentPage - 1) * pageSize + 1;
+    var to   = Math.Min(currentPage * pageSize, totalCount);
+
+    var baseUrl = Url.Action("Index", "UserListing")!;
+}
+
+<div class="db-content">
+    <h3 class="mb-4">My Listings</h3>
+
+    <!-- Search + Sort -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+        <!-- Search -->
+        <form method="get" asp-controller="UserListing" asp-action="Index" class="d-flex flex-wrap gap-2">
+            <input type="text" name="search" class="form-control"
+                   placeholder="Search by keyword" value="@search" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <!-- Sort -->
+        <div class="d-flex align-items-center gap-2">
+            <span>Sort by:</span>
+            <select id="sortSelect" class="form-select" style="width:auto;">
+                @{
+                    var sortOptions = new[]
+                    {
+                        ("newest",          "Newest"),
+                        ("lowest-price",    "Lowest Price"),
+                        ("highest-price",   "Highest Price"),
+                        ("lowest-mileage",  "Lowest Mileage"),
+                        ("highest-mileage", "Highest Mileage"),
+                    };
+                    foreach (var (val, label) in sortOptions)
+                    {
+                        if (val == selectedSort)
+                        {
+                            <option value="@val" selected="selected">@label</option>
+                        }
+                        else
+                        {
+                            <option value="@val">@label</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+    <!-- Listings Table -->
+    <div class="table-responsive bg-white p-3 rounded shadow-sm">
+        @if (!cars.Any())
+        {
+            <div class="text-center py-5">
+                <p class="text-muted">Heç bir elan tapılmadı.</p>
+            </div>
+        }
+        else
+        {
+            <table class="table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Car</th>
+                        <th>Brand</th>
+                        <th>Year</th>
+                        <th>Transmission</th>
+                        <th>Fuel Type</th>
+                        <th class="text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var car in cars)
+                    {
+                        var thumb = car.ThumbnailUrl
+                            ?? car.Images?.FirstOrDefault()?.ImageUrl
+                            ?? "/assets/images/default-car.jpg";
+
+                        var shortDesc = string.IsNullOrEmpty(car.Description)
+                            ? ""
+                            : (car.Description.Length > 60
+                                ? car.Description[..60] + "..."
+                                : car.Description);
+
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="@thumb" width="80" height="60"
+                                         style="object-fit:cover;border-radius:6px;" alt="@car.Title" />
+                                    <div>
+                                        <strong>@car.Title</strong>
+                                        @if (!string.IsNullOrEmpty(shortDesc))
+                                        {
+                                            <div class="text-muted small">@shortDesc</div>
+                                        }
+                                        <div class="fw-bold mt-1">$@car.Price.ToString("N2")</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>@(car.Brand?.Name ?? "-")</td>
+                            <td>@car.Year</td>
+                            <td>@car.Transmission</td>
+                            <td>@car.FuelType</td>
+                            <td class="text-end">
+                                <a asp-controller="CarListing" asp-action="Edit" asp-route-id="@car.Id"
+                                   class="btn btn-sm btn-outline-primary me-1 mb-1">Edit</a>
+
+                                <form asp-controller="UserListing" asp-action="Delete" method="post"
+                                      class="d-inline-block"
+                                      onsubmit="return confirm('Bu elanı silmək istədiyinizə əminsiniz?');">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@car.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger mb-1">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <!-- Pagination -->
+        @if (totalCount > 0)
+        {
+            <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+                <ul class="pagination mb-0">
+                    @for (int p = 1; p <= totalPages; p++)
+                    {
+                        <li class="page-item @(p == currentPage ? "active" : "")">
+                            <a class="page-link"
+                               asp-controller="UserListing" asp-action="Index"
+                               asp-route-search="@search"
+                               asp-route-sort="@selectedSort"
+                               asp-route-page="@p">@p</a>
+                        </li>
+                    }
+                </ul>
+                <small class="text-muted">Showing @from to @to of @totalCount entries</small>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    (function () {
+        var baseUrl  = '@Html.Raw(baseUrl)';
+        var search   = '@Html.Raw(System.Net.WebUtility.UrlEncode(search))';
+        document.getElementById('sortSelect').addEventListener('change', function () {
+            window.location.href = baseUrl + '?search=' + search + '&sort=' + this.value;
+        });
+    })();
+</script>

@@ -9,5 +9,6 @@ namespace Car_Project.Services.Abstractions
         Task<SalesAgent> CreateAsync(SalesAgent agent);
         Task UpdateAsync(SalesAgent agent);
         Task DeleteAsync(int id);
+        Task AddReviewAsync(SalesAgentReview review);
     }
 }

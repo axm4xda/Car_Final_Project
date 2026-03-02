@@ -38,14 +38,17 @@ namespace Car_Project.Models
         public int? DoorCount { get; set; }
         public string? Description { get; set; }
 
-        /// <summary>Birba?a thumbnail URL � CarImage c?dv?lind?n m�st?qil fallback ??kil</summary>
+        /// <summary>Birbaşa thumbnail URL — CarImage cədvəlindən müstəqil fallback şəkil</summary>
         public string? ThumbnailUrl { get; set; }
 
-        /// <summary>"Special", "Great Price" kimi badge m?tni</summary>
+        /// <summary>"Special", "Great Price" kimi badge mətni</summary>
         public string? Badge { get; set; }
 
         /// <summary>"bg-primary-2", "bg-green" kimi CSS sinfi</summary>
         public string? BadgeColor { get; set; }
+
+        /// <summary>Admin tərəfindən təsdiqlənib-təsdiqlənmədiyi</summary>
+        public bool IsApproved { get; set; }
 
         public int BrandId { get; set; }
         public Brand Brand { get; set; } = null!;

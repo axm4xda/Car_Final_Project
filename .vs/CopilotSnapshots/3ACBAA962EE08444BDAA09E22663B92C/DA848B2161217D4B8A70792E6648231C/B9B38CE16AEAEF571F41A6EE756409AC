@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from tfaurexo.vercel.app/change-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 07:31:58 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aurexo | Car Dealer, Rental & Listing HTML Template</title>
+	<link rel="stylesheet" href="assets/scss/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="assets/app.css">
+	<meta property="og:image" content="assets/images/logo.png">
+	<meta property="og:type" content="website">
+	<!-- Favicon and Touch Icons  -->
+	<link rel="shortcut icon" href="assets/images/favicon.png">
+	<link rel="apple-touch-icon-precomposed" href="assets/images/favicon.png">
+</head>
+<body class="dashboard overflow-hidden">
+	<!-- preloade -->
+	<div class="preload preload-container">
+		<img class="preload--icon" src="assets/icons/preload.svg" alt="preload">
+	</div>
+	<!-- preload -->
+
+	<div id="wrapper">
+		<div class="dashboard-container">
+			<div class="dashboard-content">
+				<div class="dashboard-content--inner">
+					<div class="dashboard-content--details">
+						<!-- Dashboard Toggle Button (only visible on mobile/tablet <= 1200px) -->
+						<button class="btn btn-primary btn-large font-weight-600 mb-24 dashboard-toggle-btn" id="dashboardToggleBtn" aria-label="Toggle Dashboard">
+							Show Dashboard
+						</button>
+						<p class="h3 mb-40">Change Password</p>
+						<form action="#">
+							<div class="dashboard-box bg-white style-5">
+								<div class="change-password-wrapper flex flex-col gap-23">
+									<label for="Email">
+										<span class="mb-8 flex font-weight-600">Your Email:*</span>
+										<input class="input-large active" type="text" value="themesflat@gmail.com|" id="Email" name="Email" placeholder="Your Email*" required>
+									</label>
+
+
+									<label for="OldPassword">
+										<span class="mb-8 flex font-weight-600">Old Password:*</span>
+										<input class="input-large password-input is-hidden" type="password" value="themesflat@2026" id="OldPassword" name="OldPassword" placeholder="Password" required>
+									</label>
+
+									<label for="NewPassword">
+										<span class="mb-8 flex font-weight-600">New password:*</span>
+										<input class="input-large password-input is-hidden" type="password" value="themesflat@2026" id="NewPassword" name="NewPassword" placeholder="Password" required>
+									</label>
+
+									<label for="RetypeNewPassword">
+										<span class="mb-8 flex font-weight-600">Retype new password:*</span>
+										<input class="input-large password-input is-hidden" type="password" value="themesflat@2026" id="RetypeNewPassword" name="RetypeNewPassword" placeholder="Password" required>
+									</label>
+
+									<div class="flex">
+										<button type="submit" class="btn btn-primary btn-large-3 font-weight-600">
+											Change Password
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Card Details Modal -->
+	<div id="CardModal" class="modal">
+		<div class="bg-modal"></div>
+		<div class="modal-content">
+			<button class="close-modal">
+				<img src="assets/icons/close-modal.svg" alt="close-modal">
+			</button>
+			<div class="modal-container">
+				<div class="modal-inner">
+					<div class="card-details">
+						<div class="flex mb-40">
+							<div class="w-24"></div>
+							<div class="w-76 grid grid-cols-2 gap-60">
+								<div>
+									<img class="mb-10 radius-16" src="assets/images/card/card-50.jpg" alt="">
+									<p class="h4 text-center">Audi A6 Avant E-Tron</p>
+								</div>
+								<div>
+									<img class="mb-10 radius-16" src="assets/images/card/card-51.jpg" alt="">
+									<p class="h4 text-center">2024 Hyundai Elantra</p>
+								</div>
+							</div>
+						</div>
+
+						<table class="card-details--table">
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/mileage.svg" alt="mileage">
+										<span>Mileage:</span>
+									</div>
+								</td>
+								<td>51600 km</td>
+								<td>42600 km</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/years.svg" alt="mileage">
+										<span>Years:</span>
+									</div>
+								</td>
+								<td>2022</td>
+								<td>2021</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/fuel.svg" alt="mileage">
+										<span>Fuel:</span>
+									</div>
+								</td>
+								<td>Benzin + Plin</td>
+								<td>Benzin + Plin</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/color.svg" alt="mileage">
+										<span>Color:</span>
+									</div>
+								</td>
+								<td>White</td>
+								<td>Gold</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/location.svg" alt="mileage">
+										<span>Location:</span>
+									</div>
+								</td>
+								<td>Tampa, FL</td>
+								<td>Tampa, FL</td>
+							</tr>
+
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/interior.svg" alt="mileage">
+										<span>Interior:</span>
+									</div>
+								</td>
+								<td>Jet Black</td>
+								<td>Jet Brown</td>
+							</tr>
+
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/engine.svg" alt="mileage">
+										<span>Engine:</span>
+									</div>
+								</td>
+								<td>1.5L Inline</td>
+								<td>2.5L Inline</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/transmission.svg" alt="mileage">
+										<span>Transmission:</span>
+									</div>
+								</td>
+								<td>Automatic</td>
+								<td>Automatic</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8 ">
+										<img src="assets/icons/VIN.svg" alt="mileage">
+										<span>VIN:</span>
+									</div>
+								</td>
+								<td>1G1ZD5ST0PF</td>
+								<td>1G1ZD5ST0PF</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="flex items-center gap-8">
+										<img src="assets/icons/QrCode.svg" alt="mileage">
+										<span>Stock Number:</span>
+									</div>
+								</td>
+								<td>165921</td>
+								<td>165921</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Card Details Modal -->
+	<!-- LoginModal -->
+	<div id="LoginModal" class="modal modal-login">
+		<div class="bg-modal"></div>
+		<div class="modal-content modal-sm">
+			<button class="close-modal">
+				<img src="assets/icons/close-modal.svg" alt="close-modal">
+			</button>
+			<div class="modal-container">
+				<div class="modal-inner">
+					<h2 class="mb-20 text-center">Log In</h2>
+
+					<form action="#">
+						<div class="resutl mb-20">
+							<p class="text-secondary mb-4">Username: <span class="font-weight-600 capitalize">demo</span></p>
+							<p class="text-secondary">Password: <span class="font-weight-600 capitalize">demo</span></p>
+						</div>
+
+						<label for="email-login" class="mb-20 px-2">
+							<span class="mb-8 flex">Email*</span>
+							<input class="input-large active" value="themesflat@gmail.com" type="email" id="email-login" name="email-login" placeholder="Enter your email" required>
+						</label>
+
+						<label for="Password-login" class="mb-24 px-2">
+							<span class="flex mb-8">Password*</span>
+							<input class="input-large active password-input is-hidden" type="password" id="Password-login" name="Password-login" placeholder="Password" required>
+						</label>
+
+						<div class="flex justify-between gap-12 mb-20">
+							<label class="filter-checkbox style-5">
+								<input type="checkbox" name="features" value="touch-screen" checked>
+								<span class="text-sm">Remember me</span>
+							</label>
+
+							<span class="text-sm font-bold text-underline open-modal cursor-pointer" data-modal-id="#ForgotPasswordModal">Forgot Your Password?</span>
+						</div>
+
+						<button type="submit" class="btn btn-primary btn-large w-full mb-12 font-weight-600">
+							Login
+						</button>
+
+						<p class="text-sm text-secondary flex gap-8 justify-center open-modal cursor-pointer" data-modal-id="#SignUpModal">Not registered yet? <span class="text-sm font-weight-600 text-underline">Sign Up</span></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /LoginModal -->
+	<!-- ForgotPasswordModal -->
+	<div id="ForgotPasswordModal" class="modal modal-login">
+		<div class="bg-modal"></div>
+		<div class="modal-content modal-sm">
+			<button class="close-modal">
+				<img src="assets/icons/close-modal.svg" alt="close-modal">
+			</button>
+			<div class="modal-container">
+				<div class="modal-inner">
+					<h2 class="mt-20 mb-20 text-center">Forgot Password</h2>
+
+					<form action="#">
+
+						<label for="email-forgot-password" class="mb-20 px-2">
+							<span class="mb-8 flex">Username or email address *</span>
+							<input class="input-large active" type="email" id="email-forgot-password" name="email-forgot-password" placeholder="Username or email address *" required>
+						</label>
+
+
+						<button type="submit" class="btn btn-primary btn-large w-full mb-12 font-weight-600">
+							Get Reset Code
+						</button>
+
+						<p class="text-sm text-secondary flex gap-8 justify-center open-modal cursor-pointer" data-modal-id="#SignUpModal">Not registered yet? <span class="text-sm font-weight-600 text-underline">Sign Up</span></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /ForgotPasswordModal -->
+	<!-- Search Modal -->
+	<div id="SearchModal" class="search-modal">
+		<div class="search-modal__overlay"></div>
+		<div class="search-modal__content">
+			<button class="search-modal__close" id="searchModalClose">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</button>
+			<h2 class="search-modal__title">WHAT ARE YOU LOOKING FOR?</h2>
+			<form class="search-modal__form" action="#" method="get">
+				<div class="search-modal__input-wrapper">
+					<input type="text" class="search-modal__input" placeholder="Search for anything" autocomplete="off" id="searchModalInput">
+					<button type="submit" class="search-modal__submit" aria-label="Search">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M15.8047 15.8047L21.0012 21.0012" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- /Search Modal -->
+	<!-- SignUpModal -->
+	<div id="SignUpModal" class="modal modal-login">
+		<div class="bg-modal"></div>
+		<div class="modal-content modal-sm">
+			<button class="close-modal">
+				<img src="assets/icons/close-modal.svg" alt="close-modal">
+			</button>
+			<div class="modal-container">
+				<div class="modal-inner">
+					<h2 class="mb-20 text-center">Sign Up</h2>
+
+					<form action="#">
+						<label for="SignUp-login" class="mb-20 px-2">
+							<span class="mb-8 flex">Email*</span>
+							<input class="input-large active" value="themesflat@gmail.com" type="email" id="SignUp-login" name="SignUp-login" placeholder="Enter your email" required>
+						</label>
+
+						<label for="Password-SignUp" class="mb-24 px-2">
+							<span class="mb-8 flex">Password*</span>
+							<input class="input-large active password-input is-hidden" type="password" id="Password-SignUp" name="Password-SignUp" placeholder="Password" required>
+						</label>
+						<label for="ConfirmPassword-SignUp" class="mb-20 px-2">
+							<span class="mb-8 flex">Confirm password*</span>
+							<input class="input-large active password-input is-hidden" type="password" id="ConfirmPassword-SignUp" name="ConfirmPassword-SignUp" placeholder="Password" required>
+						</label>
+
+						<div class="flex justify-between gap-12 mb-20">
+							<label class="filter-checkbox style-5">
+								<input type="checkbox" name="features" value="touch-screen" checked>
+								<span class="text-sm">I agree to the <a href="terms.html" class="text-underline font-bold text-sm pl-4"> Terms of User</a></span>
+							</label>
+						</div>
+
+						<button type="submit" class="btn btn-primary btn-large w-full mb-12 font-weight-600">
+							Create a new account
+						</button>
+
+						<p class="text-sm text-secondary flex gap-8 justify-center mb-20">Already have an account? <span class="text-sm font-weight-600 text-underline cursor-pointer open-modal" data-modal-id="#LoginModal">Login Here</span></p>
+
+						<div class="flex justify-center items-center gap-20 mb-20">
+							<p class="text-sm divider w-full"></p>
+							<p class="text-sm text-secondary text-center min-w-max">or sign up with</p>
+							<p class="text-sm divider w-full"></p>
+						</div>
+
+						<div class="flex flex-col gap-12 social-login">
+							<a href="dashboard.html" class="font-weight-500 flex items-center gap-8">
+								<img src="assets/icons/facebook.svg" alt="google">
+								Facebook
+							</a>
+
+							<a href="dashboard.html" class="font-weight-500 flex items-center gap-8">
+								<img src="assets/icons/Google.svg" alt="google">
+								Google
+							</a>
+
+							<a href="dashboard.html" class="font-weight-500 flex items-center gap-8">
+								<img src="assets/icons/Twitter.svg" alt="google">
+								X
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /SignUpModal -->
+	<!-- NewsletterModal -->
+	<div id="NewsletterModal" class="modal modal-newsletter">
+		<div class="bg-modal"></div>
+		<div class="modal-content modal-lg">
+			<button class="close-modal">
+				<img src="assets/icons/close-modal.svg" alt="close-modal">
+			</button>
+			<div class="modal-container">
+				<div class="modal-inner">
+					<div class="grid grid-cols-2 md-grid-cols-1">
+						<div class="flex">
+							<img class="w-full img-newletter" src="assets/images/pages/newletter.jpg" alt="">
+						</div>
+
+						<div class="newsletter--content flex justify-center items-center flex-col">
+							<p class="text-highlight mb-8">Subscribe To Our Newletter!</p>
+							<p class="h5 modal-newsletter--title mb-28">Sign Up For Updates On Our <br class="lg-hidden"> Latest News & Events.</p>
+
+							<form action="#" class="newsletter-form mb-16">
+								<input class="input-large" value="" type="email" id="email-newsletter" name="email-newsletter" placeholder="Enter your e-mail" required>
+								<button>Subscribe</button>
+							</form>
+
+							<ul class="newsletter-social flex gap-4">
+								<li>
+									<a href="#" class="hover-stroke-hover">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_14920_9153)">
+												<path d="M6.25 11.25L8.75 8.75L11.25 11.25L13.75 8.75" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M6.24382 16.4912C7.81923 17.403 9.67248 17.7108 11.458 17.3571C13.2436 17.0034 14.8396 16.0124 15.9484 14.5689C17.0573 13.1253 17.6033 11.3278 17.4847 9.51146C17.3662 7.69508 16.5911 5.98381 15.304 4.69671C14.0169 3.4096 12.3056 2.63451 10.4892 2.51594C8.67284 2.39737 6.87533 2.94341 5.43182 4.05227C3.98831 5.16113 2.99733 6.75711 2.64363 8.54266C2.28993 10.3282 2.59766 12.1814 3.50944 13.7569L2.5321 16.6748C2.49538 16.785 2.49005 16.9031 2.51671 17.0161C2.54337 17.1291 2.60097 17.2324 2.68306 17.3145C2.76514 17.3966 2.86847 17.4542 2.98145 17.4808C3.09443 17.5075 3.2126 17.5022 3.32273 17.4655L6.24382 16.4912Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="hover-stroke-hover">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_13439_102345)">
+												<path d="M3.75 3.125H7.5L16.25 16.875H12.5L3.75 3.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M8.89687 11.2129L3.75 16.8746" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M16.2484 3.125L11.1016 8.78672" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="hover-stroke-hover">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_13439_102351)">
+												<path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M13.75 2.5H6.25C4.17893 2.5 2.5 4.17893 2.5 6.25V13.75C2.5 15.8211 4.17893 17.5 6.25 17.5H13.75C15.8211 17.5 17.5 15.8211 17.5 13.75V6.25C17.5 4.17893 15.8211 2.5 13.75 2.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M14.0625 6.71875C14.494 6.71875 14.8438 6.36897 14.8438 5.9375C14.8438 5.50603 14.494 5.15625 14.0625 5.15625C13.631 5.15625 13.2812 5.50603 13.2812 5.9375C13.2812 6.36897 13.631 6.71875 14.0625 6.71875Z" fill="#1C1C1C" />
+											</g>
+										</svg>
+									</a>
+								</li>
+
+
+								<li>
+									<a href="#" class="hover-stroke-hover">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_14920_9170)">
+												<path d="M7.5 11.875C7.5 12.9102 8.61953 13.75 10 13.75C11.3805 13.75 12.5 12.9102 12.5 11.875C12.5 9.375 7.63906 10.3125 7.63906 8.125C7.63906 7.08984 8.61953 6.25 10 6.25C11.0352 6.25 11.8461 6.71875 12.1875 7.39531" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M16.7224 11.4599C17.2774 12.1817 17.5508 13.0806 17.4917 13.9891C17.4325 14.8976 17.045 15.7536 16.4012 16.3973C15.7575 17.0411 14.9015 17.4286 13.993 17.4877C13.0845 17.5469 12.1856 17.2734 11.4638 16.7185C10.3391 16.9617 9.17125 16.9188 8.06731 16.5939C6.96337 16.269 5.95856 15.6723 5.14484 14.8586C4.33113 14.0449 3.7345 13.0401 3.40957 11.9362C3.08465 10.8322 3.04179 9.66441 3.28494 8.53963C2.73003 7.81789 2.45662 6.91893 2.51573 6.01045C2.57483 5.10197 2.96242 4.24601 3.60617 3.60226C4.24992 2.95851 5.10587 2.57093 6.01436 2.51182C6.92284 2.45272 7.8218 2.72612 8.54353 3.28103C9.66832 3.03789 10.8361 3.08074 11.9401 3.40567C13.044 3.7306 14.0488 4.32722 14.8625 5.14094C15.6763 5.95465 16.2729 6.95947 16.5978 8.06341C16.9227 9.16735 16.9656 10.3352 16.7224 11.4599Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="hover-stroke-hover">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_14920_9175)">
+												<path d="M6.24939 10.5366L13.301 16.7186C13.3822 16.7903 13.4806 16.8396 13.5867 16.8618C13.6927 16.8839 13.8027 16.8781 13.9058 16.845C14.0089 16.8118 14.1016 16.7524 14.1749 16.6726C14.2481 16.5928 14.2994 16.4953 14.3236 16.3897L17.4994 2.59521C17.5025 2.58138 17.5018 2.56696 17.4973 2.55351C17.4928 2.54006 17.4848 2.52807 17.474 2.51884C17.4633 2.50961 17.4502 2.50348 17.4362 2.5011C17.4223 2.49873 17.4079 2.5002 17.3947 2.50537L1.56189 8.70146C1.4636 8.73929 1.38023 8.80798 1.3243 8.89722C1.26837 8.98646 1.2429 9.09143 1.2517 9.19638C1.26051 9.30133 1.30312 9.4006 1.37313 9.47927C1.44315 9.55794 1.5368 9.61178 1.64001 9.63271L6.24939 10.5366Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M6.25 10.5375L17.4539 2.50781" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M9.71641 13.5789L7.325 16.0602C7.23859 16.1498 7.12737 16.2116 7.00561 16.2376C6.88384 16.2636 6.75708 16.2527 6.64157 16.2062C6.52607 16.1597 6.42709 16.0797 6.35732 15.9766C6.28755 15.8735 6.25018 15.7519 6.25 15.6273V10.5391" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+									</a>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /NewsletterModal -->
+	<!-- CompareModal (Bottom Modal) -->
+	<div id="CompareModal" class="modal modal-bottom">
+		<div class="bg-modal"></div>
+		<div class="modal-content">
+			<button class="close-modal">
+				<img src="assets/icons/close-modal.svg" alt="close-modal">
+			</button>
+			<div class="modal-container">
+				<div class="modal-inner">
+					<div class="compare-modal-content">
+						<div class="compare-items" id="compareItems">
+							<!-- Compare items will be dynamically added here -->
+
+							<div class="compare-item-list">
+								<div class="compare-item flex items-center gap-12">
+									<button class="compare-item-remove" type="button" aria-label="Remove item">
+										<img src="assets/icons/close-modal.svg" alt="car" class="radius-50">
+									</button>
+									<div class="compare-item-image">
+										<img src="assets/images/card/card-3.jpg" alt="car" class="radius-50">
+									</div>
+									<div class="compare-item-info">
+										<p class="h7 font-weight-500 mb-8">2017 BMV X1 xDrive 20d xline</p>
+										<div class="flex gap-4">
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/icon-gauge.svg" alt="mileage" width="16" height="16">
+												<span class="text-sm">89300 miles</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/calendar.svg" alt="fuel" width="16" height="16">
+												<span class="text-sm">2018</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/gaspump.svg" alt="transmission" width="16" height="16">
+												<span class="text-sm">Benzin</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/auto.svg" alt="transmission" width="16" height="16">
+												<span class="text-sm">Auto</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="compare-item flex items-center gap-12">
+									<button class="compare-item-remove" type="button" aria-label="Remove item">
+										<img src="assets/icons/close-modal.svg" alt="car" class="radius-50">
+									</button>
+									<div class="compare-item-image">
+										<img src="assets/images/card/card-4.jpg" alt="car" class="radius-50">
+									</div>
+									<div class="compare-item-info">
+										<p class="h7 font-weight-500 mb-8">2017 BMV X1 xDrive 20d xline</p>
+										<div class="flex gap-4">
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/icon-gauge.svg" alt="mileage" width="16" height="16">
+												<span class="text-sm">89300 miles</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/calendar.svg" alt="fuel" width="16" height="16">
+												<span class="text-sm">2018</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/gaspump.svg" alt="transmission" width="16" height="16">
+												<span class="text-sm">Benzin</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/auto.svg" alt="transmission" width="16" height="16">
+												<span class="text-sm">Auto</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="compare-item flex items-center gap-12">
+									<button class="compare-item-remove" type="button" aria-label="Remove item">
+										<img src="assets/icons/close-modal.svg" alt="car" class="radius-50">
+									</button>
+									<div class="compare-item-image">
+										<img src="assets/images/card/card-4.jpg" alt="car" class="radius-50">
+									</div>
+									<div class="compare-item-info">
+										<p class="h7 font-weight-500 mb-8">2017 BMV X1 xDrive 20d xline</p>
+										<div class="flex gap-4">
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/icon-gauge.svg" alt="mileage" width="16" height="16">
+												<span class="text-sm">89300 miles</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/calendar.svg" alt="fuel" width="16" height="16">
+												<span class="text-sm">2018</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/gaspump.svg" alt="transmission" width="16" height="16">
+												<span class="text-sm">Benzin</span>
+											</div>
+											<div class="flex items-center gap-4">
+												<img src="assets/icons/auto.svg" alt="transmission" width="16" height="16">
+												<span class="text-sm">Auto</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="compare-action">
+								<a href="compare.html" class="btn btn-primary btn-large font-weight-600">
+									Compare
+								</a>
+							</div>
+						</div>
+
+						<!-- Empty State -->
+
+						<div class="compare-empty-state text-center" id="compareEmptyState" style="display: none;">
+							<p class="text-muted">Your compare is currently empty</p>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /CompareModal -->
+	<!-- Go Top Button -->
+	<div class="progress-wrap active-progress">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+				  style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;">
+			</path>
+		</svg>
+		<img class="progress-wrap-icon" src="assets/icons/top.svg" alt="top">
+	</div>
+	<!-- /Go Top Button -->
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.cookie.min.js"></script>
+	<!-- jQuery UI for slider - REQUIRED by gear-slider.js -->
+	<script src="../code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+	<script src="assets/js/swiper-bundle.min.js"></script>
+	<script src="assets/js/swiper.js"></script>
+	<!-- gear-slider.js requires jQuery UI slider - must load after jquery-ui.min.js -->
+	<script src="assets/js/gear-slider.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/switcher.js"></script>
+
+	<script>
+		// Dashboard Sidebar Toggle (for mobile/tablet <= 1200px)
+		$(document).ready(function() {
+			var $dashboardToggleBtn = $('#dashboardToggleBtn');
+			var $dashboardSidebar = $('.dashboard-sidebar');
+			var $dashboardContainer = $('.dashboard-container');
+			var $body = $('body');
+
+			// Toggle sidebar on button click
+			$dashboardToggleBtn.on('click', function(e) {
+				e.preventDefault();
+				$dashboardSidebar.toggleClass('active');
+				$dashboardContainer.toggleClass('sidebar-open');
+				$body.toggleClass('dashboard-sidebar-open');
+				$(this).toggleClass('active');
+			});
+
+			// Close sidebar when clicking outside (on mobile)
+			$(document).on('click', function(e) {
+				if ($(window).width() <= 1200) {
+					if ($dashboardSidebar.hasClass('active')) {
+						if (!$(e.target).closest('.dashboard-sidebar').length &&
+							!$(e.target).closest('#dashboardToggleBtn').length) {
+							$dashboardSidebar.removeClass('active');
+							$dashboardContainer.removeClass('sidebar-open');
+							$body.removeClass('dashboard-sidebar-open');
+							$dashboardToggleBtn.removeClass('active');
+						}
+					}
+				}
+			});
+
+			// Handle window resize
+			$(window).on('resize', function() {
+				if ($(window).width() > 1200) {
+					// Desktop: always show sidebar, remove active classes
+					$dashboardSidebar.removeClass('active');
+					$dashboardContainer.removeClass('sidebar-open');
+					$body.removeClass('dashboard-sidebar-open');
+					$dashboardToggleBtn.removeClass('active');
+				}
+			});
+		});
+	</script>
+</body>
+
+<!-- Mirrored from tfaurexo.vercel.app/change-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 07:31:58 GMT -->
+</html>

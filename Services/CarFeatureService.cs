@@ -14,7 +14,7 @@ namespace Car_Project.Services
             _context = context;
         }
 
-        // ?? PUBLIC ????????????????????????????????????????????????????????????
+        // PUBLIC
 
         public async Task<IList<CarFeature>> GetAllAsync()
         {
@@ -34,7 +34,7 @@ namespace Car_Project.Services
                 .ToListAsync();
         }
 
-        // ?? ADMIN ?????????????????????????????????????????????????????????????
+        // ADMIN
 
         public async Task<IList<CarFeature>> GetAllAdminAsync()
         {
@@ -67,7 +67,7 @@ namespace Car_Project.Services
             if (feature == null) throw new ArgumentNullException(nameof(feature));
 
             var existing = await _context.CarFeatures.FindAsync(feature.Id)
-                ?? throw new KeyNotFoundException($"Id={feature.Id} olan x�susiyy?t tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={feature.Id} olan xüsusiyyət tapılmadı.");
 
             existing.Name = feature.Name;
             await _context.SaveChangesAsync();
@@ -78,12 +78,12 @@ namespace Car_Project.Services
             var feature = await _context.CarFeatures
                 .Include(cf => cf.Cars)
                 .FirstOrDefaultAsync(cf => cf.Id == id)
-                ?? throw new KeyNotFoundException($"Id={id} olan x�susiyy?t tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan xüsusiyyət tapılmadı.");
 
             if (feature.Cars.Any())
                 throw new InvalidOperationException(
-                    $"'{feature.Name}' x�susiyy?ti {feature.Cars.Count} avtomobil? ba?l?d?r. " +
-                    "?vv?lc? ba?lant?lar? silin.");
+                    $"'{feature.Name}' xüsusiyyəti {feature.Cars.Count} avtomobilə bağlıdır. " +
+                    "Əvvəlcə bağlantıları silin.");
 
             _context.CarFeatures.Remove(feature);
             await _context.SaveChangesAsync();
@@ -91,22 +91,22 @@ namespace Car_Project.Services
 
         public async Task SyncCarFeaturesAsync(int carId, IList<int> featureIds)
         {
-            // K�hn? b�t�n ?laq?l?ri sil
+            // Köhnə bütün əlaqələri sil
             var existing = await _context.CarFeatureMappings
                 .Where(cfm => cfm.CarId == carId)
                 .ToListAsync();
 
             _context.CarFeatureMappings.RemoveRange(existing);
 
-            // Yeni ?laq?l?ri ?lav? et
+            // Yeni əlaqələri əlavə et
             if (featureIds != null && featureIds.Count > 0)
             {
                 var newMappings = featureIds
                     .Distinct()
                     .Select(fId => new CarFeatureMapping
                     {
-                        CarId         = carId,
-                        CarFeatureId  = fId
+                        CarId        = carId,
+                        CarFeatureId = fId
                     });
 
                 await _context.CarFeatureMappings.AddRangeAsync(newMappings);

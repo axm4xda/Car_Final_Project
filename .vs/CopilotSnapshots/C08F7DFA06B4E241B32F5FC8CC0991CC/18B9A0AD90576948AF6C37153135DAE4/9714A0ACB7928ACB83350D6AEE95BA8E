@@ -1,0 +1,45 @@
+﻿using Car_Project.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace Car_Project.Areas.Admin.Controllers
+{
+    [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
+    public class SellCarRequestController : Controller
+    {
+        private readonly ApplicationDbContext _db;
+        public SellCarRequestController(ApplicationDbContext db) => _db = db;
+
+        public async Task<IActionResult> Index()
+        {
+            ViewData["ActivePage"] = "SellCarRequests";
+            return View(await _db.SellCarRequests.OrderByDescending(s => s.CreatedDate).ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            ViewData["ActivePage"] = "SellCarRequests";
+            var req = await _db.SellCarRequests.FindAsync(id);
+            if (req == null) return NotFound();
+            if (!req.IsReviewed)
+            {
+                req.IsReviewed = true;
+                await _db.SaveChangesAsync();
+            }
+            return View(req);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var req = await _db.SellCarRequests.FindAsync(id);
+            if (req == null) return NotFound();
+            _db.SellCarRequests.Remove(req);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Müraciət silindi.";
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

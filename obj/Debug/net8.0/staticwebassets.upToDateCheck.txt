@@ -1,4 +1,5 @@
 wwwroot\assets\app.css
+wwwroot\assets\css\custom.css
 wwwroot\assets\css\jquery.fancybox.min.css
 wwwroot\assets\icons\Alarm-white.svg
 wwwroot\assets\icons\Alarm.svg
@@ -445,3 +446,10 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\blog\5e96d7dfc3f34c319d384011f1620f13.jpg
+wwwroot\uploads\blog\avatars\61086781c0cb412eb9040fc66dd733e7.png
+wwwroot\uploads\brands\1ca4f5a920254454915f107222379b2c.png
+wwwroot\uploads\cars\3f007645be57453eb4d7314f56bda741.jpg
+wwwroot\uploads\cars\5175e84827234707b2cb9ce4d0e82d45.jpg
+wwwroot\uploads\cars\a6750bfa095e4ebc906f3f672d5206ae.jpg
+wwwroot\uploads\cars\b31583253acb4bca80d0676280e4f263.jpg

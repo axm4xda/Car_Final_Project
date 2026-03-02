@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon blue">🚗</div>
+        <div><div class="stat-value">@ViewBag.CarCount</div><div class="stat-label">Maşınlar</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon green">🏷️</div>
+        <div><div class="stat-value">@ViewBag.BrandCount</div><div class="stat-label">Markalar</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon orange">📦</div>
+        <div><div class="stat-value">@ViewBag.ProductCount</div><div class="stat-label">Məhsullar</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon purple">🛒</div>
+        <div><div class="stat-value">@ViewBag.OrderCount</div><div class="stat-label">Sifarişlər</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon teal">📝</div>
+        <div><div class="stat-value">@ViewBag.BlogPostCount</div><div class="stat-label">Blog Yazılar</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon blue">👥</div>
+        <div><div class="stat-value">@ViewBag.UserCount</div><div class="stat-label">İstifadəçilər</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon red">📩</div>
+        <div><div class="stat-value">@ViewBag.ContactCount</div><div class="stat-label">Yeni Mesajlar</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon orange">📋</div>
+        <div><div class="stat-value">@ViewBag.SellRequestCount</div><div class="stat-label">Gözləyən Müraciətlər</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon green">⭐</div>
+        <div><div class="stat-value">@ViewBag.ReviewCount</div><div class="stat-label">Rəylər</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon purple">🏢</div>
+        <div><div class="stat-value">@ViewBag.AgentCount</div><div class="stat-label">Agentlər</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon teal">📧</div>
+        <div><div class="stat-value">@ViewBag.SubscriberCount</div><div class="stat-label">Abunəçilər</div></div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon blue">❓</div>
+        <div><div class="stat-value">@ViewBag.FAQCount</div><div class="stat-label">FAQ</div></div>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <!-- Son Sifarişlər -->
+    <div class="admin-card">
+        <div class="admin-card-header">
+            <h3 class="admin-card-title">Son Sifarişlər</h3>
+            <a asp-action="Orders" class="btn-admin ghost btn-sm">Hamısı →</a>
+        </div>
+        @{ var orders = (List<Car_Project.Models.Order>)ViewBag.RecentOrders; }
+        @if (orders.Any())
+        {
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead><tr><th>#</th><th>Müştəri</th><th>Cəm</th><th>Status</th></tr></thead>
+                    <tbody>
+                        @foreach (var o in orders)
+                        {
+                            <tr>
+                                <td>@o.Id</td>
+                                <td>@o.FirstName @o.LastName</td>
+                                <td>$@o.Total.ToString("N2")</td>
+                                <td>
+                                    @{
+                                        var osCss = o.Status switch
+                                        {
+                                            OrderStatus.Delivered => "green",
+                                            OrderStatus.Cancelled or OrderStatus.Refunded => "red",
+                                            OrderStatus.Processing or OrderStatus.Shipped => "blue",
+                                            _ => "yellow"
+                                        };
+                                    }
+                                    <span class="admin-badge @osCss">@o.Status</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state"><p>Hələ sifariş yoxdur</p></div>
+        }
+    </div>
+
+    <!-- Son Mesajlar -->
+    <div class="admin-card">
+        <div class="admin-card-header">
+            <h3 class="admin-card-title">Son Əlaqə Mesajları</h3>
+            <a asp-action="ContactMessages" class="btn-admin ghost btn-sm">Hamısı →</a>
+        </div>
+        @{ var messages = (List<Car_Project.Models.ContactMessage>)ViewBag.RecentMessages; }
+        @if (messages.Any())
+        {
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead><tr><th>Ad</th><th>Mövzu</th><th>Tarix</th><th>Oxunub?</th></tr></thead>
+                    <tbody>
+                        @foreach (var m in messages)
+                        {
+                            <tr>
+                                <td>@m.FullName</td>
+                                <td>@m.Subject</td>
+                                <td>@m.CreatedDate.ToString("dd.MM.yyyy")</td>
+                                <td>
+                                    <span class="admin-badge @(m.IsRead ? "green" : "yellow")">@(m.IsRead ? "Bəli" : "Xeyr")</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state"><p>Hələ mesaj yoxdur</p></div>
+        }
+    </div>
+</div>

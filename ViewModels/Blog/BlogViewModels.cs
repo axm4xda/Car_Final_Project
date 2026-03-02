@@ -1,4 +1,5 @@
 using Car_Project.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Car_Project.ViewModels.Blog
 {
@@ -26,6 +27,13 @@ namespace Car_Project.ViewModels.Blog
         public string? ThumbnailUrl { get; set; }
         public string? AuthorName { get; set; }
         public string? AuthorAvatarUrl { get; set; }
+
+        // Sosial media linkləri
+        public string? AuthorFacebookUrl { get; set; }
+        public string? AuthorTwitterUrl { get; set; }
+        public string? AuthorInstagramUrl { get; set; }
+        public string? AuthorLinkedInUrl { get; set; }
+
         public string CategoryName { get; set; } = string.Empty;
         public DateTime? PublishedAt { get; set; }
         public int ViewCount { get; set; }
@@ -37,6 +45,10 @@ namespace Car_Project.ViewModels.Blog
         // Navigation: previous and next posts
         public BlogPostCardViewModel? PrevPost { get; set; }
         public BlogPostCardViewModel? NextPost { get; set; }
+
+        // User login information
+        public bool IsUserLoggedIn { get; set; }
+        public string? LoggedInUserName { get; set; }
     }
 
     public class BlogIndexViewModel
@@ -68,8 +80,9 @@ namespace Car_Project.ViewModels.Blog
     public class BlogCommentFormViewModel
     {
         public int BlogPostId { get; set; }
-        public string AuthorName { get; set; } = string.Empty;
-        public string AuthorEmail { get; set; } = string.Empty;
+        public string? AuthorName { get; set; }
+        public string? AuthorEmail { get; set; }
+        [Required(ErrorMessage = "Şərh boş ola bilməz.")]
         public string Content { get; set; } = string.Empty;
     }
 }

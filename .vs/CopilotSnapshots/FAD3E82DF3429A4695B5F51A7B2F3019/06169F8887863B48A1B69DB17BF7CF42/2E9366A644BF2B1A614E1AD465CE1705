@@ -1,0 +1,796 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from tfaurexo.vercel.app/message.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 07:31:43 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurexo | Mesajlar</title>
+    <link rel="stylesheet" href="~/assets/scss/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/app.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/images/favicon.png">
+</head>
+<body class="dashboard overflow-hidden">
+    <!-- preloade -->
+    <div class="preload preload-container">
+        <img class="preload--icon" src="~/assets/icons/preload.svg" alt="preload">
+    </div>
+    <!-- preload -->
+
+    <div id="wrapper">
+        <div class="dashboard-container">
+            @Html.Partial("_DashboardSidebar")
+            <div class="dashboard-content">
+                <div class="dashboard-content--inner">
+                    <div class="dashboard-content--details">
+                        <!-- Dashboard Toggle Button (only visible on mobile/tablet <= 1200px) -->
+                        <button class="btn btn-primary btn-large font-weight-600 mb-24 dashboard-toggle-btn" id="dashboardToggleBtn" aria-label="Toggle Dashboard">
+                            Show Dashboard
+                        </button>
+                        <p class="h3 mb-40">Mesajlar</p>
+
+                        <div class="message-container">
+                            <!-- Left Sidebar - Contact List -->
+                            <div class="message-sidebar">
+                                <div class="message-search">
+                                    <form action="#" class="search-form-contact">
+                                        <input type="text" name="SearchUsers" id="SearchUsers" class="form-control" placeholder="İstifadəçi axtar">
+                                        <button>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.9438 17.0575L14.0321 13.1466C15.1659 11.7854 15.7312 10.0395 15.6106 8.27214C15.4899 6.50475 14.6925 4.85192 13.3843 3.65748C12.076 2.46304 10.3576 1.81895 8.58657 1.8592C6.81553 1.89945 5.12818 2.62094 3.87554 3.87358C2.62289 5.12622 1.9014 6.81357 1.86115 8.58462C1.8209 10.3557 2.46499 12.074 3.65943 13.3823C4.85387 14.6906 6.5067 15.488 8.27409 15.6086C10.0415 15.7293 11.7874 15.1639 13.1485 14.0302L17.0595 17.9419C17.1175 17.9999 17.1865 18.046 17.2623 18.0774C17.3382 18.1089 17.4195 18.125 17.5016 18.125C17.5838 18.125 17.6651 18.1089 17.741 18.0774C17.8168 18.046 17.8858 17.9999 17.9438 17.9419C18.0019 17.8838 18.048 17.8149 18.0794 17.739C18.1108 17.6631 18.127 17.5818 18.127 17.4997C18.127 17.4176 18.1108 17.3363 18.0794 17.2604C18.048 17.1845 18.0019 17.1156 17.9438 17.0575ZM3.12664 8.74969C3.12664 7.63717 3.45654 6.54963 4.07463 5.62461C4.69271 4.69958 5.57121 3.97861 6.59905 3.55287C7.62688 3.12712 8.75788 3.01573 9.84903 3.23277C10.9402 3.44981 11.9424 3.98554 12.7291 4.77221C13.5158 5.55888 14.0515 6.56116 14.2686 7.65231C14.4856 8.74345 14.3742 9.87445 13.9485 10.9023C13.5227 11.9301 12.8018 12.8086 11.8767 13.4267C10.9517 14.0448 9.86416 14.3747 8.75164 14.3747C7.26031 14.373 5.83053 13.7799 4.77599 12.7253C3.72146 11.6708 3.1283 10.241 3.12664 8.74969Z" fill="#1C1C1C" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="message-contacts">
+                                    <div class="message-contact" data-contact="marvin">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-5.png" alt="Marvin McKinney">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Marvin McKinney</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">16:24 PM</div>
+                                            <div class="message-contact__badge">2</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact active user-online" data-contact="john">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-6.png" alt="John Smith">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">John Smith</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">15:56 PM</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact user-offline" data-contact="brooklyn">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-7.png" alt="Brooklyn Simmons">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Brooklyn Simmons</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">14:10 PM</div>
+                                            <div class="message-contact__badge">2</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-8.png" alt="Arlene McCoy">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Arlene McCoy</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">11:23 AM</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-9.png" alt="Darrell Steward">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Darrell Steward</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">Yesterday</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-5.png" alt="Theresa Webb">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Arlene McCoy</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">Tuesday</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-6.png" alt="Theresa Webb">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Brooklyn Simmons</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">01/06/2024</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="message-contact">
+                                        <div class="message-contact__avatar">
+                                            <img src="assets/images/avatar/avatar-7.png" alt="Theresa Webb">
+                                        </div>
+                                        <div class="message-contact__info">
+                                            <div class="message-contact__name">Theresa Webb</div>
+                                            <div class="message-contact__preview">Hey! there I'm available</div>
+                                        </div>
+                                        <div class="message-contact__meta">
+                                            <div class="message-contact__time">06/06/2024</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Main Area - Chat Window -->
+                            <div class="message-chat">
+                                <!-- Chat Header -->
+                                <div class="message-chat__header">
+                                    <div class="message-chat__user">
+                                        <div class="message-chat__avatar user-online">
+                                            <img src="assets/images/avatar/avatar-6.png" alt="John Smith">
+                                        </div>
+                                        <div class="message-chat__user-info">
+                                            <div class="message-chat__name">John Smith</div>
+                                            <div class="message-chat__email">grew-sra@gmail.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="message-chat__actions">
+                                        <div class="core-dropdown more style-2">
+                                            <button class="core-dropdown__button ml-auto">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 10.8333C10.4602 10.8333 10.8333 10.4602 10.8333 10C10.8333 9.53976 10.4602 9.16667 10 9.16667C9.53976 9.16667 9.16667 9.53976 9.16667 10C9.16667 10.4602 9.53976 10.8333 10 10.8333Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M10 5.83333C10.4602 5.83333 10.8333 5.46024 10.8333 5C10.8333 4.53976 10.4602 4.16667 10 4.16667C9.53976 4.16667 9.16667 4.53976 9.16667 5C9.16667 5.46024 9.53976 5.83333 10 5.83333Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M10 15.8333C10.4602 15.8333 10.8333 15.4602 10.8333 15C10.8333 14.5398 10.4602 14.1667 10 14.1667C9.53976 14.1667 9.16667 14.5398 9.16667 15C9.16667 15.4602 9.53976 15.8333 10 15.8333Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </button>
+                                            <div class="core-dropdown__menu">
+                                                <ul class="core-dropdown__list more-links">
+                                                    <li><a href="#">Block</a></li>
+                                                    <li><a href="#">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Chat Messages -->
+                                <div class="message-chat__body">
+                                    <div class="message-item message-item--received">
+                                        <div class="message-item__bubble">
+                                            <div class="message-item__text">How was your weekend?</div>
+                                            <div class="message-item__options core-dropdown">
+                                                <img class="core-dropdown__button" src="assets/icons/more.svg" alt="">
+                                                <ul class="core-dropdown__menu">
+                                                    <li><a href="#" class="text-primary">Reply</a></li>
+                                                    <li><a href="#" class="text-primary">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="message-item__time">10:00 PM</div>
+                                    </div>
+                                    <div class="message-item message-item--sent">
+                                        <div class="message-item__bubble">
+                                            <div class="message-item__options core-dropdown">
+                                                <img class="core-dropdown__button ml-auto" src="assets/icons/more.svg" alt="">
+                                                <ul class="core-dropdown__menu">
+                                                    <li><a href="#" class="text-primary">Reply</a></li>
+                                                    <li><a href="#" class="text-primary">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="message-item__text">Hi, John! It was great, thanks for asking. I went hiking with some friends. How about you?</div>
+                                        </div>
+                                        <div class="message-item__time">10:12 PM</div>
+                                    </div>
+                                    <div class="message-date-separator">
+                                        <span>Today, April 22</span>
+                                    </div>
+
+
+
+
+
+                                    <div class="message-item message-item--received">
+                                        <div class="message-item__bubble">
+                                            <div class="message-item__text">By the way, did you hear about the new project our team is starting?</div>
+                                            <div class="message-item__options core-dropdown">
+                                                <img class="core-dropdown__button" src="assets/icons/more.svg" alt="">
+                                                <ul class="core-dropdown__menu">
+                                                    <li><a href="#" class="text-primary">Reply</a></li>
+                                                    <li><a href="#" class="text-primary">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="message-item__time">Today, 5:02 AM</div>
+                                    </div>
+
+                                    <div class="message-item message-item--sent">
+                                        <div class="message-item__bubble">
+                                            <div class="message-item__options core-dropdown">
+                                                <img class="core-dropdown__button ml-auto" src="assets/icons/more.svg" alt="">
+                                                <ul class="core-dropdown__menu">
+                                                    <li><a href="#" class="text-primary">Reply</a></li>
+                                                    <li><a href="#" class="text-primary">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="message-item__text">Yes, I did! It sounds exciting. Are you involved in it?</div>
+                                        </div>
+                                        <div class="message-item__time">5:04 AM</div>
+                                    </div>
+                                </div>
+
+                                <div class="message__action flex items-center">
+                                    <!-- Message Input -->
+                                    <div class="message-chat__input">
+                                        <input type="text" placeholder="Add a message..." class="message-chat__input-field w-full">
+                                        <button type="button" class="message-chat__attach">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.6553 11.4697C19.725 11.5393 19.7803 11.622 19.8181 11.7131C19.8558 11.8041 19.8753 11.9017 19.8753 12.0003C19.8753 12.0989 19.8558 12.1964 19.8181 12.2875C19.7803 12.3785 19.725 12.4613 19.6553 12.5309L11.9631 20.2184C10.9784 21.203 9.64281 21.7561 8.25027 21.756C6.85772 21.756 5.52225 21.2027 4.53763 20.2179C3.55301 19.2332 2.99991 17.8977 3 16.5051C3.00009 15.1126 3.55336 13.7771 4.5381 12.7925L13.8437 3.34998C14.5468 2.6462 15.5006 2.25053 16.4953 2.25C17.4901 2.24947 18.4443 2.64414 19.1481 3.34717C19.8519 4.0502 20.2476 5.00401 20.2481 5.99877C20.2486 6.99353 19.8539 7.94776 19.1509 8.65154L9.84341 18.094C9.42072 18.5167 8.84743 18.7542 8.24966 18.7542C7.65189 18.7542 7.0786 18.5167 6.65591 18.094C6.23322 17.6714 5.99576 17.0981 5.99576 16.5003C5.99576 15.9025 6.23322 15.3292 6.65591 14.9065L14.4653 6.97342C14.5337 6.90044 14.616 6.84188 14.7074 6.8012C14.7988 6.76051 14.8974 6.73851 14.9974 6.7365C15.0974 6.73448 15.1968 6.7525 15.2897 6.78947C15.3827 6.82645 15.4673 6.88165 15.5386 6.95181C15.6098 7.02198 15.6664 7.10569 15.7048 7.19804C15.7433 7.29038 15.7629 7.38948 15.7625 7.4895C15.762 7.58953 15.7416 7.68846 15.7024 7.78048C15.6632 7.87249 15.6059 7.95573 15.534 8.02529L7.72372 15.9669C7.6538 16.0362 7.59822 16.1187 7.56016 16.2096C7.5221 16.3004 7.50231 16.3979 7.50192 16.4964C7.50153 16.5949 7.52054 16.6925 7.55787 16.7836C7.59521 16.8748 7.65013 16.9577 7.71951 17.0276C7.78888 17.0976 7.87135 17.1531 7.9622 17.1912C8.05306 17.2293 8.15052 17.249 8.24902 17.2494C8.34753 17.2498 8.44514 17.2308 8.53629 17.1935C8.62745 17.1562 8.71036 17.1012 8.78029 17.0319L18.0868 7.59404C18.5095 7.17222 18.7473 6.59977 18.748 6.00261C18.7486 5.40545 18.5119 4.83251 18.0901 4.40982C17.6683 3.98713 17.0959 3.74932 16.4987 3.74871C15.9015 3.74809 15.3286 3.98472 14.9059 4.40654L5.60216 13.8453C5.25363 14.1933 4.97704 14.6065 4.7882 15.0614C4.59936 15.5162 4.50197 16.0039 4.50158 16.4964C4.50119 16.9889 4.59781 17.4767 4.78592 17.9318C4.97403 18.387 5.24996 18.8007 5.59794 19.1492C5.94593 19.4977 6.35915 19.7743 6.81402 19.9632C7.2689 20.152 7.75651 20.2494 8.24902 20.2498C8.74154 20.2502 9.2293 20.1536 9.68448 19.9654C10.1396 19.7773 10.5533 19.5014 10.9018 19.1534L18.595 11.4659C18.7361 11.3259 18.9271 11.2476 19.1259 11.2483C19.3247 11.249 19.5151 11.3286 19.6553 11.4697Z" fill="#4B4B4B" />
+                                            </svg>
+                                        </button>
+
+                                    </div>
+                                    <button type="button" class="message-chat__send">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21.3112 2.689C21.1226 2.5005 20.8871 2.36569 20.629 2.29846C20.371 2.23122 20.0997 2.234 19.843 2.3065H19.829L1.83461 7.7665C1.54248 7.85069 1.28283 8.02166 1.09007 8.25676C0.897302 8.49185 0.780525 8.77997 0.75521 9.08294C0.729895 9.3859 0.797238 9.6894 0.948314 9.95323C1.09939 10.2171 1.32707 10.4287 1.60117 10.5602L9.56242 14.4377L13.4343 22.3943C13.5547 22.6513 13.7462 22.8685 13.9861 23.0201C14.226 23.1718 14.5042 23.2517 14.788 23.2502C14.8312 23.2502 14.8743 23.2484 14.9174 23.2446C15.2201 23.2201 15.5081 23.1036 15.7427 22.9107C15.9773 22.7178 16.1473 22.4578 16.2299 22.1656L21.6862 4.17119C21.6862 4.1665 21.6862 4.16181 21.6862 4.15712C21.7596 3.90115 21.7636 3.63024 21.6977 3.37223C21.6318 3.11421 21.4984 2.8784 21.3112 2.689ZM14.7965 21.7362L14.7918 21.7493V21.7427L11.0362 14.0271L15.5362 9.52712C15.6709 9.38533 15.7449 9.19651 15.7424 9.00094C15.7399 8.80537 15.6611 8.61852 15.5228 8.48022C15.3845 8.34191 15.1976 8.26311 15.002 8.26061C14.8065 8.2581 14.6177 8.3321 14.4759 8.46681L9.97586 12.9668L2.25742 9.21119H2.25086H2.26399L20.2499 3.75025L14.7965 21.7362Z" fill="white" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Details Modal -->
+    <div id="CardModal" class="modal">
+        <div class="bg-modal"></div>
+        <div class="modal-content">
+            <button class="close-modal">
+                <img src="assets/icons/close-modal.svg" alt="close-modal">
+            </button>
+            <div class="modal-container">
+                <div class="modal-inner">
+                    <div class="card-details">
+                        <div class="flex mb-40">
+                            <div class="w-24"></div>
+                            <div class="w-76 grid grid-cols-2 gap-60">
+                                <div>
+                                    <img class="mb-10 radius-16" src="assets/images/card/card-50.jpg" alt="">
+                                    <p class="h4 text-center">Audi A6 Avant E-Tron</p>
+                                </div>
+                                <div>
+                                    <img class="mb-10 radius-16" src="assets/images/card/card-51.jpg" alt="">
+                                    <p class="h4 text-center">2024 Hyundai Elantra</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="card-details--table">
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/mileage.svg" alt="mileage">
+                                        <span>Mileage:</span>
+                                    </div>
+                                </td>
+                                <td>51600 km</td>
+                                <td>42600 km</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/years.svg" alt="mileage">
+                                        <span>Years:</span>
+                                    </div>
+                                </td>
+                                <td>2022</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/fuel.svg" alt="mileage">
+                                        <span>Fuel:</span>
+                                    </div>
+                                </td>
+                                <td>Benzin + Plin</td>
+                                <td>Benzin + Plin</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/color.svg" alt="mileage">
+                                        <span>Color:</span>
+                                    </div>
+                                </td>
+                                <td>White</td>
+                                <td>Gold</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/location.svg" alt="mileage">
+                                        <span>Location:</span>
+                                    </div>
+                                </td>
+                                <td>Tampa, FL</td>
+                                <td>Tampa, FL</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/interior.svg" alt="mileage">
+                                        <span>Interior:</span>
+                                    </div>
+                                </td>
+                                <td>Jet Black</td>
+                                <td>Jet Brown</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/engine.svg" alt="mileage">
+                                        <span>Engine:</span>
+                                    </div>
+                                </td>
+                                <td>1.5L Inline</td>
+                                <td>2.5L Inline</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/transmission.svg" alt="mileage">
+                                        <span>Transmission:</span>
+                                    </div>
+                                </td>
+                                <td>Automatic</td>
+                                <td>Automatic</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8 ">
+                                        <img src="assets/icons/VIN.svg" alt="mileage">
+                                        <span>VIN:</span>
+                                    </div>
+                                </td>
+                                <td>1G1ZD5ST0PF</td>
+                                <td>1G1ZD5ST0PF</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-8">
+                                        <img src="assets/icons/QrCode.svg" alt="mileage">
+                                        <span>Stock Number:</span>
+                                    </div>
+                                </td>
+                                <td>165921</td>
+                                <td>165921</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Card Details Modal -->
+    <!-- LoginModal -->
+    <div id="LoginModal" class="modal modal-login">
+        <div class="bg-modal"></div>
+        <div class="modal-content modal-sm">
+            <button class="close-modal">
+                <img src="assets/icons/close-modal.svg" alt="close-modal">
+            </button>
+            <div class="modal-container">
+                <div class="modal-inner">
+                    <h2 class="mb-20 text-center">Log In</h2>
+
+                    <form action="#">
+                        <div class="resutl mb-20">
+                            <p class="text-secondary mb-4">Username: <span class="font-weight-600 capitalize">demo</span></p>
+                            <p class="text-secondary">Password: <span class="font-weight-600 capitalize">demo</span></p>
+                        </div>
+
+                        <label for="email-login" class="mb-20 px-2">
+                            <span class="mb-8 flex">Email*</span>
+                            <input class="input-large active" value="themesflat@gmail.com" type="email" id="email-login" name="email-login" placeholder="Enter your email" required>
+                        </label>
+
+                        <label for="Password-login" class="mb-24 px-2">
+                            <span class="flex mb-8">Password*</span>
+                            <input class="input-large active password-input is-hidden" type="password" id="Password-login" name="Password-login" placeholder="Password" required>
+                        </label>
+
+                        <div class="flex justify-between gap-12 mb-20">
+                            <label class="filter-checkbox style-5">
+                                <input type="checkbox" name="features" value="touch-screen" checked>
+                                <span class="text-sm">Remember me</span>
+                            </label>
+
+                            <a href="contact-us.html" class="text-sm font-bold text-underline">Forgot Your Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large w-full mb-12 font-weight-600">
+                            Login
+                        </button>
+
+                        <p class="text-sm text-secondary flex gap-8 justify-center open-modal cursor-pointer" data-modal-id="#SignUpModal">Not registered yet? <span class="text-sm font-weight-600 text-underline">Sign Up</span></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /LoginModal -->
+    <!-- Search Modal -->
+    <div id="SearchModal" class="search-modal">
+        <div class="search-modal__overlay"></div>
+        <div class="search-modal__content">
+            <button class="search-modal__close" id="searchModalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <h2 class="search-modal__title">WHAT ARE YOU LOOKING FOR?</h2>
+            <form class="search-modal__form" action="#" method="get">
+                <div class="search-modal__input-wrapper">
+                    <input type="text" class="search-modal__input" placeholder="Search for anything" autocomplete="off" id="searchModalInput">
+                    <button type="submit" class="search-modal__submit" aria-label="Search">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.8047 15.8047L21.0012 21.0012" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /Search Modal -->
+    <!-- SignUpModal -->
+    <div id="SignUpModal" class="modal modal-login">
+        <div class="bg-modal"></div>
+        <div class="modal-content modal-sm">
+            <button class="close-modal">
+                <img src="assets/icons/close-modal.svg" alt="close-modal">
+            </button>
+            <div class="modal-container">
+                <div class="modal-inner">
+                    <h2 class="mb-20 text-center">Sign Up</h2>
+
+                    <form action="#">
+                        <label for="SignUp-login" class="mb-20 px-2">
+                            <span class="mb-8 flex">Email*</span>
+                            <input class="input-large active" value="themesflat@gmail.com" type="email" id="SignUp-login" name="SignUp-login" placeholder="Enter your email" required>
+                        </label>
+
+                        <label for="Password-SignUp" class="mb-24 px-2">
+                            <span class="mb-8 flex">Password*</span>
+                            <input class="input-large active password-input is-hidden" type="password" id="Password-SignUp" name="Password-SignUp" placeholder="Password" required>
+                        </label>
+                        <label for="ConfirmPassword-SignUp" class="mb-20 px-2">
+                            <span class="mb-8 flex">Confirm password*</span>
+                            <input class="input-large active password-input is-hidden" type="password" id="ConfirmPassword-SignUp" name="ConfirmPassword-SignUp" placeholder="Password" required>
+                        </label>
+
+                        <div class="flex justify-between gap-12 mb-20">
+                            <label class="filter-checkbox style-5">
+                                <input type="checkbox" name="features" value="touch-screen" checked>
+                                <span class="text-sm">I agree to the <a href="terms.html" class="text-underline font-bold text-sm pl-4"> Terms of User</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large w-full mb-12 font-weight-600">
+                            Create a new account
+                        </button>
+
+                        <p class="text-sm text-secondary flex gap-8 justify-center mb-20">Already have an account? <span class="text-sm font-weight-600 text-underline cursor-pointer open-modal" data-modal-id="#LoginModal">Login Here</span></p>
+
+                        <div class="flex justify-center items-center gap-20 mb-20">
+                            <p class="text-sm divider w-full"></p>
+                            <p class="text-sm text-secondary text-center min-w-max">or sign up with</p>
+                            <p class="text-sm divider w-full"></p>
+                        </div>
+
+                        <div class="flex flex-col gap-12 social-login">
+                            <a href="dashboard.html" class="font-weight-500 flex items-center gap-8">
+                                <img src="assets/icons/facebook.svg" alt="google">
+                                Facebook
+                            </a>
+
+                            <a href="dashboard.html" class="font-weight-500 flex items-center gap-8">
+                                <img src="assets/icons/Google.svg" alt="google">
+                                Google
+                            </a>
+
+                            <a href="dashboard.html" class="font-weight-500 flex items-center gap-8">
+                                <img src="assets/icons/Twitter.svg" alt="google">
+                                X
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /SignUpModal -->
+    <!-- NewsletterModal -->
+    <div id="NewsletterModal" class="modal modal-newsletter">
+        <div class="bg-modal"></div>
+        <div class="modal-content modal-lg">
+            <button class="close-modal">
+                <img src="assets/icons/close-modal.svg" alt="close-modal">
+            </button>
+            <div class="modal-container">
+                <div class="modal-inner">
+                    <div class="grid grid-cols-2 md-grid-cols-1">
+                        <div class="flex">
+                            <img class="w-full img-newletter" src="assets/images/pages/newletter.jpg" alt="">
+                        </div>
+
+                        <div class="newsletter--content flex justify-center items-center flex-col">
+                            <p class="text-highlight mb-8">Subscribe To Our Newletter!</p>
+                            <p class="h5 modal-newsletter--title mb-28">Sign Up For Updates On Our <br class="lg-hidden"> Latest News & Events.</p>
+
+                            <form action="#" class="newsletter-form mb-16">
+                                <input class="input-large" value="" type="email" id="email-newsletter" name="email-newsletter" placeholder="Enter your e-mail" required>
+                                <button>Subscribe</button>
+                            </form>
+
+                            <ul class="newsletter-social flex gap-4">
+                                <li>
+                                    <a href="#" class="hover-stroke-hover">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_14920_9153)">
+                                                <path d="M6.25 11.25L8.75 8.75L11.25 11.25L13.75 8.75" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M6.24382 16.4912C7.81923 17.403 9.67248 17.7108 11.458 17.3571C13.2436 17.0034 14.8396 16.0124 15.9484 14.5689C17.0573 13.1253 17.6033 11.3278 17.4847 9.51146C17.3662 7.69508 16.5911 5.98381 15.304 4.69671C14.0169 3.4096 12.3056 2.63451 10.4892 2.51594C8.67284 2.39737 6.87533 2.94341 5.43182 4.05227C3.98831 5.16113 2.99733 6.75711 2.64363 8.54266C2.28993 10.3282 2.59766 12.1814 3.50944 13.7569L2.5321 16.6748C2.49538 16.785 2.49005 16.9031 2.51671 17.0161C2.54337 17.1291 2.60097 17.2324 2.68306 17.3145C2.76514 17.3966 2.86847 17.4542 2.98145 17.4808C3.09443 17.5075 3.2126 17.5022 3.32273 17.4655L6.24382 16.4912Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="hover-stroke-hover">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_13439_102345)">
+                                                <path d="M3.75 3.125H7.5L16.25 16.875H12.5L3.75 3.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M8.89687 11.2129L3.75 16.8746" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M16.2484 3.125L11.1016 8.78672" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="hover-stroke-hover">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_13439_102351)">
+                                                <path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M13.75 2.5H6.25C4.17893 2.5 2.5 4.17893 2.5 6.25V13.75C2.5 15.8211 4.17893 17.5 6.25 17.5H13.75C15.8211 17.5 17.5 15.8211 17.5 13.75V6.25C17.5 4.17893 15.8211 2.5 13.75 2.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M14.0625 6.71875C14.494 6.71875 14.8438 6.36897 14.8438 5.9375C14.8438 5.50603 14.494 5.15625 14.0625 5.15625C13.631 5.15625 13.2812 5.50603 13.2812 5.9375C13.2812 6.36897 13.631 6.71875 14.0625 6.71875Z" fill="#1C1C1C" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="#" class="hover-stroke-hover">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_14920_9170)">
+                                                <path d="M7.5 11.875C7.5 12.9102 8.61953 13.75 10 13.75C11.3805 13.75 12.5 12.9102 12.5 11.875C12.5 9.375 7.63906 10.3125 7.63906 8.125C7.63906 7.08984 8.61953 6.25 10 6.25C11.0352 6.25 11.8461 6.71875 12.1875 7.39531" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M16.7224 11.4599C17.2774 12.1817 17.5508 13.0806 17.4917 13.9891C17.4325 14.8976 17.045 15.7536 16.4012 16.3973C15.7575 17.0411 14.9015 17.4286 13.993 17.4877C13.0845 17.5469 12.1856 17.2734 11.4638 16.7185C10.3391 16.9617 9.17125 16.9188 8.06731 16.5939C6.96337 16.269 5.95856 15.6723 5.14484 14.8586C4.33113 14.0449 3.7345 13.0401 3.40957 11.9362C3.08465 10.8322 3.04179 9.66441 3.28494 8.53963C2.73003 7.81789 2.45662 6.91893 2.51573 6.01045C2.57483 5.10197 2.96242 4.24601 3.60617 3.60226C4.24992 2.95851 5.10587 2.57093 6.01436 2.51182C6.92284 2.45272 7.8218 2.72612 8.54353 3.28103C9.66832 3.03789 10.8361 3.08074 11.9401 3.40567C13.044 3.7306 14.0488 4.32722 14.8625 5.14094C15.6763 5.95465 16.2729 6.95947 16.5978 8.06341C16.9227 9.16735 16.9656 10.3352 16.7224 11.4599Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="hover-stroke-hover">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_14920_9175)">
+                                                <path d="M6.24939 10.5366L13.301 16.7186C13.3822 16.7903 13.4806 16.8396 13.5867 16.8618C13.6927 16.8839 13.8027 16.8781 13.9058 16.845C14.0089 16.8118 14.1016 16.7524 14.1749 16.6726C14.2481 16.5928 14.2994 16.4953 14.3236 16.3897L17.4994 2.59521C17.5025 2.58138 17.5018 2.56696 17.4973 2.55351C17.4928 2.54006 17.4848 2.52807 17.474 2.51884C17.4633 2.50961 17.4502 2.50348 17.4362 2.5011C17.4223 2.49873 17.4079 2.5002 17.3947 2.50537L1.56189 8.70146C1.4636 8.73929 1.38023 8.80798 1.3243 8.89722C1.26837 8.98646 1.2429 9.09143 1.2517 9.19638C1.26051 9.30133 1.30312 9.4006 1.37313 9.47927C1.44315 9.55794 1.5368 9.61178 1.64001 9.63271L6.24939 10.5366Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M6.25 10.5375L17.4539 2.50781" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M9.71641 13.5789L7.325 16.0602C7.23859 16.1498 7.12737 16.2116 7.00561 16.2376C6.88384 16.2636 6.75708 16.2527 6.64157 16.2062C6.52607 16.1597 6.42709 16.0797 6.35732 15.9766C6.28755 15.8735 6.25018 15.7519 6.25 15.6273V10.5391" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /CompareModal -->
+    <!-- Go Top Button -->
+    <div class="progress-wrap active-progress">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                  style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;">
+            </path>
+        </svg>
+        <img class="progress-wrap-icon" src="assets/icons/top.svg" alt="top">
+    </div>
+    <!-- /Go Top Button -->
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/jquery.cookie.min.js"></script>
+    <!-- jQuery UI for slider - REQUIRED by gear-slider.js -->
+    <script src="../code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="~/assets/js/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/swiper.js"></script>
+    <!-- gear-slider.js requires jQuery UI slider - must load after jquery-ui.min.js -->
+    <script src="~/assets/js/gear-slider.js"></script>
+    <script src="~/assets/js/wow.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/switcher.js"></script>
+    <script>
+        // Dashboard Sidebar Toggle (for mobile/tablet <= 1200px)
+        $(document).ready(function() {
+            var $dashboardToggleBtn = $('#dashboardToggleBtn');
+            var $dashboardSidebar = $('.dashboard-sidebar');
+            var $dashboardContainer = $('.dashboard-container');
+            var $body = $('body');
+
+            // Toggle sidebar on button click
+            $dashboardToggleBtn.on('click', function(e) {
+                e.preventDefault();
+                $dashboardSidebar.toggleClass('active');
+                $dashboardContainer.toggleClass('sidebar-open');
+                $body.toggleClass('dashboard-sidebar-open');
+                $(this).toggleClass('active');
+            });
+
+            // Close sidebar when clicking outside (on mobile)
+            $(document).on('click', function(e) {
+                if ($(window).width() <= 1200) {
+                    if ($dashboardSidebar.hasClass('active')) {
+                        if (!$(e.target).closest('.dashboard-sidebar').length &&
+                            !$(e.target).closest('#dashboardToggleBtn').length) {
+                            $dashboardSidebar.removeClass('active');
+                            $dashboardContainer.removeClass('sidebar-open');
+                            $body.removeClass('dashboard-sidebar-open');
+                            $dashboardToggleBtn.removeClass('active');
+                        }
+                    }
+                }
+            });
+
+            // Handle window resize
+            $(window).on('resize', function() {
+                if ($(window).width() > 1200) {
+                    // Desktop: always show sidebar, remove active classes
+                    $dashboardSidebar.removeClass('active');
+                    $dashboardContainer.removeClass('sidebar-open');
+                    $body.removeClass('dashboard-sidebar-open');
+                    $dashboardToggleBtn.removeClass('active');
+                }
+            });
+        });
+
+        // Message: Delete message when clicking Delete
+        $(document).on('click', '.message-item__options .core-dropdown__menu a', function(e) {
+            e.preventDefault();
+            var $link = $(this);
+            var linkText = $link.text().trim();
+
+            // Only handle Delete link
+            if (linkText === 'Delete') {
+                var $messageItem = $link.closest('.message-item');
+
+                if ($messageItem.length) {
+                    $messageItem.fadeOut(300, function() {
+                        $(this).remove();
+                    });
+                }
+            }
+        });
+
+        // Message: Send new message
+        $(document).ready(function() {
+            var $messageInput = $('.message-chat__input-field');
+            var $sendButton = $('.message-chat__send');
+            var $messageBody = $('.message-chat__body');
+
+            // Send message on button click
+            $sendButton.on('click', function(e) {
+                e.preventDefault();
+                sendMessage();
+            });
+
+            // Send message on Enter key
+            $messageInput.on('keypress', function(e) {
+                if (e.which === 13) { // Enter key
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                var messageText = $messageInput.val().trim();
+
+                if (!messageText) {
+                    return; // Don't send empty messages
+                }
+
+                // Get current time
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                var timeString = hours + ':' + minutes + ' ' + ampm;
+
+                // Create message HTML (sent message)
+                var messageHtml =
+                    '<div class="message-item message-item--sent">' +
+                        '<div class="message-item__bubble">' +
+                            '<div class="message-item__options core-dropdown">' +
+                                '<img class="core-dropdown__button ml-auto" src="./assets/icons/more.svg" alt="">' +
+                                '<ul class="core-dropdown__menu">' +
+                                    '<li><a href="#">Reply</a></li>' +
+                                    '<li><a href="#">Delete</a></li>' +
+                                '</ul>' +
+                            '</div>' +
+                            '<div class="message-item__text">' + messageText + '</div>' +
+                        '</div>' +
+                        '<div class="message-item__time">' + timeString + '</div>' +
+                    '</div>';
+
+                // Append message to chat body
+                $messageBody.append(messageHtml);
+
+                // Clear input
+                $messageInput.val('');
+
+                // Scroll to bottom
+                $messageBody.scrollTop($messageBody[0].scrollHeight);
+            }
+        });
+    </script>
+</body>
+
+<!-- Mirrored from tfaurexo.vercel.app/message.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 07:31:52 GMT -->
+</html>

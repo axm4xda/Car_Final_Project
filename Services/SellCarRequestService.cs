@@ -63,7 +63,7 @@ namespace Car_Project.Services
         public async Task MarkAsReviewedAsync(int id)
         {
             var request = await _context.SellCarRequests.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan m�raci?t tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan müraciət tapılmadı.");
 
             request.IsReviewed = true;
             await _context.SaveChangesAsync();
@@ -72,7 +72,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var request = await _context.SellCarRequests.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan m�raci?t tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan müraciət tapılmadı.");
 
             _context.SellCarRequests.Remove(request);
             await _context.SaveChangesAsync();

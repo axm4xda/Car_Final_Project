@@ -14,7 +14,7 @@ namespace Car_Project.Services
             _context = context;
         }
 
-        // ?? PUBLIC ????????????????????????????????????????????????????????????
+        // PUBLIC
 
         public LoanCalculation Calculate(
             decimal carPrice,
@@ -23,16 +23,16 @@ namespace Car_Project.Services
             int loanTermMonths)
         {
             if (carPrice <= 0)
-                throw new ArgumentOutOfRangeException(nameof(carPrice), "Avtomobil qiym?ti 0-dan b�y�k olmal?d?r.");
+                throw new ArgumentOutOfRangeException(nameof(carPrice), "Avtomobil qiyməti 0-dan böyük olmalıdır.");
 
             if (downPayment < 0 || downPayment >= carPrice)
-                throw new ArgumentOutOfRangeException(nameof(downPayment), "?lkin �d?ni? 0 il? avtomobil qiym?ti aras?nda olmal?d?r.");
+                throw new ArgumentOutOfRangeException(nameof(downPayment), "İlkin ödəniş 0 ilə avtomobil qiyməti arasında olmalıdır.");
 
             if (annualInterestRate < 0)
-                throw new ArgumentOutOfRangeException(nameof(annualInterestRate), "Faiz d?r?c?si m?nfi ola bilm?z.");
+                throw new ArgumentOutOfRangeException(nameof(annualInterestRate), "Faiz dərəcəsi mənfi ola bilməz.");
 
             if (loanTermMonths <= 0)
-                throw new ArgumentOutOfRangeException(nameof(loanTermMonths), "Kredit m�dd?ti 0-dan b�y�k olmal?d?r.");
+                throw new ArgumentOutOfRangeException(nameof(loanTermMonths), "Kredit müddəti 0-dan böyük olmalıdır.");
 
             var principal = carPrice - downPayment;
 
@@ -47,7 +47,7 @@ namespace Car_Project.Services
             }
             else
             {
-                // Annuitet (b?rab?r ayl?q �d?ni?) formulu:
+                // Annuitet (bərabər aylıq ödəniş) formulu:
                 // M = P * [r(1+r)^n] / [(1+r)^n - 1]
                 var r = (double)(annualInterestRate / 100m / 12m);
                 var n = loanTermMonths;
@@ -81,7 +81,7 @@ namespace Car_Project.Services
             return calculation;
         }
 
-        // ?? ADMIN ?????????????????????????????????????????????????????????????
+        // ADMIN
 
         public async Task<IList<LoanCalculation>> GetAllAdminAsync()
         {
@@ -101,7 +101,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var calc = await _context.LoanCalculations.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan kredit hesablamas? tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan kredit hesablaması tapılmadı.");
 
             _context.LoanCalculations.Remove(calc);
             await _context.SaveChangesAsync();

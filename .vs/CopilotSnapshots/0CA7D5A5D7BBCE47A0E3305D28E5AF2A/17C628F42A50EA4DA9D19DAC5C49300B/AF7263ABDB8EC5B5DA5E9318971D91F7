@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Mesajlar";
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Mesajlar</span></li>
+        </ul>
+    </div>
+</section>
+
+<section class="pb-100">
+    <div class="tf-spacing-style3"></div>
+    <div class="container">
+        <p class="h3 mb-40">Mesajlar</p>
+
+        <div class="message-container" style="border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;min-height:500px;display:flex;">
+            <!-- Left Sidebar - Contact List -->
+            <div class="message-sidebar" style="width:320px;border-right:1px solid #e5e7eb;background:#fafafa;">
+                <div class="message-search" style="padding:16px;">
+                    <form action="#" class="search-form-contact">
+                        <input type="text" name="SearchUsers" id="SearchUsers" class="form-control" placeholder="İstifadəçi axtar">
+                        <button>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.9438 17.0575L14.0321 13.1466C15.1659 11.7854 15.7312 10.0395 15.6106 8.27214C15.4899 6.50475 14.6925 4.85192 13.3843 3.65748C12.076 2.46304 10.3576 1.81895 8.58657 1.8592C6.81553 1.89945 5.12818 2.62094 3.87554 3.87358C2.62289 5.12622 1.9014 6.81357 1.86115 8.58462C1.8209 10.3557 2.46499 12.074 3.65943 13.3823C4.85387 14.6906 6.5067 15.488 8.27409 15.6086C10.0415 15.7293 11.7874 15.1639 13.1485 14.0302L17.0595 17.9419C17.1175 17.9999 17.1865 18.046 17.2623 18.0774C17.3382 18.1089 17.4195 18.125 17.5016 18.125C17.5838 18.125 17.6651 18.1089 17.741 18.0774C17.8168 18.046 17.8858 17.9999 17.9438 17.9419C18.0019 17.8838 18.048 17.8149 18.0794 17.739C18.1108 17.6631 18.127 17.5818 18.127 17.4997C18.127 17.4176 18.1108 17.3363 18.0794 17.2604C18.048 17.1845 18.0019 17.1156 17.9438 17.0575ZM3.12664 8.74969C3.12664 7.63717 3.45654 6.54963 4.07463 5.62461C4.69271 4.69958 5.57121 3.97861 6.59905 3.55287C7.62688 3.12712 8.75788 3.01573 9.84903 3.23277C10.9402 3.44981 11.9424 3.98554 12.7291 4.77221C13.5158 5.55888 14.0515 6.56116 14.2686 7.65231C14.4856 8.74345 14.3742 9.87445 13.9485 10.9023C13.5227 11.9301 12.8018 12.8086 11.8767 13.4267C10.9517 14.0448 9.86416 14.3747 8.75164 14.3747C7.26031 14.373 5.83053 13.7799 4.77599 12.7253C3.72146 11.6708 3.1283 10.241 3.12664 8.74969Z" fill="#1C1C1C" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="message-contacts" style="padding:0 16px 16px;">
+                    <!-- Contacts will be dynamically loaded here -->
+                    <p class="text-secondary text-center py-40" style="font-size:14px;">Hələ heç bir söhbətiniz yoxdur.</p>
+                </div>
+            </div>
+
+            <!-- Right Main Area - Chat Window -->
+            <div class="message-chat" style="flex:1;display:flex;flex-direction:column;">
+                <!-- Empty State -->
+                <div style="flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;color:#9ca3af;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p style="font-size:16px;font-weight:500;">Mesaj seçin və ya yeni söhbət başladın</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

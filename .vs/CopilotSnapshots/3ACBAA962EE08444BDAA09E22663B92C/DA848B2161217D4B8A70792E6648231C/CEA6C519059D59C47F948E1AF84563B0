@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Şifrə Dəyiş";
+    var email = ViewBag.Email as string ?? "";
+    var error = ViewBag.Error as string;
+    var success = ViewBag.Success as string;
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Şifrə Dəyiş</span></li>
+        </ul>
+    </div>
+</section>
+
+<div class="db-layout">
+    @await Html.PartialAsync("_DashboardSidebar")
+
+    <main class="db-content">
+        <p class="h3 mb-40">Şifrə Dəyiş</p>
+
+        @if (!string.IsNullOrEmpty(success))
+        {
+            <div style="background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;border-radius:10px;padding:14px 20px;margin-bottom:20px;font-size:14px;font-weight:500;">
+                @success
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(error))
+        {
+            <div style="background:#fef2f2;color:#991b1b;border:1px solid #fecaca;border-radius:10px;padding:14px 20px;margin-bottom:20px;font-size:14px;font-weight:500;">
+                @Html.Raw(error)
+            </div>
+        }
+
+        <form asp-controller="ChangePassword" asp-action="Index" method="post">
+            @Html.AntiForgeryToken()
+            <div class="dashboard-box bg-white style-5" style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;">
+                <div class="change-password-wrapper flex flex-col gap-23">
+                    <label for="Email">
+                        <span class="mb-8 flex font-weight-600">Email:*</span>
+                        <input class="input-large active" type="text" value="@email" id="Email" name="Email" disabled>
+                    </label>
+
+                    <label for="OldPassword">
+                        <span class="mb-8 flex font-weight-600">Köhnə Şifrə:*</span>
+                        <input class="input-large password-input is-hidden" type="password" id="OldPassword" name="OldPassword" placeholder="Köhnə şifrənizi daxil edin" required>
+                    </label>
+
+                    <label for="NewPassword">
+                        <span class="mb-8 flex font-weight-600">Yeni Şifrə:*</span>
+                        <input class="input-large password-input is-hidden" type="password" id="NewPassword" name="NewPassword" placeholder="Yeni şifrə" required minlength="8">
+                    </label>
+
+                    <label for="RetypeNewPassword">
+                        <span class="mb-8 flex font-weight-600">Yeni Şifrəni Təkrarla:*</span>
+                        <input class="input-large password-input is-hidden" type="password" id="RetypeNewPassword" name="RetypeNewPassword" placeholder="Yeni şifrəni təkrarlayın" required minlength="8">
+                    </label>
+
+                    <div class="flex">
+                        <button type="submit" class="btn btn-primary btn-large-3 font-weight-600">
+                            Şifrəni Dəyiş
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>

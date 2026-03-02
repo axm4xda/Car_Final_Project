@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Şifrə Dəyiş";
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Şifrə Dəyiş</span></li>
+        </ul>
+    </div>
+</section>
+
+<div class="db-layout">
+    @await Html.PartialAsync("_DashboardSidebar")
+
+    <main class="db-content">
+        <p class="h3 mb-32">Şifrə Dəyiş</p>
+
+        <div style="max-width:560px;">
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;">
+                <form action="#" id="changePasswordForm">
+                    <div style="display:flex;flex-direction:column;gap:20px;">
+                        <label for="OldPassword">
+                            <span class="mb-8 flex font-weight-600">Köhnə Şifrə *</span>
+                            <input class="input-large password-input is-hidden" type="password"
+                                   id="OldPassword" name="OldPassword"
+                                   placeholder="Köhnə şifrə" required>
+                        </label>
+                        <label for="NewPassword">
+                            <span class="mb-8 flex font-weight-600">Yeni Şifrə *</span>
+                            <input class="input-large password-input is-hidden" type="password"
+                                   id="NewPassword" name="NewPassword"
+                                   placeholder="Yeni şifrə" required>
+                        </label>
+                        <label for="RetypeNewPassword">
+                            <span class="mb-8 flex font-weight-600">Yeni Şifrəni Təkrarla *</span>
+                            <input class="input-large password-input is-hidden" type="password"
+                                   id="RetypeNewPassword" name="RetypeNewPassword"
+                                   placeholder="Yeni şifrəni təkrarla" required>
+                        </label>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-large font-weight-600">
+                                Şifrəni Dəyiş
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>

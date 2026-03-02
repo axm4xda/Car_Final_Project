@@ -3,41 +3,160 @@
   "WorkspaceRootPath": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\migrations\\20260301012222_addblogshoporderpaymenttables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:migrations\\20260301012222_addblogshoporderpaymenttables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\clientsreviews\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\clientsreviews\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductImages.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Products.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\404errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\404errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductCategories.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\viewmodels\\blog\\blogviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:viewmodels\\blog\\blogviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\viewmodels\\shop\\shopviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:viewmodels\\shop\\shopviewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\blog\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\blog\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\blogpost\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\blogpost\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\blogpost\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\blogpost\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\controllers\\blogpostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\controllers\\blogpostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\contactmessage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\contactmessage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\sellcarrequest\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\sellcarrequest\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\contactmessage\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\contactmessage\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\sellcarrequest\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\sellcarrequest\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\servicecenter\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\servicecenter\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\servicecenter\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\servicecenter\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\servicecenter\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\servicecenter\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\servicecenter\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\servicecenter\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\controllers\\servicecentercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\controllers\\servicecentercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\user\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\user\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\models\\sellcarrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:models\\sellcarrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\controllers\\sellcarrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\controllers\\sellcarrequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\services\\trashcleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:services\\trashcleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\sellcarrequest\\trash.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\sellcarrequest\\trash.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\wwwroot\\assets\\css\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:wwwroot\\assets\\css\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\addlistingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\addlistingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\addlisting\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\addlisting\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\services\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:services\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\migrations\\20260302222232_addisapprovedtocarclean.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:migrations\\20260302222232_addisapprovedtocarclean.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\migrations\\20260302222232_addisapprovedtocarclean.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:migrations\\20260302222232_addisapprovedtocarclean.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\migrations\\20260302192027_socialmedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:migrations\\20260302192027_socialmedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,7 +166,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -59,124 +178,474 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PaymentController.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 38,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "Models\\Notification.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Notification.cs",
+              "RelativeToolTip": "Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T23:47:06.151Z",
+              "WhenOpened": "2026-03-02T22:41:15.925Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 30,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Index.cshtml",
-              "RelativeToolTip": "Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAAOMAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\AddListing\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\AddListing\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\AddListing\\Index.cshtml",
+              "RelativeToolTip": "Views\\AddListing\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-01T23:41:32.157Z",
+              "WhenOpened": "2026-03-02T21:58:22.856Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ShopViewModels.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\ViewModels\\Shop\\ShopViewModels.cs",
-              "RelativeDocumentMoniker": "ViewModels\\Shop\\ShopViewModels.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\ViewModels\\Shop\\ShopViewModels.cs",
-              "RelativeToolTip": "ViewModels\\Shop\\ShopViewModels.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T23:41:24.742Z",
-              "EditorCaption": ""
+              "DocumentIndex": 28,
+              "Title": "custom.css",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\wwwroot\\assets\\css\\custom.css",
+              "RelativeDocumentMoniker": "wwwroot\\assets\\css\\custom.css",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\wwwroot\\assets\\css\\custom.css",
+              "RelativeToolTip": "wwwroot\\assets\\css\\custom.css",
+              "ViewState": "AgIAAMAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-02T21:40:57.537Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Controllers\\ProductController.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T23:41:15.267Z",
-              "EditorCaption": ""
+              "DocumentIndex": 18,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:06:27.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:06:14.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:06:03.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:05:52.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "ViewState": "AgIAALkAAAAAAAAAAIBJwLsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:05:41.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ContactMessage\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ContactMessage\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ContactMessage\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ContactMessage\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:00:48.354Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Product\\Details.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Product\\Details.cshtml",
-              "RelativeToolTip": "Views\\Product\\Details.cshtml",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAewIoAAAAAAAAAAAAAAA==",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAJUBAAAAAAAAAAAiwJsBAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-01T22:47:00.422Z",
+              "WhenOpened": "2026-03-02T20:09:00.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20260302222232_AddIsApprovedToCarClean.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260302222232_AddIsApprovedToCarClean.Designer.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302222232_AddIsApprovedToCarClean.Designer.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260302222232_AddIsApprovedToCarClean.Designer.cs",
+              "RelativeToolTip": "Migrations\\20260302222232_AddIsApprovedToCarClean.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwJoGAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T22:25:07.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "20260302222232_AddIsApprovedToCarClean.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260302222232_AddIsApprovedToCarClean.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302222232_AddIsApprovedToCarClean.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260302222232_AddIsApprovedToCarClean.cs",
+              "RelativeToolTip": "Migrations\\20260302222232_AddIsApprovedToCarClean.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAABRwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T22:25:07.122Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\SellCarRequest\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\SellCarRequest\\Index.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAIBJwIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T20:52:21.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T22:15:18.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\CarController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\CarController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\CarController.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T22:14:29.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CarService.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\CarService.cs",
+              "RelativeDocumentMoniker": "Services\\CarService.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\CarService.cs",
+              "RelativeToolTip": "Services\\CarService.cs",
+              "ViewState": "AgIAANMAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T22:13:29.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Car.cs",
+              "RelativeDocumentMoniker": "Models\\Car.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Car.cs",
+              "RelativeToolTip": "Models\\Car.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T22:13:15.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AddListingController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\AddListingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AddListingController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\AddListingController.cs",
+              "RelativeToolTip": "Controllers\\AddListingController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAABRwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T21:56:42.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ContactMessage\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ContactMessage\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ContactMessage\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ContactMessage\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T20:18:45.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Trash.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Trash.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\SellCarRequest\\Trash.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Trash.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\SellCarRequest\\Trash.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:18:59.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TrashCleanupService.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\TrashCleanupService.cs",
+              "RelativeDocumentMoniker": "Services\\TrashCleanupService.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\TrashCleanupService.cs",
+              "RelativeToolTip": "Services\\TrashCleanupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T21:16:53.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SellCarRequestController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\SellCarRequestController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\SellCarRequestController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\SellCarRequestController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\SellCarRequestController.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T21:16:18.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SellCarRequest.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\SellCarRequest.cs",
+              "RelativeDocumentMoniker": "Models\\SellCarRequest.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\SellCarRequest.cs",
+              "RelativeToolTip": "Models\\SellCarRequest.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T21:14:17.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAABABAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:07:49.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\User\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\User\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\User\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\User\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:07:38.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:07:15.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T21:06:55.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServiceCenterController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\ServiceCenterController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ServiceCenterController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\ServiceCenterController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\ServiceCenterController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T21:06:34.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20260302192027_SocialMedia.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260302192027_SocialMedia.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260302192027_SocialMedia.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260302192027_SocialMedia.cs",
+              "RelativeToolTip": "Migrations\\20260302192027_SocialMedia.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T19:20:28.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Blog.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Blog.cs",
+              "RelativeDocumentMoniker": "Models\\Blog.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Blog.cs",
+              "RelativeToolTip": "Models\\Blog.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T19:11:04.722Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "CheckoutController.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\CheckoutController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CheckoutController.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\CheckoutController.cs",
-              "RelativeToolTip": "Controllers\\CheckoutController.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Title": "BlogPostController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\BlogPostController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\BlogPostController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\BlogPostController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\BlogPostController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T23:47:26.654Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-02T19:08:56.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20260301012222_AddBlogShopOrderPaymentTables.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
-              "RelativeDocumentMoniker": "Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
-              "RelativeToolTip": "Migrations\\20260301012222_AddBlogShopOrderPaymentTables.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABBAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\BlogPost\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\BlogPost\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\BlogPost\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\BlogPost\\Edit.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T19:08:43.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\BlogPost\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\BlogPost\\Create.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\BlogPost\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\BlogPost\\Create.cshtml",
+              "ViewState": "AgIAACkAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T19:08:35.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Blog\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Views\\Blog\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Blog\\Detail.cshtml",
+              "RelativeToolTip": "Views\\Blog\\Detail.cshtml",
+              "ViewState": "AgIAANUBAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T19:04:15.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BlogController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "Controllers\\BlogController.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T22:44:25.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-02T19:03:54.957Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "dbo.ProductCategories [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductCategories.sql",
-              "ToolTip": "dbo.ProductCategories [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T22:38:47.033Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.ProductImages [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.ProductImages.sql",
-              "ToolTip": "dbo.ProductImages [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T22:38:45.082Z",
-              "EditorCaption": ""
+              "Title": "BlogViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\ViewModels\\Blog\\BlogViewModels.cs",
+              "RelativeDocumentMoniker": "ViewModels\\Blog\\BlogViewModels.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\ViewModels\\Blog\\BlogViewModels.cs",
+              "RelativeToolTip": "ViewModels\\Blog\\BlogViewModels.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAMBUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T19:03:37.024Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "dbo.Products [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/AXM4XD/CarProjectDb/True/SqlTable/dbo.Products.sql",
-              "ToolTip": "dbo.Products [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-03-01T22:38:43.086Z",
-              "EditorCaption": ""
+              "Title": "404ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\404ErrorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\404ErrorController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\404ErrorController.cs",
+              "RelativeToolTip": "Controllers\\404ErrorController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:57:51.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:57:41.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\ClientsReviews\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\ClientsReviews\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\ClientsReviews\\Index.cshtml",
+              "RelativeToolTip": "Views\\ClientsReviews\\Index.cshtml",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T17:54:32.209Z"
             }
           ]
         },

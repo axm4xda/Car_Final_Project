@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Profil";
+    var user = ViewBag.User as AppUser;
+    var role = ViewBag.Role as string ?? "User";
+    var carCount = (int)(ViewBag.CarCount ?? 0);
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Profil</span></li>
+        </ul>
+    </div>
+</section>
+
+<div class="db-layout">
+    @await Html.PartialAsync("_DashboardSidebar")
+
+    <main class="db-content">
+        <p class="h3 mb-32">Profil</p>
+
+        @if (user != null)
+        {
+            <!-- Profile Card -->
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;margin-bottom:24px;">
+                <div class="flex items-center gap-20 mb-28 flex-wrap">
+                    <div style="width:80px;height:80px;border-radius:50%;background:#FF5722;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:32px;color:#fff;flex-shrink:0;">
+                        @user.FullName.Substring(0, 1).ToUpper()
+                    </div>
+                    <div>
+                        <p class="h3 mb-4">@user.FullName</p>
+                        <p class="text-secondary" style="font-size:13px;">
+                            <span style="display:inline-block;padding:3px 10px;border-radius:6px;background:@(role == "SuperAdmin" ? "#f3e8ff" : role == "Admin" ? "#dbeafe" : role == "Agent" ? "#d1fae5" : "#f3f4f6");color:@(role == "SuperAdmin" ? "#7c3aed" : role == "Admin" ? "#2563eb" : role == "Agent" ? "#059669" : "#6b7280");font-weight:600;font-size:12px;">@role</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="divider w-full mb-20"></div>
+
+                <div class="grid grid-cols-2 md-grid-cols-1" style="gap:20px;">
+                    <div style="padding:16px 20px;background:#f9fafb;border-radius:12px;">
+                        <p class="text-secondary text-sm mb-4">Email</p>
+                        <p class="font-weight-600" style="font-size:14px;">@user.Email</p>
+                    </div>
+                    <div style="padding:16px 20px;background:#f9fafb;border-radius:12px;">
+                        <p class="text-secondary text-sm mb-4">Telefon</p>
+                        <p class="font-weight-600" style="font-size:14px;">@(user.PhoneNumber ?? "Qeyd edilməyib")</p>
+                    </div>
+                    <div style="padding:16px 20px;background:#f9fafb;border-radius:12px;">
+                        <p class="text-secondary text-sm mb-4">Qeydiyyat tarixi</p>
+                        <p class="font-weight-600" style="font-size:14px;">@user.CreatedDate.ToString("dd MMMM yyyy")</p>
+                    </div>
+                    <div style="padding:16px 20px;background:#f9fafb;border-radius:12px;">
+                        <p class="text-secondary text-sm mb-4">Elan sayı</p>
+                        <p class="font-weight-600" style="font-size:14px;">@carCount</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Profile Form -->
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;">
+                <p class="h4 mb-20">Profili Redaktə Et</p>
+
+                <form asp-controller="UserProfil" asp-action="UpdateProfile" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="grid grid-cols-2 md-grid-cols-1" style="gap:20px;margin-bottom:24px;">
+                        <label for="fullName">
+                            <span class="mb-8 flex font-weight-600">Ad Soyad*</span>
+                            <input class="input-large" type="text" id="fullName" name="fullName" value="@user.FullName" placeholder="Ad Soyadınız" required>
+                        </label>
+
+                        <label for="phoneNumber">
+                            <span class="mb-8 flex font-weight-600">Telefon</span>
+                            <input class="input-large" type="tel" id="phoneNumber" name="phoneNumber" value="@user.PhoneNumber" placeholder="Telefon nömrəniz">
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large font-weight-600">
+                        Yadda Saxla
+                    </button>
+                </form>
+            </div>
+        }
+    </main>
+</div>

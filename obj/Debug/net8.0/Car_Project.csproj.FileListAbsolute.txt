@@ -140,4 +140,5 @@ C:\Users\UEFI\Desktop\c#dersleri\Car_Project\bin\Debug\net8.0\runtimes\win\lib\n
 C:\Users\UEFI\Desktop\c#dersleri\Car_Project\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\UEFI\Desktop\c#dersleri\Car_Project\obj\Debug\net8.0\Car_Project.csproj.AssemblyReference.cache
 C:\Users\UEFI\Desktop\c#dersleri\Car_Project\obj\Debug\net8.0\Car_Proj.804D917D.Up2Date
+C:\Users\UEFI\Desktop\c#dersleri\Car_Project\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
 C:\Users\UEFI\Desktop\c#dersleri\Car_Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

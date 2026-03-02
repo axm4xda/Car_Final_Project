@@ -9,6 +9,7 @@
       "Car_Project/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.24",
+          "Microsoft.AspNetCore.SignalR.Common": "8.0.24",
           "Microsoft.EntityFrameworkCore": "8.0.24",
           "Microsoft.EntityFrameworkCore.Design": "8.0.24",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.24"
@@ -59,6 +60,14 @@
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
             "assemblyVersion": "8.0.24.0",
+            "fileVersion": "8.0.2426.7207"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Common/8.0.24": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.SignalR.Common.dll": {
+            "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.2426.7207"
           }
         }
@@ -762,6 +771,13 @@
       "sha512": "sha512-G394k2JjAHAop2neaPXU99wv+gZvUwZ1RLm9Elfk1LKhU99fU6ga/rgZe4V82Kdre1qkEuFjHnDPQ/VhugdQRQ==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/8.0.24",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.8.0.24.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Common/8.0.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vK8W0xjTepE4s+sQ1rZrvvYz0IzzNx3sgBaYPOFRFXxUR425KLUpErD0Gkeyz/zSwALWez5eNd4UOxCwCwxkDQ==",
+      "path": "microsoft.aspnetcore.signalr.common/8.0.24",
+      "hashPath": "microsoft.aspnetcore.signalr.common.8.0.24.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
       "type": "package",

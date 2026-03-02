@@ -19,7 +19,7 @@ namespace Car_Project.Models
     {
         public string Title { get; set; } = string.Empty;
 
-        /// <summary>URL-friendly ba?l?q: "my-first-post"</summary>
+        /// <summary>URL-friendly başlıq: "my-first-post"</summary>
         public string Slug { get; set; } = string.Empty;
 
         public string? Summary { get; set; }
@@ -27,6 +27,13 @@ namespace Car_Project.Models
         public string? ThumbnailUrl { get; set; }
         public string? AuthorName { get; set; }
         public string? AuthorAvatarUrl { get; set; }
+
+        // Sosial media linkləri (optional)
+        public string? AuthorFacebookUrl { get; set; }
+        public string? AuthorTwitterUrl { get; set; }
+        public string? AuthorInstagramUrl { get; set; }
+        public string? AuthorLinkedInUrl { get; set; }
+
         public int ViewCount { get; set; }
         public BlogStatus Status { get; set; } = BlogStatus.Draft;
         public DateTime? PublishedAt { get; set; }

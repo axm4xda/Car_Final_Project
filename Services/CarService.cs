@@ -14,12 +14,13 @@ namespace Car_Project.Services
             _context = context;
         }
 
-        // ?? PUBLIC ????????????????????????????????????????????????????????????
+        // PUBLIC
 
         public async Task<IList<Car>> GetAllAsync()
         {
             return await _context.Cars
                 .AsNoTracking()
+                .Where(c => c.IsApproved)
                 .Include(c => c.Brand)
                 .Include(c => c.Images.OrderBy(i => i.Order))
                 .OrderByDescending(c => c.CreatedDate)
@@ -38,6 +39,7 @@ namespace Car_Project.Services
         {
             var query = _context.Cars
                 .AsNoTracking()
+                .Where(c => c.IsApproved)
                 .Include(c => c.Brand)
                 .Include(c => c.Images.OrderBy(i => i.Order))
                 .AsQueryable();
@@ -75,6 +77,7 @@ namespace Car_Project.Services
         {
             return await _context.Cars
                 .AsNoTracking()
+                .Where(c => c.IsApproved)
                 .Include(c => c.Brand)
                 .Include(c => c.Images.OrderBy(i => i.Order))
                 .Include(c => c.Features)
@@ -86,6 +89,7 @@ namespace Car_Project.Services
         {
             return await _context.Cars
                 .AsNoTracking()
+                .Where(c => c.IsApproved)
                 .Include(c => c.Brand)
                 .Include(c => c.Images.OrderBy(i => i.Order))
                 .OrderByDescending(c => c.CreatedDate)
@@ -97,6 +101,7 @@ namespace Car_Project.Services
         {
             return await _context.Cars
                 .AsNoTracking()
+                .Where(c => c.IsApproved)
                 .Include(c => c.Brand)
                 .Include(c => c.Images.OrderBy(i => i.Order))
                 .OrderByDescending(c => c.CreatedDate)
@@ -108,6 +113,7 @@ namespace Car_Project.Services
         {
             return await _context.Cars
                 .AsNoTracking()
+                .Where(c => c.IsApproved)
                 .Include(c => c.Brand)
                 .Include(c => c.Images.OrderBy(i => i.Order))
                 .Where(c => c.BrandId == brandId && c.Id != excludeCarId)
@@ -116,7 +122,7 @@ namespace Car_Project.Services
                 .ToListAsync();
         }
 
-        // ?? ADMIN ?????????????????????????????????????????????????????????????
+        // ADMIN
 
         public async Task<IList<Car>> GetAllAdminAsync()
         {
@@ -165,7 +171,7 @@ namespace Car_Project.Services
             if (car == null) throw new ArgumentNullException(nameof(car));
 
             var existing = await _context.Cars.FindAsync(car.Id)
-                ?? throw new KeyNotFoundException($"Id={car.Id} olan avtomobil tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={car.Id} olan avtomobil tapılmadı.");
 
             existing.Title          = car.Title;
             existing.Price          = car.Price;
@@ -185,7 +191,8 @@ namespace Car_Project.Services
             existing.Badge          = car.Badge;
             existing.BadgeColor     = car.BadgeColor;
             existing.BrandId        = car.BrandId;
-            existing.ThumbnailUrl   = car.ThumbnailUrl;   // ? YEN?
+            existing.ThumbnailUrl   = car.ThumbnailUrl;
+            existing.IsApproved     = car.IsApproved;
 
             await _context.SaveChangesAsync();
         }
@@ -193,7 +200,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var car = await _context.Cars.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan avtomobil tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan avtomobil tapılmadı.");
 
             _context.Cars.Remove(car);
             await _context.SaveChangesAsync();

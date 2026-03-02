@@ -1,0 +1,69 @@
+﻿@model List<Car>
+@{
+    ViewData["Title"] = "Maşınlar";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title">Maşın Siyahısı (@Model.Count)</h3>
+        <a asp-action="CarCreate" class="btn-admin primary">+ Yeni Maşın</a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Şəkil</th><th>Başlıq</th><th>Marka</th><th>Qiymət</th><th>İl</th><th>Vəziyyət</th><th>Yanacaq</th><th>Tarix</th><th>Əməliyyat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var car in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (!string.IsNullOrEmpty(car.ThumbnailUrl))
+                                {
+                                    <img src="@car.ThumbnailUrl" class="thumb-img" alt="">
+                                }
+                                else if (car.Images.Any())
+                                {
+                                    <img src="@car.Images.First().ImageUrl" class="thumb-img" alt="">
+                                }
+                                else
+                                {
+                                    <div style="width:48px;height:48px;background:#f3f4f6;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;">🚗</div>
+                                }
+                            </td>
+                            <td><strong>@car.Title</strong></td>
+                            <td>@car.Brand.Name</td>
+                            <td>$@car.Price.ToString("N0")</td>
+                            <td>@car.Year</td>
+                            <td><span class="admin-badge @(car.Condition == CarCondition.New ? "green" : "blue")">@car.Condition</span></td>
+                            <td>@car.FuelType</td>
+                            <td>@car.CreatedDate.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                <div class="action-btns">
+                                    <a asp-action="CarEdit" asp-route-id="@car.Id" class="btn-admin info btn-sm">✏️</a>
+                                    <form asp-action="CarDelete" asp-route-id="@car.Id" method="post" class="delete-form" onsubmit="return confirm('Silmək istədiyinizə əminsiniz?')">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn-admin danger btn-sm">🗑️</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <p>Hələ maşın əlavə edilməyib</p>
+            <a asp-action="CarCreate" class="btn-admin primary" style="margin-top:16px;">+ Yeni Maşın Əlavə Et</a>
+        </div>
+    }
+</div>

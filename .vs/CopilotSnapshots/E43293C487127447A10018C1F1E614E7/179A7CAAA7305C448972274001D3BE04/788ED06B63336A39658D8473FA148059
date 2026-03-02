@@ -1,0 +1,210 @@
+﻿@{
+    var cars       = ViewBag.Cars       as List<Car_Project.Models.Car> ?? new();
+    var currentPage = (int)(ViewBag.CurrentPage ?? 1);
+    var totalPages  = (int)(ViewBag.TotalPages  ?? 1);
+    var totalCount  = (int)(ViewBag.TotalCount  ?? 0);
+    var search      = ViewBag.SearchQuery as string ?? "";
+    var selectedSort = ViewBag.SelectedSort as string ?? "newest";
+
+    int pageSize    = 10;
+    int from        = totalCount == 0 ? 0 : (currentPage - 1) * pageSize + 1;
+    int to          = Math.Min(currentPage * pageSize, totalCount);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurexo | My Listings</title>
+    <link rel="stylesheet" href="~/assets/scss/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/app.css">
+    <meta property="og:image" content="~/assets/images/logo.png">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="~/assets/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/images/favicon.png">
+</head>
+<body class="dashboard overflow-hidden">
+    <!-- preload -->
+    <div class="preload preload-container">
+        <img class="preload--icon" src="~/assets/icons/preload.svg" alt="preload">
+    </div>
+
+    @using Car_Project.Models
+    @{
+        Layout = "_DashboardLayout";
+
+        var cars = ViewBag.Cars as List<Car> ?? new();
+        var currentPage = (int)(ViewBag.CurrentPage ?? 1);
+        var totalPages = (int)(ViewBag.TotalPages ?? 1);
+        var totalCount = (int)(ViewBag.TotalCount ?? 0);
+        var search = ViewBag.SearchQuery as string ?? "";
+        var selectedSort = ViewBag.SelectedSort as string ?? "newest";
+
+        const int pageSize = 10;
+        var from = totalCount == 0 ? 0 : (currentPage - 1) * pageSize + 1;
+        var to = Math.Min(currentPage * pageSize, totalCount);
+    }
+
+    <div class="db-content">
+
+        <h3 class="mb-4">My Listings</h3>
+
+        <!-- Search + Sort -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+            <!-- Search -->
+            <form method="get" asp-controller="UserListing" asp-action="Index" class="d-flex">
+                <input type="text"
+                       name="search"
+                       class="form-control"
+                       placeholder="Search by keyword"
+                       value="@search" />
+
+                <button type="submit" class="btn btn-primary ms-2">
+                    Search
+                </button>
+            </form>
+
+            <!-- Sort -->
+            <div>
+                <span class="me-2">Sort by:</span>
+
+                <select class="form-select"
+                        onchange="location.href='@Url.Action("Index", "UserListing")?search=@search&sort=' + this.value">
+
+                    <option value="newest" selected="@(selectedSort == "newest")">Newest</option>
+                    <option value="lowest-price" selected="@(selectedSort == "lowest-price")">Lowest Price</option>
+                    <option value="highest-price" selected="@(selectedSort == "highest-price")">Highest Price</option>
+                    <option value="lowest-mileage" selected="@(selectedSort == "lowest-mileage")">Lowest Mileage</option>
+                    <option value="highest-mileage" selected="@(selectedSort == "highest-mileage")">Highest Mileage</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Listings Table -->
+        <div class="table-responsive bg-white p-3 rounded shadow-sm">
+
+            @if (!cars.Any())
+            {
+                <div class="text-center py-5">
+                    <p class="text-muted">Heç bir elan tapılmadı.</p>
+                </div>
+            }
+            else
+            {
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Car</th>
+                            <th>Brand</th>
+                            <th>Year</th>
+                            <th>Transmission</th>
+                            <th>Fuel Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var car in cars)
+                        {
+                            var thumb = car.ThumbnailUrl
+                            ?? car.Images?.FirstOrDefault()?.ImageUrl
+                            ?? "/assets/images/default-car.jpg";
+
+                            var shortDesc = string.IsNullOrEmpty(car.Description)
+                            ? ""
+                            : (car.Description.Length > 40
+                            ? car.Description[..40] + "..."
+                            : car.Description);
+
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="@thumb"
+                                             width="80"
+                                             height="60"
+                                             style="object-fit:cover;border-radius:6px;" />
+
+                                        <div>
+                                            <strong>@car.Title</strong>
+                                            <div class="text-muted small">@shortDesc</div>
+                                            <div class="fw-bold">$@car.Price.ToString("N2")</div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>@(car.Brand?.Name ?? "-")</td>
+                                <td>@car.Year</td>
+                                <td>@car.Transmission</td>
+                                <td>@car.FuelType</td>
+
+                                <td>
+                                    <a asp-controller="CarListing"
+                                       asp-action="Edit"
+                                       asp-route-id="@car.Id"
+                                       class="btn btn-sm btn-outline-primary me-2">
+                                        Edit
+                                    </a>
+
+                                    <form asp-controller="UserListing"
+                                          asp-action="Delete"
+                                          method="post"
+                                          class="d-inline"
+                                          onsubmit="return confirm('Bu elanı silmək istədiyinizə əminsiniz?')">
+
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@car.Id" />
+
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-danger">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+            <!-- Pagination -->
+            @if (totalCount > 0)
+            {
+                <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+
+                    <ul class="pagination mb-0">
+                        @for (int p = 1; p <= totalPages; p++)
+                        {
+                            <li class="page-item @(p == currentPage ? "active" : "")">
+                                <a class="page-link"
+                                   asp-controller="UserListing"
+                                   asp-action="Index"
+                                   asp-route-search="@search"
+                                   asp-route-sort="@selectedSort"
+                                   asp-route-page="@p">
+                                    @p
+                                </a>
+                            </li>
+                        }
+                    </ul>
+
+                    <small class="text-muted">
+                        Showing @from to @to of @totalCount entries
+                    </small>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/jquery.cookie.min.js"></script>
+    <script src="~/assets/js/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/swiper.js"></script>
+    <script src="~/assets/js/wow.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿@using YourNamespace.Models
+@{
+    ViewData["Title"] = "Elanlarım";
+    var cars = ViewBag.Cars as List<Car> ?? new List<Car>();
+    var currentPage = (int)(ViewBag.CurrentPage ?? 1);
+    var totalPages = (int)(ViewBag.TotalPages ?? 1);
+    var totalCount = (int)(ViewBag.TotalCount ?? 0);
+    var searchQuery = ViewBag.SearchQuery as string ?? "";
+    var selectedSort = ViewBag.SelectedSort as string ?? "newest";
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Elanlarım</span></li>
+        </ul>
+    </div>
+</section>
+
+<div class="db-layout">
+    @await Html.PartialAsync("_DashboardSidebar")
+
+    <main class="db-content">
+        <p class="h3 mb-32">Elanlarım</p>
+
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;">
+            <div class="flex justify-between items-center mb-20 gap-20 flex-wrap">
+                <form asp-controller="UserListing" asp-action="Index" method="get" class="search-form-listing">
+                    <input type="text" name="search" value="@searchQuery" class="form-control" placeholder="Açar sözlə axtar">
+                    <input type="hidden" name="sort" value="@selectedSort" />
+                    <button type="submit">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.9438 17.0575L14.0321 13.1466C15.1659 11.7854 15.7312 10.0395 15.6106 8.27214C15.4899 6.50475 14.6925 4.85192 13.3843 3.65748C12.076 2.46304 10.3576 1.81895 8.58657 1.8592C6.81553 1.89945 5.12818 2.62094 3.87554 3.87358C2.62289 5.12622 1.9014 6.81357 1.86115 8.58462C1.8209 10.3557 2.46499 12.074 3.65943 13.3823C4.85387 14.6906 6.5067 15.488 8.27409 15.6086C10.0415 15.7293 11.7874 15.1639 13.1485 14.0302L17.0595 17.9419C17.1175 17.9999 17.1865 18.046 17.2623 18.0774C17.3382 18.1089 17.4195 18.125 17.5016 18.125C17.5838 18.125 17.6651 18.1089 17.741 18.0774C17.8168 18.046 17.8858 17.9999 17.9438 17.9419C18.0019 17.8838 18.048 17.8149 18.0794 17.739C18.1108 17.6631 18.127 17.5818 18.127 17.4997C18.127 17.4176 18.1108 17.3363 18.0794 17.2604C18.048 17.1845 18.0019 17.1156 17.9438 17.0575ZM3.12664 8.74969C3.12664 7.63717 3.45654 6.54963 4.07463 5.62461C4.69271 4.69958 5.57121 3.97861 6.59905 3.55287C7.62688 3.12712 8.75788 3.01573 9.84903 3.23277C10.9402 3.44981 11.9424 3.98554 12.7291 4.77221C13.5158 5.55888 14.0515 6.56116 14.2686 7.65231C14.4856 8.74345 14.3742 9.87445 13.9485 10.9023C13.5227 11.9301 12.8018 12.8086 11.8767 13.4267C10.9517 14.0448 9.86416 14.3747 8.75164 14.3747C7.26031 14.373 5.83053 13.7799 4.77599 12.7253C3.72146 11.6708 3.1283 10.241 3.12664 8.74969Z" fill="#1C1C1C" />
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="flex items-center gap-8">
+                    <p class="text-secondary">Sırala:</p>
+                    <div class="core-dropdown style-2 listing">
+                        <button class="core-dropdown__button dropdown__normal" type="button" id="coreDropdownBtn">
+                            <span class="core-dropdown__selected">
+                                @(selectedSort switch {
+                                    "lowest-price" => "Ən Ucuz",
+                                    "highest-price" => "Ən Bahalı",
+                                    "lowest-mileage" => "Ən Az Yürüş",
+                                    "highest-mileage" => "Ən Çox Yürüş",
+                                    _ => "Ən Yeni"
+                                })
+                            </span>
+                            <img src="~/assets/icons/chevron-down-primary.svg" alt="chevron" class="core-dropdown__icon">
+                        </button>
+                        <div class="core-dropdown__menu" id="coreDropdownNewest">
+                            <ul class="core-dropdown__list style-2">
+                                <li class="core-dropdown__item">
+                                    <a asp-controller="UserListing" asp-action="Index" asp-route-sort="newest" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "newest" ? "active" : "")">Ən Yeni</a>
+                                </li>
+                                <li class="core-dropdown__item">
+                                    <a asp-controller="UserListing" asp-action="Index" asp-route-sort="lowest-price" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "lowest-price" ? "active" : "")">Ən Ucuz</a>
+                                </li>
+                                <li class="core-dropdown__item">
+                                    <a asp-controller="UserListing" asp-action="Index" asp-route-sort="highest-price" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "highest-price" ? "active" : "")">Ən Bahalı</a>
+                                </li>
+                                <li class="core-dropdown__item">
+                                    <a asp-controller="UserListing" asp-action="Index" asp-route-sort="lowest-mileage" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "lowest-mileage" ? "active" : "")">Ən Az Yürüş</a>
+                                </li>
+                                <li class="core-dropdown__item">
+                                    <a asp-controller="UserListing" asp-action="Index" asp-route-sort="highest-mileage" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "highest-mileage" ? "active" : "")">Ən Çox Yürüş</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-wrapper">
+                <div class="cart-header">
+                    <div class="font-weight-600">Avtomobil</div>
+                    <div class="font-weight-600">Marka</div>
+                    <div class="font-weight-600">İl</div>
+                    <div class="font-weight-600">Sürət qutusu</div>
+                    <div class="font-weight-600">Yanacaq</div>
+                    <div class="font-weight-600">Əməliyyat</div>
+                </div>
+                <div class="cart-items">
+                    @if (cars.Count == 0)
+                    {
+                        <p class="text-secondary text-center py-20">Hələ heç bir elanınız yoxdur.</p>
+                    }
+                    else
+                    {
+                        @foreach (var car in cars)
+                        {
+                            var thumbnail = car.ThumbnailUrl ?? car.Images.FirstOrDefault()?.ImageUrl ?? "~/assets/images/dashboard/card-1.jpg";
+                            <div class="cart-item">
+                                <a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="cart-item__product">
+                                    <div class="cart-item__image">
+                                        <img src="@thumbnail" alt="@car.Title">
+                                    </div>
+                                    <div class="cart-item__name">
+                                        <p class="h4 clamp-1 clamp mb-8">@car.Title</p>
+                                        <p class="clamp-1 clamp text-secondary mb-12">@(car.Description?.Length > 40 ? car.Description.Substring(0, 40) + "..." : car.Description ?? "")</p>
+                                        <p class="h5">$@car.Price.ToString("N2")</p>
+                                    </div>
+                                </a>
+                                <div class="cart-item__price">
+                                    <span class="price">@car.Brand.Name</span>
+                                </div>
+                                <div class="cart-item__year">
+                                    <span>@car.Year</span>
+                                </div>
+                                <div class="cart-item__total">
+                                    <span>@car.Transmission</span>
+                                </div>
+                                <div>
+                                    <span>@car.FuelType</span>
+                                </div>
+                                <div class="cart-item__action">
+                                    <form asp-controller="UserListing" asp-action="Delete" method="post" style="display:inline;" onsubmit="return confirm('Bu elanı silmək istədiyinizə əminsiniz?');">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@car.Id" />
+                                        <button type="submit" class="hover-fill-white cart-item__remove action" style="background:none;border:none;cursor:pointer;">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.25 4.5H16.5V3.75C16.5 3.15326 16.2629 2.58097 15.841 2.15901C15.419 1.73705 14.8467 1.5 14.25 1.5H9.75C9.15326 1.5 8.58097 1.73705 8.15901 2.15901C7.73705 2.58097 7.5 3.15326 7.5 3.75V4.5H3.75C3.55109 4.5 3.36032 4.57902 3.21967 4.71967C3.07902 4.86032 3 5.05109 3 5.25C3 5.44891 3.07902 5.63968 3.21967 5.78033C3.36032 5.92098 3.55109 6 3.75 6H4.5V19.5C4.5 19.8978 4.65804 20.2794 4.93934 20.5607C5.22064 20.842 5.60218 21 6 21H18C18.3978 21 18.7794 20.842 19.0607 20.5607C19.342 20.2794 19.5 19.8978 19.5 19.5V6H20.25C20.4489 6 20.6397 5.92098 20.7803 5.78033C20.921 5.63968 21 5.44891 21 5.25C21 5.05109 20.921 4.86032 20.7803 4.71967C20.6397 4.57902 20.4489 4.5 20.25 4.5ZM9 3.75C9 3.55109 9.07902 3.36032 9.21967 3.21967C9.36032 3.07902 9.55109 3 9.75 3H14.25C14.4489 3 14.6397 3.07902 14.7803 3.21967C14.921 3.36032 15 3.55109 15 3.75V4.5H9V3.75ZM18 19.5H6V6H18V19.5ZM10.5 9.75V15.75C10.5 15.9489 10.421 16.1397 10.2803 16.2803C10.1397 16.421 9.94891 16.5 9.75 16.5C9.55109 16.5 9.36032 16.421 9.21967 16.2803C9.07902 16.1397 9 15.9489 9 15.75V9.75C9 9.55109 9.07902 9.36032 9.21967 9.21967C9.36032 9.07902 9.55109 9 9.75 9C9.94891 9 10.1397 9.07902 10.2803 9.21967C10.421 9.36032 10.5 9.55109 10.5 9.75ZM15 9.75V15.75C15 15.9489 14.921 16.1397 14.7803 16.2803C14.6397 16.421 14.4489 16.5 14.25 16.5C14.0511 16.5 13.8603 16.421 13.7197 16.2803C13.579 16.1397 13.5 15.9489 13.5 15.75V9.75C13.5 9.55109 13.579 9.36032 13.7197 9.21967C13.8603 9.07902 14.0511 9 14.25 9C14.4489 9 14.6397 9.07902 14.7803 9.21967C14.921 9.36032 15 9.55109 15 9.75Z" fill="#1C1C1C" />
+                                            </svg>
+                                            <p class="tooltip">Elanı Sil</p>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                @if (totalPages > 1)
+                {
+                    <div class="divider w-full mb-20"></div>
+
+                    <div class="flex justify-between items-center flex-wrap gap-12" id="pagination-bottom">
+                        <ul class="pagination">
+                            @for (int i = 1; i <= totalPages; i++)
+                            {
+                                <li>
+                                    <a asp-controller="UserListing" asp-action="Index"
+                                       asp-route-page="@i" asp-route-sort="@selectedSort" asp-route-search="@searchQuery"
+                                       class="pagination__link @(i == currentPage ? "active" : "")">
+                                        @i
+                                    </a>
+                                </li>
+                            }
+                            @if (currentPage < totalPages)
+                            {
+                                <li>
+                                    <a asp-controller="UserListing" asp-action="Index"
+                                       asp-route-page="@(currentPage + 1)" asp-route-sort="@selectedSort" asp-route-search="@searchQuery"
+                                       class="pagination__link">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1925 10.4423L7.94254 16.6923C7.88447 16.7504 7.81553 16.7964 7.73966 16.8278C7.66379 16.8593 7.58247 16.8755 7.50035 16.8755C7.41823 16.8755 7.33691 16.8593 7.26104 16.8278C7.18517 16.7964 7.11623 16.7504 7.05816 16.6923C7.00009 16.6342 6.95403 16.5653 6.9226 16.4894C6.89117 16.4135 6.875 16.3322 6.875 16.2501C6.875 16.168 6.89117 16.0867 6.9226 16.0108C6.95403 15.9349 7.00009 15.866 7.05816 15.8079L12.8668 10.0001L7.05816 4.19229C6.94088 4.07502 6.875 3.91596 6.875 3.7501C6.875 3.58425 6.94088 3.42519 7.05816 3.30792C7.17544 3.19064 7.3345 3.12476 7.50035 3.12476C7.6662 3.12476 7.82526 3.19064 7.94254 3.30792L14.1925 9.55791C14.2506 9.61596 14.2967 9.68489 14.3282 9.76077C14.3597 9.83664 14.3758 9.91797 14.3758 10.0001C14.3758 10.0822 14.3597 10.1636 14.3282 10.2394C14.2967 10.3153 14.2506 10.3842 14.1925 10.4423Z" fill="#9FA1A4" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                        <p class="text-secondary">
+                            @{
+                                var startItem = (currentPage - 1) * 10 + 1;
+                                var endItem = Math.Min(currentPage * 10, totalCount);
+                            }
+                            @startItem - @endItem / @totalCount nəticə göstərilir
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </main>
+</div>

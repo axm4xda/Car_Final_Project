@@ -1,0 +1,67 @@
+﻿@model List<Brand>
+@{
+    ViewData["Title"] = "Markalar";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title">Markalar (@Model.Count)</h3>
+    </div>
+
+    <!-- Yeni Marka Formu -->
+    <form asp-action="BrandCreate" method="post" enctype="multipart/form-data" style="display:flex;gap:12px;align-items:end;margin-bottom:24px;flex-wrap:wrap;">
+        @Html.AntiForgeryToken()
+        <div class="form-group" style="margin-bottom:0;flex:1;min-width:200px;">
+            <label>Marka Adı *</label>
+            <input type="text" name="Name" class="form-control" required placeholder="məs: BMW">
+        </div>
+        <div class="form-group" style="margin-bottom:0;width:120px;">
+            <label>Avtomobil Sayı</label>
+            <input type="number" name="VehicleCount" class="form-control" value="0" min="0">
+        </div>
+        <div class="form-group" style="margin-bottom:0;flex:1;min-width:200px;">
+            <label>Logo</label>
+            <input type="file" name="logoFile" class="form-control" accept="image/*">
+        </div>
+        <button type="submit" class="btn-admin primary" style="height:42px;">+ Əlavə Et</button>
+    </form>
+
+    @if (Model.Any())
+    {
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead><tr><th>Logo</th><th>Ad</th><th>Maşın Sayı</th><th>Tarix</th><th>Əməliyyat</th></tr></thead>
+                <tbody>
+                    @foreach (var brand in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (!string.IsNullOrEmpty(brand.LogoUrl))
+                                { <img src="@brand.LogoUrl" class="thumb-img" alt=""> }
+                                else
+                                { <div style="width:48px;height:48px;background:#f3f4f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">🏷️</div> }
+                            </td>
+                            <td><strong>@brand.Name</strong></td>
+                            <td>@brand.Cars.Count avtomobil</td>
+                            <td>@brand.CreatedDate.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                <div class="action-btns">
+                                    <a asp-action="BrandEdit" asp-route-id="@brand.Id" class="btn-admin info btn-sm">✏️</a>
+                                    <form asp-action="BrandDelete" asp-route-id="@brand.Id" method="post" class="delete-form" onsubmit="return confirm('Silmək istədiyinizə əminsiniz?')">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn-admin danger btn-sm">🗑️</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="empty-state"><p>Hələ marka yoxdur</p></div>
+    }
+</div>

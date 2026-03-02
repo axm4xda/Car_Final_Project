@@ -167,7 +167,19 @@ namespace Car_Project.Migrations
                     b.Property<string>("AuthorAvatarUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("AuthorFacebookUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorInstagramUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorLinkedInUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("AuthorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorTwitterUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
@@ -324,6 +336,9 @@ namespace Car_Project.Migrations
                     b.Property<string>("InteriorColor")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Mileage")
                         .HasColumnType("int");
 
@@ -445,6 +460,44 @@ namespace Car_Project.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("CartItems");
+                });
+
+            modelBuilder.Entity("Car_Project.Models.ChatMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReceiverId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("ChatMessages");
                 });
 
             modelBuilder.Entity("Car_Project.Models.CompareItem", b =>
@@ -1059,6 +1112,12 @@ namespace Car_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AdminNote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ApprovedCarId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("AskingPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -1096,8 +1155,14 @@ namespace Car_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<string>("Transmission")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("TrashedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
@@ -1398,6 +1463,24 @@ namespace Car_Project.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Car_Project.Models.ChatMessage", b =>
+                {
+                    b.HasOne("Car_Project.Models.AppUser", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Car_Project.Models.AppUser", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("Car_Project.Models.CompareItem", b =>

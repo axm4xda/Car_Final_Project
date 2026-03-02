@@ -1,0 +1,189 @@
+﻿@{
+    ViewData["Title"] = "Rəylər";
+    var reviews = ViewBag.Reviews as List<Review> ?? new List<Review>();
+    var currentPage = (int)(ViewBag.CurrentPage ?? 1);
+    var totalPages = (int)(ViewBag.TotalPages ?? 1);
+    var totalCount = (int)(ViewBag.TotalCount ?? 0);
+    var selectedRating = ViewBag.SelectedRating as int?;
+    var selectedSort = ViewBag.SelectedSort as string ?? "desc";
+    var searchQuery = ViewBag.SearchQuery as string ?? "";
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Rəylər</span></li>
+        </ul>
+    </div>
+</section>
+
+<div class="db-layout">
+    @await Html.PartialAsync("_DashboardSidebar")
+
+    <main class="db-content">
+        <p class="h3 mb-40">Rəylər</p>
+
+        <div class="dashboard-box bg-white style-2 mb-30" style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;">
+            <p class="h4 mb-14">Müştəri Rəyləri</p>
+
+            <div class="flex justify-between items-center mb-18 gap-20 flex-wrap">
+                <form asp-controller="Reviews" asp-action="Index" method="get" class="search-form-listing">
+                    <input type="text" name="search" value="@searchQuery" class="form-control" placeholder="Açar sözlə axtar">
+                    @if (selectedRating.HasValue)
+                    {
+                        <input type="hidden" name="rating" value="@selectedRating" />
+                    }
+                    <input type="hidden" name="sort" value="@selectedSort" />
+                    <button type="submit">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.9438 17.0575L14.0321 13.1466C15.1659 11.7854 15.7312 10.0395 15.6106 8.27214C15.4899 6.50475 14.6925 4.85192 13.3843 3.65748C12.076 2.46304 10.3576 1.81895 8.58657 1.8592C6.81553 1.89945 5.12818 2.62094 3.87554 3.87358C2.62289 5.12622 1.9014 6.81357 1.86115 8.58462C1.8209 10.3557 2.46499 12.074 3.65943 13.3823C4.85387 14.6906 6.5067 15.488 8.27409 15.6086C10.0415 15.7293 11.7874 15.1639 13.1485 14.0302L17.0595 17.9419C17.1175 17.9999 17.1865 18.046 17.2623 18.0774C17.3382 18.1089 17.4195 18.125 17.5016 18.125C17.5838 18.125 17.6651 18.1089 17.741 18.0774C17.8168 18.046 17.8858 17.9999 17.9438 17.9419C18.0019 17.8838 18.048 17.8149 18.0794 17.739C18.1108 17.6631 18.127 17.5818 18.127 17.4997C18.127 17.4176 18.1108 17.3363 18.0794 17.2604C18.048 17.1845 18.0019 17.1156 17.9438 17.0575ZM3.12664 8.74969C3.12664 7.63717 3.45654 6.54963 4.07463 5.62461C4.69271 4.69958 5.57121 3.97861 6.59905 3.55287C7.62688 3.12712 8.75788 3.01573 9.84903 3.23277C10.9402 3.44981 11.9424 3.98554 12.7291 4.77221C13.5158 5.55888 14.0515 6.56116 14.2686 7.65231C14.4856 8.74345 14.3742 9.87445 13.9485 10.9023C13.5227 11.9301 12.8018 12.8086 11.8767 13.4267C10.9517 14.0448 9.86416 14.3747 8.75164 14.3747C7.26031 14.373 5.83053 13.7799 4.77599 12.7253C3.72146 11.6708 3.1283 10.241 3.12664 8.74969Z" fill="#1C1C1C" />
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="flex gap-40 flex-wrap md-gap-12">
+                    <div class="flex items-center gap-8">
+                        <p class="text-secondary">Reytinq:</p>
+                        <div class="core-dropdown style-2 listing">
+                            <button class="core-dropdown__button dropdown__normal" type="button" id="ratingDropdownBtn">
+                                <span class="core-dropdown__selected">@(selectedRating.HasValue ? $"Reytinq {selectedRating}" : "Hamısı")</span>
+                                <img src="~/assets/icons/chevron-down-primary.svg" alt="chevron" class="core-dropdown__icon">
+                            </button>
+                            <div class="core-dropdown__menu" id="ratingDropdownMenu">
+                                <ul class="core-dropdown__list style2">
+                                    <li class="core-dropdown__item">
+                                        <a asp-controller="Reviews" asp-action="Index" asp-route-sort="@selectedSort" asp-route-search="@searchQuery" class="core-dropdown__option @(!selectedRating.HasValue ? "active" : "")">Hamısı</a>
+                                    </li>
+                                    @for (int i = 5; i >= 1; i--)
+                                    {
+                                        <li class="core-dropdown__item">
+                                            <a asp-controller="Reviews" asp-action="Index" asp-route-rating="@i" asp-route-sort="@selectedSort" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedRating == i ? "active" : "")">Reytinq @i</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-8">
+                        <p class="text-secondary">Sırala:</p>
+                        <div class="core-dropdown style-2 listing">
+                            <button class="core-dropdown__button dropdown__normal" type="button" id="sortDateDropdownBtn">
+                                <span class="core-dropdown__selected">@(selectedSort == "asc" ? "Köhnədən yeniyə" : "Yenidən köhnəyə")</span>
+                                <img src="~/assets/icons/chevron-down-primary.svg" alt="chevron" class="core-dropdown__icon">
+                            </button>
+                            <div class="core-dropdown__menu" id="sortDateDropdownMenu">
+                                <ul class="core-dropdown__list style-2">
+                                    <li class="core-dropdown__item">
+                                        <a asp-controller="Reviews" asp-action="Index" asp-route-rating="@selectedRating" asp-route-sort="desc" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "desc" ? "active" : "")">Yenidən köhnəyə</a>
+                                    </li>
+                                    <li class="core-dropdown__item">
+                                        <a asp-controller="Reviews" asp-action="Index" asp-route-rating="@selectedRating" asp-route-sort="asc" asp-route-search="@searchQuery" class="core-dropdown__option @(selectedSort == "asc" ? "active" : "")">Köhnədən yeniyə</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider w-full mb-28"></div>
+
+            <div class="comments mb-28 style2">
+                @if (reviews.Count == 0)
+                {
+                    <p class="text-secondary text-center py-20">Hələ heç bir rəy yoxdur.</p>
+                }
+                else
+                {
+                    @foreach (var review in reviews)
+                    {
+                        <div class="comment-box" data-start="@review.Rating">
+                            <div class="comment-box__header gap-12 mb-24">
+                                <div class="comment-box__avatar">
+                                    @if (!string.IsNullOrEmpty(review.AvatarUrl))
+                                    {
+                                        <img src="@review.AvatarUrl" alt="avatar">
+                                    }
+                                    else
+                                    {
+                                        <div style="width:48px;height:48px;border-radius:50%;background:#FF5722;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff;">
+                                            @review.AuthorName.Substring(0, 1).ToUpper()
+                                        </div>
+                                    }
+                                </div>
+                                <div>
+                                    <div class="text-secondary gap-4 pt-4">
+                                        <p class="h5 mb-4">@review.AuthorName</p>
+                                        <p class="text-secondary text-sm">@review.CreatedDate.ToString("MMMM dd, yyyy")</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center mb-12">
+                                @for (int i = 0; i < review.Rating; i++)
+                                {
+                                    <img src="~/assets/icons/star-2.svg" alt="star">
+                                }
+                                @for (int i = review.Rating; i < 5; i++)
+                                {
+                                    <img src="~/assets/icons/star-2.svg" alt="star" style="opacity:0.3;">
+                                }
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(review.AuthorTitle))
+                            {
+                                <p class="h5 mb-12">@review.AuthorTitle</p>
+                            }
+                            <p class="h7 line-height-28">@review.Content</p>
+                        </div>
+                    }
+                }
+            </div>
+
+            @if (totalPages > 1)
+            {
+                <div class="divider w-full mb-32"></div>
+
+                <div class="flex justify-between items-center flex-wrap gap-12">
+                    <ul class="pagination">
+                        @for (int i = 1; i <= totalPages; i++)
+                        {
+                            <li>
+                                <a asp-controller="Reviews" asp-action="Index"
+                                   asp-route-page="@i" asp-route-rating="@selectedRating"
+                                   asp-route-sort="@selectedSort" asp-route-search="@searchQuery"
+                                   class="pagination__link @(i == currentPage ? "active" : "")">
+                                    @i
+                                </a>
+                            </li>
+                        }
+                        @if (currentPage < totalPages)
+                        {
+                            <li>
+                                <a asp-controller="Reviews" asp-action="Index"
+                                   asp-route-page="@(currentPage + 1)" asp-route-rating="@selectedRating"
+                                   asp-route-sort="@selectedSort" asp-route-search="@searchQuery"
+                                   class="pagination__link">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.1925 10.4423L7.94254 16.6923C7.88447 16.7504 7.81553 16.7964 7.73966 16.8278C7.66379 16.8593 7.58247 16.8755 7.50035 16.8755C7.41823 16.8755 7.33691 16.8593 7.26104 16.8278C7.18517 16.7964 7.11623 16.7504 7.05816 16.6923C7.00009 16.6342 6.95403 16.5653 6.9226 16.4894C6.89117 16.4135 6.875 16.3322 6.875 16.2501C6.875 16.168 6.89117 16.0867 6.9226 16.0108C6.95403 15.9349 7.00009 15.866 7.05816 15.8079L12.8668 10.0001L7.05816 4.19229C6.94088 4.07502 6.875 3.91596 6.875 3.7501C6.875 3.58425 6.94088 3.42519 7.05816 3.30792C7.17544 3.19064 7.3345 3.12476 7.50035 3.12476C7.6662 3.12476 7.82526 3.19064 7.94254 3.30792L14.1925 9.55791C14.2506 9.61596 14.2967 9.68489 14.3282 9.76077C14.3597 9.83664 14.3758 9.91797 14.3758 10.0001C14.3758 10.0822 14.3597 10.1636 14.3282 10.2394C14.2967 10.3153 14.2506 10.3842 14.1925 10.4423Z" fill="#9FA1A4" />
+                                    </svg>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                    <p class="text-secondary">
+                        @{
+                            var startItem = (currentPage - 1) * 9 + 1;
+                            var endItem = Math.Min(currentPage * 9, totalCount);
+                        }
+                        @startItem - @endItem / @totalCount nəticə göstərilir
+                    </p>
+                </div>
+            }
+        </div>
+    </main>
+</div>

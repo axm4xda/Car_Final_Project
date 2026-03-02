@@ -78,7 +78,7 @@ namespace Car_Project.Services
             if (faq == null) throw new ArgumentNullException(nameof(faq));
 
             var existing = await _context.FAQs.FindAsync(faq.Id)
-                ?? throw new KeyNotFoundException($"Id={faq.Id} olan FAQ tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={faq.Id} olan FAQ tapılmadı.");
 
             existing.Question  = faq.Question;
             existing.Answer    = faq.Answer;
@@ -92,7 +92,7 @@ namespace Car_Project.Services
         public async Task ToggleActiveAsync(int id)
         {
             var faq = await _context.FAQs.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan FAQ tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan FAQ tapılmadı.");
 
             faq.IsActive = !faq.IsActive;
             await _context.SaveChangesAsync();
@@ -101,7 +101,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var faq = await _context.FAQs.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan FAQ tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan FAQ tapılmadı.");
 
             _context.FAQs.Remove(faq);
             await _context.SaveChangesAsync();

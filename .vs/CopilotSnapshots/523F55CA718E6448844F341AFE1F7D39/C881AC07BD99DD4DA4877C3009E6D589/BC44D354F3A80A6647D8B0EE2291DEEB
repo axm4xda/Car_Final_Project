@@ -1,0 +1,1039 @@
+﻿using Car_Project.Data;
+using Car_Project.Models;
+using Car_Project.Services.Abstractions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+namespace Car_Project.Controllers
+{
+    [Authorize(Roles = "SuperAdmin,Admin")]
+    public class AdminController : Controller
+    {
+        private readonly ApplicationDbContext _db;
+        private readonly IFileService _fileService;
+        private readonly UserManager<AppUser> _userManager;
+
+        public AdminController(ApplicationDbContext db, IFileService fileService, UserManager<AppUser> userManager)
+        {
+            _db = db;
+            _fileService = fileService;
+            _userManager = userManager;
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // DASHBOARD
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Index()
+        {
+            ViewData["ActivePage"] = "Dashboard";
+            ViewBag.CarCount = await _db.Cars.CountAsync();
+            ViewBag.BrandCount = await _db.Brands.CountAsync();
+            ViewBag.ProductCount = await _db.Products.CountAsync();
+            ViewBag.OrderCount = await _db.Orders.CountAsync();
+            ViewBag.BlogPostCount = await _db.BlogPosts.CountAsync();
+            ViewBag.UserCount = await _userManager.Users.CountAsync();
+            ViewBag.ContactCount = await _db.ContactMessages.Where(c => !c.IsRead).CountAsync();
+            ViewBag.SellRequestCount = await _db.SellCarRequests.Where(s => !s.IsReviewed).CountAsync();
+            ViewBag.ReviewCount = await _db.Reviews.CountAsync();
+            ViewBag.AgentCount = await _db.SalesAgents.CountAsync();
+            ViewBag.SubscriberCount = await _db.NewsletterSubscribers.CountAsync();
+            ViewBag.FAQCount = await _db.FAQs.CountAsync();
+
+            ViewBag.RecentOrders = await _db.Orders.OrderByDescending(o => o.CreatedDate).Take(5).ToListAsync();
+            ViewBag.RecentMessages = await _db.ContactMessages.OrderByDescending(c => c.CreatedDate).Take(5).ToListAsync();
+
+            return View();
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // CARS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Cars()
+        {
+            ViewData["ActivePage"] = "Cars";
+            var cars = await _db.Cars.Include(c => c.Brand).Include(c => c.Images).OrderByDescending(c => c.CreatedDate).ToListAsync();
+            return View(cars);
+        }
+
+        public async Task<IActionResult> CarCreate()
+        {
+            ViewData["ActivePage"] = "Cars";
+            ViewBag.Brands = new SelectList(await _db.Brands.ToListAsync(), "Id", "Name");
+            ViewBag.AllFeatures = await _db.CarFeatures.ToListAsync();
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarCreate(Car car, IFormFile? thumbnailFile, List<IFormFile>? imageFiles, int[]? featureIds)
+        {
+            ViewData["ActivePage"] = "Cars";
+            car.CreatedDate = DateTime.UtcNow;
+
+            if (thumbnailFile != null)
+                car.ThumbnailUrl = await _fileService.UploadAsync(thumbnailFile, "uploads/cars");
+
+            _db.Cars.Add(car);
+            await _db.SaveChangesAsync();
+
+            if (imageFiles != null)
+            {
+                int order = 0;
+                foreach (var file in imageFiles)
+                {
+                    var url = await _fileService.UploadAsync(file, "uploads/cars");
+                    _db.CarImages.Add(new CarImage { CarId = car.Id, ImageUrl = url, Order = order++, CreatedDate = DateTime.UtcNow });
+                }
+            }
+
+            if (featureIds != null)
+            {
+                foreach (var fid in featureIds)
+                    _db.CarFeatureMappings.Add(new CarFeatureMapping { CarId = car.Id, CarFeatureId = fid });
+            }
+
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Maşın uğurla əlavə edildi.";
+            return RedirectToAction(nameof(Cars));
+        }
+
+        public async Task<IActionResult> CarEdit(int id)
+        {
+            ViewData["ActivePage"] = "Cars";
+            var car = await _db.Cars.Include(c => c.Features).Include(c => c.Images).FirstOrDefaultAsync(c => c.Id == id);
+            if (car == null) return NotFound();
+            ViewBag.Brands = new SelectList(await _db.Brands.ToListAsync(), "Id", "Name", car.BrandId);
+            ViewBag.AllFeatures = await _db.CarFeatures.ToListAsync();
+            ViewBag.SelectedFeatureIds = car.Features.Select(f => f.CarFeatureId).ToList();
+            return View(car);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarEdit(int id, Car car, IFormFile? thumbnailFile, List<IFormFile>? imageFiles, int[]? featureIds)
+        {
+            ViewData["ActivePage"] = "Cars";
+            var existing = await _db.Cars.Include(c => c.Features).FirstOrDefaultAsync(c => c.Id == id);
+            if (existing == null) return NotFound();
+
+            existing.Title = car.Title;
+            existing.Price = car.Price;
+            existing.MonthlyPayment = car.MonthlyPayment;
+            existing.Year = car.Year;
+            existing.Mileage = car.Mileage;
+            existing.FuelType = car.FuelType;
+            existing.Transmission = car.Transmission;
+            existing.Condition = car.Condition;
+            existing.BodyStyle = car.BodyStyle;
+            existing.DriveType = car.DriveType;
+            existing.Color = car.Color;
+            existing.InteriorColor = car.InteriorColor;
+            existing.Cylinders = car.Cylinders;
+            existing.DoorCount = car.DoorCount;
+            existing.Description = car.Description;
+            existing.BrandId = car.BrandId;
+            existing.Badge = car.Badge;
+            existing.BadgeColor = car.BadgeColor;
+
+            if (thumbnailFile != null)
+                existing.ThumbnailUrl = await _fileService.ReplaceAsync(existing.ThumbnailUrl ?? "", thumbnailFile, "uploads/cars");
+
+            // Update features
+            _db.CarFeatureMappings.RemoveRange(existing.Features);
+            if (featureIds != null)
+            {
+                foreach (var fid in featureIds)
+                    _db.CarFeatureMappings.Add(new CarFeatureMapping { CarId = id, CarFeatureId = fid });
+            }
+
+            if (imageFiles != null && imageFiles.Count > 0)
+            {
+                var maxOrder = await _db.CarImages.Where(ci => ci.CarId == id).MaxAsync(ci => (int?)ci.Order) ?? 0;
+                foreach (var file in imageFiles)
+                {
+                    var url = await _fileService.UploadAsync(file, "uploads/cars");
+                    _db.CarImages.Add(new CarImage { CarId = id, ImageUrl = url, Order = ++maxOrder, CreatedDate = DateTime.UtcNow });
+                }
+            }
+
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Maşın uğurla yeniləndi.";
+            return RedirectToAction(nameof(Cars));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarDelete(int id)
+        {
+            var car = await _db.Cars.Include(c => c.Images).FirstOrDefaultAsync(c => c.Id == id);
+            if (car == null) return NotFound();
+            if (!string.IsNullOrEmpty(car.ThumbnailUrl)) _fileService.Delete(car.ThumbnailUrl);
+            foreach (var img in car.Images) _fileService.Delete(img.ImageUrl);
+            _db.Cars.Remove(car);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Maşın silindi.";
+            return RedirectToAction(nameof(Cars));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarImageDelete(int id)
+        {
+            var img = await _db.CarImages.FindAsync(id);
+            if (img == null) return NotFound();
+            _fileService.Delete(img.ImageUrl);
+            _db.CarImages.Remove(img);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Şəkil silindi.";
+            return RedirectToAction(nameof(CarEdit), new { id = img.CarId });
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // BRANDS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Brands()
+        {
+            ViewData["ActivePage"] = "Brands";
+            return View(await _db.Brands.Include(b => b.Cars).OrderBy(b => b.Name).ToListAsync());
+        }
+
+        public IActionResult BrandCreate()
+        {
+            ViewData["ActivePage"] = "Brands";
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BrandCreate(Brand brand, IFormFile? logoFile)
+        {
+            brand.CreatedDate = DateTime.UtcNow;
+            if (logoFile != null) brand.LogoUrl = await _fileService.UploadAsync(logoFile, "uploads/brands");
+            _db.Brands.Add(brand);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Marka əlavə edildi.";
+            return RedirectToAction(nameof(Brands));
+        }
+
+        public async Task<IActionResult> BrandEdit(int id)
+        {
+            ViewData["ActivePage"] = "Brands";
+            var brand = await _db.Brands.FindAsync(id);
+            if (brand == null) return NotFound();
+            return View(brand);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BrandEdit(int id, Brand brand, IFormFile? logoFile)
+        {
+            var existing = await _db.Brands.FindAsync(id);
+            if (existing == null) return NotFound();
+            existing.Name = brand.Name;
+            existing.VehicleCount = brand.VehicleCount;
+            if (logoFile != null) existing.LogoUrl = await _fileService.ReplaceAsync(existing.LogoUrl ?? "", logoFile, "uploads/brands");
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Marka yeniləndi.";
+            return RedirectToAction(nameof(Brands));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BrandDelete(int id)
+        {
+            var brand = await _db.Brands.FindAsync(id);
+            if (brand == null) return NotFound();
+            if (await _db.Cars.AnyAsync(c => c.BrandId == id))
+            {
+                TempData["Error"] = "Bu markaya aid maşınlar var, əvvəlcə onları silin.";
+                return RedirectToAction(nameof(Brands));
+            }
+            if (!string.IsNullOrEmpty(brand.LogoUrl)) _fileService.Delete(brand.LogoUrl);
+            _db.Brands.Remove(brand);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Marka silindi.";
+            return RedirectToAction(nameof(Brands));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // CAR FEATURES
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> CarFeatures()
+        {
+            ViewData["ActivePage"] = "CarFeatures";
+            return View(await _db.CarFeatures.Include(f => f.Cars).OrderBy(f => f.Name).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarFeatureCreate(string name)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                _db.CarFeatures.Add(new CarFeature { Name = name.Trim(), CreatedDate = DateTime.UtcNow });
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Xüsusiyyət əlavə edildi.";
+            }
+            return RedirectToAction(nameof(CarFeatures));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarFeatureEdit(int id, string name)
+        {
+            var feature = await _db.CarFeatures.FindAsync(id);
+            if (feature != null && !string.IsNullOrWhiteSpace(name))
+            {
+                feature.Name = name.Trim();
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Xüsusiyyət yeniləndi.";
+            }
+            return RedirectToAction(nameof(CarFeatures));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarFeatureDelete(int id)
+        {
+            var feature = await _db.CarFeatures.FindAsync(id);
+            if (feature != null)
+            {
+                _db.CarFeatures.Remove(feature);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Xüsusiyyət silindi.";
+            }
+            return RedirectToAction(nameof(CarFeatures));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // BLOG POSTS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> BlogPosts()
+        {
+            ViewData["ActivePage"] = "BlogPosts";
+            return View(await _db.BlogPosts.Include(p => p.Category).OrderByDescending(p => p.CreatedDate).ToListAsync());
+        }
+
+        public async Task<IActionResult> BlogPostCreate()
+        {
+            ViewData["ActivePage"] = "BlogPosts";
+            ViewBag.Categories = new SelectList(await _db.BlogCategories.ToListAsync(), "Id", "Name");
+            ViewBag.AllTags = await _db.BlogTags.ToListAsync();
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BlogPostCreate(BlogPost post, IFormFile? thumbnailFile, int[]? tagIds)
+        {
+            post.CreatedDate = DateTime.UtcNow;
+            if (string.IsNullOrWhiteSpace(post.Slug))
+                post.Slug = post.Title.ToLower().Replace(" ", "-").Replace("ş", "s").Replace("ə", "e").Replace("ü", "u").Replace("ö", "o").Replace("ğ", "g").Replace("ı", "i").Replace("ç", "c");
+            if (thumbnailFile != null) post.ThumbnailUrl = await _fileService.UploadAsync(thumbnailFile, "uploads/blog");
+            _db.BlogPosts.Add(post);
+            await _db.SaveChangesAsync();
+
+            if (tagIds != null)
+            {
+                foreach (var tid in tagIds)
+                    _db.BlogPostTags.Add(new BlogPostTag { BlogPostId = post.Id, BlogTagId = tid });
+                await _db.SaveChangesAsync();
+            }
+
+            TempData["Success"] = "Blog yazısı əlavə edildi.";
+            return RedirectToAction(nameof(BlogPosts));
+        }
+
+        public async Task<IActionResult> BlogPostEdit(int id)
+        {
+            ViewData["ActivePage"] = "BlogPosts";
+            var post = await _db.BlogPosts.Include(p => p.PostTags).FirstOrDefaultAsync(p => p.Id == id);
+            if (post == null) return NotFound();
+            ViewBag.Categories = new SelectList(await _db.BlogCategories.ToListAsync(), "Id", "Name", post.CategoryId);
+            ViewBag.AllTags = await _db.BlogTags.ToListAsync();
+            ViewBag.SelectedTagIds = post.PostTags.Select(pt => pt.BlogTagId).ToList();
+            return View(post);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BlogPostEdit(int id, BlogPost post, IFormFile? thumbnailFile, int[]? tagIds)
+        {
+            var existing = await _db.BlogPosts.Include(p => p.PostTags).FirstOrDefaultAsync(p => p.Id == id);
+            if (existing == null) return NotFound();
+
+            existing.Title = post.Title;
+            existing.Slug = string.IsNullOrWhiteSpace(post.Slug)
+                ? post.Title.ToLower().Replace(" ", "-")
+                : post.Slug;
+            existing.Summary = post.Summary;
+            existing.Content = post.Content;
+            existing.AuthorName = post.AuthorName;
+            existing.AuthorAvatarUrl = post.AuthorAvatarUrl;
+            existing.Status = post.Status;
+            existing.CategoryId = post.CategoryId;
+            if (post.Status == BlogStatus.Published && existing.PublishedAt == null)
+                existing.PublishedAt = DateTime.UtcNow;
+
+            if (thumbnailFile != null)
+                existing.ThumbnailUrl = await _fileService.ReplaceAsync(existing.ThumbnailUrl ?? "", thumbnailFile, "uploads/blog");
+
+            _db.BlogPostTags.RemoveRange(existing.PostTags);
+            if (tagIds != null)
+            {
+                foreach (var tid in tagIds)
+                    _db.BlogPostTags.Add(new BlogPostTag { BlogPostId = id, BlogTagId = tid });
+            }
+
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Blog yazısı yeniləndi.";
+            return RedirectToAction(nameof(BlogPosts));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BlogPostDelete(int id)
+        {
+            var post = await _db.BlogPosts.FindAsync(id);
+            if (post == null) return NotFound();
+            if (!string.IsNullOrEmpty(post.ThumbnailUrl)) _fileService.Delete(post.ThumbnailUrl);
+            _db.BlogPosts.Remove(post);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Blog yazısı silindi.";
+            return RedirectToAction(nameof(BlogPosts));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // BLOG CATEGORIES
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> BlogCategories()
+        {
+            ViewData["ActivePage"] = "BlogCategories";
+            return View(await _db.BlogCategories.Include(c => c.Posts).OrderBy(c => c.Name).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BlogCategoryCreate(string name, string? slug)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                _db.BlogCategories.Add(new BlogCategory
+                {
+                    Name = name.Trim(),
+                    Slug = slug?.Trim() ?? name.ToLower().Replace(" ", "-"),
+                    CreatedDate = DateTime.UtcNow
+                });
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Blog kateqoriyası əlavə edildi.";
+            }
+            return RedirectToAction(nameof(BlogCategories));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BlogCategoryEdit(int id, string name, string? slug)
+        {
+            var cat = await _db.BlogCategories.FindAsync(id);
+            if (cat != null && !string.IsNullOrWhiteSpace(name))
+            {
+                cat.Name = name.Trim();
+                cat.Slug = slug?.Trim() ?? name.ToLower().Replace(" ", "-");
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Blog kateqoriyası yeniləndi.";
+            }
+            return RedirectToAction(nameof(BlogCategories));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> BlogCategoryDelete(int id)
+        {
+            var cat = await _db.BlogCategories.FindAsync(id);
+            if (cat == null) return NotFound();
+            if (await _db.BlogPosts.AnyAsync(p => p.CategoryId == id))
+            {
+                TempData["Error"] = "Bu kateqoriyaya aid yazılar var.";
+                return RedirectToAction(nameof(BlogCategories));
+            }
+            _db.BlogCategories.Remove(cat);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Kateqoriya silindi.";
+            return RedirectToAction(nameof(BlogCategories));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // FAQ
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> FAQs()
+        {
+            ViewData["ActivePage"] = "FAQs";
+            return View(await _db.FAQs.OrderBy(f => f.Order).ToListAsync());
+        }
+
+        public IActionResult FAQCreate()
+        {
+            ViewData["ActivePage"] = "FAQs";
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> FAQCreate(FAQ faq)
+        {
+            faq.CreatedDate = DateTime.UtcNow;
+            _db.FAQs.Add(faq);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "FAQ əlavə edildi.";
+            return RedirectToAction(nameof(FAQs));
+        }
+
+        public async Task<IActionResult> FAQEdit(int id)
+        {
+            ViewData["ActivePage"] = "FAQs";
+            var faq = await _db.FAQs.FindAsync(id);
+            if (faq == null) return NotFound();
+            return View(faq);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> FAQEdit(int id, FAQ faq)
+        {
+            var existing = await _db.FAQs.FindAsync(id);
+            if (existing == null) return NotFound();
+            existing.Question = faq.Question;
+            existing.Answer = faq.Answer;
+            existing.GroupName = faq.GroupName;
+            existing.Order = faq.Order;
+            existing.IsActive = faq.IsActive;
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "FAQ yeniləndi.";
+            return RedirectToAction(nameof(FAQs));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> FAQDelete(int id)
+        {
+            var faq = await _db.FAQs.FindAsync(id);
+            if (faq != null)
+            {
+                _db.FAQs.Remove(faq);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "FAQ silindi.";
+            }
+            return RedirectToAction(nameof(FAQs));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // PRODUCTS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Products()
+        {
+            ViewData["ActivePage"] = "Products";
+            return View(await _db.Products.Include(p => p.Category).OrderByDescending(p => p.CreatedDate).ToListAsync());
+        }
+
+        public async Task<IActionResult> ProductCreate()
+        {
+            ViewData["ActivePage"] = "Products";
+            ViewBag.Categories = new SelectList(await _db.ProductCategories.ToListAsync(), "Id", "Name");
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductCreate(Product product, IFormFile? thumbnailFile, List<IFormFile>? imageFiles)
+        {
+            product.CreatedDate = DateTime.UtcNow;
+            if (string.IsNullOrWhiteSpace(product.Slug))
+                product.Slug = product.Name.ToLower().Replace(" ", "-");
+            if (thumbnailFile != null) product.ThumbnailUrl = await _fileService.UploadAsync(thumbnailFile, "uploads/products");
+            _db.Products.Add(product);
+            await _db.SaveChangesAsync();
+
+            if (imageFiles != null)
+            {
+                int order = 0;
+                foreach (var file in imageFiles)
+                {
+                    var url = await _fileService.UploadAsync(file, "uploads/products");
+                    _db.ProductImages.Add(new ProductImage { ProductId = product.Id, ImageUrl = url, Order = order++, CreatedDate = DateTime.UtcNow });
+                }
+                await _db.SaveChangesAsync();
+            }
+
+            TempData["Success"] = "Məhsul əlavə edildi.";
+            return RedirectToAction(nameof(Products));
+        }
+
+        public async Task<IActionResult> ProductEdit(int id)
+        {
+            ViewData["ActivePage"] = "Products";
+            var product = await _db.Products.Include(p => p.Images).FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null) return NotFound();
+            ViewBag.Categories = new SelectList(await _db.ProductCategories.ToListAsync(), "Id", "Name", product.CategoryId);
+            return View(product);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductEdit(int id, Product product, IFormFile? thumbnailFile, List<IFormFile>? imageFiles)
+        {
+            var existing = await _db.Products.Include(p => p.Images).FirstOrDefaultAsync(p => p.Id == id);
+            if (existing == null) return NotFound();
+
+            existing.Name = product.Name;
+            existing.Slug = product.Slug;
+            existing.Description = product.Description;
+            existing.Price = product.Price;
+            existing.OldPrice = product.OldPrice;
+            existing.Stock = product.Stock;
+            existing.Badge = product.Badge;
+            existing.BadgeColor = product.BadgeColor;
+            existing.IsActive = product.IsActive;
+            existing.IsFeatured = product.IsFeatured;
+            existing.CategoryId = product.CategoryId;
+
+            if (thumbnailFile != null)
+                existing.ThumbnailUrl = await _fileService.ReplaceAsync(existing.ThumbnailUrl ?? "", thumbnailFile, "uploads/products");
+
+            if (imageFiles != null && imageFiles.Count > 0)
+            {
+                var maxOrder = existing.Images.Any() ? existing.Images.Max(i => i.Order) : 0;
+                foreach (var file in imageFiles)
+                {
+                    var url = await _fileService.UploadAsync(file, "uploads/products");
+                    _db.ProductImages.Add(new ProductImage { ProductId = id, ImageUrl = url, Order = ++maxOrder, CreatedDate = DateTime.UtcNow });
+                }
+            }
+
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Məhsul yeniləndi.";
+            return RedirectToAction(nameof(Products));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductDelete(int id)
+        {
+            var product = await _db.Products.Include(p => p.Images).FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null) return NotFound();
+            if (!string.IsNullOrEmpty(product.ThumbnailUrl)) _fileService.Delete(product.ThumbnailUrl);
+            foreach (var img in product.Images) _fileService.Delete(img.ImageUrl);
+            _db.Products.Remove(product);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Məhsul silindi.";
+            return RedirectToAction(nameof(Products));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductImageDelete(int id)
+        {
+            var img = await _db.ProductImages.FindAsync(id);
+            if (img == null) return NotFound();
+            _fileService.Delete(img.ImageUrl);
+            _db.ProductImages.Remove(img);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Şəkil silindi.";
+            return RedirectToAction(nameof(ProductEdit), new { id = img.ProductId });
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // PRODUCT CATEGORIES
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> ProductCategories()
+        {
+            ViewData["ActivePage"] = "ProductCategories";
+            return View(await _db.ProductCategories.Include(c => c.Products).OrderBy(c => c.Name).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductCategoryCreate(string name, string? slug, IFormFile? iconFile)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                var cat = new ProductCategory
+                {
+                    Name = name.Trim(),
+                    Slug = slug?.Trim() ?? name.ToLower().Replace(" ", "-"),
+                    CreatedDate = DateTime.UtcNow
+                };
+                if (iconFile != null) cat.IconUrl = await _fileService.UploadAsync(iconFile, "uploads/product-categories");
+                _db.ProductCategories.Add(cat);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Kateqoriya əlavə edildi.";
+            }
+            return RedirectToAction(nameof(ProductCategories));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductCategoryEdit(int id, string name, string? slug)
+        {
+            var cat = await _db.ProductCategories.FindAsync(id);
+            if (cat != null && !string.IsNullOrWhiteSpace(name))
+            {
+                cat.Name = name.Trim();
+                cat.Slug = slug?.Trim();
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Kateqoriya yeniləndi.";
+            }
+            return RedirectToAction(nameof(ProductCategories));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductCategoryDelete(int id)
+        {
+            var cat = await _db.ProductCategories.FindAsync(id);
+            if (cat == null) return NotFound();
+            if (await _db.Products.AnyAsync(p => p.CategoryId == id))
+            {
+                TempData["Error"] = "Bu kateqoriyaya aid məhsullar var.";
+                return RedirectToAction(nameof(ProductCategories));
+            }
+            _db.ProductCategories.Remove(cat);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Kateqoriya silindi.";
+            return RedirectToAction(nameof(ProductCategories));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // ORDERS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Orders()
+        {
+            ViewData["ActivePage"] = "Orders";
+            return View(await _db.Orders.Include(o => o.Payment).OrderByDescending(o => o.CreatedDate).ToListAsync());
+        }
+
+        public async Task<IActionResult> OrderDetail(int id)
+        {
+            ViewData["ActivePage"] = "Orders";
+            var order = await _db.Orders.Include(o => o.Items).ThenInclude(i => i.Product).Include(o => o.Payment).FirstOrDefaultAsync(o => o.Id == id);
+            if (order == null) return NotFound();
+            return View(order);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> OrderUpdateStatus(int id, OrderStatus status)
+        {
+            var order = await _db.Orders.FindAsync(id);
+            if (order == null) return NotFound();
+            order.Status = status;
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Sifariş statusu yeniləndi.";
+            return RedirectToAction(nameof(OrderDetail), new { id });
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> OrderDelete(int id)
+        {
+            var order = await _db.Orders.FindAsync(id);
+            if (order != null)
+            {
+                _db.Orders.Remove(order);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Sifariş silindi.";
+            }
+            return RedirectToAction(nameof(Orders));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // COUPONS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Coupons()
+        {
+            ViewData["ActivePage"] = "Coupons";
+            return View(await _db.Coupons.OrderByDescending(c => c.CreatedDate).ToListAsync());
+        }
+
+        public IActionResult CouponCreate()
+        {
+            ViewData["ActivePage"] = "Coupons";
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CouponCreate(Coupon coupon)
+        {
+            coupon.CreatedDate = DateTime.UtcNow;
+            _db.Coupons.Add(coupon);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Kupon əlavə edildi.";
+            return RedirectToAction(nameof(Coupons));
+        }
+
+        public async Task<IActionResult> CouponEdit(int id)
+        {
+            ViewData["ActivePage"] = "Coupons";
+            var coupon = await _db.Coupons.FindAsync(id);
+            if (coupon == null) return NotFound();
+            return View(coupon);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CouponEdit(int id, Coupon coupon)
+        {
+            var existing = await _db.Coupons.FindAsync(id);
+            if (existing == null) return NotFound();
+            existing.Code = coupon.Code;
+            existing.DiscountPercent = coupon.DiscountPercent;
+            existing.DiscountAmount = coupon.DiscountAmount;
+            existing.MinOrderAmount = coupon.MinOrderAmount;
+            existing.IsActive = coupon.IsActive;
+            existing.ExpiresAt = coupon.ExpiresAt;
+            existing.UsageLimit = coupon.UsageLimit;
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Kupon yeniləndi.";
+            return RedirectToAction(nameof(Coupons));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CouponDelete(int id)
+        {
+            var coupon = await _db.Coupons.FindAsync(id);
+            if (coupon != null)
+            {
+                _db.Coupons.Remove(coupon);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Kupon silindi.";
+            }
+            return RedirectToAction(nameof(Coupons));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // SALES AGENTS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> SalesAgents()
+        {
+            ViewData["ActivePage"] = "SalesAgents";
+            return View(await _db.SalesAgents.OrderByDescending(a => a.CreatedDate).ToListAsync());
+        }
+
+        public IActionResult SalesAgentCreate()
+        {
+            ViewData["ActivePage"] = "SalesAgents";
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SalesAgentCreate(SalesAgent agent, IFormFile? imageFile)
+        {
+            agent.CreatedDate = DateTime.UtcNow;
+            if (imageFile != null) agent.ImageUrl = await _fileService.UploadAsync(imageFile, "uploads/agents");
+            _db.SalesAgents.Add(agent);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Agent əlavə edildi.";
+            return RedirectToAction(nameof(SalesAgents));
+        }
+
+        public async Task<IActionResult> SalesAgentEdit(int id)
+        {
+            ViewData["ActivePage"] = "SalesAgents";
+            var agent = await _db.SalesAgents.FindAsync(id);
+            if (agent == null) return NotFound();
+            return View(agent);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SalesAgentEdit(int id, SalesAgent agent, IFormFile? imageFile)
+        {
+            var existing = await _db.SalesAgents.FindAsync(id);
+            if (existing == null) return NotFound();
+
+            existing.FullName = agent.FullName;
+            existing.Title = agent.Title;
+            existing.Bio = agent.Bio;
+            existing.Address = agent.Address;
+            existing.Phone1 = agent.Phone1;
+            existing.Phone2 = agent.Phone2;
+            existing.Email = agent.Email;
+            existing.MapEmbedUrl = agent.MapEmbedUrl;
+            existing.IsVerified = agent.IsVerified;
+            existing.IsActive = agent.IsActive;
+            existing.FacebookUrl = agent.FacebookUrl;
+            existing.TwitterUrl = agent.TwitterUrl;
+            existing.InstagramUrl = agent.InstagramUrl;
+            existing.SkypeUrl = agent.SkypeUrl;
+            existing.TelegramUrl = agent.TelegramUrl;
+
+            if (imageFile != null)
+                existing.ImageUrl = await _fileService.ReplaceAsync(existing.ImageUrl ?? "", imageFile, "uploads/agents");
+
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Agent yeniləndi.";
+            return RedirectToAction(nameof(SalesAgents));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SalesAgentDelete(int id)
+        {
+            var agent = await _db.SalesAgents.FindAsync(id);
+            if (agent != null)
+            {
+                if (!string.IsNullOrEmpty(agent.ImageUrl)) _fileService.Delete(agent.ImageUrl);
+                _db.SalesAgents.Remove(agent);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Agent silindi.";
+            }
+            return RedirectToAction(nameof(SalesAgents));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // REVIEWS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Reviews()
+        {
+            ViewData["ActivePage"] = "Reviews";
+            return View(await _db.Reviews.OrderByDescending(r => r.CreatedDate).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReviewApprove(int id)
+        {
+            var review = await _db.Reviews.FindAsync(id);
+            if (review != null) { review.IsApproved = true; await _db.SaveChangesAsync(); TempData["Success"] = "Rəy təsdiqləndi."; }
+            return RedirectToAction(nameof(Reviews));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReviewReject(int id)
+        {
+            var review = await _db.Reviews.FindAsync(id);
+            if (review != null) { review.IsApproved = false; await _db.SaveChangesAsync(); TempData["Success"] = "Rəy rədd edildi."; }
+            return RedirectToAction(nameof(Reviews));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReviewDelete(int id)
+        {
+            var review = await _db.Reviews.FindAsync(id);
+            if (review != null) { _db.Reviews.Remove(review); await _db.SaveChangesAsync(); TempData["Success"] = "Rəy silindi."; }
+            return RedirectToAction(nameof(Reviews));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // SERVICE CENTERS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> ServiceCenters()
+        {
+            ViewData["ActivePage"] = "ServiceCenters";
+            return View(await _db.ServiceCenters.OrderBy(s => s.Name).ToListAsync());
+        }
+
+        public IActionResult ServiceCenterCreate()
+        {
+            ViewData["ActivePage"] = "ServiceCenters";
+            return View();
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ServiceCenterCreate(ServiceCenter sc, IFormFile? imageFile)
+        {
+            sc.CreatedDate = DateTime.UtcNow;
+            if (imageFile != null) sc.ImageUrl = await _fileService.UploadAsync(imageFile, "uploads/service-centers");
+            _db.ServiceCenters.Add(sc);
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Servis mərkəzi əlavə edildi.";
+            return RedirectToAction(nameof(ServiceCenters));
+        }
+
+        public async Task<IActionResult> ServiceCenterEdit(int id)
+        {
+            ViewData["ActivePage"] = "ServiceCenters";
+            var sc = await _db.ServiceCenters.FindAsync(id);
+            if (sc == null) return NotFound();
+            return View(sc);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ServiceCenterEdit(int id, ServiceCenter sc, IFormFile? imageFile)
+        {
+            var existing = await _db.ServiceCenters.FindAsync(id);
+            if (existing == null) return NotFound();
+            existing.Name = sc.Name;
+            existing.Address = sc.Address;
+            existing.Phone = sc.Phone;
+            existing.Email = sc.Email;
+            existing.WorkingHours = sc.WorkingHours;
+            existing.Latitude = sc.Latitude;
+            existing.Longitude = sc.Longitude;
+            if (imageFile != null)
+                existing.ImageUrl = await _fileService.ReplaceAsync(existing.ImageUrl ?? "", imageFile, "uploads/service-centers");
+            await _db.SaveChangesAsync();
+            TempData["Success"] = "Servis mərkəzi yeniləndi.";
+            return RedirectToAction(nameof(ServiceCenters));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ServiceCenterDelete(int id)
+        {
+            var sc = await _db.ServiceCenters.FindAsync(id);
+            if (sc != null)
+            {
+                if (!string.IsNullOrEmpty(sc.ImageUrl)) _fileService.Delete(sc.ImageUrl);
+                _db.ServiceCenters.Remove(sc);
+                await _db.SaveChangesAsync();
+                TempData["Success"] = "Servis mərkəzi silindi.";
+            }
+            return RedirectToAction(nameof(ServiceCenters));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // CONTACT MESSAGES
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> ContactMessages()
+        {
+            ViewData["ActivePage"] = "ContactMessages";
+            return View(await _db.ContactMessages.OrderByDescending(c => c.CreatedDate).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ContactMessageRead(int id)
+        {
+            var msg = await _db.ContactMessages.FindAsync(id);
+            if (msg != null) { msg.IsRead = true; await _db.SaveChangesAsync(); }
+            return RedirectToAction(nameof(ContactMessages));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ContactMessageDelete(int id)
+        {
+            var msg = await _db.ContactMessages.FindAsync(id);
+            if (msg != null) { _db.ContactMessages.Remove(msg); await _db.SaveChangesAsync(); TempData["Success"] = "Mesaj silindi."; }
+            return RedirectToAction(nameof(ContactMessages));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // SELL CAR REQUESTS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> SellCarRequests()
+        {
+            ViewData["ActivePage"] = "SellCarRequests";
+            return View(await _db.SellCarRequests.OrderByDescending(s => s.CreatedDate).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SellCarRequestReview(int id)
+        {
+            var req = await _db.SellCarRequests.FindAsync(id);
+            if (req != null) { req.IsReviewed = true; await _db.SaveChangesAsync(); TempData["Success"] = "Müraciət baxıldı olaraq işarələndi."; }
+            return RedirectToAction(nameof(SellCarRequests));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SellCarRequestDelete(int id)
+        {
+            var req = await _db.SellCarRequests.FindAsync(id);
+            if (req != null) { _db.SellCarRequests.Remove(req); await _db.SaveChangesAsync(); TempData["Success"] = "Müraciət silindi."; }
+            return RedirectToAction(nameof(SellCarRequests));
+        }
+
+        // ══════════════════════════════════════════════════════════
+        // NEWSLETTER SUBSCRIBERS
+        // ══════════════════════════════════════════════════════════
+        public async Task<IActionResult> Subscribers()
+        {
+            ViewData["ActivePage"] = "Subscribers";
+            return View(await _db.NewsletterSubscribers.OrderByDescending(s => s.CreatedDate).ToListAsync());
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SubscriberToggle(int id)
+        {
+            var sub = await _db.NewsletterSubscribers.FindAsync(id);
+            if (sub != null) { sub.IsActive = !sub.IsActive; await _db.SaveChangesAsync(); }
+            return RedirectToAction(nameof(Subscribers));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> SubscriberDelete(int id)
+        {
+            var sub = await _db.NewsletterSubscribers.FindAsync(id);
+            if (sub != null) { _db.NewsletterSubscribers.Remove(sub); await _db.SaveChangesAsync(); TempData["Success"] = "Abunəçi silindi."; }
+            return RedirectToAction(nameof(Subscribers));
+        }
+    }
+}

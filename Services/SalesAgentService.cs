@@ -45,7 +45,7 @@ namespace Car_Project.Services
             if (agent == null) throw new ArgumentNullException(nameof(agent));
 
             var existing = await _context.SalesAgents.FindAsync(agent.Id)
-                ?? throw new KeyNotFoundException($"Id={agent.Id} olan agent tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={agent.Id} olan agent tapılmadı.");
 
             existing.FullName     = agent.FullName;
             existing.Title        = agent.Title;
@@ -70,9 +70,18 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var agent = await _context.SalesAgents.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan agent tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan agent tapılmadı.");
 
             _context.SalesAgents.Remove(agent);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddReviewAsync(SalesAgentReview review)
+        {
+            if (review == null) throw new ArgumentNullException(nameof(review));
+            review.CreatedDate = DateTime.UtcNow;
+            review.IsApproved  = true; // admin təsdiqsiz birbaşa göstər (istəyə görə false edə bilərsiniz)
+            await _context.SalesAgentReviews.AddAsync(review);
             await _context.SaveChangesAsync();
         }
     }

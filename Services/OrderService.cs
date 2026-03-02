@@ -22,9 +22,9 @@ namespace Car_Project.Services
 
             var cartItems = await _cartService.GetCartAsync(sessionId);
             if (!cartItems.Any())
-                throw new InvalidOperationException("S?b?t bo?dur.");
+                throw new InvalidOperationException("Səbət boşdur.");
 
-            // Sifari? elementl?rini s?b?td?n yarat
+            // Sifariş elementlərini səbətdən yarat
             var orderItems = cartItems.Select(ci => new OrderItem
             {
                 ProductId  = ci.ProductId,
@@ -53,7 +53,7 @@ namespace Car_Project.Services
 
             await _context.SaveChangesAsync();
 
-            // S?b?ti t?mizl?
+            // Səbəti təmizlə
             await _cartService.ClearCartAsync(sessionId);
 
             return order;
@@ -100,7 +100,7 @@ namespace Car_Project.Services
         public async Task UpdateStatusAsync(int orderId, OrderStatus newStatus)
         {
             var order = await _context.Orders.FindAsync(orderId)
-                ?? throw new KeyNotFoundException($"Id={orderId} olan sifari? tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={orderId} olan sifariş tapılmadı.");
 
             order.Status = newStatus;
             await _context.SaveChangesAsync();
@@ -109,7 +109,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var order = await _context.Orders.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan sifari? tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan sifariş tapılmadı.");
 
             _context.Orders.Remove(order);
             await _context.SaveChangesAsync();

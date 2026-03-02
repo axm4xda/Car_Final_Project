@@ -1,0 +1,269 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<Car_Project.Models.AppUser> _msgUserManager
+@{
+    ViewData["Title"] = "Canlı Söhbət";
+    var msgUser = await _msgUserManager.GetUserAsync(User);
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Canlı Söhbət</span></li>
+        </ul>
+    </div>
+</section>
+
+<div class="db-layout">
+    @await Html.PartialAsync("_DashboardSidebar")
+
+    <main class="db-content" style="padding: 28px 32px;">
+        <p class="h3 mb-24">Canlı Söhbət</p>
+
+        <div id="chatContainer" style="display:flex;height:600px;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;background:#fff;">
+
+            <!-- LEFT: User List -->
+            <div id="chatUserList" style="width:280px;flex-shrink:0;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;">
+                <div style="padding:16px;border-bottom:1px solid #e5e7eb;">
+                    <input id="userSearch" type="text" placeholder="İstifadəçi axtar..." style="width:100%;padding:8px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;">
+                </div>
+                <div id="userListItems" style="flex:1;overflow-y:auto;padding:8px 0;">
+                    <p class="text-secondary text-center" style="padding:20px;font-size:13px;">Yüklənir...</p>
+                </div>
+            </div>
+
+            <!-- RIGHT: Chat Window -->
+            <div style="flex:1;display:flex;flex-direction:column;">
+                <!-- Chat Header -->
+                <div id="chatHeader" style="padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:12px;min-height:65px;background:#fafafa;">
+                    <div id="chatHeaderContent" style="color:#9ca3af;font-size:14px;">
+                        Sol tərəfdən bir istifadəçi seçin
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
+                <div id="chatMessages" style="flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px;background:#f9fafb;">
+                    <!-- messages injected by JS -->
+                </div>
+
+                <!-- Input Area -->
+                <div id="chatInputArea" style="padding:14px 20px;border-top:1px solid #e5e7eb;background:#fff;display:none;">
+                    <form id="chatForm" style="display:flex;gap:10px;align-items:flex-end;">
+                        <textarea id="chatInput" rows="1"
+                                  placeholder="Mesaj yazın..."
+                                  style="flex:1;resize:none;padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;outline:none;line-height:1.5;max-height:100px;overflow-y:auto;font-family:inherit;"
+                                  onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();document.getElementById('chatSendBtn').click();}"></textarea>
+                        <button id="chatSendBtn" type="submit"
+                                style="padding:10px 18px;background:#FF5722;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600;font-size:14px;flex-shrink:0;transition:background 0.2s;"
+                                onmouseover="this.style.background='#e64a19'" onmouseout="this.style.background='#FF5722'">
+                            Göndər
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"
+        integrity="sha512-2N3IcbQZ8MXkQNbzN8K27A9pDHCXDe8vWwJhxR8JzBpQXLjgVNLDODHHJh1fHJD0mNFSnp3ZKG/dRiUHXBDw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function () {
+    var myId   = '@(msgUser?.Id ?? "")';
+    var myName = '@(msgUser?.FullName ?? "")';
+    var activeUserId   = null;
+    var activeUserName = null;
+    var onlineUsers    = new Set();
+
+    // ── SignalR connection ──────────────────────────────────────────────────
+    var conn = new signalR.HubConnectionBuilder()
+        .withUrl('/chatHub')
+        .withAutomaticReconnect()
+        .build();
+
+    conn.on('ChatUserList', function(users) {
+        renderUserList(users);
+    });
+
+    conn.on('ChatHistory', function(msgs) {
+        var el = document.getElementById('chatMessages');
+        el.innerHTML = '';
+        msgs.forEach(function(m) { appendMessage(m.senderId === myId, m.senderName, m.message, m.sentAt); });
+        el.scrollTop = el.scrollHeight;
+    });
+
+    conn.on('ReceiveMessage', function(m) {
+        // Only display if the message belongs to the active conversation
+        if (m.senderId === activeUserId || (m.senderId === myId && m.senderId !== activeUserId)) {
+            appendMessage(m.senderId === myId, m.senderName, m.message, m.sentAt);
+            var el = document.getElementById('chatMessages');
+            el.scrollTop = el.scrollHeight;
+        }
+        // If sender is someone else and not active, highlight their row
+        if (m.senderId !== myId && m.senderId !== activeUserId) {
+            var row = document.querySelector('[data-uid="' + m.senderId + '"]');
+            if (row) row.style.background = '#fff5f2';
+        }
+    });
+
+    conn.on('UserOnline',  function(uid) { onlineUsers.add(uid);    updateOnlineDot(uid, true);  });
+    conn.on('UserOffline', function(uid) { onlineUsers.delete(uid); updateOnlineDot(uid, false); });
+
+    conn.start().then(function() {
+        conn.invoke('GetChatUsers');
+    }).catch(function(err) {
+        console.error('SignalR error:', err);
+        document.getElementById('userListItems').innerHTML =
+            '<p style="padding:20px;font-size:13px;color:#dc2626;">Bağlantı xətası.</p>';
+    });
+
+    // ── Render user list ───────────────────────────────────────────────────
+    function renderUserList(users) {
+        var container = document.getElementById('userListItems');
+        if (!users || users.length === 0) {
+            container.innerHTML = '<p class="text-secondary text-center" style="padding:20px;font-size:13px;">Heç bir istifadəçi tapılmadı.</p>';
+            return;
+        }
+        container.innerHTML = '';
+        // Sort: SuperAdmin/Admin first, then Agent, then User
+        users.sort(function(a,b){
+            var order = { SuperAdmin:0, Admin:1, Agent:2, User:3 };
+            return (order[a.role]||9) - (order[b.role]||9);
+        });
+        users.forEach(function(u) {
+            var item = document.createElement('div');
+            item.setAttribute('data-uid', u.id);
+            item.setAttribute('data-name', u.name);
+            item.style.cssText = 'display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;transition:background 0.15s;border-bottom:1px solid #f3f4f6;';
+            if (u.online) onlineUsers.add(u.id);
+
+            var roleColor = { SuperAdmin:'#7c3aed', Admin:'#2563eb', Agent:'#059669', User:'#6b7280' };
+            var dotColor  = u.online ? '#22c55e' : '#d1d5db';
+
+            item.innerHTML =
+                '<div style="position:relative;flex-shrink:0;">' +
+                    '<div style="width:38px;height:38px;border-radius:50%;background:#FF5722;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;">' + u.name.charAt(0).toUpperCase() + '</div>' +
+                    '<span class="online-dot" style="position:absolute;bottom:1px;right:1px;width:10px;height:10px;border-radius:50%;background:' + dotColor + ';border:2px solid #fff;"></span>' +
+                '</div>' +
+                '<div style="flex:1;min-width:0;">' +
+                    '<p style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + escHtml(u.name) + '</p>' +
+                    '<p style="font-size:11px;color:' + (roleColor[u.role]||'#6b7280') + ';font-weight:500;">' + u.role + '</p>' +
+                '</div>';
+
+            item.addEventListener('mouseenter', function() { if (this.getAttribute('data-uid') !== activeUserId) this.style.background='#f9fafb'; });
+            item.addEventListener('mouseleave', function() { if (this.getAttribute('data-uid') !== activeUserId) this.style.background=''; });
+            item.addEventListener('click', function() { selectUser(u.id, u.name, u.role); });
+            container.appendChild(item);
+        });
+    }
+
+    function updateOnlineDot(uid, isOnline) {
+        var row = document.querySelector('[data-uid="' + uid + '"]');
+        if (!row) return;
+        var dot = row.querySelector('.online-dot');
+        if (dot) dot.style.background = isOnline ? '#22c55e' : '#d1d5db';
+    }
+
+    // ── Select user to chat ────────────────────────────────────────────────
+    function selectUser(uid, uname, urole) {
+        activeUserId   = uid;
+        activeUserName = uname;
+
+        // Highlight selected row
+        document.querySelectorAll('[data-uid]').forEach(function(el){
+            el.style.background = el.getAttribute('data-uid') === uid ? '#fff5f2' : '';
+        });
+
+        // Update header
+        var isOnline = onlineUsers.has(uid);
+        var roleColor = { SuperAdmin:'#7c3aed', Admin:'#2563eb', Agent:'#059669', User:'#6b7280' };
+        document.getElementById('chatHeaderContent').innerHTML =
+            '<div style="width:40px;height:40px;border-radius:50%;background:#FF5722;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#fff;flex-shrink:0;">' + uname.charAt(0).toUpperCase() + '</div>' +
+            '<div>' +
+                '<p style="font-size:14px;font-weight:600;margin:0;">' + escHtml(uname) + '</p>' +
+                '<p style="font-size:12px;color:' + (roleColor[urole]||'#6b7280') + ';margin:0;">' + urole + ' · ' + (isOnline ? '<span style="color:#22c55e;">● Online</span>' : '<span style="color:#9ca3af;">● Offline</span>') + '</p>' +
+            '</div>';
+
+        // Show input
+        document.getElementById('chatInputArea').style.display = 'block';
+        document.getElementById('chatMessages').innerHTML = '';
+
+        // Load history
+        conn.invoke('LoadHistory', uid);
+        document.getElementById('chatInput').focus();
+    }
+
+    // ── Append message bubble ──────────────────────────────────────────────
+    function appendMessage(isMe, senderName, text, time) {
+        var area = document.getElementById('chatMessages');
+        var wrap = document.createElement('div');
+        wrap.style.cssText = 'display:flex;flex-direction:column;align-items:' + (isMe ? 'flex-end' : 'flex-start') + ';';
+
+        var bubble = document.createElement('div');
+        bubble.style.cssText =
+            'max-width:70%;padding:10px 14px;border-radius:' + (isMe ? '16px 16px 4px 16px' : '16px 16px 16px 4px') + ';' +
+            'background:' + (isMe ? '#FF5722' : '#fff') + ';' +
+            'color:' + (isMe ? '#fff' : '#1C1C1C') + ';' +
+            'font-size:13px;line-height:1.5;' +
+            'border:' + (isMe ? 'none' : '1px solid #e5e7eb') + ';' +
+            'word-break:break-word;';
+
+        if (!isMe) {
+            var nameEl = document.createElement('p');
+            nameEl.style.cssText = 'font-size:11px;font-weight:600;color:#6b7280;margin-bottom:4px;';
+            nameEl.textContent = senderName;
+            bubble.appendChild(nameEl);
+        }
+
+        var textEl = document.createElement('p');
+        textEl.style.margin = '0';
+        textEl.textContent = text;
+        bubble.appendChild(textEl);
+
+        var timeEl = document.createElement('p');
+        timeEl.style.cssText = 'font-size:10px;opacity:0.6;margin-top:4px;margin-bottom:0;text-align:right;';
+        timeEl.textContent = time;
+        bubble.appendChild(timeEl);
+
+        wrap.appendChild(bubble);
+        area.appendChild(wrap);
+    }
+
+    // ── Send message ───────────────────────────────────────────────────────
+    document.getElementById('chatForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var input = document.getElementById('chatInput');
+        var text  = input.value.trim();
+        if (!text || !activeUserId) return;
+        conn.invoke('SendPrivateMessage', activeUserId, text);
+        input.value = '';
+        input.style.height = '';
+    });
+
+    // Auto-resize textarea
+    document.getElementById('chatInput').addEventListener('input', function(){
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+    });
+
+    // ── User search filter ─────────────────────────────────────────────────
+    document.getElementById('userSearch').addEventListener('input', function(){
+        var q = this.value.toLowerCase();
+        document.querySelectorAll('[data-uid]').forEach(function(el){
+            var n = (el.getAttribute('data-name') || '').toLowerCase();
+            el.style.display = n.includes(q) ? '' : 'none';
+        });
+    });
+
+    function escHtml(s) {
+        return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+})();
+</script>
+}

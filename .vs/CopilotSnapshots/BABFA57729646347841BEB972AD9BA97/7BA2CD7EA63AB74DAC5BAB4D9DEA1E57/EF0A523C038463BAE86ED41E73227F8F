@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from tfaurexo.vercel.app/change-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 07:31:58 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurexo | Şifrə Dəyiş</title>
+    <link rel="stylesheet" href="~/assets/scss/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/app.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/images/favicon.png">
+</head>
+<body class="dashboard overflow-hidden">
+    <!-- preloade -->
+    <div class="preload preload-container">
+        <img class="preload--icon" src="~/assets/icons/preload.svg" alt="preload">
+    </div>
+    <!-- preload -->
+
+    <div id="wrapper">
+        <div class="dashboard-container">
+            @Html.Partial("_DashboardSidebar")
+            <div class="dashboard-content">
+                <div class="dashboard-content--inner">
+                    <div class="dashboard-content--details">
+                        <!-- Dashboard Toggle Button (only visible on mobile/tablet <= 1200px) -->
+                        <button class="btn btn-primary btn-large font-weight-600 mb-24 dashboard-toggle-btn" id="dashboardToggleBtn" aria-label="Toggle Dashboard">
+                            Show Dashboard
+                        </button>
+                        <p class="h3 mb-40">Şifrə Dəyiş</p>
+                        <form action="#">
+                            <div class="dashboard-box bg-white style-5">
+                                <div class="change-password-wrapper flex flex-col gap-23">
+                                    <label for="OldPassword">
+                                        <span class="mb-8 flex font-weight-600">Köhnə Şifrə:*</span>
+                                        <input class="input-large password-input is-hidden" type="password" id="OldPassword" name="OldPassword" placeholder="Köhnə şifrə" required>
+                                    </label>
+                                    <label for="NewPassword">
+                                        <span class="mb-8 flex font-weight-600">Yeni Şifrə:*</span>
+                                        <input class="input-large password-input is-hidden" type="password" id="NewPassword" name="NewPassword" placeholder="Yeni şifrə" required>
+                                    </label>
+                                    <label for="RetypeNewPassword">
+                                        <span class="mb-8 flex font-weight-600">Yeni Şifrəni Təkrarla:*</span>
+                                        <input class="input-large password-input is-hidden" type="password" id="RetypeNewPassword" name="RetypeNewPassword" placeholder="Yeni şifrəni təkrarla" required>
+                                    </label>
+                                    <div class="flex">
+                                        <button type="submit" class="btn btn-primary btn-large-3 font-weight-600">
+                                            Şifrəni Dəyiş
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/assets/js/app.js"></script>
+</body>
+
+<!-- Mirrored from tfaurexo.vercel.app/change-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 07:31:58 GMT -->
+</html>

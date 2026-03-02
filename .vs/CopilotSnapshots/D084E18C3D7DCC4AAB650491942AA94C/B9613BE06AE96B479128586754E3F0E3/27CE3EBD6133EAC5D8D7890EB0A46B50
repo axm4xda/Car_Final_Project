@@ -1,0 +1,497 @@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> UserManager
+@{
+    ViewData["Title"] = "Mesajlar";
+    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUserId = currentUser?.Id ?? "";
+    var currentUserName = currentUser?.FullName ?? "";
+}
+
+<style>
+    .dash-sidebar {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 24px 0;
+        position: sticky;
+        top: 100px;
+    }
+    .dash-sidebar .dash-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4b5563;
+        text-decoration: none;
+        transition: all 0.2s;
+        border-left: 3px solid transparent;
+    }
+    .dash-sidebar .dash-nav-item:hover { background: #f9fafb; color: #1c1c1c; }
+    .dash-sidebar .dash-nav-item.active { background: #fff5f2; color: #FF5722; border-left-color: #FF5722; font-weight: 600; }
+    .dash-sidebar .dash-nav-item svg { flex-shrink: 0; }
+
+    /* Chat Layout */
+    .chat-container {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        height: 600px;
+    }
+
+    /* User List */
+    .chat-users {
+        border-right: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-users-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid #e5e7eb;
+        font-weight: 600;
+        font-size: 15px;
+    }
+    .chat-users-search {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .chat-users-search input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 13px;
+        outline: none;
+    }
+    .chat-users-search input:focus { border-color: #FF5722; }
+    .chat-users-list {
+        flex: 1;
+        overflow-y: auto;
+    }
+    .chat-user-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: background 0.15s;
+        border-bottom: 1px solid #f3f4f6;
+    }
+    .chat-user-item:hover { background: #f9fafb; }
+    .chat-user-item.active { background: #fff5f2; }
+    .chat-user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 700;
+        position: relative;
+        flex-shrink: 0;
+    }
+    .chat-user-avatar.online::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #22c55e;
+        border: 2px solid #fff;
+    }
+    .chat-user-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1c1c1c;
+    }
+    .chat-user-role {
+        font-size: 11px;
+        color: #9ca3af;
+    }
+
+    /* Chat Panel */
+    .chat-panel {
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-panel-header {
+        padding: 16px 24px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 64px;
+    }
+    .chat-panel-header-name {
+        font-weight: 600;
+        font-size: 15px;
+    }
+    .chat-panel-header-status {
+        font-size: 12px;
+        color: #22c55e;
+    }
+    .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .chat-msg {
+        max-width: 70%;
+        padding: 10px 16px;
+        border-radius: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        word-wrap: break-word;
+    }
+    .chat-msg.sent {
+        background: #FF5722;
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+    }
+    .chat-msg.received {
+        background: #f3f4f6;
+        color: #1c1c1c;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+    }
+    .chat-msg-time {
+        font-size: 10px;
+        opacity: 0.7;
+        margin-top: 4px;
+    }
+
+    .chat-input-area {
+        padding: 16px 24px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        gap: 12px;
+    }
+    .chat-input-area input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+    .chat-input-area input:focus { border-color: #FF5722; }
+    .chat-send-btn {
+        background: #FF5722;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .chat-send-btn:hover { background: #e64a19; }
+    .chat-send-btn:disabled { background: #d1d5db; cursor: not-allowed; }
+
+    .chat-placeholder {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #9ca3af;
+    }
+    .chat-placeholder-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 36px;
+    }
+</style>
+
+<!-- Breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Mesajlar</span></li>
+        </ul>
+    </div>
+</section>
+
+<section class="pb-100">
+    <div class="tf-spacing-style3"></div>
+    <div class="container">
+        <div style="display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:start;">
+
+            <!-- Sidebar -->
+            <div class="dash-sidebar">
+                <a asp-controller="UserProfil" asp-action="Index" class="dash-nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z"/><path d="M3 20.25C4.81594 17.1122 8.11406 15 12 15C15.8859 15 19.1841 17.1122 21 20.25"/></svg>
+                    Profil
+                </a>
+                <a asp-controller="UserListing" asp-action="Index" class="dash-nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6H21"/><path d="M8 12H21"/><path d="M8 18H21"/><circle cx="3" cy="6" r="0.5"/><circle cx="3" cy="12" r="0.5"/><circle cx="3" cy="18" r="0.5"/></svg>
+                    Elanlarım
+                </a>
+                <a asp-controller="Reviews" asp-action="Index" class="dash-nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    Rəylər
+                </a>
+                <a asp-controller="Message" asp-action="Index" class="dash-nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"/></svg>
+                    Mesajlar
+                </a>
+                <a asp-controller="ChangePassword" asp-action="Index" class="dash-nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7C7 5.67 7.53 4.4 8.46 3.46C9.4 2.53 10.67 2 12 2C13.33 2 14.6 2.53 15.54 3.46C16.47 4.4 17 5.67 17 7V11"/></svg>
+                    Şifrə Dəyiş
+                </a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="chat-container">
+                <!-- User List Panel -->
+                <div class="chat-users">
+                    <div class="chat-users-header">💬 Söhbətlər</div>
+                    <div class="chat-users-search">
+                        <input type="text" id="chatUserSearch" placeholder="İstifadəçi axtar..." />
+                    </div>
+                    <div class="chat-users-list" id="chatUsersList">
+                        <!-- Populated by SignalR -->
+                        <div style="text-align:center;padding:40px 16px;color:#9ca3af;font-size:13px;">
+                            Yüklənir...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Panel -->
+                <div class="chat-panel">
+                    <div class="chat-panel-header" id="chatPanelHeader">
+                        <span style="color:#9ca3af;font-size:14px;">İstifadəçi seçin</span>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-placeholder">
+                            <div class="chat-placeholder-icon">💬</div>
+                            <p style="font-size:16px;font-weight:500;margin-bottom:4px;">Mesaj seçilməyib</p>
+                            <p style="font-size:13px;">Sol paneldən bir istifadəçi seçərək söhbətə başlayın</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area" id="chatInputArea" style="display:none;">
+                        <input type="text" id="chatInput" placeholder="Mesaj yazın..." autocomplete="off" />
+                        <button type="button" id="chatSendBtn" class="chat-send-btn" disabled>Göndər</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script>
+        (function () {
+            const currentUserId = '@currentUserId';
+            const currentUserName = '@currentUserName';
+            let selectedUserId = null;
+            let selectedUserName = '';
+            let chatUsers = [];
+
+            // Build SignalR connection
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl('/chatHub')
+                .withAutomaticReconnect()
+                .build();
+
+            // ===== Start connection =====
+            connection.start().then(function () {
+                console.log('SignalR Connected');
+                connection.invoke('GetChatUsers');
+            }).catch(function (err) {
+                console.error('SignalR Error:', err);
+            });
+
+            // ===== Receive user list =====
+            connection.on('ChatUserList', function (users) {
+                chatUsers = users;
+                renderUserList(users);
+            });
+
+            // ===== User online/offline =====
+            connection.on('UserOnline', function (userId, name) {
+                var u = chatUsers.find(x => x.id === userId);
+                if (u) u.online = true;
+                else chatUsers.push({ id: userId, name: name, role: 'User', online: true });
+                renderUserList(chatUsers);
+            });
+
+            connection.on('UserOffline', function (userId) {
+                var u = chatUsers.find(x => x.id === userId);
+                if (u) u.online = false;
+                renderUserList(chatUsers);
+            });
+
+            // ===== Receive message =====
+            connection.on('ReceiveMessage', function (msg) {
+                if (selectedUserId &&
+                    (msg.senderId === selectedUserId || msg.senderId === currentUserId)) {
+                    appendMessage(msg);
+                }
+            });
+
+            // ===== Chat history =====
+            connection.on('ChatHistory', function (messages) {
+                var container = document.getElementById('chatMessages');
+                container.innerHTML = '';
+                messages.forEach(function (m) {
+                    appendMessage({
+                        senderId: m.senderId,
+                        senderName: m.senderName,
+                        message: m.message,
+                        sentAt: m.sentAt
+                    });
+                });
+                container.scrollTop = container.scrollHeight;
+            });
+
+            // ===== Render user list =====
+            function renderUserList(users) {
+                var container = document.getElementById('chatUsersList');
+                var searchVal = (document.getElementById('chatUserSearch').value || '').toLowerCase();
+                var filtered = users.filter(function (u) {
+                    return u.name.toLowerCase().includes(searchVal);
+                });
+
+                // Sort: online first
+                filtered.sort(function (a, b) {
+                    if (a.online && !b.online) return -1;
+                    if (!a.online && b.online) return 1;
+                    return a.name.localeCompare(b.name);
+                });
+
+                if (filtered.length === 0) {
+                    container.innerHTML = '<div style="text-align:center;padding:40px 16px;color:#9ca3af;font-size:13px;">İstifadəçi tapılmadı</div>';
+                    return;
+                }
+
+                var html = '';
+                filtered.forEach(function (u) {
+                    var isActive = u.id === selectedUserId ? ' active' : '';
+                    var onlineClass = u.online ? ' online' : '';
+                    var initial = u.name.length > 0 ? u.name[0].toUpperCase() : '?';
+                    var colors = ['#6366f1', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6', '#ec4899'];
+                    var color = colors[u.name.charCodeAt(0) % colors.length];
+
+                    html += '<div class="chat-user-item' + isActive + '" data-userid="' + u.id + '" data-username="' + u.name + '" data-online="' + u.online + '">';
+                    html += '  <div class="chat-user-avatar' + onlineClass + '" style="background:' + color + ';">' + initial + '</div>';
+                    html += '  <div>';
+                    html += '    <div class="chat-user-name">' + u.name + '</div>';
+                    html += '    <div class="chat-user-role">' + u.role + (u.online ? ' · Onlayn' : '') + '</div>';
+                    html += '  </div>';
+                    html += '</div>';
+                });
+                container.innerHTML = html;
+
+                // Attach click handlers
+                container.querySelectorAll('.chat-user-item').forEach(function (item) {
+                    item.addEventListener('click', function () {
+                        selectUser(this.dataset.userid, this.dataset.username, this.dataset.online === 'true');
+                    });
+                });
+            }
+
+            // ===== Select a user to chat with =====
+            function selectUser(userId, userName, online) {
+                selectedUserId = userId;
+                selectedUserName = userName;
+
+                // Update header
+                var header = document.getElementById('chatPanelHeader');
+                var initial = userName[0].toUpperCase();
+                header.innerHTML =
+                    '<div class="chat-user-avatar' + (online ? ' online' : '') + '" style="width:36px;height:36px;font-size:14px;">' + initial + '</div>' +
+                    '<div>' +
+                    '  <div class="chat-panel-header-name">' + userName + '</div>' +
+                    (online ? '<div class="chat-panel-header-status">● Onlayn</div>' : '<div style="font-size:12px;color:#9ca3af;">Oflayn</div>') +
+                    '</div>';
+
+                // Show input area
+                document.getElementById('chatInputArea').style.display = 'flex';
+
+                // Clear messages & load history
+                document.getElementById('chatMessages').innerHTML = '<div style="text-align:center;padding:20px;color:#9ca3af;font-size:13px;">Yüklənir...</div>';
+                connection.invoke('LoadHistory', userId);
+
+                // Highlight active user
+                document.querySelectorAll('.chat-user-item').forEach(function (item) {
+                    item.classList.toggle('active', item.dataset.userid === userId);
+                });
+            }
+
+            // ===== Append a message bubble =====
+            function appendMessage(msg) {
+                var container = document.getElementById('chatMessages');
+                // Remove placeholder if present
+                var placeholder = container.querySelector('.chat-placeholder');
+                if (placeholder) placeholder.remove();
+
+                var isMe = msg.senderId === currentUserId;
+                var div = document.createElement('div');
+                div.className = 'chat-msg ' + (isMe ? 'sent' : 'received');
+                div.innerHTML =
+                    '<div>' + escapeHtml(msg.message) + '</div>' +
+                    '<div class="chat-msg-time">' + (msg.sentAt || '') + '</div>';
+                container.appendChild(div);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            // ===== Send message =====
+            function sendMessage() {
+                var input = document.getElementById('chatInput');
+                var text = input.value.trim();
+                if (!text || !selectedUserId) return;
+
+                connection.invoke('SendPrivateMessage', selectedUserId, text);
+                input.value = '';
+                document.getElementById('chatSendBtn').disabled = true;
+            }
+
+            document.getElementById('chatSendBtn').addEventListener('click', sendMessage);
+
+            document.getElementById('chatInput').addEventListener('keyup', function (e) {
+                document.getElementById('chatSendBtn').disabled = !this.value.trim();
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            // ===== Search users =====
+            document.getElementById('chatUserSearch').addEventListener('input', function () {
+                renderUserList(chatUsers);
+            });
+
+            // ===== Escape HTML =====
+            function escapeHtml(str) {
+                var div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+        })();
+    </script>
+}

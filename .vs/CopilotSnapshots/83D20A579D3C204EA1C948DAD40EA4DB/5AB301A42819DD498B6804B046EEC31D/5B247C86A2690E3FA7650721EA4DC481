@@ -1,0 +1,610 @@
+﻿@model Car_Project.ViewModels.Home.HomeIndexViewModel
+@using Car_Project.ViewModels.Home
+
+@Html.AntiForgeryToken()
+
+<!-- page-title -->
+<form asp-controller="List" asp-action="Index" method="get">
+	<section class="page-title flex h-706">
+		<div class="swiper-container page-title--slider sw-single">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-1.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-2.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-3.jpg"></div>
+				</div>
+				<div class="swiper-slide">
+					<div class="tp-showcase-slider-bg" data-background="/assets/images/page-title/banner-5.jpg"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Search Cars Section -->
+		<div class="search-cars container margin-top-auto margin-bottom-auto">
+			<h1 class="search-cars__title wow fadeInUp" data-wow-delay="0.1s">Search Cars Near You - Buy Today!</h1>
+
+			<div class="flat-tabs mb-16 wow fadeInUp" data-wow-delay="0.3s">
+				<div class="overflow-x-auto">
+					<ul class="menu-tab menu-tab-style1 text-white">
+						<li class="active"><span class="text-white font-weight-600">All Car</span></li>
+						<li><span class="text-white font-weight-600">New Car</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Primary Search Filters -->
+			<div class="search-cars__filters wow fadeInUp" data-wow-delay="0.5s">
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Brand">
+						<label for="BrandSelectToggle" class="search-cars__label">Select Brand</label>
+						<input type="checkbox" id="BrandSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="BrandSelectToggle" class="filter-select-dropdown__text">
+							<span>All Brand</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="Brand" value="all" checked>
+									<span>All Brand</span>
+								</label>
+								@foreach (var brand in Model.BrandNames)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="Brand" value="@brand">
+										<span>@brand</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="FuelType">
+						<label for="FuelTypeSelectToggle" class="search-cars__label">Fuel Type</label>
+						<input type="checkbox" id="FuelTypeSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="FuelTypeSelectToggle" class="filter-select-dropdown__text">
+							<span>All Fuel</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="FuelType" value="all" checked>
+									<span>All Fuel</span>
+								</label>
+								@foreach (var fuel in Model.FuelTypes)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="FuelType" value="@fuel">
+										<span>@fuel</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="search-cars__select-wrapper">
+					<div class="search-cars__select bg-white filter-select-dropdown" data-name="Transmission">
+						<label for="TransmissionSelectToggle" class="search-cars__label">Transmission</label>
+						<input type="checkbox" id="TransmissionSelectToggle" class="filter-select-dropdown__toggle">
+						<label for="TransmissionSelectToggle" class="filter-select-dropdown__text">
+							<span>All</span>
+						</label>
+						<div class="filter-select-dropdown__menu">
+							<div class="filter-select-dropdown__list">
+								<label class="filter-checkbox">
+									<input type="checkbox" name="Transmission" value="all" checked>
+									<span>All</span>
+								</label>
+								@foreach (var t in Model.Transmissions)
+								{
+									<label class="filter-checkbox">
+										<input type="checkbox" name="Transmission" value="@t">
+										<span>@t</span>
+									</label>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Filter Icon Button -->
+				<div class="search-cars__filter" id="filterToggle">
+					<img src="~/assets/icons/filter.svg" alt="Filter">
+				</div>
+
+				<button type="submit" class="search-cars__search flex items-center gap-8 justify-center md-w-full">
+					<img src="~/assets/icons/search.svg" alt="search">
+					Show @Model.TotalMatchCount.ToString("N0") Matches
+				</button>
+			</div>
+		</div>
+		<!-- Search Cars Section -->
+
+		<div class="swiper-pagination pagination-white pagination-style pagination-page-title--slider-1 mt-38"></div>
+	</section>
+</form>
+<!-- page-title -->
+
+<!-- New Cars -->
+<section class="container py-100 flat-tabs">
+	<div class="title-section mb-30 gap-8 wow fadeInUp" data-wow-delay="0.1s">
+		<ul class="menu-tab menu-tab-style2 text-white gap-40 md-gap-12">
+			<li class="active"><h2 class="text">New Cars</h2></li>
+		</ul>
+		<a asp-controller="List" asp-action="Index" class="btn btn-line-style-2 effect-line-primary hover-fill-white effect-line-primary btn-large">
+			View All
+			<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+			</svg>
+		</a>
+	</div>
+	<div class="content-tab">
+		<div class="content-inner active">
+			<div class="swiper-container swiper-card-7" data-pagination=".pagination-swiper-card-7-1">
+				<div class="swiper-wrapper">
+					@for (int i = 0; i < Model.NewCars.Count; i++)
+					{
+						var car = Model.NewCars[i];
+						var delays = new[] { "0.1s", "0.2s", "0.3s", "0.4s" };
+						var delay = delays[i % delays.Length];
+						<div class="swiper-slide">
+							<div class="card-box card-box-style-1 mt-10 wow fadeIn" data-wow-delay="@delay">
+								<div class="top">
+									@if (!string.IsNullOrEmpty(car.Badge))
+									{
+										<p class="@car.BadgeColor text-white highlight">@car.Badge</p>
+									}
+									else
+									{
+										<p></p>
+									}
+									<p class="heart" data-car-id="@car.Id">
+										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_13399_19510)">
+												<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+										</svg>
+									</p>
+								</div>
+								<div class="image">
+									<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id">
+										<img class="card--img" src="@car.ThumbnailUrl" alt="@car.Title">
+									</a>
+								</div>
+								<div class="content border-light border-top-none">
+									<div class="bottom">
+										<p class="category uppercase text-white">
+											<a asp-controller="List" asp-action="Index" asp-route-brand="@car.BrandName" class="text-white uppercase text-xs">@car.BrandName</a>
+										</p>
+										<div class="flex items-center gap-8">
+											<p class="category uppercase text-white">
+												<img src="~/assets/icons/picture.svg" alt="picture">
+												@car.ImageCount
+											</p>
+											<p class="category uppercase text-white">
+												<img src="~/assets/icons/play.svg" alt="play">
+												@car.VideoCount
+											</p>
+										</div>
+									</div>
+									<p class="card-box__title mb-8 h6">
+										<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id">@car.Title</a>
+									</p>
+									<ul class="tag mb-10">
+										<li>
+											<img src="~/assets/icons/icon-gauge.svg" alt="mileage">
+											<span>@car.Mileage.ToString("N0") miles</span>
+										</li>
+										<li>
+											<img src="~/assets/icons/calendar.svg" alt="year">
+											<span>@car.Year</span>
+										</li>
+										<li>
+											<img src="~/assets/icons/gaspump.svg" alt="fuel">
+											<span>@car.FuelType</span>
+										</li>
+										<li>
+											<img src="~/assets/icons/manual.svg" alt="transmission">
+											<span>@car.Transmission</span>
+										</li>
+									</ul>
+									@if (car.MonthlyPayment.HasValue)
+									{
+										<p class="h6 card-box__price mb-15 flex justify-between gap-8 items-center">
+											$@car.Price.ToString("N2")
+											<span class="text-sm">
+												$@car.MonthlyPayment.Value.ToString("N0")/mo
+												<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="text-underline ml-2 text-muted text-xs">See Finance</a>
+											</span>
+										</p>
+									}
+									else
+									{
+										<p class="card-box__price mb-15">$@car.Price.ToString("N2")</p>
+									}
+									<div class="divider mb-15"></div>
+									<div class="flex justify-between">
+										<p class="compare-details btn btn-small" data-car-id="@car.Id">
+											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_13399_19575)">
+													<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M6.875 10H13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M10 6.875V13.125" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+											Compare
+										</p>
+										<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="view-details">
+											View details
+											<img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+				</div>
+				<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-card-7-1 mt-38"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- New Cars -->
+
+<!-- Browse By Type (static SVG iconlar saxlanıldı) -->
+<section class="py-100 relative">
+	<div class="overlay image">
+		<img class="lazyload parallax" data-src="images/banner/cd-phonecase.jpg" src="~/assets/images/brand/banner-brand.png" alt="">
+	</div>
+	<div class="container wow fadeIn relative" data-wow-delay="0.2s">
+		<div class="title-section mb-40">
+			<h2 class="text-white text-center">Browse By Type</h2>
+			<a asp-controller="List" asp-action="Index" class="btn btn-blur hover-fill-primary font-weight-600 btn-large">
+				Check All Car Type
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_16987_736)"><path d="M10 1.875C8.39303 1.875 6.82214 2.35152 5.486 3.24431C4.14985 4.1371 3.10844 5.40605 2.49348 6.8907C1.87852 8.37535 1.71762 10.009 2.03112 11.5851C2.34463 13.1612 3.11846 14.6089 4.25476 15.7452C5.39106 16.8815 6.8388 17.6554 8.4149 17.9689C9.99099 18.2824 11.6247 18.1215 13.1093 17.5065C14.594 16.8916 15.8629 15.8502 16.7557 14.514C17.6485 13.1779 18.125 11.607 18.125 10C18.1227 7.84581 17.266 5.78051 15.7427 4.25727C14.2195 2.73403 12.1542 1.87727 10 1.875ZM13.5672 10.4422L11.0672 12.9422C10.9499 13.0595 10.7909 13.1253 10.625 13.1253C10.4592 13.1253 10.3001 13.0595 10.1828 12.9422C10.0655 12.8249 9.99966 12.6659 9.99966 12.5C9.99966 12.3341 10.0655 12.1751 10.1828 12.0578L11.6164 10.625H6.875C6.70924 10.625 6.55027 10.5592 6.43306 10.4419C6.31585 10.3247 6.25 10.1658 6.25 10C6.25 9.83424 6.31585 9.67527 6.43306 9.55806C6.55027 9.44085 6.70924 9.375 6.875 9.375H11.6164L10.1828 7.94219C10.0655 7.82491 9.99966 7.66585 9.99966 7.5C9.99966 7.33415 10.0655 7.17509 10.1828 7.05781C10.3001 6.94054 10.4592 6.87465 10.625 6.87465C10.7909 6.87465 10.9499 6.94054 11.0672 7.05781L13.5672 9.55781C13.6253 9.61586 13.6714 9.68479 13.7029 9.76066C13.7343 9.83654 13.7505 9.91787 13.7505 10C13.7505 10.0821 13.7343 10.1635 13.7029 10.2393C13.6714 10.3152 13.6253 10.3841 13.5672 10.4422Z" fill="white" /></g></svg>
+			</a>
+		</div>
+		<!-- Browse By Type bölməsi static SVG iconlarla saxlanılır (bunlar dizayn elementidir) -->
+	</div>
+	<div class="swiper-pagination pagination-white pagination-style pagination-absolute pagination-swiper-brand"></div>
+</section>
+<!-- Browse By Type -->
+
+<!-- Trending Searches Near You -->
+<section class="py-100 bg-primary">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-40 wow fadeInUp" data-wow-delay="0.1s">
+			<h2 class="text-white">Trending Searches Near You</h2>
+			<a asp-controller="List" asp-action="Index" class="btn btn-line-blur effect-line-white hover-fill-primary font-weight-600 btn-large">
+				View All
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_16987_736)"><path d="M10 1.875C8.39303 1.875 6.82214 2.35152 5.486 3.24431C4.14985 4.1371 3.10844 5.40605 2.49348 6.8907C1.87852 8.37535 1.71762 10.009 2.03112 11.5851C2.34463 13.1612 3.11846 14.6089 4.25476 15.7452C5.39106 16.8815 6.8388 17.6554 8.4149 17.9689C9.99099 18.2824 11.6247 18.1215 13.1093 17.5065C14.594 16.8916 15.8629 15.8502 16.7557 14.514C17.6485 13.1779 18.125 11.607 18.125 10C18.1227 7.84581 17.266 5.78051 15.7427 4.25727C14.2195 2.73403 12.1542 1.87727 10 1.875ZM13.5672 10.4422L11.0672 12.9422C10.9499 13.0595 10.7909 13.1253 10.625 13.1253C10.4592 13.1253 10.3001 13.0595 10.1828 12.9422C10.0655 12.8249 9.99966 12.6659 9.99966 12.5C9.99966 12.3341 10.0655 12.1751 10.1828 12.0578L11.6164 10.625H6.875C6.70924 10.625 6.55027 10.5592 6.43306 10.4419C6.31585 10.3247 6.25 10.1658 6.25 10C6.25 9.83424 6.31585 9.67527 6.43306 9.55806C6.55027 9.44085 6.70924 9.375 6.875 9.375H11.6164L10.1828 7.94219C10.0655 7.82491 9.99966 7.66585 9.99966 7.5C9.99966 7.33415 10.0655 7.17509 10.1828 7.05781C10.3001 6.94054 10.4592 6.87465 10.625 6.87465C10.7909 6.87465 10.9499 6.94054 11.0672 7.05781L13.5672 9.55781C13.6253 9.61586 13.6714 9.68479 13.7029 9.76066C13.7343 9.83654 13.7505 9.91787 13.7505 10C13.7505 10.0821 13.7343 10.1635 13.7029 10.2393C13.6714 10.3152 13.6253 10.3841 13.5672 10.4422Z" fill="white"></path></g></svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-card">
+			<div class="swiper-wrapper">
+				@foreach (var car in Model.TrendingCars)
+				{
+					<div class="swiper-slide">
+						<div class="card-box card-box-style-2">
+							<div class="top">
+								@if (!string.IsNullOrEmpty(car.Badge))
+								{
+									<p class="@car.BadgeColor text-white highlight">@car.Badge</p>
+								}
+								else
+								{
+									<p></p>
+								}
+								<p class="heart" data-car-id="@car.Id">
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_13399_19510)">
+											<path d="M8 14C8 14 1.5 10.5 1.5 6.375C1.5 5.47989 1.85558 4.62145 2.48851 3.98851C3.12145 3.35558 3.97989 3 4.875 3C6.28688 3 7.49625 3.76937 8 5C8.50375 3.76937 9.71312 3 11.125 3C12.0201 3 12.8785 3.35558 13.5115 3.98851C14.1444 4.62145 14.5 5.47989 14.5 6.375C14.5 10.5 8 14 8 14Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+									</svg>
+								</p>
+							</div>
+							<div class="image">
+								<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id">
+									<img class="card--img" src="@car.ThumbnailUrl" alt="@car.Title">
+								</a>
+							</div>
+							<div class="content border-top-none bg-blur border-blur">
+								<div class="bottom">
+									<p class="category uppercase text-white">
+										<a asp-controller="List" asp-action="Index" asp-route-brand="@car.BrandName" class="text-white">@car.BrandName</a>
+									</p>
+									<div class="flex items-center gap-8">
+										<p class="category uppercase text-white">
+											<img src="~/assets/icons/picture.svg" alt="picture">
+											@car.ImageCount
+										</p>
+										<p class="category uppercase text-white">
+											<img src="~/assets/icons/play.svg" alt="play">
+											@car.VideoCount
+										</p>
+									</div>
+								</div>
+								<p class="card-box__title mb-8 h6">
+									<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="text-white">@car.Title</a>
+								</p>
+								<ul class="tag mb-10">
+									<li>
+										<img src="~/assets/icons/icon-gauge-2.svg" alt="mileage">
+										<span>@car.Mileage.ToString("N0") miles</span>
+									</li>
+									<li>
+										<img src="~/assets/icons/calendar-2.svg" alt="year">
+										<span>@car.Year</span>
+									</li>
+									<li>
+										<img src="~/assets/icons/gaspump-2.svg" alt="fuel">
+										<span>@car.FuelType</span>
+									</li>
+									<li>
+										<img src="~/assets/icons/auto-2.svg" alt="transmission">
+										<span>@car.Transmission</span>
+									</li>
+								</ul>
+								<p class="card-box__price mb-15 text-white">$@car.Price.ToString("N2")</p>
+								<div class="divider-blur mb-16"></div>
+								<div class="flex justify-between">
+									<p class="compare-details btn btn-small" data-car-id="@car.Id">
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+											<g clip-path="url(#clip0_14901_19088)">
+												<path d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M6.875 10H13.125" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M10 6.875V13.125" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+										Compare
+									</p>
+									<a asp-controller="List" asp-action="Detail" asp-route-id="@car.Id" class="view-details text-white">
+										View details
+										<img class="ml-4" src="~/assets/icons/CaretCircleRight.svg" alt="CaretCircleRight.svg">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination pagination-white pagination-style pagination-swiper-card mt-38"></div>
+		</div>
+	</div>
+</section>
+<!-- Trending Searches Near You -->
+
+<!-- Clients Reviews -->
+<section class="py-100">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-40">
+			<h2 class="">Clients Reviews</h2>
+			<a asp-controller="ClientsReviews" asp-action="Index" class="btn btn-line-style-2 effect-line-primary hover-fill-white btn-large">
+				View All
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-testimonior swiper-container-visible" data-initial-slide="3">
+			<div class="swiper-wrapper">
+				@foreach (var review in Model.Reviews)
+				{
+					<div class="swiper-slide">
+						<div class="testimonior-box">
+							<div class="flex items-center gap-4 mb-16">
+								@for (int s = 0; s < review.Rating; s++)
+								{
+									<img src="~/assets/icons/star.svg" alt="star">
+								}
+							</div>
+							<p class="testimonior-box--desc mb-16">@review.Content</p>
+							<div class="testimonior-box--user">
+								<img class="testimonior--img" src="@review.AvatarUrl" alt="avatar">
+								<div class="testimonior-box--user-content">
+									<p class="title">@review.AuthorName</p>
+									<p class="desc">@review.AuthorTitle</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-testimonior mt-35"></div>
+		</div>
+	</div>
+</section>
+<!-- Clients Reviews -->
+
+<!-- Explore Our Brands -->
+<section class="background-light py-100">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-40">
+			<h2 class="">Explore Our Brands</h2>
+			<a asp-controller="List" asp-action="Index" class="btn btn-line-style-2 effect-line-primary hover-fill-white btn-large">
+				View All Brand
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-outbrand">
+			<div class="swiper-wrapper">
+				@foreach (var brand in Model.Brands)
+				{
+					<div class="swiper-slide">
+						<a asp-controller="List" asp-action="Index" asp-route-brand="@brand.Name" class="out-brand">
+							<img class="out-brand--img mb-8" src="@brand.LogoUrl" alt="@brand.Name">
+							<p class="h5">@brand.Name</p>
+							<p class="text-muted text-sm">@brand.VehicleCount Vehicles</p>
+						</a>
+					</div>
+				}
+			</div>
+		</div>
+		<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-outbrand mt-38"></div>
+	</div>
+</section>
+<!-- Explore Our Brands -->
+
+<!-- Find Your Perfect Used Car (static content) -->
+<section class="bg-primary py-100">
+	<div class="container">
+		<div class="grid grid-cols-2 xl-grid-cols-2 lg-grid-cols-1 gap-30">
+			<div class="flex flex-col justify-center pr-100 wow fadeInUp" data-wow-delay="0.1s">
+				<h2 class="text-white mb-12">Find Your Perfect Used Car Anytime, Anywhere!</h2>
+				<p class="text-white mb-40">Experience hassle-free car shopping with our app. Browse, compare, and buy used cars wherever you are – it's fast, simple, and convenient.</p>
+				<div class="flex items-center gap-12">
+					<a href="#"><img class="h-40" src="~/assets/images/brand/app-store.png" alt="app-store"></a>
+					<a href="#"><img class="h-40" src="~/assets/images/brand/google-play.png" alt="google-play"></a>
+				</div>
+			</div>
+			<div class="image-effect-scale flex md-ml-0 ml-24 radius-20 overflow-hidden wow fadeInUp hover-this img-animation animated" data-wow-delay="0.3s">
+				<img class="w-full" src="~/assets/images/home/banner-download-app.jpg" alt="banner-download-app">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Find Your Perfect Used Car -->
+
+<!-- News & Reviews -->
+<section class="py-100">
+	<div class="container wow fadeIn" data-wow-delay="0.3s">
+		<div class="title-section mb-28 wow fadeInUp">
+			<h2 class="">News & Reviews</h2>
+			<a asp-controller="Blog" asp-action="Index" class="btn btn-line-style-2 effect-line-primary hover-fill-white btn-large">
+				View All
+				<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.125 0C6.51803 0 4.94714 0.476523 3.611 1.36931C2.27485 2.2621 1.23344 3.53105 0.618482 5.0157C0.00352044 6.50035 -0.157382 8.13401 0.156123 9.71011C0.469628 11.2862 1.24346 12.7339 2.37976 13.8702C3.51606 15.0065 4.9638 15.7804 6.5399 16.0939C8.11599 16.4074 9.74966 16.2465 11.2343 15.6315C12.719 15.0166 13.9879 13.9752 14.8807 12.639C15.7735 11.3029 16.25 9.73197 16.25 8.125C16.2477 5.97081 15.391 3.90551 13.8677 2.38227C12.3445 0.85903 10.2792 0.00227486 8.125 0ZM11.6922 8.56719L9.19219 11.0672C9.07492 11.1845 8.91586 11.2503 8.75 11.2503C8.58415 11.2503 8.42509 11.1845 8.30782 11.0672C8.19054 10.9499 8.12466 10.7909 8.12466 10.625C8.12466 10.4591 8.19054 10.3001 8.30782 10.1828L9.74141 8.75H5C4.83424 8.75 4.67527 8.68415 4.55806 8.56694C4.44085 8.44973 4.375 8.29076 4.375 8.125C4.375 7.95924 4.44085 7.80027 4.55806 7.68306C4.67527 7.56585 4.83424 7.5 5 7.5H9.74141L8.30782 6.06719C8.19054 5.94991 8.12466 5.79085 8.12466 5.625C8.12466 5.45915 8.19054 5.30009 8.30782 5.18281C8.42509 5.06554 8.58415 4.99965 8.75 4.99965C8.91586 4.99965 9.07492 5.06554 9.19219 5.18281L11.6922 7.68281C11.7503 7.74086 11.7964 7.80979 11.8279 7.88566C11.8593 7.96154 11.8755 8.04287 11.8755 8.125C11.8755 8.20713 11.8593 8.28846 11.8279 8.36434C11.7964 8.44021 11.7503 8.50914 11.6922 8.56719Z" fill="#1C1C1C" />
+				</svg>
+			</a>
+		</div>
+		<div class="swiper-container swiper-news">
+			<div class="swiper-wrapper news-equal-cards">
+				@foreach (var post in Model.LatestNews)
+				{
+					<div class="swiper-slide">
+						<a asp-controller="Blog" asp-action="Detail" asp-route-slug="@post.Slug" class="post post-effect-style-1 overflow-hidden">
+							<div class="post__thumb">
+								<img class="post--img" src="@post.ThumbnailUrl" alt="@post.Title">
+							</div>
+							<div class="content border-top-none border-light">
+								<p class="h5 mb-4 title 600 clamp clamp-2">@post.Title</p>
+								<div class="tags clamp clamp-1">
+									<span>by @post.AuthorName</span>
+									<span>@post.PublishedAt?.ToString("MMM. d, yyyy")</span>
+									<span class="text-highlight uppercase">@post.CategoryName</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				}
+			</div>
+			<div class="swiper-pagination pagination-dark pagination-style pagination-swiper-news mt-35"></div>
+		</div>
+	</div>
+</section>
+<!-- News & Reviews -->
+
+@section Scripts {
+<script>
+// ====== Wishlist Heart (AJAX) ======
+$(document).on('click', '.heart', function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var carId = $btn.data('car-id');
+    if (!carId) return;
+
+    $.ajax({
+        type: 'POST',
+        url: '/Wishlist/Toggle/' + carId,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').first().val()
+        },
+        success: function(res) {
+            if (res.success) {
+                $('.heart[data-car-id="' + carId + '"]').toggleClass('active', res.isInWishlist);
+                updateNavBadge('#wishlistNavCount', res.count);
+                showToast(res.isInWishlist ? 'Added to wishlist!' : 'Removed from wishlist.', 'success');
+            }
+        },
+        error: function() { showToast('Error updating wishlist.', 'error'); }
+    });
+});
+
+// ====== Compare Button (AJAX) ======
+$(document).on('click', '.compare-details', function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var $btn = $(this);
+    var carId = $btn.data('car-id');
+    if (!carId) return;
+
+    if ($btn.hasClass('active')) {
+        $.ajax({
+            type: 'POST',
+            url: '/Compare/Remove/' + carId,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').first().val()
+            },
+            success: function(res) {
+                if (res.success) {
+                    $btn.removeClass('active');
+                    updateNavBadge('#compareNavCount', res.count);
+                    showToast('Removed from compare.', 'success');
+                }
+            },
+            error: function() { showToast('Error removing from compare.', 'error'); }
+        });
+        return;
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: '/Compare/Add/' + carId,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').first().val()
+        },
+        success: function(res) {
+            if (res.success) {
+                $btn.addClass('active');
+                updateNavBadge('#compareNavCount', res.count);
+                showToast('Added to compare!', 'success');
+            } else {
+                showToast(res.message || 'Could not add to compare.', 'error');
+            }
+        },
+        error: function() { showToast('Error adding to compare.', 'error'); }
+    });
+});
+
+// ====== Helpers ======
+function updateNavBadge(selector, count) {
+    var $badge = $(selector);
+    if (count > 0) {
+        $badge.text(count).show();
+    } else {
+        $badge.text('0').hide();
+    }
+}
+
+function showToast(msg, type) {
+    var existing = $('#action-toast');
+    if (existing.length) existing.remove();
+    var cls = type === 'success' ? 'auth-toast--success' : 'auth-toast--error';
+    var $toast = $('<div id="action-toast" class="auth-toast ' + cls + '"><span>' + msg + '</span><button onclick="$(\'#action-toast\').remove()">✕</button></div>');
+    $('body').append($toast);
+    setTimeout(function() { $toast.fadeOut(300, function() { $(this).remove(); }); }, 3000);
+}
+</script>
+}

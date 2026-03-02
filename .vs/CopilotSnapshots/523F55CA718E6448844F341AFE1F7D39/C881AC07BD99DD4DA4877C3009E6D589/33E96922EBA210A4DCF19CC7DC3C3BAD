@@ -1,0 +1,147 @@
+﻿@{
+    ViewData["Title"] = "Yeni Maşın";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+    var brands = (SelectList)ViewBag.Brands;
+    var allFeatures = (List<CarFeature>)ViewBag.AllFeatures;
+}
+
+<div class="admin-card">
+    <h3 class="admin-card-title" style="margin-bottom:24px;">Yeni Maşın Əlavə Et</h3>
+
+    <form asp-action="CarCreate" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Başlıq *</label>
+                <input type="text" name="Title" class="form-control" required placeholder="məs: BMW X5 2024">
+            </div>
+            <div class="form-group">
+                <label>Marka *</label>
+                <select name="BrandId" class="form-control" required>
+                    <option value="">-- Seçin --</option>
+                    @foreach (var b in brands) { <option value="@b.Value">@b.Text</option> }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Qiymət ($) *</label>
+                <input type="number" name="Price" class="form-control" required step="0.01" min="0">
+            </div>
+            <div class="form-group">
+                <label>Aylıq Ödəniş ($)</label>
+                <input type="number" name="MonthlyPayment" class="form-control" step="0.01" min="0">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>İl *</label>
+                <input type="number" name="Year" class="form-control" required min="1900" max="2030" value="2024">
+            </div>
+            <div class="form-group">
+                <label>Yürüş (km) *</label>
+                <input type="number" name="Mileage" class="form-control" required min="0">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Yanacaq Tipi *</label>
+                <select name="FuelType" class="form-control" required>
+                    @foreach (var ft in Enum.GetValues<FuelType>()) { <option value="@ft">@ft</option> }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Transmissiya *</label>
+                <select name="Transmission" class="form-control" required>
+                    @foreach (var t in Enum.GetValues<TransmissionType>()) { <option value="@t">@t</option> }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Vəziyyət *</label>
+                <select name="Condition" class="form-control" required>
+                    @foreach (var c in Enum.GetValues<CarCondition>()) { <option value="@c">@c</option> }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Bədən Tipi</label>
+                <input type="text" name="BodyStyle" class="form-control" placeholder="məs: SUV, Sedan">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Sürücü Tipi</label>
+                <input type="text" name="DriveType" class="form-control" placeholder="məs: AWD, FWD">
+            </div>
+            <div class="form-group">
+                <label>Rəng</label>
+                <input type="text" name="Color" class="form-control" placeholder="Xarici rəng">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Daxili Rəng</label>
+                <input type="text" name="InteriorColor" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Silindr Sayı</label>
+                <input type="number" name="Cylinders" class="form-control" min="1" max="16">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Qapı Sayı</label>
+                <input type="number" name="DoorCount" class="form-control" min="2" max="6">
+            </div>
+            <div class="form-group">
+                <label>Badge</label>
+                <input type="text" name="Badge" class="form-control" placeholder="məs: Special, Great Price">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Təsvir</label>
+            <textarea name="Description" class="form-control" rows="4" placeholder="Maşın haqqında ətraflı məlumat"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Thumbnail Şəkil</label>
+            <input type="file" name="thumbnailFile" class="form-control" accept="image/*">
+        </div>
+
+        <div class="form-group">
+            <label>Əlavə Şəkillər (çoxlu seçim)</label>
+            <input type="file" name="imageFiles" class="form-control" accept="image/*" multiple>
+        </div>
+
+        @if (allFeatures.Any())
+        {
+            <div class="form-group">
+                <label>Xüsusiyyətlər</label>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;">
+                    @foreach (var f in allFeatures)
+                    {
+                        <label class="form-check">
+                            <input type="checkbox" name="featureIds" value="@f.Id">
+                            @f.Name
+                        </label>
+                    }
+                </div>
+            </div>
+        }
+
+        <div style="display:flex;gap:12px;margin-top:24px;">
+            <button type="submit" class="btn-admin primary">💾 Yadda Saxla</button>
+            <a asp-action="Cars" class="btn-admin ghost">← Geri</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SellCarRequest>
+@{
+    ViewData["Title"] = "Satış Müraciətləri";
+}
+<div class="a-card">
+    <div class="a-card-head">
+        <div>Satış Müraciətləri (@Model.Count())</div>
+    </div>
+    @if (Model.Any())
+    {
+        <div class="tbl-wrap">
+            <table class="a-table">
+                <thead>
+                    <tr><th>Ad</th><th>Email</th><th>Maşın</th><th>Qiymət</th><th>Status</th><th>Tarix</th><th>Əməliyyat</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var req in Model)
+                    {
+                        <tr>
+                            <td><strong>@req.OwnerName</strong></td>
+                            <td>@req.Email</td>
+                            <td>@req.CarTitle (@req.Year)</td>
+                            <td>$@req.AskingPrice.ToString("N0")</td>
+                            <td>
+                                @if (req.IsReviewed)
+                                {
+                                    <span class="a-badge green">Nəzərdən keçirildi</span>
+                                }
+                                else
+                                {
+                                    <span class="a-badge yellow">Gözləyir</span>
+                                }
+                            </td>
+                            <td>@req.CreatedDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td class="act-btns">
+                                <a asp-action="Details" asp-route-id="@req.Id" class="btn-a info btn-sm">👁</a>
+                                <form asp-action="Delete" asp-route-id="@req.Id" method="post" class="del-form" onsubmit="return confirm('Silmək istədiyinizdən əminsiniz?')">
+                                    @Html.AntiForgeryToken()
+                                    <button class="btn-a danger btn-sm">🗑</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="empty-st"><p>Hələ satış müraciəti yoxdur.</p></div>
+    }
+</div>

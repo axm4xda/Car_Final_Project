@@ -24,15 +24,15 @@ namespace Car_Project.Services
 
             if (coupon == null) return null;
 
-            // Vaxt yoxlamas?
+            // Vaxt yoxlaması
             if (coupon.ExpiresAt.HasValue && coupon.ExpiresAt.Value < DateTime.UtcNow)
                 return null;
 
-            // ?stifad? limiti
+            // İstifadə limiti
             if (coupon.UsageLimit > 0 && coupon.UsedCount >= coupon.UsageLimit)
                 return null;
 
-            // Minimum m?bl??
+            // Minimum məbləğ
             if (orderTotal < coupon.MinOrderAmount)
                 return null;
 
@@ -66,7 +66,7 @@ namespace Car_Project.Services
 
             var exists = await _context.Coupons.AnyAsync(c => c.Code == coupon.Code);
             if (exists)
-                throw new InvalidOperationException($"'{coupon.Code}' kodu art?q m�vcuddur.");
+                throw new InvalidOperationException($"'{coupon.Code}' kodu artıq mövcuddur.");
 
             coupon.CreatedDate = DateTime.UtcNow;
             await _context.Coupons.AddAsync(coupon);
@@ -77,7 +77,7 @@ namespace Car_Project.Services
         public async Task UpdateAsync(Coupon coupon)
         {
             var existing = await _context.Coupons.FindAsync(coupon.Id)
-                ?? throw new KeyNotFoundException($"Id={coupon.Id} olan kupon tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={coupon.Id} olan kupon tapılmadı.");
 
             existing.Code            = coupon.Code;
             existing.DiscountPercent = coupon.DiscountPercent;
@@ -93,7 +93,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var coupon = await _context.Coupons.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan kupon tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan kupon tapılmadı.");
             _context.Coupons.Remove(coupon);
             await _context.SaveChangesAsync();
         }
@@ -101,7 +101,7 @@ namespace Car_Project.Services
         public async Task ToggleActiveAsync(int id)
         {
             var coupon = await _context.Coupons.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan kupon tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan kupon tapılmadı.");
             coupon.IsActive = !coupon.IsActive;
             await _context.SaveChangesAsync();
         }

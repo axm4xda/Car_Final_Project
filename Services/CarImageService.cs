@@ -14,7 +14,7 @@ namespace Car_Project.Services
             _context = context;
         }
 
-        // ?? PUBLIC ????????????????????????????????????????????????????????????
+        // PUBLIC
 
         public async Task<IList<CarImage>> GetByCarIdAsync(int carId)
         {
@@ -32,24 +32,24 @@ namespace Car_Project.Services
                 .FirstOrDefaultAsync(ci => ci.CarId == carId && ci.IsMain);
         }
 
-        // ?? ADMIN ?????????????????????????????????????????????????????????????
+        // ADMIN
 
         public async Task<CarImage> AddAsync(CarImage carImage)
         {
             if (carImage == null) throw new ArgumentNullException(nameof(carImage));
 
-            // Bu avtomobilin ilk ??klidirs? ?sas ??kil et
+            // Bu avtomobilin ilk şəkilidisə əsas şəkil et
             var hasAny = await _context.CarImages.AnyAsync(ci => ci.CarId == carImage.CarId);
             if (!hasAny)
                 carImage.IsMain = true;
 
-            // Order avtomatik: m�vcud maksimum + 1
+            // Order avtomatik: mövcud maksimum + 1
             var maxOrder = await _context.CarImages
                 .Where(ci => ci.CarId == carImage.CarId)
                 .Select(ci => (int?)ci.Order)
                 .MaxAsync() ?? 0;
 
-            carImage.Order      = maxOrder + 1;
+            carImage.Order       = maxOrder + 1;
             carImage.CreatedDate = DateTime.UtcNow;
 
             await _context.CarImages.AddAsync(carImage);
@@ -60,9 +60,9 @@ namespace Car_Project.Services
         public async Task AddManyAsync(IList<CarImage> carImages)
         {
             if (carImages == null || carImages.Count == 0)
-                throw new ArgumentException("??kil siyah?s? bo? ola bilm?z.", nameof(carImages));
+                throw new ArgumentException("Şəkil siyahısı boş ola bilməz.", nameof(carImages));
 
-            // M�vcud ??kil say?
+            // Mövcud şəkil sayı
             var carId    = carImages.First().CarId;
             var hasAny   = await _context.CarImages.AnyAsync(ci => ci.CarId == carId);
             var maxOrder = await _context.CarImages
@@ -75,7 +75,7 @@ namespace Car_Project.Services
                 carImages[i].Order       = maxOrder + i + 1;
                 carImages[i].CreatedDate = DateTime.UtcNow;
 
-                // ?lk ??kil ?sas olsun (?g?r h?l? he� biri yoxdursa)
+                // İlk şəkil əsas olsun (əgər hələ heç biri yoxdursa)
                 if (!hasAny && i == 0)
                     carImages[i].IsMain = true;
             }
@@ -87,7 +87,7 @@ namespace Car_Project.Services
         public async Task UpdateOrderAsync(int imageId, int newOrder)
         {
             var image = await _context.CarImages.FindAsync(imageId)
-                ?? throw new KeyNotFoundException($"Id={imageId} olan ??kil tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={imageId} olan şəkil tapılmadı.");
 
             image.Order = newOrder;
             await _context.SaveChangesAsync();
@@ -96,9 +96,9 @@ namespace Car_Project.Services
         public async Task SetMainImageAsync(int imageId)
         {
             var image = await _context.CarImages.FindAsync(imageId)
-                ?? throw new KeyNotFoundException($"Id={imageId} olan ??kil tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={imageId} olan şəkil tapılmadı.");
 
-            // Eyni avtomobilin b�t�n ??kill?rini ?sas olmayan et
+            // Eyni avtomobilin bütün şəkillərini əsas olmayan et
             var others = await _context.CarImages
                 .Where(ci => ci.CarId == image.CarId && ci.IsMain)
                 .ToListAsync();
@@ -113,12 +113,12 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int imageId)
         {
             var image = await _context.CarImages.FindAsync(imageId)
-                ?? throw new KeyNotFoundException($"Id={imageId} olan ??kil tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={imageId} olan şəkil tapılmadı.");
 
             _context.CarImages.Remove(image);
             await _context.SaveChangesAsync();
 
-            // ?g?r ?sas ??kil silindis?, n�vb?ti ??kili ?sas et
+            // Əgər əsas şəkil silindisə, növbəti şəkili əsas et
             if (image.IsMain)
             {
                 var next = await _context.CarImages

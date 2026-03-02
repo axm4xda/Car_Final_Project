@@ -1,16 +1,21 @@
-﻿using Car_Project.Services.Abstractions;
+using Car_Project.Services.Abstractions;
 using Car_Project.ViewModels.Blog;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Car_Project.Models;
 
 namespace Car_Project.Controllers
 {
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
+        private readonly UserManager<AppUser> _userManager;
 
-        public BlogController(IBlogService blogService)
+        public BlogController(IBlogService blogService, UserManager<AppUser> userManager)
         {
             _blogService = blogService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index(
@@ -86,15 +91,24 @@ namespace Car_Project.Controllers
             var recentPosts = await _blogService.GetRecentAsync(4);
             var (prevPost, nextPost) = await _blogService.GetAdjacentPostsAsync(post.Id);
 
+            // Login olan istifadəçinin məlumatlarını götür
+            var currentUser = User.Identity?.IsAuthenticated == true
+                ? await _userManager.GetUserAsync(User)
+                : null;
+
             var vm = new BlogDetailViewModel
             {
-                Id = post.Id,
-                Title = post.Title,
-                Slug = post.Slug,
-                Content = post.Content,
-                ThumbnailUrl = post.ThumbnailUrl,
-                AuthorName = post.AuthorName,
+                Id              = post.Id,
+                Title           = post.Title,
+                Slug            = post.Slug,
+                Content         = post.Content,
+                ThumbnailUrl    = post.ThumbnailUrl,
+                AuthorName      = post.AuthorName,
                 AuthorAvatarUrl = post.AuthorAvatarUrl,
+                AuthorFacebookUrl  = post.AuthorFacebookUrl,
+                AuthorTwitterUrl   = post.AuthorTwitterUrl,
+                AuthorInstagramUrl = post.AuthorInstagramUrl,
+                AuthorLinkedInUrl  = post.AuthorLinkedInUrl,
                 CategoryName = post.Category?.Name ?? "",
                 PublishedAt = post.PublishedAt,
                 ViewCount = post.ViewCount,
@@ -110,6 +124,8 @@ namespace Car_Project.Controllers
                         CreatedDate = c.CreatedDate
                     }).ToList(),
                 CommentForm = new BlogCommentFormViewModel { BlogPostId = post.Id },
+                IsUserLoggedIn = currentUser != null,
+                LoggedInUserName = currentUser?.FullName ?? currentUser?.UserName,
                 RelatedPosts = relatedPosts.Select(p => new BlogPostCardViewModel
                 {
                     Id = p.Id,
@@ -148,22 +164,31 @@ namespace Car_Project.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddComment(BlogCommentFormViewModel form)
         {
-            if (!ModelState.IsValid)
-                return RedirectToAction(nameof(Detail), new { slug = form.BlogPostId });
+            // Login olan istifadəçinin məlumatlarını götür
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return RedirectToAction("Index", "Account");
+
+            if (string.IsNullOrWhiteSpace(form.Content))
+            {
+                var post2 = await _blogService.GetByIdAsync(form.BlogPostId);
+                return RedirectToAction(nameof(Detail), new { slug = post2?.Slug });
+            }
 
             var post = await _blogService.GetByIdAsync(form.BlogPostId);
             if (post == null)
                 return NotFound();
 
-            await _blogService.AddCommentAsync(new Models.BlogComment
+            await _blogService.AddCommentAsync(new BlogComment
             {
-                BlogPostId = form.BlogPostId,
-                AuthorName = form.AuthorName,
-                AuthorEmail = form.AuthorEmail,
-                Content = form.Content
+                BlogPostId  = form.BlogPostId,
+                AuthorName  = currentUser.FullName ?? currentUser.UserName ?? "User",
+                AuthorEmail = currentUser.Email ?? string.Empty,
+                Content     = form.Content
             });
 
             return RedirectToAction(nameof(Detail), new { slug = post.Slug });

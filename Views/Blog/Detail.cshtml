@@ -1,4 +1,4 @@
-﻿@model Car_Project.ViewModels.Blog.BlogDetailViewModel
+@model Car_Project.ViewModels.Blog.BlogDetailViewModel
 @{
     var categories = ViewBag.Categories as IList<Car_Project.Models.BlogCategory> ?? new List<Car_Project.Models.BlogCategory>();
     var allTags = ViewBag.AllTags as IList<Car_Project.Models.BlogTag> ?? new List<Car_Project.Models.BlogTag>();
@@ -217,30 +217,45 @@
 			}
 
 			<!-- Comment Form -->
-			<form asp-controller="Blog" asp-action="AddComment" method="post" class="blog-detail-comment-form">
-				@Html.AntiForgeryToken()
-				<input type="hidden" name="BlogPostId" value="@Model.Id" />
-				<p class="h3 mb-24 capitalize">Leave A Comment</p>
-				<div class="grid grid-cols-2 gap-22 mb-16 md-grid-cols-1">
-					<div class="md-col-span-2">
-						<p class="mb-8">Your Name (Public)</p>
-						<input class="active input-large" id="name-comment" name="AuthorName" type="text" placeholder="Your Name" required>
+			@if (Model.IsUserLoggedIn)
+			{
+				<form asp-controller="Blog" asp-action="AddComment" method="post" class="blog-detail-comment-form">
+					@Html.AntiForgeryToken()
+					<input type="hidden" name="BlogPostId" value="@Model.Id" />
+					<p class="h3 mb-24 capitalize">Leave A Comment</p>
+
+					<!-- Login olan istifadəçinin adını göstər -->
+					<div class="flex items-center gap-12 mb-20 p-16 radius-12" style="background:#f8f9fa;">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="#1C1C1C" stroke-width="1.5"/>
+							<path d="M20 21C20 18.2386 16.4183 16 12 16C7.58172 16 4 18.2386 4 21" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<p class="h7">Commenting as <strong>@Model.LoggedInUserName</strong></p>
 					</div>
-					<div class="md-col-span-2">
-						<p class="mb-8">Your Email (Private)</p>
-						<input class="input-large" name="AuthorEmail" id="email-comment" type="email" placeholder="your@email.com" required>
-					</div>
-					<div class="col-span-2 padding-0">
+
+					<div class="mb-16">
 						<p class="mb-8">Comment</p>
 						<textarea placeholder="Write your comment here..." rows="5" tabindex="5" name="Content" class="message" id="comment" required></textarea>
 					</div>
+					<button type="submit" class="btn btn-primary-3 btn-large font-weight-600 capitalize">Post Comment</button>
+				</form>
+			}
+			else
+			{
+				<div class="flex flex-col items-center gap-16 p-40 radius-12 text-center" style="background:#f8f9fa;border:1px dashed #ddd;">
+					<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="#9FA1A4" stroke-width="1.5"/>
+						<path d="M20 21C20 18.2386 16.4183 16 12 16C7.58172 16 4 18.2386 4 21" stroke="#9FA1A4" stroke-width="1.5" stroke-linecap="round"/>
+					</svg>
+					<p class="h5">Want to leave a comment?</p>
+					<p class="text-secondary h7">Please sign in to post a comment.</p>
+					<a asp-controller="Account" asp-action="Login"
+					   asp-route-returnUrl="@Context.Request.Path"
+					   class="btn btn-primary-3 btn-large font-weight-600">
+						Sign In to Comment
+					</a>
 				</div>
-				<label class="filter-checkbox style-2 style-3 mb-28">
-					<input type="checkbox" name="saveInfo" value="true">
-					<span>Save your name and email for next time</span>
-				</label>
-				<button type="submit" class="btn btn-primary-3 btn-large font-weight-600 capitalize">Post Comment</button>
-			</form>
+			}
 		</div>
 
 		<!-- Sidebar -->
@@ -275,6 +290,69 @@
 						<p class="text-secondary text-sm">Author</p>
 					</div>
 				</div>
+
+				@{
+					bool hasSocial = !string.IsNullOrEmpty(Model.AuthorFacebookUrl)
+					              || !string.IsNullOrEmpty(Model.AuthorTwitterUrl)
+					              || !string.IsNullOrEmpty(Model.AuthorInstagramUrl)
+					              || !string.IsNullOrEmpty(Model.AuthorLinkedInUrl);
+				}
+				@if (hasSocial)
+				{
+					<ul class="flex gap-12 flex-wrap">
+						@if (!string.IsNullOrEmpty(Model.AuthorFacebookUrl))
+						{
+							<li>
+								<a href="@Model.AuthorFacebookUrl" target="_blank" title="Facebook">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_author_fb)">
+											<path d="M11.5502 20V10.8777H14.6109L15.0701 7.32156H11.5502V5.05147C11.5502 4.0222 11.8348 3.32076 13.3125 3.32076L15.194 3.31999V0.13923C14.8686 0.0969453 13.7517 0 12.4517 0C9.73708 0 7.87861 1.65697 7.87861 4.69927V7.32156H4.80859V10.8777H7.87861V20H11.5502Z" fill="#1C1C1C"/>
+										</g>
+										<defs><clipPath id="clip0_author_fb"><rect width="20" height="20" fill="white"/></clipPath></defs>
+									</svg>
+								</a>
+							</li>
+						}
+						@if (!string.IsNullOrEmpty(Model.AuthorTwitterUrl))
+						{
+							<li>
+								<a href="@Model.AuthorTwitterUrl" target="_blank" title="X (Twitter)">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_author_x)">
+											<path d="M11.8616 8.46864L19.147 0H17.4206L11.0947 7.3532L6.04225 0H0.214844L7.85515 11.1193L0.214844 20H1.94134L8.62162 12.2348L13.9574 20H19.7848L11.8612 8.46864H11.8616ZM9.49695 11.2173L8.72283 10.1101L2.56342 1.29967H5.21521L10.1859 8.40994L10.96 9.51718L17.4214 18.7594H14.7696L9.49695 11.2177V11.2173Z" fill="#1C1C1C"/>
+										</g>
+										<defs><clipPath id="clip0_author_x"><rect width="20" height="20" fill="white"/></clipPath></defs>
+									</svg>
+								</a>
+							</li>
+						}
+						@if (!string.IsNullOrEmpty(Model.AuthorInstagramUrl))
+						{
+							<li>
+								<a href="@Model.AuthorInstagramUrl" target="_blank" title="Instagram">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_author_ig)">
+											<path d="M10 13.125C11.7259 13.125 13.125 11.7259 13.125 10C13.125 8.27411 11.7259 6.875 10 6.875C8.27411 6.875 6.875 8.27411 6.875 10C6.875 11.7259 8.27411 13.125 10 13.125Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M13.75 2.5H6.25C4.17893 2.5 2.5 4.17893 2.5 6.25V13.75C2.5 15.8211 4.17893 17.5 6.25 17.5H13.75C15.8211 17.5 17.5 15.8211 17.5 13.75V6.25C17.5 4.17893 15.8211 2.5 13.75 2.5Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M14.0625 6.71875C14.494 6.71875 14.8438 6.36897 14.8438 5.9375C14.8438 5.50603 14.494 5.15625 14.0625 5.15625C13.631 5.15625 13.2812 5.50603 13.2812 5.9375C13.2812 6.36897 13.631 6.71875 14.0625 6.71875Z" fill="#1C1C1C"/>
+										</g>
+										<defs><clipPath id="clip0_author_ig"><rect width="20" height="20" fill="white"/></clipPath></defs>
+									</svg>
+								</a>
+							</li>
+						}
+						@if (!string.IsNullOrEmpty(Model.AuthorLinkedInUrl))
+						{
+							<li>
+								<a href="@Model.AuthorLinkedInUrl" target="_blank" title="LinkedIn">
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M17.04 17.043h-2.962v-4.64c0-1.107-.023-2.531-1.544-2.531-1.544 0-1.78 1.204-1.78 2.449v4.722H7.793V7.5h2.844v1.304h.039c.397-.75 1.364-1.542 2.808-1.542 3.001 0 3.556 1.975 3.556 4.545v5.236ZM4.447 6.194a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm1.484 10.85H2.963V7.5h2.968v9.543ZM18.521 0H1.474C.66 0 0 .645 0 1.44v17.12C0 19.355.66 20 1.474 20h17.047C19.34 20 20 19.355 20 18.56V1.44C20 .645 19.34 0 18.521 0Z" fill="#1C1C1C"/>
+									</svg>
+								</a>
+							</li>
+						}
+					</ul>
+				}
 			</div>
 
 			<div class="divider mb-32 w-full"></div>

@@ -1,4 +1,5 @@
 using Car_Project.Data;
+using Car_Project.Hubs;
 using Car_Project.Models;
 using Car_Project.Services;
 using Car_Project.Services.Abstractions;
@@ -13,15 +14,15 @@ namespace Car_Project
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // ?? MVC ???????????????????????????????????????????????????????????
+            // MVC xidm?tl?rini qeydiyyatdan keçir
             builder.Services.AddControllersWithViews();
 
-            // ?? Database ??????????????????????????????????????????????????????
+            // Veril?nl?r bazas? kontekstini qeydiyyatdan keçir
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // ?? Identity ????????????????????????????????????????????????????
+            // Identity xidm?tl?rini qeydiyyatdan keçir
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 // ?ifr? qaydalar?
@@ -42,7 +43,7 @@ namespace Car_Project
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
-            // ?? Cookie ??????????????????????????????????????????????????????
+            // Cookie parametrl?rini konfiqurasiya et
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath        = "/";
@@ -52,7 +53,7 @@ namespace Car_Project
                 options.ExpireTimeSpan    = TimeSpan.FromDays(7);
             });
 
-            // ?? Session (CompareItem ���n) ????????????????????????????????????
+            // Session (CompareItem üçün) qeydiyyatdan keçir
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
             {
@@ -62,7 +63,7 @@ namespace Car_Project
             });
             builder.Services.AddHttpContextAccessor();
 
-            // ?? Services ??????????????????????????????????????????????????????
+            // Servisl?ri qeydiyyatdan keçir
             builder.Services.AddScoped<IFileService,                 FileService>();
             builder.Services.AddScoped<ICarService,                  CarService>();
             builder.Services.AddScoped<IBrandService,                BrandService>();
@@ -79,20 +80,24 @@ namespace Car_Project
             builder.Services.AddScoped<IWishlistService,             WishlistService>();
             // Blog
             builder.Services.AddScoped<IBlogService,     BlogService>();
-            // Shop
+            // Ma?aza
             builder.Services.AddScoped<IProductService,  ProductService>();
             builder.Services.AddScoped<ICartService,     CartService>();
-            // Checkout / Payment
+            // Öd?ni? / Checkout
             builder.Services.AddScoped<IOrderService,    OrderService>();
             builder.Services.AddScoped<IPaymentService,  PaymentService>();
             builder.Services.AddScoped<ICouponService,   CouponService>();
-            // SalesAgent
+            // Sat?? Agenti
             builder.Services.AddScoped<ISalesAgentService, SalesAgentService>();
+            builder.Services.AddSignalR();
 
-            // ?? Build ?????????????????????????????????????????????????????????
+            // Background Service: Zibil qutusu avtomatik təmizləmə (10 gün)
+            builder.Services.AddHostedService<TrashCleanupService>();
+
+            // T?tbiqi qur
             var app = builder.Build();
 
-            // ?? Roles Seed ????????????????????????????????????????????????????
+            // Rollar? v? SuperAdmin istifad?çisini yarat
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -105,7 +110,7 @@ namespace Car_Project
                         await roleManager.CreateAsync(new IdentityRole(role));
                 }
 
-                // SuperAdmin istifad?�i yarat (?g?r yoxdursa)
+                // SuperAdmin istifad?çi yarat (?g?r yoxdursa)
                 var superAdminEmail = "superadmin@aurexo.com";
                 var superAdmin = await userManager.FindByEmailAsync(superAdminEmail);
                 if (superAdmin == null)
@@ -136,6 +141,9 @@ namespace Car_Project
                 app.UseHsts();
             }
 
+            // Yalnız 404 status kodu üçün custom səhifə
+            app.UseStatusCodePagesWithReExecute("/404Error/{0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -147,9 +155,13 @@ namespace Car_Project
             app.UseAuthorization();
 
             app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
+            app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
+            app.MapHub<ChatHub>("/chatHub");
             app.Run();
         }
     }

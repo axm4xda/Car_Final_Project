@@ -163,7 +163,7 @@ namespace Car_Project.Services
             if (product == null) throw new ArgumentNullException(nameof(product));
 
             var existing = await _context.Products.FindAsync(product.Id)
-                ?? throw new KeyNotFoundException($"Id={product.Id} olan m?hsul tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={product.Id} olan məhsul tapılmadı.");
 
             existing.Name        = product.Name;
             existing.Slug        = string.IsNullOrWhiteSpace(product.Slug)
@@ -186,7 +186,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var product = await _context.Products.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan m?hsul tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan məhsul tapılmadı.");
 
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
@@ -195,7 +195,7 @@ namespace Car_Project.Services
         public async Task ToggleActiveAsync(int id)
         {
             var product = await _context.Products.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan m?hsul tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan məhsul tapılmadı.");
 
             product.IsActive = !product.IsActive;
             await _context.SaveChangesAsync();
@@ -217,7 +217,7 @@ namespace Car_Project.Services
         public async Task UpdateCategoryAsync(ProductCategory category)
         {
             var existing = await _context.ProductCategories.FindAsync(category.Id)
-                ?? throw new KeyNotFoundException($"Id={category.Id} olan kateqoriya tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={category.Id} olan kateqoriya tapılmadı.");
             existing.Name    = category.Name;
             existing.Slug    = category.Slug;
             existing.IconUrl = category.IconUrl;
@@ -229,11 +229,11 @@ namespace Car_Project.Services
             var category = await _context.ProductCategories
                 .Include(c => c.Products)
                 .FirstOrDefaultAsync(c => c.Id == id)
-                ?? throw new KeyNotFoundException($"Id={id} olan kateqoriya tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan kateqoriya tapılmadı.");
 
             if (category.Products.Any())
                 throw new InvalidOperationException(
-                    $"Bu kateqoriyada {category.Products.Count} m?hsul var.");
+                    $"Bu kateqoriyada {category.Products.Count} məhsul var.");
 
             _context.ProductCategories.Remove(category);
             await _context.SaveChangesAsync();

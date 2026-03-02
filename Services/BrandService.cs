@@ -55,7 +55,6 @@ namespace Car_Project.Services
                     Name         = b.Name,
                     LogoUrl      = b.LogoUrl,
                     CreatedDate  = b.CreatedDate,
-                    // Avtomobil say?n? dinamik hesabla
                     VehicleCount = b.Cars.Count
                 })
                 .ToListAsync();
@@ -66,7 +65,7 @@ namespace Car_Project.Services
             if (brand == null) throw new ArgumentNullException(nameof(brand));
 
             if (await ExistsByNameAsync(brand.Name))
-                throw new InvalidOperationException($"'{brand.Name}' adl? marka art?q m�vcuddur.");
+                throw new InvalidOperationException($"'{brand.Name}' adlı marka artıq mövcuddur.");
 
             brand.CreatedDate = DateTime.UtcNow;
 
@@ -80,10 +79,10 @@ namespace Car_Project.Services
             if (brand == null) throw new ArgumentNullException(nameof(brand));
 
             var existing = await _context.Brands.FindAsync(brand.Id)
-                ?? throw new KeyNotFoundException($"Id={brand.Id} olan marka tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={brand.Id} olan marka tapılmadı.");
 
             if (await ExistsByNameAsync(brand.Name, excludeId: brand.Id))
-                throw new InvalidOperationException($"'{brand.Name}' adl? marka art?q m�vcuddur.");
+                throw new InvalidOperationException($"'{brand.Name}' adlı marka artıq mövcuddur.");
 
             existing.Name    = brand.Name;
             existing.LogoUrl = brand.LogoUrl;
@@ -96,12 +95,12 @@ namespace Car_Project.Services
             var brand = await _context.Brands
                 .Include(b => b.Cars)
                 .FirstOrDefaultAsync(b => b.Id == id)
-                ?? throw new KeyNotFoundException($"Id={id} olan marka tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan marka tapılmadı.");
 
             if (brand.Cars.Any())
                 throw new InvalidOperationException(
-                    $"'{brand.Name}' markas?na ba?l? {brand.Cars.Count} avtomobil var. " +
-                    "?vv?lc? avtomobill?ri silin.");
+                    $"'{brand.Name}' markasına bağlı {brand.Cars.Count} avtomobil var. " +
+                    "Əvvəlcə avtomobilləri silin.");
 
             _context.Brands.Remove(brand);
             await _context.SaveChangesAsync();

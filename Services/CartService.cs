@@ -39,10 +39,10 @@ namespace Car_Project.Services
             if (quantity < 1) throw new ArgumentOutOfRangeException(nameof(quantity));
 
             var product = await _context.Products.FindAsync(productId)
-                ?? throw new KeyNotFoundException($"Id={productId} olan m?hsul tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={productId} olan məhsul tapılmadı.");
 
             if (product.Stock < quantity)
-                throw new InvalidOperationException("Stokda yet?rli m?hsul yoxdur.");
+                throw new InvalidOperationException("Stokda yetərli məhsul yoxdur.");
 
             var existing = await _context.CartItems
                 .FirstOrDefaultAsync(ci =>
@@ -70,7 +70,7 @@ namespace Car_Project.Services
             var item = await _context.CartItems
                 .FirstOrDefaultAsync(ci =>
                     ci.SessionId == sessionId && ci.ProductId == productId)
-                ?? throw new KeyNotFoundException("S?b?t elementi tap?lmad?.");
+                ?? throw new KeyNotFoundException("Səbət elementi tapılmadı.");
 
             item.Quantity = quantity;
             await _context.SaveChangesAsync();
@@ -116,7 +116,7 @@ namespace Car_Project.Services
         private static void ValidateSession(string sessionId)
         {
             if (string.IsNullOrWhiteSpace(sessionId))
-                throw new ArgumentException("Session ID bo? ola bilm?z.", nameof(sessionId));
+                throw new ArgumentException("Session ID boş ola bilməz.", nameof(sessionId));
         }
     }
 }

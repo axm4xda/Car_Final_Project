@@ -19,14 +19,14 @@ namespace Car_Project.Services
         public async Task SubscribeAsync(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("E-po�t �nvan? bo? ola bilm?z.", nameof(email));
+                throw new ArgumentException("E-poçt ünvanı boş ola bilməz.", nameof(email));
 
             var existing = await _context.NewsletterSubscribers
                 .FirstOrDefaultAsync(n => n.Email == email);
 
             if (existing != null)
             {
-                // Art?q m�vcuddursa deaktiv olmu? ola bil?r � yenid?n aktiv et
+                // Artıq mövcuddursa deaktiv olmuş ola bilər — yenidən aktiv et
                 existing.IsActive = true;
             }
             else
@@ -45,12 +45,12 @@ namespace Car_Project.Services
         public async Task UnsubscribeAsync(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("E-po�t �nvan? bo? ola bilm?z.", nameof(email));
+                throw new ArgumentException("E-poçt ünvanı boş ola bilməz.", nameof(email));
 
             var subscriber = await _context.NewsletterSubscribers
                 .FirstOrDefaultAsync(n => n.Email == email);
 
-            if (subscriber == null) return; // Tap?lmasa sessizce �?x
+            if (subscriber == null) return; // Tapılmasa səssizcə çıx
 
             subscriber.IsActive = false;
             await _context.SaveChangesAsync();
@@ -92,7 +92,7 @@ namespace Car_Project.Services
         public async Task DeleteAsync(int id)
         {
             var subscriber = await _context.NewsletterSubscribers.FindAsync(id)
-                ?? throw new KeyNotFoundException($"Id={id} olan abun?�i tap?lmad?.");
+                ?? throw new KeyNotFoundException($"Id={id} olan abunəçi tapılmadı.");
 
             _context.NewsletterSubscribers.Remove(subscriber);
             await _context.SaveChangesAsync();

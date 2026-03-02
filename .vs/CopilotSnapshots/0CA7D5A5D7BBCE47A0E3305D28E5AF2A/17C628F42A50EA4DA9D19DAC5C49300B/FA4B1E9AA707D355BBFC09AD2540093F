@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Şifrə Dəyiş";
+}
+
+<!-- breadcrumb -->
+<section class="background-light">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><img src="~/assets/icons/right.svg" alt="chevron-right"></li>
+            <li><span>Şifrə Dəyiş</span></li>
+        </ul>
+    </div>
+</section>
+
+<section class="pb-100">
+    <div class="tf-spacing-style3"></div>
+    <div class="container" style="max-width:640px;">
+        <p class="h3 mb-40">Şifrə Dəyiş</p>
+        <form action="#">
+            <div class="dashboard-box bg-white style-5" style="border:1px solid #e5e7eb;border-radius:16px;padding:30px;">
+                <div class="change-password-wrapper flex flex-col gap-23">
+                    <label for="OldPassword">
+                        <span class="mb-8 flex font-weight-600">Köhnə Şifrə:*</span>
+                        <input class="input-large password-input is-hidden" type="password" id="OldPassword" name="OldPassword" placeholder="Köhnə şifrə" required>
+                    </label>
+                    <label for="NewPassword">
+                        <span class="mb-8 flex font-weight-600">Yeni Şifrə:*</span>
+                        <input class="input-large password-input is-hidden" type="password" id="NewPassword" name="NewPassword" placeholder="Yeni şifrə" required>
+                    </label>
+                    <label for="RetypeNewPassword">
+                        <span class="mb-8 flex font-weight-600">Yeni Şifrəni Təkrarla:*</span>
+                        <input class="input-large password-input is-hidden" type="password" id="RetypeNewPassword" name="RetypeNewPassword" placeholder="Yeni şifrəni təkrarla" required>
+                    </label>
+                    <div class="flex">
+                        <button type="submit" class="btn btn-primary btn-large-3 font-weight-600">
+                            Şifrəni Dəyiş
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

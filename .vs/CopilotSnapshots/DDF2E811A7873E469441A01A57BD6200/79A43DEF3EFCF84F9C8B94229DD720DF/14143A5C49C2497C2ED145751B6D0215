@@ -1,0 +1,29 @@
+﻿@model BlogPost
+@{
+    ViewData["Title"] = "Yeni Blog Yazısı";
+    var categories = ViewBag.Categories as SelectList;
+}
+<div class="a-card">
+    <div class="a-card-head">
+        <div>Yeni Blog Yazısı Əlavə Et</div>
+        <a asp-action="Index" class="btn-a ghost">← Geri</a>
+    </div>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <div class="f-row">
+            <div class="fg"><label>Başlıq</label><input asp-for="Title" class="fc" required></div>
+            <div class="fg"><label>Slug (URL)</label><input asp-for="Slug" class="fc" placeholder="otomatik-yaranir"></div>
+        </div>
+        <div class="f-row">
+            <div class="fg"><label>Kateqoriya</label><select asp-for="CategoryId" asp-items="@categories" class="fc"><option value="">Seçin</option></select></div>
+            <div class="fg"><label>Müəllif</label><input asp-for="AuthorName" class="fc"></div>
+        </div>
+        <div class="fg"><label>Qısa Xülasə</label><textarea asp-for="Summary" class="fc" rows="2"></textarea></div>
+        <div class="fg"><label>Məzmun</label><textarea asp-for="Content" class="fc" rows="8"></textarea></div>
+        <div class="f-row">
+            <div class="fg"><label>Thumbnail</label><input type="file" name="thumbnailFile" class="fc" accept="image/*"></div>
+            <div class="fg"><label>Status</label><select asp-for="Status" asp-items="Html.GetEnumSelectList<BlogStatus>()" class="fc"></select></div>
+        </div>
+        <button class="btn-a primary" type="submit">Əlavə Et</button>
+    </form>
+</div>

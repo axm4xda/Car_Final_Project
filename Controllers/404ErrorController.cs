@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Car_Project.Controllers
 {
     [Route("404Error")]
     public class ErrorController : Controller
     {
-        [Route("Index")]
+        [Route("{statusCode?}")]
         [Route("")]
-        public IActionResult Index()
+        public IActionResult Index(int? statusCode)
         {
             return View("~/Views/404Error/Index.cshtml");
         }

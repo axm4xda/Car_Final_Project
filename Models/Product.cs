@@ -44,7 +44,7 @@ namespace Car_Project.Models
         public Product Product { get; set; } = null!;
     }
 
-    /// <summary>Session-?sasl? s?b?t elementi</summary>
+    /// <summary>Session-əsaslı səbət elementi</summary>
     public class CartItem : BaseEntity
     {
         public string SessionId { get; set; } = string.Empty;

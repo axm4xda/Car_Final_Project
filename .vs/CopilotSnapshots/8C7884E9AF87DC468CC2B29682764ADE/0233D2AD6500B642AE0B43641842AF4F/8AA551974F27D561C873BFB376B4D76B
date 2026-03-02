@@ -1,0 +1,90 @@
+﻿using Car_Project.Data;
+using Car_Project.Models;
+using Car_Project.Services.Abstractions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+namespace Car_Project.Controllers
+{
+    [Authorize]
+    public class AddListingController : Controller
+    {
+        private readonly ApplicationDbContext _db;
+        private readonly IFileService _fileService;
+
+        public AddListingController(ApplicationDbContext db, IFileService fileService)
+        {
+            _db = db;
+            _fileService = fileService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            ViewBag.Brands = new SelectList(
+                await _db.Brands.OrderBy(b => b.Name).ToListAsync(), "Id", "Name");
+            ViewBag.AllFeatures = await _db.CarFeatures.OrderBy(f => f.Name).ToListAsync();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(
+            Car car,
+            IFormFile? thumbnailFile,
+            List<IFormFile>? imageFiles,
+            int[]? featureIds)
+        {
+            // Reload ViewBag in case we need to return to the form
+            ViewBag.Brands = new SelectList(
+                await _db.Brands.OrderBy(b => b.Name).ToListAsync(), "Id", "Name", car.BrandId);
+            ViewBag.AllFeatures = await _db.CarFeatures.OrderBy(f => f.Name).ToListAsync();
+
+            car.CreatedDate = DateTime.UtcNow;
+
+            if (thumbnailFile != null)
+                car.ThumbnailUrl = await _fileService.UploadAsync(thumbnailFile, "uploads/cars");
+
+            _db.Cars.Add(car);
+            await _db.SaveChangesAsync();
+
+            if (imageFiles is { Count: > 0 })
+            {
+                int order = 0;
+                foreach (var f in imageFiles)
+                {
+                    var url = await _fileService.UploadAsync(f, "uploads/cars");
+                    _db.CarImages.Add(new CarImage
+                    {
+                        CarId = car.Id,
+                        ImageUrl = url,
+                        Order = order++,
+                        IsMain = order == 1,
+                        CreatedDate = DateTime.UtcNow
+                    });
+                }
+            }
+
+            if (featureIds != null)
+            {
+                foreach (var fid in featureIds)
+                    _db.CarFeatureMappings.Add(new CarFeatureMapping
+                    {
+                        CarId = car.Id,
+                        CarFeatureId = fid
+                    });
+            }
+
+            // Update brand vehicle count
+            var brand = await _db.Brands.FindAsync(car.BrandId);
+            if (brand != null)
+                brand.VehicleCount = await _db.Cars.CountAsync(c => c.BrandId == car.BrandId);
+
+            await _db.SaveChangesAsync();
+
+            TempData["AuthSuccess"] = "Elanınız uğurla əlavə edildi!";
+            return RedirectToAction("Index", "List");
+        }
+    }
+}

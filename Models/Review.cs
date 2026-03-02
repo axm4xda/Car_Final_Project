@@ -7,7 +7,7 @@ namespace Car_Project.Models
         public string? AvatarUrl { get; set; }
         public string Content { get; set; } = string.Empty;
 
-        /// <summary>1�5 aras? reytinq</summary>
+        /// <summary>1–5 arasında reytinq</summary>
         public int Rating { get; set; } = 5;
 
         public bool IsApproved { get; set; }
