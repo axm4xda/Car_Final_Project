@@ -216,6 +216,10 @@
                 <i data-lucide="bell"></i>
                 Abunəçilər
             </a>
+            <a asp-area="Admin" asp-controller="Notification" asp-action="Index" class="adm-link @(activePage=="Notifications"?"active":"")">
+                <i data-lucide="bell-ring"></i>
+                Bildirişlər
+            </a>
         </div>
 
         @if (User.IsInRole("SuperAdmin"))

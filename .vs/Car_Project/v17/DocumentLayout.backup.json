@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\clientsreviews\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\clientsreviews\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\404errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -153,6 +153,38 @@
     {
       "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\migrations\\20260302192027_socialmedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:migrations\\20260302192027_socialmedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\services\\\u0130nterfaces\\inotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:services\\\u0130nterfaces\\inotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\views\\notification\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:views\\notification\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|c:\\users\\uefi\\desktop\\c#dersleri\\car_project\\areas\\admin\\views\\notification\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3FE87AA8-D91B-42BE-A797-CAC816D8FA92}|Car_Project.csproj|solutionrelative:areas\\admin\\views\\notification\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -162,7 +194,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -174,88 +206,120 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 45,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\AddListing\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\AddListing\\Index.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\AddListing\\Index.cshtml",
-              "RelativeToolTip": "Views\\AddListing\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ8BAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Notification\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Notification\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Notification\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Notification\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:58:22.856Z",
+              "WhenOpened": "2026-03-03T07:46:56.123Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "custom.css",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\wwwroot\\assets\\css\\custom.css",
-              "RelativeDocumentMoniker": "wwwroot\\assets\\css\\custom.css",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\wwwroot\\assets\\css\\custom.css",
-              "RelativeToolTip": "wwwroot\\assets\\css\\custom.css",
-              "ViewState": "AgIAAMAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-02T21:40:57.537Z"
+              "DocumentIndex": 44,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\NotificationController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T07:46:12.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 41,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "Services\\NotificationService.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\NotificationService.cs",
+              "RelativeToolTip": "Services\\NotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T07:40:07.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "INotificationService.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\\u0130nterfaces\\INotificationService.cs",
+              "RelativeDocumentMoniker": "Services\\\u0130nterfaces\\INotificationService.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Services\\\u0130nterfaces\\INotificationService.cs",
+              "RelativeToolTip": "Services\\\u0130nterfaces\\INotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T07:39:47.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAN0AAAAAAAAAAEBVwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T07:39:23.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAALECAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:06:27.804Z"
+              "WhenOpened": "2026-03-02T20:09:00.286Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:06:14.794Z"
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T17:57:41.281Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:06:03.931Z"
+              "DocumentIndex": 42,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NotificationController.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T07:40:40.883Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 43,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Notification\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Notification\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Notification\\Index.cshtml",
+              "RelativeToolTip": "Views\\Notification\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:05:52.785Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
-              "ViewState": "AgIAALkAAAAAAAAAAIBJwLsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:05:41.458Z"
+              "WhenOpened": "2026-03-03T07:41:41.643Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -271,15 +335,99 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAJUBAAAAAAAAAAAiwJsBAAAPAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\SellCarRequest\\Details.cshtml",
+              "ViewState": "AgIAALkAAAAAAAAAAIBJwLsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T20:09:00.286Z"
+              "WhenOpened": "2026-03-02T21:05:41.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:05:52.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:06:03.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:06:14.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ServiceCenter\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:06:27.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "custom.css",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\wwwroot\\assets\\css\\custom.css",
+              "RelativeDocumentMoniker": "wwwroot\\assets\\css\\custom.css",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\wwwroot\\assets\\css\\custom.css",
+              "RelativeToolTip": "wwwroot\\assets\\css\\custom.css",
+              "ViewState": "AgIAAMAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-02T21:40:57.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\AddListing\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\AddListing\\Index.cshtml",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\AddListing\\Index.cshtml",
+              "RelativeToolTip": "Views\\AddListing\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-02T21:58:22.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "Models\\Notification.cs",
+              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Models\\Notification.cs",
+              "RelativeToolTip": "Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T22:41:15.925Z"
             },
             {
               "$type": "Document",
@@ -303,8 +451,7 @@
               "RelativeToolTip": "Migrations\\20260302222232_AddIsApprovedToCarClean.cs",
               "ViewState": "AgIAABoAAAAAAAAAAABRwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-02T22:25:07.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-02T22:25:07.122Z"
             },
             {
               "$type": "Document",
@@ -446,9 +593,10 @@
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAABABAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUBAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-02T21:07:49.833Z"
+              "WhenOpened": "2026-03-02T21:07:49.833Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -609,18 +757,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-02T17:57:41.281Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\UEFI\\Desktop\\c#dersleri\\Car_Project\\Views\\ClientsReviews\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\ClientsReviews\\Index.cshtml",

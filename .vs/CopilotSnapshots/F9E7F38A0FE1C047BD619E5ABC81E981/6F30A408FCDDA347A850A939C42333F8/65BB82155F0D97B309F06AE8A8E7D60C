@@ -1,0 +1,671 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<AppUser> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> UserManager
+@inject Car_Project.Services.Abstractions.ICompareItemService CompareService
+@inject Car_Project.Services.Abstractions.IWishlistService WishlistService
+@inject Car_Project.Services.Abstractions.INotificationService NotificationService
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aurexo | Car Dealer, Rental & Listing HTML Template</title>
+	<link rel="stylesheet" href="~/assets/scss/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="~/assets/app.css">
+	<link rel="stylesheet" href="~/assets/css/custom.css">
+	<meta property="og:image" content="~/assets/images/logo.png">
+	<meta property="og:type" content="website">
+	<!-- Favicon and Touch Icons  -->
+	<link rel="shortcut icon" href="~/assets/images/favicon.png">
+	<link rel="apple-touch-icon-precomposed" href="~/assets/images/favicon.png">
+
+	<style>
+		/* ===== User Dropdown ===== */
+		.user-dropdown {
+			position: relative;
+			display: inline-flex;
+		}
+		.user-dropdown-toggle {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			cursor: pointer;
+			position: relative;
+			background: transparent;
+		}
+		.user-dropdown-toggle .ud-chevron {
+			width: 16px;
+			height: 16px;
+			transition: transform 0.25s ease;
+			flex-shrink: 0;
+		}
+		.user-dropdown:hover .ud-chevron,
+		.user-dropdown.active .ud-chevron {
+			transform: rotate(180deg);
+		}
+		.user-dropdown-menu {
+			position: absolute;
+			top: calc(100% + 8px);
+			right: 0;
+			min-width: 180px;
+			background: #fff;
+			border: 1px solid #e7e7e7;
+			border-radius: 12px;
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+			padding: 8px 0;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(6px);
+			transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+			z-index: 9999;
+		}
+		.user-dropdown:hover .user-dropdown-menu,
+		.user-dropdown.active .user-dropdown-menu {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+		/* invisible bridge so mouse can travel from button to menu */
+		.user-dropdown-menu::before {
+			content: '';
+			position: absolute;
+			top: -10px;
+			left: 0;
+			right: 0;
+			height: 10px;
+		}
+		.user-dropdown-item {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			width: 100%;
+			padding: 10px 20px;
+			font-size: 14px;
+			font-weight: 500;
+			color: #1C1C1C;
+			background: none;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			transition: background 0.15s ease, color 0.15s ease;
+			white-space: nowrap;
+		}
+		.user-dropdown-item:hover {
+			background: #f5f5f5;
+		}
+		.user-dropdown-item svg {
+			flex-shrink: 0;
+		}
+		.user-dropdown-item.text-danger {
+			color: #dc2626;
+		}
+		.user-dropdown-item.text-danger:hover {
+			background: #fef2f2;
+			color: #b91c1c;
+		}
+		.user-dropdown-divider {
+			height: 1px;
+			background: #e7e7e7;
+			margin: 4px 0;
+		}
+
+		/* Dark mode */
+		.is_dark .user-dropdown-menu {
+			background: #1C1C1C;
+			border-color: #333;
+		}
+		.is_dark .user-dropdown-item {
+			color: #fff;
+		}
+		.is_dark .user-dropdown-item:hover {
+			background: #2a2a2a;
+		}
+		.is_dark .user-dropdown-item.text-danger {
+			color: #f87171;
+		}
+		.is_dark .user-dropdown-item.text-danger:hover {
+			background: #2a1a1a;
+			color: #fca5a5;
+		}
+		.is_dark .user-dropdown-divider {
+			background: #333;
+		}
+
+		/* ===== Nav Count Badge ===== */
+		.nav-count-badge {
+			position: absolute;
+			top: -6px;
+			right: -6px;
+			min-width: 18px;
+			height: 18px;
+			background: #FF5722;
+			color: #fff;
+			font-size: 11px;
+			font-weight: 700;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+			padding: 0 4px;
+		}
+
+		/* Disable the CSS ::after pseudo-badge (green) — we use our own <span> badge */
+		.header .header-action-btn.header-action-icon::after {
+			display: none !important;
+		}
+
+		/* ===== Auth Toast ===== */
+		.auth-toast {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 99999;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			padding: 14px 20px;
+			border-radius: 10px;
+			font-size: 14px;
+			font-weight: 500;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+			animation: toastSlideIn 0.35s ease;
+			max-width: 420px;
+		}
+		.auth-toast--success {
+			background: #ecfdf5;
+			color: #065f46;
+			border: 1px solid #a7f3d0;
+		}
+		.auth-toast--error {
+			background: #fef2f2;
+			color: #991b1b;
+			border: 1px solid #fecaca;
+		}
+		.auth-toast button {
+			background: none;
+			border: none;
+			font-size: 18px;
+			cursor: pointer;
+			color: inherit;
+			padding: 0;
+			line-height: 1;
+			opacity: 0.6;
+		}
+		.auth-toast button:hover {
+			opacity: 1;
+		}
+		@@keyframes toastSlideIn {
+			from { transform: translateX(100%); opacity: 0; }
+			to   { transform: translateX(0);    opacity: 1; }
+		}
+	</style>
+</head>
+<body>
+	<!-- preloade -->
+	<div class="preload preload-container">
+		<img class="preload--icon" src="~/assets/icons/preload.svg" alt="preload">
+	</div>
+	<!-- preload -->
+
+	@{
+		var currentUser = SignInManager.IsSignedIn(User) ? await UserManager.GetUserAsync(User) : null;
+		var sessionId   = Context.Session.Id;
+		var compareCount = await CompareService.GetCountAsync(sessionId);
+		var wishlistCount = await WishlistService.GetCountAsync(sessionId);
+		var notifCount = currentUser != null ? await NotificationService.GetUnreadCountAsync(currentUser.Id) : 0;
+	}
+
+	@* Toast bildirişləri *@
+	@if (TempData["AuthSuccess"] != null)
+	{
+		<div id="auth-toast" class="auth-toast auth-toast--success">
+			<span>@TempData["AuthSuccess"]</span>
+			<button onclick="document.getElementById('auth-toast').remove()">✕</button>
+		</div>
+	}
+	@if (TempData["AuthError"] != null)
+	{
+		<div id="auth-toast" class="auth-toast auth-toast--error">
+			<span>@TempData["AuthError"]</span>
+			<button onclick="document.getElementById('auth-toast').remove()">✕</button>
+		</div>
+	}
+
+	<div id="wrapper">
+
+		<!-- Header -->
+		<div class="header-wrapper">
+			<header class="header bg-white header-style-1" id="header_main">
+				<div class="header-container-fluid max-w-1920 relative header-primary">
+					<div class="header-inner" id="site-header-inner">
+						<div class="logo">
+							<a asp-controller="Home" asp-action="Index">
+								<img src="~/assets/images/logo.png" alt="logo">
+							</a>
+						</div>
+						<div class="logo-mobile">
+							<a asp-controller="Home" asp-action="Index">
+								<img src="~/assets/images/logo-white.png" alt="logo">
+							</a>
+						</div>
+
+
+						<div class="header-right main-nav-wrapper gap-20">
+							<!-- Menu -->
+							<nav id="main-nav" class="main-nav mr-18">
+								<ul id="menu-primary-menu" class="menu">
+									<li class="menu-item menu-item-has-children menu-item--static current-menu-item menu-item-main">
+										<a asp-controller="Home" asp-action="Index">Home</a>
+									</li>
+									<li class="menu-item">
+										<a asp-controller="About" asp-action="Index">About</a>
+									</li>
+									<li class="menu-item menu-item-has-children menu-item--static">
+
+										<a asp-controller="List" asp-action="Index">List</a>
+
+									</li>
+
+									<li class="menu-item menu-item-has-children">
+										<a asp-controller="Blog" asp-action="Index">
+											Blog
+										</a>
+									</li>
+
+									<li class="menu-item menu-item-has-children">
+										<a href="#">
+											Pages
+											<svg class="chevron-down" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M4 6.5L8 10.5L12 6.5" stroke="#9FA1A4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</a>
+										<ul class="sub-menu sub-menu--container">
+
+											<li>
+												<a class="menu-item" asp-controller="Calculator" asp-action="Index">Calculator</a>
+												<a class="menu-item" asp-controller="Compare" asp-action="Index">Compare</a>
+												<a class="menu-item" asp-controller="SellYourCar" asp-action="Index">Sell Your Car</a>
+												<a class="menu-item" asp-controller="ClientsReviews" asp-action="Index">Clients Reviews</a>
+												<a class="menu-item" asp-controller="SevicesCenter" asp-action="Index">Sevices Center</a>
+											</li>
+											<li class="menu-item menu-item-inner cursor-pointer py-10">
+												<p class="menu-item-inner-title flex items-center gap-8 justify-between">
+													Shop
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+														<path d="M4 6L8 10L12 6" stroke="#9FA1A4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													</svg>
+												</p>
+												<ul class="sub-menu-item-inner">
+													<li>
+														<a class="menu-item" asp-controller="Product" asp-action="Index">Products</a>
+														<a class="menu-item" asp-controller="Payment" asp-action="Index">Shopping Cart</a>
+														<a class="menu-item" asp-controller="Checkout" asp-action="Index">Check Out</a>
+													</li>
+												</ul>
+											</li>
+
+											@* <li>
+												<a class="menu-item" asp-controller="FAQs" asp-action="Index">FAQs</a>
+												<a class="menu-item" asp-controller="404Error" asp-action="Index">404 Error</a>
+												<a class="menu-item" asp-controller="ComingSoon" asp-action="Index">Coming Soon</a>
+												<a class="menu-item" asp-controller="Termsofuse" asp-action="Index">Terms of use</a>
+											</li> *@
+										</ul>
+								</li>
+								<li class="menu-item">
+										<a asp-controller="Contact" asp-action="Index">Contact</a>
+								</li>
+								</ul>
+							</nav>
+							<!-- Menu -->
+
+							<div class="header-button mobile-hidden-header-button flex items-center gap-20">
+								@if (currentUser != null)
+								{
+									<!-- Logged In: show user dropdown -->
+									<div class="user-dropdown">
+										<button type="button" class="btn btn-line btn-large font-weight-600 bg-sign-in user-dropdown-toggle">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<g clip-path="url(#clip0_user_d)">
+													<path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+													<path d="M3 20.25C4.81594 17.1122 8.11406 15 12 15C15.8859 15 19.1841 17.1122 21 20.25" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												</g>
+											</svg>
+											@currentUser.FullName.Split(' ')[0]
+											<svg class="ud-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M4 6L8 10L12 6" stroke="#9FA1A4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</button>
+										<div class="user-dropdown-menu">
+											<a asp-controller="UserProfil" asp-action="Index" class="user-dropdown-item">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M3 20.25C4.81594 17.1122 8.11406 15 12 15C15.8859 15 19.1841 17.1122 21 20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												Profil
+											</a>
+											<a asp-controller="UserListing" asp-action="Index" class="user-dropdown-item">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M8 6H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M8 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M8 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M3 6H3.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M3 12H3.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M3 18H3.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												Elanlarım
+											</a>
+											<a asp-controller="Reviews" asp-action="Index" class="user-dropdown-item">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												Rəylər
+											</a>
+											<a asp-controller="Message" asp-action="Index" class="user-dropdown-item">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												Mesajlar
+											</a>
+											<a asp-controller="Notification" asp-action="Index" class="user-dropdown-item">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												Bildirişlər
+												@if (notifCount > 0)
+												{
+													<span style="background:#FF5722;color:#fff;font-size:11px;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:auto;">@notifCount</span>
+												}
+											</a>
+											<a asp-controller="ChangePassword" asp-action="Index" class="user-dropdown-item">
+												<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												Şifrə Dəyiş
+											</a>
+											@if (User.IsInRole("SuperAdmin"))
+											{
+												<a asp-controller="Account" asp-action="ManageUsers" class="user-dropdown-item">
+													<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+														<path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+														<path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+														<path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													</svg>
+													İstifadəçilər
+												</a>
+											}
+											<div class="user-dropdown-divider"></div>
+											<form asp-controller="Account" asp-action="Logout" method="post">
+												@Html.AntiForgeryToken()
+												<button type="submit" class="user-dropdown-item text-danger">
+													<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M16.3135 8.0625L20.2510 12L16.3135 15.9375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+														<path d="M9.75 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+														<path d="M9.75 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V4.5C3.75 4.30109 3.82902 4.11032 3.96967 3.96967C4.11032 3.82902 4.30109 3.75 4.5 3.75H9.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													</svg>
+													Çıxış
+												</button>
+											</form>
+										</div>
+									</div>
+								}
+								else
+								{
+									<!-- Not Logged In: Sign In button -->
+									<a class="btn btn-line btn-large font-weight-600 bg-sign-in open-modal" data-modal-id="#LoginModal" href="#">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_13399_20436)">
+												<path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M3 20.25C4.81594 17.1122 8.11406 15 12 15C15.8859 15 19.1841 17.1122 21 20.25" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+										Sign In
+									</a>
+								}
+								<!-- Add Listing Button -->
+								<a asp-controller="AddListing" asp-action="Index" class="btn btn-primary btn-large font-weight-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<g clip-path="url(#clip0_13399_20442)">
+											<path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M8.25 12H15.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M12 8.25V15.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+										<defs><clipPath><rect width="24" height="24" fill="white" /></clipPath></defs>
+									</svg>
+									Add Listing
+								</a>
+							</div>
+
+							<div class="header-actions ml-20">
+								<div class="header-search-wrapper">
+									<span class="header-action-btn" id="searchToggle">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_13399_20449)">
+												<path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M15.8047 15.8047L21.0012 21.0012" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											</g>
+										</svg>
+									</span>
+									<!-- Search Form -->
+									<div class="search-form" id="searchForm">
+										<form class="search-form__form" action="#" method="get">
+											<input type="text" class="search-form__input" placeholder="Search..." autocomplete="off" id="searchInput">
+										</form>
+									</div>
+									<!-- Search Form -->
+								</div>
+
+								@if (currentUser != null)
+								{
+									<a asp-controller="Notification" asp-action="Index" class="header-action-btn header-action-icon" aria-label="Bildirişlər" style="position:relative;">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+										@if (notifCount > 0)
+										{
+											<span id="notifNavCount" class="nav-count-badge">@notifCount</span>
+										}
+										else
+										{
+											<span id="notifNavCount" class="nav-count-badge" style="display:none;">0</span>
+										}
+									</a>
+								}
+
+								<a asp-controller="Compare" asp-action="Index" class="header-action-btn header-action-icon" aria-label="Compare" style="position:relative;">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_13399_20454)">
+											<path d="M16.5 13.5L19.5 16.5L16.5 19.5" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M4.5 16.5H19.5" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M7.5 10.5L4.5 7.5L7.5 4.5" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+											<path d="M19.5 7.5H4.5" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+									</svg>
+									@if (compareCount > 0)
+									{
+										<span id="compareNavCount" class="nav-count-badge">@compareCount</span>
+									}
+									else
+									{
+										<span id="compareNavCount" class="nav-count-badge" style="display:none;">0</span>
+									}
+								</a>
+
+								<a asp-controller="Wishlist" asp-action="Index" class="header-action-btn header-action-icon" aria-label="Wishlist" style="position:relative;">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_13399_20463)">
+											<path d="M12 21C12 21 2.25 15.75 2.25 9.5625C2.25 8.21984 2.78337 6.93217 3.73277 5.98277C4.68217 5.03337 5.96984 4.5 7.3125 4.5C9.43031 4.5 11.2444 5.65406 12 7.5C12.7556 5.65406 14.5697 4.5 16.6875 4.5C18.0302 4.5 19.3178 5.03337 20.2672 5.98277C21.2166 6.93217 21.75 8.21984 21.75 9.5625C21.75 15.75 12 21 12 21Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										</g>
+									</svg>
+									@if (wishlistCount > 0)
+									{
+										<span id="wishlistNavCount" class="nav-count-badge">@wishlistCount</span>
+									}
+									else
+									{
+										<span id="wishlistNavCount" class="nav-count-badge" style="display:none;">0</span>
+									}
+								</a>
+								<div class="mobile-button"><span></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="hidden wrapper-header-button">
+					<div class="header-button header-button-mobile flex items-center gap-20">
+						@if (currentUser != null)
+						{
+							<a asp-controller="UserProfil" asp-action="Index" class="btn btn-line btn-large font-weight-600">
+								Profil
+							</a>
+							<form asp-controller="Account" asp-action="Logout" method="post">
+								@Html.AntiForgeryToken()
+								<button type="submit" class="btn btn-primary btn-large font-weight-600">Çıxış</button>
+							</form>
+						}
+						else
+						{
+							<a class="btn btn-primary btn-large font-weight-600 open-modal" data-modal-id="#LoginModal" href="#">
+								Sign In
+							</a>
+						}
+					</div>
+				</div>
+			</header>
+		</div>
+
+		@RenderBody()
+
+		<!-- Footer -->
+		<footer class="bg-primary footer">
+			<div class="footer-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="footer-top-inner">
+								<div>
+									<a asp-controller="Home" asp-action="Index">
+										<img class="logo" src="~/assets/images/logo-white.png" alt="logo">
+									</a>
+
+									<p class="text-xs uppercase font-weight-500 mb-8 text-muted">Opening Hours:</p>
+
+									<p class="text-white mb-28">
+										Monday–Friday from 8 AM to 8 PM <br>
+										Saturday from 9 AM to 6 PM EST
+									</p>
+								</div>
+
+								<form class="form-footer relative" action="#">
+									<input type="text" placeholder="Enter your e-mail" name="footer-email" id="footer-email" required>
+									<button type="submit" class="btn-submit">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M19.1279 6V15.75C19.1279 16.0484 19.0094 16.3345 18.7984 16.5455C18.5874 16.7565 18.3013 16.875 18.0029 16.875C17.7045 16.875 17.4184 16.7565 17.2074 16.5455C16.9964 16.3345 16.8779 16.0484 16.8779 15.75V8.71875L6.79883 18.7959C6.58748 19.0073 6.30084 19.126 6.00195 19.126C5.70307 19.126 5.41642 19.0073 5.20508 18.7959C4.99373 18.5846 4.875 18.2979 4.875 17.9991C4.875 17.7002 4.99373 17.4135 5.20508 17.2022L15.2841 7.125H8.25289C7.95452 7.125 7.66837 7.00647 7.45739 6.7955C7.24642 6.58452 7.12789 6.29837 7.12789 6C7.12789 5.70163 7.24642 5.41548 7.45739 5.2045C7.66837 4.99353 7.95452 4.875 8.25289 4.875H18.0029C18.3013 4.875 18.5874 4.99353 18.7984 5.2045C19.0094 5.41548 19.1279 5.70163 19.1279 6Z" fill="#1C1C1C" />
+										</svg>
+									</button>
+								</form>
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="flex justify-between gap-8 footer-links">
+								<div class="collapse">
+									<p class="font-weight-600 text-white mb-14 collapse-title justify-between" data-breakpoint="mobile">
+										QUICK LINKS
+										<span class="icon text-white hidden md-block">
+											+
+										</span>
+									</p>
+									<ul class="widget-links collapse-content md-hidden">
+										<li>
+											<a asp-controller="About" asp-action="Index">About Us</a>
+										</li>
+										<li>
+											<a asp-controller="List" asp-action="Index">Buying a car</a>
+										</li>
+										<li>
+											<a asp-controller="SellYourCar" asp-action="Index">Selling a car</a>
+										</li>
+										<li>
+											<a asp-controller="Blog" asp-action="Index">News</a>
+										</li>
+										<li>
+											<a asp-controller="Contact" asp-action="Index">Contact Us</a>
+										</li>
+									</ul>
+								</div>
+								<div class="collapse">
+									<p class="font-weight-600 text-white mb-14 collapse-title justify-between" data-breakpoint="mobile">
+										BUYING & SELLING
+										<span class="icon text-white hidden md-block">
+											+
+										</span>
+									</p>
+									<ul class="widget-links collapse-content md-hidden">
+										<li>
+											<a asp-controller="Calculator" asp-action="Index">Financing</a>
+										</li>
+										<li>
+											<a asp-controller="List" asp-action="Index">Find a Car</a>
+										</li>
+										<li>
+											<a asp-controller="SalesAgent" asp-action="Index">Find a Dealer</a>
+										</li>
+										<li>
+											<a asp-controller="List" asp-action="Index">Listings by City</a>
+										</li>
+										<li>
+<a asp-controller="List" asp-action="Index">Certified Pre-Owned</a>
+</li>
+<li>
+<a asp-controller="Calculator" asp-action="Index">Car Payment Calculators</a>
+</li>
+<li>
+<a asp-controller="ClientsReviews" asp-action="Index">Car Reviews & Ratings</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="footer-contact">
+<div>
+<p class="font-weight-500 text-white mb-8">
+<a href="tel:1-866-288-6868" class="flex items-start h7">1-866-288-6868</a>
+</p>
+<a href="#" class="block font-weight-500 text-white mb-20 h7">
+6205 Peachtree Dunwoody Rd, Atlanta, GA 30328
+</a>
+
+<ul class="widget-socical mb-12">
+<li>
+<a href="https://www.facebook.com/" target="_blank">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_16980_9933)">
+<path d="M11.5502 20V10.8777H14.6109L15.0701 7.32156H11.5502V5.05147C11.5502 4.0222 11.8348 3.32076 13.3125 3.32076L15.194 3.31999V0.13923C14.8686 0.0969453 13.7517 0 12.4517 0C9.73708 0 7.87861 1.65697 7.87861 4.69927V7.32156H4.80859V10.8777H7.87861V20H11.5502Z" fill="white" />
+</g>
+</svg>
+</a>
+</li>
+<li>
+<a href="https://x.com/" target="_blank">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_16980_9937)">
+<path d="M11.8616 8.46864L19.147 0H17.4206L11.0947 7.3532L6.04225 0H0.214844L7.85515 11.1193L0.214844 20H1.94134L8.62162 12.2348L13.9574 20H19.7848L11.8612 8.46864H11.8616ZM9.49695 11.2173L8.72283 10.1101L2.56342 1.29967H5.21521L10.1859 8.40994L10.96 9.51718L17.4214 18.7594H14.7696L9.49695 11.2177V11.2173Z" fill="white" />
+</g>
+</svg>
+</a>
+</li>
+<li>
+<a href="https://www.instagram.com/">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_16980_9943)">
+<path d="M17.833 2.083C16.4761 2.083 15.1667 2.46957 14.0205 3.29289C12.8743 4.11621 12 5.34793 12 6.71875V17.2812C12 18.6521 12.8743 19.8838 14.0205 20.7071C15.1667 21.5304 16.4761 21.917 17.833 21.917C19.1899 21.917 20.4993 21.5304 21.6455 20.7071C22.7917 19.8838 23.666 18.6521 23.666 17.2812V6.71875C23.666 5.34793 22.7917 4.11621 21.6455 3.29289C20.4993 2.46957 19.1899 2.083 17.833 2.083ZM17.833 19.583C16.3516 19.583 15.0568 18.8211 14.2071 17.6464C13.5365 17.2273 13 16.5935 13 15.9375V11.25H18.666V15.9375C18.666 16.5935 18.1295 17.2273 17.4589 17.6464C16.6092 18.8211 15.3145 19.583 13.833 19.583ZM17.833 4.583C16.8155 4.583 15.833 4.91926 15.0738 5.55856C14.8742 5.8255 14.6667 6.1701 14.6667 6.56875C14.6667 7.75 15.791 8.66667 17.833 8.66667C18.3155 8.66667 18.7498 8.49765 19.0943 8.20711C19.4228 7.93781 19.708 7.71875 20 7.71875C21.1046 7.71875 22 8.61415 22 9.71875C22 10.8234 21.1046 11.7188 20 11.7188H18.666V19.583H14.666V13.333H13V11.7188H10.333V9.71875C10.333 8.61415 11.2285 7.71875 12.333 7.71875C12.624 7.71875 12.9092 7.93781 13.2377 8.20711C13.5822 8.49765 14.0165<path d="M17.833 2.083C16.4761 2.083 15.1667 2.46957 14.0205 3.29289C12.8743 4.11621 12 5.34793 12 6.71875V17.2812C12 18.6521 12.8743 19.8838 14.0205 20.7071C15.1667 21.5304 16.4761 21.917 17.833 21.917C19.1899 21.917 20.4993 21.5304 21.6455 20.7071C22.7917 19.8838 23.666 18.6521 23.666 17.2812V6.71875C23.666 5.34793 22.7917 4.11621 21.6455 3.29289C20.4993 2.46957 19.1899 2.083 17.833 2.083ZM17.833 19.583C16.3516 19.583 15.0568 18.8211 14.2071 17.6464C13.5365 17.2273 13 16.5935 13 15.9375V11.25H18.666V15.9375C18.666 16.5935 18.1295 17.2273 17.4589 17.6464C16.6092 18.8211 15.3145 19.583 13.833 19.583ZM17.833 4.583C16.8155 4.583 15.833 4.91926 15.0738 5.55856C14.8742 5.8255 14.6667 6.1701 14.6667 6.56875C14.6667 7.75 15.791 8.66667 17.833 8.66667C18.3155 8.66667 18.7498 8.49765 19.0943 8.20711C19.4228 7.93781 19.708 7.71875 20 7.71875C21.1046 7.71875 22 8.61415 22 9.71875C22 10.8234 21.1046 11.7188 20 11.7188H18.666V19.583H14.666V13.333H13V11.7188H10.333V9.71875C10.333 8.61415 11.2285 7.71875 12.333 7.71875C12.624 7.71875 12.9092 7.93781 13.2377 8.20711C13.5822 8.49765 14.0165

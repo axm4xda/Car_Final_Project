@@ -89,6 +89,8 @@ namespace Car_Project
             builder.Services.AddScoped<ICouponService,   CouponService>();
             // Sat?? Agenti
             builder.Services.AddScoped<ISalesAgentService, SalesAgentService>();
+            // Bildirişlər
+            builder.Services.AddScoped<INotificationService, NotificationService>();
             builder.Services.AddSignalR();
 
             // Background Service: Zibil qutusu avtomatik təmizləmə (10 gün)

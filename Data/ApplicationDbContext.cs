@@ -51,6 +51,9 @@ namespace Car_Project.Data
         public DbSet<Payment>    Payments    { get; set; }
         public DbSet<Coupon>     Coupons     { get; set; }
 
+        // Bildirişlər
+        public DbSet<Notification> Notifications { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -210,6 +213,13 @@ namespace Car_Project.Data
                 .HasForeignKey(m => m.ReceiverId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Notification
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.User)
+                .WithMany()
+                .HasForeignKey(n => n.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
